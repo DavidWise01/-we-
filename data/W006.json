@@ -1,0 +1,140 @@
+{
+  "id": "W006",
+  "title": "The Accident and the Ancient House",
+  "source": "Original interpretation of Zamyatin's We Record Six, based on the 1924 Zilboorg translation; dialogue newly written",
+  "scenes": [
+    {
+      "setting": "JUSTICE",
+      "title": "01 · An Imperfect Machine",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "If a perfect society can still be interrupted, how perfect can it be?",
+      "story": "The State newspaper announces a coming Justice ceremony in the Plaza of the Cube. D-503 thinks the event means that someone has disrupted the ideal social machine. He does not yet challenge its punitive purpose.",
+      "observation": "An official notice announces a Justice ceremony; D-503 infers an offense disrupted order.",
+      "inference": "Punishment announcements establish a perfectly just system.",
+      "question": "What does the notice actually establish?",
+      "choices": [
+        "The State plans a public ceremony of Justice.",
+        "The moral legitimacy of the State's judgment."
+      ],
+      "reply": [
+        "The record supports this narrower distinction.",
+        "That promotes an unverified interpretation into a fact."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "THE CALL",
+      "title": "02 · Ten Minutes to Sixteen",
+      "speaker": "I-330 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "Are you free to accompany me to the Ancient House?",
+      "story": "During his Personal Hour at approximately 15:50, D-503 receives a telephone call from I-330. She proposes a visit to the Ancient House. He is alarmed by her presence in his thoughts and still agrees.",
+      "observation": "I-330 calls, offers an outing, and D-503 accepts.",
+      "inference": "Being troubled by I-330 means he could not have agreed.",
+      "question": "Which action occurred?",
+      "choices": [
+        "D-503 agrees to accompany I-330 despite unease.",
+        "His emotional discomfort proves coercion or refusal."
+      ],
+      "reply": [
+        "The record supports this narrower distinction.",
+        "That promotes an unverified interpretation into a fact."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "AERO",
+      "title": "03 · Flight Toward the Past",
+      "speaker": "NARRATOR · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "Glass, wind, cloud and green land blur beneath the aero.",
+      "story": "The pair travel in an aero under blue sky and uneven clouds. D-503 becomes aware of wind, their proximity and the greenery beyond the Green Wall. A descent brings them to the Ancient House under a protective transparent enclosure.",
+      "observation": "An aerial journey occurs and reaches the Ancient House.",
+      "inference": "A journey outside the daily route proves a completed rejection of the State.",
+      "question": "What changes?",
+      "choices": [
+        "Their location and the sensations D-503 notices.",
+        "His permanent political allegiance."
+      ],
+      "reply": [
+        "The record supports this narrower distinction.",
+        "That promotes an unverified interpretation into a fact."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "CARETAKER",
+      "title": "04 · The House That Remembered",
+      "speaker": "NARRATOR · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "The old caretaker recognizes I-330; D-503 feels like the stranger.",
+      "story": "At the gate, an elderly caretaker greets I-330 familiarly. They enter a preserved residence with opaque doors, dark stairs, an old piano, mirrors and strikingly colorful books. D-503's orderly expectations are challenged by the artifacts of another way of life.",
+      "observation": "The caretaker recognizes I-330 and the house preserves old furnishings.",
+      "inference": "A familiar greeting reveals the full nature of I-330's intentions.",
+      "question": "What remains unobserved?",
+      "choices": [
+        "Why I-330 repeatedly visits and what she plans.",
+        "That the caretaker recognizes her."
+      ],
+      "reply": [
+        "The record supports this narrower distinction.",
+        "That promotes an unverified interpretation into a fact."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "OPAQUE",
+      "title": "05 · Windows Into Other Minds",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "I can see her eyes. I cannot see what happens behind them.",
+      "story": "D-503 compares human faces to the old opaque rooms. I-330 seems at home amid the irregular furniture and ancient artifacts. He searches for logical reasons for her interest, discovering that another person's motives are not directly visible.",
+      "observation": "D-503 cannot determine I-330's private intentions despite observing her.",
+      "inference": "Physical transparency grants access to private thoughts.",
+      "question": "What does the Ancient House expose?",
+      "choices": [
+        "The limits of visibility as knowledge.",
+        "That all inner lives can be directly observed."
+      ],
+      "reply": [
+        "The record supports this narrower distinction.",
+        "That promotes an unverified interpretation into a fact."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "YELLOW",
+      "title": "06 · The Offer to Break Time",
+      "speaker": "I-330 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "Stay longer. There are ways to explain your absence.",
+      "story": "I-330 appears wearing bright old-fashioned yellow clothing and asks D-503 to stay past his allotted Personal Hour, offering a possible medical excuse. He is shaken by her challenge and replies that he should report violations to the Guardians. She asks whether he really will.",
+      "observation": "I-330 proposes a prohibited extension; D-503 states an intention to report.",
+      "inference": "A declared intention proves the report has been made.",
+      "question": "What has not yet happened?",
+      "choices": [
+        "An observed report to the Guardians.",
+        "A conversation about the duty to report."
+      ],
+      "reply": [
+        "The record supports this narrower distinction.",
+        "That promotes an unverified interpretation into a fact."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "TWENTY FOUR",
+      "title": "07 · The Deferred Report",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "I have another day. Tomorrow will be soon enough.",
+      "story": "D-503 leaves the Ancient House and attends the required lecture at seventeen. On departure he inaccurately says that I-330 remains alone, then realizes she has arranged another visitor. He does not report the encounter that evening; he invokes the remaining legal time to postpone the decision.",
+      "observation": "D-503 attends the lecture, withholds immediate reporting, and defers action until tomorrow.",
+      "inference": "His internal pledge is equivalent to a completed Guardians report.",
+      "question": "What should W007 inspect?",
+      "choices": [
+        "Whether D-503 acts on his still-unfulfilled reporting duty.",
+        "A report that has already been filed."
+      ],
+      "reply": [
+        "The record supports this narrower distinction.",
+        "That promotes an unverified interpretation into a fact."
+      ],
+      "mode": 6
+    }
+  ]
+}
