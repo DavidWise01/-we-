@@ -1,0 +1,140 @@
+{
+  "id": "W002",
+  "title": "The First Unknown Variable",
+  "source": "Record Two of We; original interpretive paraphrase and imagined dialogue",
+  "scenes": [
+    {
+      "setting": "SPRING",
+      "title": "01 · Spring Through the Wall",
+      "speaker": "D-503 · ORIGINAL DRAMATIC VOICE",
+      "line": "The glass sky is perfect. Why does the wind still unsettle my thoughts?",
+      "story": "Spring pollen crosses the Green Wall and reaches the orderly city. D-503 delights in the transparent sky, yet the natural world refuses to stay outside the boundary.",
+      "observation": "Spring air and pollen reach the city.",
+      "inference": "A flawless sky proves a flawless society.",
+      "question": "What has crossed the wall?",
+      "choices": [
+        "Nature, whether or not the city approves.",
+        "Proof that the State's rules have failed."
+      ],
+      "reply": [
+        "Separate observable events from interpretation.",
+        "Do not promote inference into fact."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "BALLET",
+      "title": "02 · The Mechanical Ballet",
+      "speaker": "D-503 · ORIGINAL DRAMATIC VOICE",
+      "line": "Every machine moves with such precision; every motion belongs.",
+      "story": "At the Integral shipyard, lathes and regulators move in beautiful unison. D-503 takes the machine's obedience as a model for human happiness.",
+      "observation": "Coordinated machines work at the shipyard.",
+      "inference": "Mechanical efficiency proves the goodness of obedience.",
+      "question": "What is the mistaken inference?",
+      "choices": [
+        "Machine performance is a moral justification for human submission.",
+        "The shipyard machinery moves together."
+      ],
+      "reply": [
+        "Separate observable events from interpretation.",
+        "Do not promote inference into fact."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "O-90",
+      "title": "03 · Two Interpretations of Spring",
+      "speaker": "O-90 · ORIGINAL DRAMATIC VOICE",
+      "line": "It's spring. Can't we simply enjoy it?",
+      "story": "O-90 arrives for their walk. D-503 is eager to share his theory of mathematical beauty; she notices the warmth of spring instead.",
+      "observation": "Two people respond differently to the same pleasant day.",
+      "inference": "Difference of attention is proof of political rebellion.",
+      "question": "What can be observed?",
+      "choices": [
+        "Different personal perspectives.",
+        "An already completed revolution."
+      ],
+      "reply": [
+        "Separate observable events from interpretation.",
+        "Do not promote inference into fact."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "PROCESSION",
+      "title": "04 · Four Abreast",
+      "speaker": "NARRATOR · ORIGINAL DRAMATIC VOICE",
+      "line": "The lines of citizens sweep through the city like measured waves.",
+      "story": "Numbers march four abreast under the Musical Tower. D-503 admires the square harmony of the formation. Remembering an old disorderly city, he laughs aloud.",
+      "observation": "The public walk is synchronized; D-503 laughs.",
+      "inference": "A synchronized march proves each marcher freely endorses the State.",
+      "question": "What is not established?",
+      "choices": [
+        "Every participant's private agreement.",
+        "Whether the march took place."
+      ],
+      "reply": [
+        "Separate observable events from interpretation.",
+        "Do not promote inference into fact."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "I-330",
+      "title": "05 · The Unknown X",
+      "speaker": "I-330 · ORIGINAL DRAMATIC VOICE",
+      "line": "You seem remarkably sure about the world you've made.",
+      "story": "Someone beside D-503 laughs too. The woman I-330 questions his certainty. Her sharp expression and unpredictable answers leave him unable to reduce her to a number.",
+      "observation": "D-503 encounters I-330 and is visibly unsettled.",
+      "inference": "Not understanding someone proves they have malicious intentions.",
+      "question": "What is unknown?",
+      "choices": [
+        "Her private motives and future choices.",
+        "Whether she spoke with D-503."
+      ],
+      "reply": [
+        "Separate observable events from interpretation.",
+        "Do not promote inference into fact."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "DIFFERENCE",
+      "title": "06 · An Uncomfortable Comparison",
+      "speaker": "D-503 · ORIGINAL DRAMATIC VOICE",
+      "line": "Why does a glance at my hands make me uncomfortable?",
+      "story": "I-330 notices D-503's hairy hands, causing embarrassment. O-90 speaks of their registered relationship. The three characters stand together, conspicuously unlike interchangeable mathematical tokens.",
+      "observation": "Embarrassment and individual differences are described.",
+      "inference": "Numbered labels make people identical inside.",
+      "question": "What does D-503 experience?",
+      "choices": [
+        "A discrepancy between labels and lived individuality.",
+        "Proof that human beings have become identical."
+      ],
+      "reply": [
+        "Separate observable events from interpretation.",
+        "Do not promote inference into fact."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "INVITATION",
+      "title": "07 · Auditorium 112",
+      "speaker": "I-330 · ORIGINAL DRAMATIC VOICE",
+      "line": "We'll meet at Auditorium 112.",
+      "story": "When the Personal Hour ends, I-330 tells D-503 to go to Auditorium 112 two days later. O-90 would like to see him sooner than their assigned day. D-503 is unsettled but remains attached to the timetable.",
+      "observation": "An invitation and a wish are expressed; future attendance is not yet observed.",
+      "inference": "The invitation guarantees that D-503 will attend.",
+      "question": "What must the next record test?",
+      "choices": [
+        "Whether he actually goes.",
+        "That the meeting has already happened."
+      ],
+      "reply": [
+        "Separate observable events from interpretation.",
+        "Do not promote inference into fact."
+      ],
+      "mode": 6
+    }
+  ]
+}
