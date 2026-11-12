@@ -1,0 +1,145 @@
+{
+  "id": "W001",
+  "title": "The Number Who Believed He Was Free",
+  "source": "Interpretation of the opening record of We",
+  "invariants": [
+    "MATHEMATICAL_ORDER != MORAL_TRUTH",
+    "TRANSPARENCY != CONSENT",
+    "COORDINATION != INDEPENDENT_AGREEMENT"
+  ],
+  "scenes": [
+    {
+      "title": "The Number at the Window",
+      "setting": "GLASS APARTMENT",
+      "speaker": "D-503 · ORIGINAL INNER MONOLOGUE",
+      "line": "Every wall is transparent. Surely that means we have nothing to hide.",
+      "story": "D-503 records a precise morning in the One State. His home is made of glass. Privacy is limited by the state's rules; citizens are called Numbers. He sees a city of mathematical regularity and takes comfort in its engineered order.",
+      "observation": "Glass homes and regulated routines form the visible social environment.",
+      "inference": "Transparency automatically means freedom and honesty.",
+      "question": "Does everyone being visible establish consent?",
+      "choices": [
+        "No — visibility and permission are different.",
+        "Yes — exposure is the same as choice."
+      ],
+      "reply": [
+        "Right. A building material does not establish a person's freely chosen boundaries.",
+        "Visibility cannot independently establish consent."
+      ],
+      "mode": 0
+    },
+    {
+      "title": "The Table of Hours",
+      "setting": "SCHEDULE HALL",
+      "speaker": "D-503 · ORIGINAL INNER MONOLOGUE",
+      "line": "Time has been made obedient. We can see the shape of every hour.",
+      "story": "The Table of Hours coordinates work, walks, meals, and sleep. D-503 admires its synchronization. Yet shared timing may express administrative order rather than freely chosen harmony.",
+      "observation": "The One State coordinates collective activity through a shared schedule.",
+      "inference": "Coordinated behavior demonstrates independently shared convictions.",
+      "question": "What does a synchronized schedule actually prove?",
+      "choices": [
+        "People follow a common timetable.",
+        "Everyone personally agrees with the timetable."
+      ],
+      "reply": [
+        "Behavioral coordination is observable; individual endorsement needs different evidence.",
+        "Agreement cannot be read from a clock."
+      ],
+      "mode": 1
+    },
+    {
+      "title": "The Engineer and the Integral",
+      "setting": "CONSTRUCTION DECK",
+      "speaker": "D-503 · ORIGINAL INNER MONOLOGUE",
+      "line": "The ship will carry our precision beyond the planet itself.",
+      "story": "D-503 is an engineer helping construct the Integral, a spacecraft intended to extend the One State's ideals into space. He sees this as a triumph of mathematics. A technical achievement and the social mission attached to it are separate claims.",
+      "observation": "D-503 works on the Integral, a ship tied to the One State's expansion.",
+      "inference": "A working machine proves the governing ideology behind it is moral.",
+      "question": "What two evaluations should remain distinct?",
+      "choices": [
+        "Engineering feasibility and political legitimacy.",
+        "Technical success and moral correctness are identical."
+      ],
+      "reply": [
+        "Engineering can be evaluated without endorsing a regime's purposes.",
+        "A spacecraft is not an ethical proof."
+      ],
+      "mode": 2
+    },
+    {
+      "title": "O-90 Walks Beside Him",
+      "setting": "PROCESSION STREET",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETATION",
+      "line": "Two Numbers keep their place within a larger pattern.",
+      "story": "D-503 walks with O-90, whose warmth and affection reveal a human dimension behind the state's numerical labels. Their regulated relationship exists inside a system that classifies intimate life as a matter of allocation.",
+      "observation": "D-503 and O-90 interact personally within the One State's rules.",
+      "inference": "A numbered identity erases all private affection.",
+      "question": "What does O-90's presence complicate?",
+      "choices": [
+        "The belief that institutions entirely determine inner feeling.",
+        "The possibility that individuals still have emotions."
+      ],
+      "reply": [
+        "Private feeling can persist within controlling systems.",
+        "The scene shows more than mechanical compliance."
+      ],
+      "mode": 3
+    },
+    {
+      "title": "The Green Wall",
+      "setting": "CITY PERIMETER",
+      "speaker": "D-503 · ORIGINAL INNER MONOLOGUE",
+      "line": "Beyond the Wall is disorder. Within it, everything has its number.",
+      "story": "A barrier separates the meticulously regulated city from the natural world beyond. D-503 initially regards the division as civilization protecting itself from chaos. The boundary is physical, political, and symbolic.",
+      "observation": "The Green Wall separates the One State from the outside.",
+      "inference": "A protected border establishes that everything outside is inferior.",
+      "question": "What remains untested?",
+      "choices": [
+        "The actual nature and value of life beyond the Wall.",
+        "Whether the barrier physically exists."
+      ],
+      "reply": [
+        "The wall is visible; the conclusions attached to it are learned beliefs.",
+        "The physical barrier is not in doubt."
+      ],
+      "mode": 4
+    },
+    {
+      "title": "A Strange Equation",
+      "setting": "GLASS PROMENADE",
+      "speaker": "D-503 · ORIGINAL INNER MONOLOGUE",
+      "line": "What if an error in the equation belongs to the person measuring it?",
+      "story": "D-503 reflects on the apparent perfection of his society. A passing uncertainty interrupts the neatness of his account. This is an interpretive transition toward later encounters; it is not evidence that he has already renounced the One State.",
+      "observation": "D-503 still endorses the system while exhibiting the potential for doubt.",
+      "inference": "A moment of uncertainty is a completed political transformation.",
+      "question": "How should an emerging doubt be recorded?",
+      "choices": [
+        "As a question, not a completed change of allegiance.",
+        "As proof that D-503 already rejects the State."
+      ],
+      "reply": [
+        "An uncertainty is an event, but the future response remains open.",
+        "Intentions and transformations require later evidence."
+      ],
+      "mode": 5
+    },
+    {
+      "title": "The First Record Closes",
+      "setting": "NIGHT OBSERVATORY",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETATION",
+      "line": "A perfectly ruled page can still contain a question mark.",
+      "story": "The opening record closes on D-503's faith in the One State's numbers, schedules and cosmic ambitions. The evidence packet preserves what the opening establishes, what D-503 assumes, and what the reader should test as the story unfolds.",
+      "observation": "The opening introduces the narrator, the engineered city, the Integral, O-90, and boundaries of public life.",
+      "inference": "The narrator's confidence is an objective proof that the society is ideal.",
+      "question": "What is W001's natural invariant?",
+      "choices": [
+        "MATHEMATICAL_ORDER != MORAL_TRUTH",
+        "A REGULAR SYSTEM MUST BE A JUST SYSTEM"
+      ],
+      "reply": [
+        "A consistent equation does not, by itself, prove a moral claim.",
+        "Formal order is not sufficient evidence of justice."
+      ],
+      "mode": 6
+    }
+  ]
+}
