@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W008",
+  "release": "W009",
   "record_count": 40,
-  "completed": 8,
+  "completed": 9,
   "records": [
     {
       "id": "W001",
@@ -56,9 +56,9 @@
     },
     {
       "id": "W009",
-      "status": "mapped",
-      "title": "Record 9 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Liturgy, Iambus, and the Cast-Iron Hand",
+      "href": "episodes/W009.html"
     },
     {
       "id": "W010",
