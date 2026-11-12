@@ -1,0 +1,140 @@
+{
+  "id": "W003",
+  "title": "A Coat, a Wall, and the Tables",
+  "source": "Record Three of Yevgeny Zamyatin's We; original paraphrase and invented dramatic dialogue",
+  "scenes": [
+    {
+      "setting": "THE READER",
+      "title": "01 · The Future Reader",
+      "speaker": "D-503 · ORIGINAL ADAPTATION",
+      "line": "What seems elementary to me may need an explanation to another world.",
+      "story": "D-503 rereads his diary and decides to explain the institutions a future reader might not understand. The Integral's mission would bring his words to strangers whose assumptions differ from his own.",
+      "observation": "D-503 recognizes that his intended audience may lack the One State's background knowledge.",
+      "inference": "His explanation of a concept proves its moral correctness.",
+      "question": "What is the function of an explanation?",
+      "choices": [
+        "Making unfamiliar institutions intelligible.",
+        "Proving that every institution is good."
+      ],
+      "reply": [
+        "This preserves the observation without promoting a conclusion into fact.",
+        "That interpretation goes beyond what this record establishes."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "THE COAT",
+      "title": "02 · A Coat Looks Like a Burden",
+      "speaker": "D-503 · ORIGINAL ADAPTATION",
+      "line": "Would a stranger know why an ancient person needed such a thing?",
+      "story": "He imagines explaining an ordinary coat to a person unfamiliar with clothing. The analogy helps him understand why outsiders might regard the Green Wall as unnecessary; familiarity can disguise the choices embedded in customs.",
+      "observation": "D-503 uses a coat analogy to defend the accustomed Green Wall.",
+      "inference": "A custom's familiarity establishes that it must be necessary.",
+      "question": "What does the coat show?",
+      "choices": [
+        "Context changes how an object is interpreted.",
+        "All inherited customs are beyond criticism."
+      ],
+      "reply": [
+        "This preserves the observation without promoting a conclusion into fact.",
+        "That interpretation goes beyond what this record establishes."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "WAR AND WALL",
+      "title": "03 · The Roads Disappear",
+      "speaker": "NARRATOR · ORIGINAL ADAPTATION",
+      "line": "Old roads vanished; the civilization that followed learned to remain inside.",
+      "story": "D-503 recounts the Two-Hundred-Year War, the broken transportation links and settlements cut off by returning greenery. He presents the Green Wall as the eventual achievement of that history, comparing settled life to earlier nomadic movement.",
+      "observation": "D-503 recounts a history of war, isolation and the development of a walled society.",
+      "inference": "Later historical conditions are automatically morally superior.",
+      "question": "Which claim is not established?",
+      "choices": [
+        "That settlement is always ethically superior to movement.",
+        "That D-503 describes a Green Wall."
+      ],
+      "reply": [
+        "This preserves the observation without promoting a conclusion into fact.",
+        "That interpretation goes beyond what this record establishes."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "THE TABLE",
+      "title": "04 · Purple Numbers, Golden Ground",
+      "speaker": "D-503 · ORIGINAL ADAPTATION",
+      "line": "These figures do more than tell the hour. They tell us how to live.",
+      "story": "Before him hangs the Table of Hours, with purple numbers upon gold. He responds almost reverently, believing that fixed schedules give society its beauty, security and collective rhythm.",
+      "observation": "The Table is a civic schedule and an object of D-503's admiration.",
+      "inference": "Admiration is independent evidence that everyone freely approves.",
+      "question": "What does D-503 directly reveal?",
+      "choices": [
+        "His own conviction and emotional response.",
+        "The private consent of every Number."
+      ],
+      "reply": [
+        "This preserves the observation without promoting a conclusion into fact.",
+        "That interpretation goes beyond what this record establishes."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "ONE BODY",
+      "title": "05 · Millions at the Same Instant",
+      "speaker": "NARRATOR · ORIGINAL ADAPTATION",
+      "line": "The city wakes, works, eats and rests with astonishing precision.",
+      "story": "D-503 describes synchronized daily life: waking, labor, meals, walks, exercises and sleep occur on command at precise hours. He interprets the many citizens as parts of one tremendous body.",
+      "observation": "Large-scale coordination of activity is described.",
+      "inference": "A synchronized population is necessarily free.",
+      "question": "What can a timetable demonstrate?",
+      "choices": [
+        "Coordinated behavior and organized timing.",
+        "Uncoerced agreement by every person."
+      ],
+      "reply": [
+        "This preserves the observation without promoting a conclusion into fact.",
+        "That interpretation goes beyond what this record establishes."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "PERSONAL HOURS",
+      "title": "06 · The Remaining Unruled Minutes",
+      "speaker": "D-503 · ORIGINAL ADAPTATION",
+      "line": "Someday perhaps even these hours will fit our great equation.",
+      "story": "D-503 admits that the State still has not achieved total regulation. Two Personal Hours each day permit citizens to draw curtains, wander or write. Rather than celebrating this discretion, he imagines all 86,400 seconds eventually brought into the official formula. He also defends the State's regulation of reproduction.",
+      "observation": "Personal Hours exist, but D-503 hopes to reduce unregulated time.",
+      "inference": "Control over time establishes a person's self-determination.",
+      "question": "What is the conflict?",
+      "choices": [
+        "Individual discretion versus universal scheduling.",
+        "The presence of any timetable means nobody has a private life."
+      ],
+      "reply": [
+        "This preserves the observation without promoting a conclusion into fact.",
+        "That interpretation goes beyond what this record establishes."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "GUARDIAN ECHO",
+      "title": "07 · The S-Shaped Memory",
+      "speaker": "D-503 · ORIGINAL ADAPTATION",
+      "line": "That man beside I-330—I have seen him near the Guardians.",
+      "story": "As D-503 praises the Benefactor and the Guardians, he remembers the S-shaped man who accompanied I-330. He thinks he has seen the man emerging from the Bureau of Guardians. A bell calls him to bed before he can explore the connection.",
+      "observation": "D-503 remembers a possible association between the man and the Bureau.",
+      "inference": "Recognition proves the man's full identity and intentions.",
+      "question": "What should the next record preserve?",
+      "choices": [
+        "A reported association, pending more observation.",
+        "A proven conspiracy and completed accusation."
+      ],
+      "reply": [
+        "This preserves the observation without promoting a conclusion into fact.",
+        "That interpretation goes beyond what this record establishes."
+      ],
+      "mode": 6
+    }
+  ]
+}
