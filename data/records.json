@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W002",
+  "release": "W003",
   "record_count": 40,
-  "completed": 2,
+  "completed": 3,
   "records": [
     {
       "id": "W001",
@@ -20,9 +20,9 @@
     },
     {
       "id": "W003",
-      "status": "mapped",
-      "title": "Record 3 — planned",
-      "href": null
+      "status": "playable",
+      "title": "A Coat, a Wall, and the Tables",
+      "href": "episodes/W003.html"
     },
     {
       "id": "W004",
