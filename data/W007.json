@@ -1,0 +1,140 @@
+{
+  "id": "W007",
+  "title": "An Eyelash, Taylor, Henbane and Lily of the Valley",
+  "source": "Original interpretation of Record Seven of Zamyatin's We; no reproduced novel dialogue",
+  "scenes": [
+    {
+      "setting": "DREAM",
+      "title": "01 · A Dream Without Coordinates",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "The yellow dress and the old house have followed me into a place without rules.",
+      "story": "D-503 experiences an unfamiliar dream of the Ancient House, piano, Buddha and shifting colors. He wakes frightened, interpreting the dream as illness because his society treats dreams as abnormal.",
+      "observation": "D-503 dreams for the first time and regards it as a symptom.",
+      "inference": "A spontaneous dream establishes actual disease or culpability.",
+      "question": "Which observation is grounded?",
+      "choices": [
+        "He dreams and feels alarmed.",
+        "His dream objectively proves he is sick."
+      ],
+      "reply": [
+        "Correct: the event remains distinct from the conclusion drawn about it.",
+        "That interpretation claims more than the narrated evidence establishes."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "EYELASH",
+      "title": "02 · The Eyelash in the Clock",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "My mind is still a clock, surely; something tiny must be caught inside it.",
+      "story": "At seven the synchronized apartments soothe D-503. He compares the unfamiliar disturbance in his thinking to an eyelash trapped in an eye, then praises Taylor's scientific management as a precursor to the State's total schedule.",
+      "observation": "Regular routines comfort him, and he interprets his thoughts as mechanical disturbance.",
+      "inference": "Feeling out of step proves a malfunction or moral failing.",
+      "question": "What is the metaphor evidence of?",
+      "choices": [
+        "His discomfort and self-description.",
+        "A medically established brain defect."
+      ],
+      "reply": [
+        "Correct: the event remains distinct from the conclusion drawn about it.",
+        "That interpretation claims more than the narrated evidence establishes."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "INTEGRAL",
+      "title": "03 · Numbers at the Shipyard",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "If I calculate precisely enough, perhaps I will not have to think of yesterday.",
+      "story": "At the Integral yard, D-503 computes the spacecraft's changing mass and required velocity. Mathematical work provides temporary focus, but the dream and the Ancient House continue to intrude.",
+      "observation": "D-503 returns to engineering calculations while troubled by memories.",
+      "inference": "Technical concentration establishes emotional resolution.",
+      "question": "What is separately observed?",
+      "choices": [
+        "His work proceeds; his inner disturbance remains.",
+        "His mind is permanently restored to normal."
+      ],
+      "reply": [
+        "Correct: the event remains distinct from the conclusion drawn about it.",
+        "That interpretation claims more than the narrated evidence establishes."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "GUARDIAN",
+      "title": "04 · S-4711 Sits Beside Him",
+      "speaker": "S-4711 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "I-330? She is an interesting acquaintance.",
+      "story": "The S-shaped man joins D-503, revealing his numbered badge. D-503 identifies him as a Guardian and starts explaining the Ancient House visit. When S-4711 speaks familiarly of I-330, D-503 loses his resolve and does not make the report.",
+      "observation": "He begins an account but does not deliver the expected accusation.",
+      "inference": "Beginning to speak is equivalent to completing an official report.",
+      "question": "What result must the witness store?",
+      "choices": [
+        "Attempted disclosure, followed by hesitation.",
+        "A fully filed Guardians report."
+      ],
+      "reply": [
+        "Correct: the event remains distinct from the conclusion drawn about it.",
+        "That interpretation claims more than the narrated evidence establishes."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "NEWSPAPER",
+      "title": "05 · The Newspaper's Enemy",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "The State says someone wants liberation. What a terrible mistake that must be.",
+      "story": "A newspaper reports traces of an organization opposing the One State. D-503 rejects its claimed liberation and reasons that freedom produces crime. He again resolves to report I-330 after sixteen o'clock.",
+      "observation": "An official report of suspected opposition is published; D-503 endorses the State's account.",
+      "inference": "The State newspaper independently proves all its accusations.",
+      "question": "What are the evidence roots?",
+      "choices": [
+        "The newspaper's allegation and D-503's belief.",
+        "A judicially established account of the organization."
+      ],
+      "reply": [
+        "Correct: the event remains distinct from the conclusion drawn about it.",
+        "That interpretation claims more than the narrated evidence establishes."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "FLOWERS",
+      "title": "06 · Lilies of the Valley",
+      "speaker": "O-90 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "I brought these for you. Why would you willingly go to the Guardians?",
+      "story": "O-90 encounters D-503 carrying flowers, then recoils when he says he is going to report I-330. He angrily compares State informants with pleasant flowers and earlier spies with poisonous ones. O-90 sees his distress and asks if he is unwell.",
+      "observation": "O-90 gives him flowers, objects to the reporting plan, and notices distress.",
+      "inference": "D-503's analogy settles the ethics of surveillance.",
+      "question": "What does the comparison fail to prove?",
+      "choices": [
+        "That authorized spying is inherently benevolent.",
+        "That D-503 is defending the Guardians."
+      ],
+      "reply": [
+        "Correct: the event remains distinct from the conclusion drawn about it.",
+        "That interpretation claims more than the narrated evidence establishes."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "MEDICAL",
+      "title": "07 · The Bureau He Actually Visits",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "I was meant to report. Instead, I found a reason to seek treatment.",
+      "story": "He goes to the Medical Bureau instead of the Guardians. In the evening O-90 visits and they solve arithmetic together. After she leaves, he discovers her lilies near his bed. The scent revives the conflict and he blames his failure to report on feeling ill.",
+      "observation": "He visits the Medical Bureau; no Guardians report is filed in this record.",
+      "inference": "His explanation proves the reporting duty was fulfilled.",
+      "question": "What carries into W008?",
+      "choices": [
+        "The unresolved inaction and his changing self-understanding.",
+        "A completed report and a settled mind."
+      ],
+      "reply": [
+        "Correct: the event remains distinct from the conclusion drawn about it.",
+        "That interpretation claims more than the narrated evidence establishes."
+      ],
+      "mode": 6
+    }
+  ]
+}
