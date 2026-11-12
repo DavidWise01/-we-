@@ -1,0 +1,141 @@
+{
+  "id": "W008",
+  "title": "The Irrational Root, R-13, and the Triangle",
+  "source": "Original paraphrase of Zamyatin's Record Eight based on the 1924 Zilboorg translation",
+  "notes": "Literary motif of sqrt(-1) is the imaginary unit i, not an irrational real number",
+  "scenes": [
+    {
+      "setting": "PLAPPA",
+      "title": "01 · The Root He Could Not Accept",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "When I was a child, one forbidden-looking symbol could ruin the whole lesson.",
+      "story": "D-503 remembers his early education under the mechanical mathematics teacher Plappa. An introduction to the square root of minus one leaves him distressed. The symbol becomes an emblem of concepts outside his accustomed frame, though it is mathematically well defined.",
+      "observation": "D-503 remembers distress when learning the imaginary unit.",
+      "inference": "The imaginary unit is mathematically invalid or evidence of disease.",
+      "question": "What does the memory show?",
+      "choices": [
+        "An unfamiliar concept frightened a child.",
+        "The concept itself is logically inconsistent."
+      ],
+      "reply": [
+        "Correct: the literary event and its inference remain separate.",
+        "This claim goes beyond what the record establishes."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "SELF_DECEPTION",
+      "title": "02 · A New Reading of His Diary",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I told myself I was ill. That cannot be the whole explanation.",
+      "story": "Rereading earlier entries, D-503 recognizes that his explanations for not reporting I-330 may conceal an unwillingness to act. He experiences this realization as an irrational root inside himself.",
+      "observation": "He revises his interpretation of his own previous conduct.",
+      "inference": "His revised interpretation establishes every cause of his hesitation.",
+      "question": "What changes in this act?",
+      "choices": [
+        "His self-assessment, not the fact that the report remains unfiled.",
+        "A completed report now exists."
+      ],
+      "reply": [
+        "Correct: the literary event and its inference remain separate.",
+        "This claim goes beyond what the record establishes."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "GUARDIANS",
+      "title": "03 · At the Door, Not Through It",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Inside, people are offering information. Outside, D-503 cannot move.",
+      "story": "At sixteen-ten D-503 stands before the glass headquarters of the Guardians, observing a queue of Numbers prepared to denounce people close to them. He believes he should join the line, but remains motionless outside.",
+      "observation": "He arrives at the building and does not enter to file the report.",
+      "inference": "Presence at an office proves successful completion of its procedure.",
+      "question": "What has been observed?",
+      "choices": [
+        "Physical arrival without completed reporting.",
+        "The Guardians have received his accusation."
+      ],
+      "reply": [
+        "Correct: the literary event and its inference remain separate.",
+        "This claim goes beyond what the record establishes."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "FRIENDS",
+      "title": "04 · R-13 and O-90 Interrupt",
+      "speaker": "R-13 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "My orderly friend! You look like a man trying to count a thought.",
+      "story": "R-13, a quick-speaking poet and D-503's old friend, arrives with O-90. He teases D-503 about his solemn devotion to knowledge and suggests that walls around the unknown can express fear, not wisdom.",
+      "observation": "R-13 challenges D-503's certainty; O-90 accompanies him.",
+      "inference": "A joke reveals every private motive held by its speaker.",
+      "question": "Which interaction is clear?",
+      "choices": [
+        "An interruption and a disagreement among friends.",
+        "A proven diagnosis of D-503's inner life."
+      ],
+      "reply": [
+        "Correct: the literary event and its inference remain separate.",
+        "This claim goes beyond what the record establishes."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "TRIANGLE",
+      "title": "05 · Three People in a Glass Room",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The three old friends share a room but not a single mind.",
+      "story": "D-503 joins R-13 and O-90 in R-13's apartment. R-13 shifts furniture out of alignment, and the friends revisit school memories, including mechanical teachers and childhood pranks. Their shared laughter briefly eases D-503's anxiety.",
+      "observation": "The friends spend time together, recall school, and laugh.",
+      "inference": "Shared memories mean their values and future choices are identical.",
+      "question": "What is the boundary?",
+      "choices": [
+        "Shared history does not erase individual differences.",
+        "Friendship provides total knowledge of everyone involved."
+      ],
+      "reply": [
+        "Correct: the literary event and its inference remain separate.",
+        "This claim goes beyond what the record establishes."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "VERSES",
+      "title": "06 · The Poet's Assigned Sentence",
+      "speaker": "R-13 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I have been writing verses for a punishment. That is difficult to celebrate.",
+      "story": "R-13 explains that he has been commissioned to turn a sentence of death against another poet into verse. His usual ease fades, and D-503 detects an uneasy silence. He cannot determine what his friend truly believes about the sentence.",
+      "observation": "R-13 describes a commissioned execution poem and grows less animated.",
+      "inference": "His silence conclusively proves either loyalty or dissent.",
+      "question": "Which evidence is missing?",
+      "choices": [
+        "R-13's full personal stance and motives.",
+        "The fact that the conversation happened."
+      ],
+      "reply": [
+        "Correct: the literary event and its inference remain separate.",
+        "This claim goes beyond what the record establishes."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "CURTAINS",
+      "title": "07 · The Unequal Triangle",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Perhaps a triangle need not be perfectly equal to shelter its three corners.",
+      "story": "O-90 has an authorized visit with R-13. D-503 leaves them and sees their apartment curtains drawn. He reflects that he, O-90 and R-13 form a triangle of long friendship, though each person remains partly opaque. The thought offers temporary comfort.",
+      "observation": "D-503 departs, sees drawn curtains, and calls their relationship a triangle.",
+      "inference": "The metaphor demonstrates equality, exclusivity, or transparent intentions.",
+      "question": "What must the witness preserve?",
+      "choices": [
+        "A relationship metaphor plus distinct unknown internal states.",
+        "A complete, equal equation of three persons."
+      ],
+      "reply": [
+        "Correct: the literary event and its inference remain separate.",
+        "This claim goes beyond what the record establishes."
+      ],
+      "mode": 6
+    }
+  ]
+}
