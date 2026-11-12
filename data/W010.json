@@ -1,0 +1,141 @@
+{
+  "id": "W010",
+  "title": "A Letter, a Membrane, and the Hairy I",
+  "source": "Original interpretation of Zamyatin's tenth record in the 1924 translation",
+  "content_note": "Intimate tension and non-graphic depiction of aggressive behavior",
+  "scenes": [
+    {
+      "setting": "CONTROLLER",
+      "title": "01 · The Inkblot and the Letter",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I feel purified after yesterday. Then the controller tells me there is a letter.",
+      "story": "Following the Cube ceremony, D-503 believes his mind has been cleansed of disorder. In the glass building's lobby, the supervisor U records departures and hints at a letter that has passed through the State's inspection process.",
+      "observation": "U maintains a lobby register and tells D-503 of official correspondence.",
+      "inference": "State inspection of correspondence demonstrates meaningful privacy.",
+      "question": "What does the controlled letter reveal?",
+      "choices": [
+        "Communication is subject to institutional inspection.",
+        "The recipient freely consented to that inspection."
+      ],
+      "reply": [
+        "Correct: this keeps an observation separate from the stronger claim.",
+        "The literary record does not establish that conclusion."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "THE LETTER",
+      "title": "02 · An Official Appointment",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "An approved notice has arrived. Why should it frighten me?",
+      "story": "A sanctioned notification informs D-503 that I-330 has registered him for an intimate visit at 21:00. Memories of the Ancient House, his unfiled report, and O-90 make the administrative notice emotionally complicated.",
+      "observation": "I-330 registered the visit; D-503 receives the approved notice.",
+      "inference": "Formal authorization proves that both people have no doubts or conflicting desires.",
+      "question": "What is confirmed by the notice?",
+      "choices": [
+        "An officially scheduled appointment.",
+        "Complete mutual emotional certainty."
+      ],
+      "reply": [
+        "Correct: this keeps an observation separate from the stronger claim.",
+        "The literary record does not establish that conclusion."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "GLASS NIGHT",
+      "title": "03 · Twenty-Forty-Five",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The transparent buildings look as fragile as D-503's certainty.",
+      "story": "Despite telling himself he does not want to see I-330, D-503 goes to her apartment. The northern night gives the glass city a strange greenish appearance. His pulse and anxiety contradict the calm he associates with his ideal Number.",
+      "observation": "D-503 travels to the appointment while visibly anxious.",
+      "inference": "Actual attendance proves complete emotional agreement.",
+      "question": "Which two records coexist?",
+      "choices": [
+        "He goes, while his private feelings remain conflicted.",
+        "His outward action resolves his inner conflict."
+      ],
+      "reply": [
+        "Correct: this keeps an observation separate from the stronger claim.",
+        "The literary record does not establish that conclusion."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "FORTY EIGHT",
+      "title": "04 · The Unfiled Report",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "You never reported what happened at the Ancient House.",
+      "story": "I-330 reminds D-503 that the forty-eight-hour reporting period has expired without his complaint to the Guardians. She can now invoke the rule against him. D-503 feels trapped by the consequences of his earlier inaction.",
+      "observation": "The reporting deadline has passed and D-503 has not filed the accusation.",
+      "inference": "A sincere intention to report counts as completed compliance.",
+      "question": "What is the event-level fact?",
+      "choices": [
+        "A deadline expired without the report.",
+        "His earlier self-description fulfills the duty."
+      ],
+      "reply": [
+        "Correct: this keeps an observation separate from the stronger claim.",
+        "The literary record does not establish that conclusion."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "MEMBRANE",
+      "title": "05 · The Engineer Becomes an Ear",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The curtains are closed. I can hear everything and understand almost nothing.",
+      "story": "I-330 lowers all the curtains. As D-503 listens to her movement behind him, he remembers designing a membrane for recording street conversations for the Guardians. He becomes intensely aware of sound, heartbeat, and the limits of his own interpretation.",
+      "observation": "Curtains close; D-503 hears private movements and recalls surveillance engineering.",
+      "inference": "Recording sound gives direct access to another person's intentions.",
+      "question": "What can a listening instrument establish?",
+      "choices": [
+        "Audible events, not the complete meaning of private thought.",
+        "Every motive of the person being observed."
+      ],
+      "reply": [
+        "Correct: this keeps an observation separate from the stronger claim.",
+        "The literary record does not establish that conclusion."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "HAIRY I",
+      "title": "06 · The Two Selves of D-503",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The Number I claim to be and the person I feel myself becoming are not aligned.",
+      "story": "I-330 appears in yellow old-fashioned clothes, drinks forbidden alcohol, and smokes. D-503 protests yet becomes overwhelmed by contradictory jealousy, attraction and fear. His behavior turns aggressive; I-330 pulls away. The scene is represented symbolically rather than depicting violence.",
+      "observation": "State-prohibited acts, D-503's distress, his aggression, and I-330's withdrawal are distinct events.",
+      "inference": "His feelings justify aggression or constitute final allegiance against the State.",
+      "question": "What does the conflict demonstrate?",
+      "choices": [
+        "His self-understanding has split, without excusing harmful behavior.",
+        "Any feeling of desire makes coercion acceptable."
+      ],
+      "reply": [
+        "Correct: this keeps an observation separate from the stronger claim.",
+        "The literary record does not establish that conclusion."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "CURFEW",
+      "title": "07 · Five Minutes to Curfew",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The clock returns me to the old formula, but I cannot make myself sleep.",
+      "story": "I-330 shows D-503 it is 22:25, five minutes before curfew. He flees, loses and retrieves his badge, senses possible footsteps but cannot identify a follower, and reaches home in time. That night, his attempts at self-command fail to bring sleep.",
+      "observation": "He rushes home before curfew and subsequently cannot sleep.",
+      "inference": "His fear proves he was followed or that all internal conflict has ended.",
+      "question": "What remains for W011?",
+      "choices": [
+        "Unresolved anxiety and an unverified impression of being followed.",
+        "A confirmed pursuer and fully restored psychological order."
+      ],
+      "reply": [
+        "Correct: this keeps an observation separate from the stronger claim.",
+        "The literary record does not establish that conclusion."
+      ],
+      "mode": 6
+    }
+  ]
+}
