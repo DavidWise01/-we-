@@ -1,0 +1,140 @@
+{
+  "id": "W012",
+  "title": "The Delimitation of the Infinite, Angel, and Meditations on Poetry",
+  "source": "Yevgeny Zamyatin, We, Record Twelve; original interpretive paraphrase",
+  "scenes": [
+    {
+      "setting": "CIRCLE",
+      "title": "01 · The Comfort of a Boundary",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "If only every thought could close as neatly as a circle.",
+      "story": "After a dreamless night, D-503 expects O-90 to visit tomorrow and imagines becoming well again. He praises reasoning as the process of dividing an infinite unknown into manageable portions, finding security in the finite circle.",
+      "observation": "He reports sleeping well, anticipates O-90, and praises mathematical delimitation.",
+      "inference": "A useful finite model proves everything beyond its bounds is meaningless.",
+      "question": "What does a finite model accomplish?",
+      "choices": [
+        "It organizes a domain, without exhausting reality.",
+        "It guarantees total knowledge of all things."
+      ],
+      "reply": [
+        "Correct: the narrative supports this narrower claim.",
+        "That larger claim has not been established."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "SUBWAY",
+      "title": "02 · A Book Beneath the Railway",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Even the wheels seem to scan the verses into perfect meter.",
+      "story": "D-503 rides underground, reading the book of verse R-13 gave him. The rolling carriage beats a regular rhythm, and he tries to align the measured poetry with the mechanical cadence of transport.",
+      "observation": "He rides the subway while reading R-13 and attending to its rhythm.",
+      "inference": "Repetition of a rhythm demonstrates that all artistic interpretations are identical.",
+      "question": "Which fact belongs to the record?",
+      "choices": [
+        "His rhythmic experience and the book he reads.",
+        "The universal goodness of rhythmic conformity."
+      ],
+      "reply": [
+        "Correct: the narrative supports this narrower claim.",
+        "That larger claim has not been established."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "ANGEL",
+      "title": "03 · A Guardian Behind His Shoulder",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Someone is watching me; perhaps that is the greatest form of reassurance.",
+      "story": "D-503 senses someone leaning over his shoulder and recognizes the silhouette and pink ears of S-4711. Instead of feeling threatened, he imagines the Guardian as a modern realization of the ancient guardian angel.",
+      "observation": "A Guardian observes him while he reads, and D-503 finds comfort in the observation.",
+      "inference": "Surveillance by itself establishes love, protection, or understanding.",
+      "question": "What is observed and what is inferred?",
+      "choices": [
+        "Attention from a Guardian, followed by D-503's interpretation.",
+        "Proven compassion from the watcher."
+      ],
+      "reply": [
+        "Correct: the narrative supports this narrower claim.",
+        "That larger claim has not been established."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "MULTIPLY",
+      "title": "04 · Two Times Two",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Four arrives every time. How could anyone quarrel with such certainty?",
+      "story": "R-13's poem celebrates the reliable multiplication of two by two. D-503 exalts the multiplication table and leaps from the truth of a mathematical statement to the desirability of social life governed by fixed formulas.",
+      "observation": "The arithmetic statement is true and the poem celebrates it.",
+      "inference": "A correct equation proves every associated institution is morally right.",
+      "question": "Where does the inference fail?",
+      "choices": [
+        "Arithmetic correctness does not justify state authority.",
+        "An equation's result is a political mandate."
+      ],
+      "reply": [
+        "Correct: the narrative supports this narrower claim.",
+        "That larger claim has not been established."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "SILENCE",
+      "title": "05 · The Angel Does Not Answer",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I am ready to open my whole mind. But he asks me nothing.",
+      "story": "D-503 turns to S-4711 and looks into his eyes. The Guardian does not ask for a report or inquire into his thinking. D-503 nevertheless experiences the moment as reassuring and addresses his imagined readers instead.",
+      "observation": "The Guardian remains silent while D-503 longs to confess his thoughts.",
+      "inference": "Silence proves the watcher knows or approves every private thought.",
+      "question": "Which uncertainty remains intact?",
+      "choices": [
+        "The Guardian's actual beliefs and intentions.",
+        "An independently confirmed absolution."
+      ],
+      "reply": [
+        "Correct: the narrative supports this narrower claim.",
+        "That larger claim has not been established."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "POETRY",
+      "title": "06 · The State Harnesses Poetry",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Words have become useful, just like waves captured for power.",
+      "story": "D-503 compares organized State poetry to generating energy from the ocean's waves. He lists officially commissioned works: mathematical lessons, hymns, praise of Guardians, and verse celebrating punishment. He sees State service as artistic progress.",
+      "observation": "The State commissions literature for ideological, educational, and administrative purposes.",
+      "inference": "Instrumental use establishes artistic freedom and universal merit.",
+      "question": "What does this describe?",
+      "choices": [
+        "A system of official artistic production.",
+        "The willing agreement of every poet and reader."
+      ],
+      "reply": [
+        "Correct: the narrative supports this narrower claim.",
+        "That larger claim has not been established."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "INTEGRAL",
+      "title": "07 · Exporting the Correct World",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "We will teach the universe to make life as regular as ours.",
+      "story": "He imagines the Integral bringing the One State's mathematics, poems, schedules, and governing ideals to readers on other planets. His account closes confidently, but confidence is not a substitute for evidence that the recipients would choose such a world.",
+      "observation": "D-503 celebrates spreading the State's ideals beyond Earth.",
+      "inference": "Technological reach establishes moral authority to govern others.",
+      "question": "What carries into W013?",
+      "choices": [
+        "A mission and ideology that must remain open to ethical scrutiny.",
+        "Proof that all future recipients consent."
+      ],
+      "reply": [
+        "Correct: the narrative supports this narrower claim.",
+        "That larger claim has not been established."
+      ],
+      "mode": 6
+    }
+  ]
+}
