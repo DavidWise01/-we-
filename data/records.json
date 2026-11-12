@@ -1,0 +1,250 @@
+{
+  "project": "-we-",
+  "source": "Yevgeny Zamyatin, We",
+  "edition_note": "Original interpretive prose, not copied novel text",
+  "release": "W001",
+  "record_count": 40,
+  "completed": 1,
+  "records": [
+    {
+      "id": "W001",
+      "status": "playable",
+      "title": "The Number Who Believed He Was Free",
+      "href": "episodes/W001.html"
+    },
+    {
+      "id": "W002",
+      "status": "mapped",
+      "title": "Record 2 — planned",
+      "href": null
+    },
+    {
+      "id": "W003",
+      "status": "mapped",
+      "title": "Record 3 — planned",
+      "href": null
+    },
+    {
+      "id": "W004",
+      "status": "mapped",
+      "title": "Record 4 — planned",
+      "href": null
+    },
+    {
+      "id": "W005",
+      "status": "mapped",
+      "title": "Record 5 — planned",
+      "href": null
+    },
+    {
+      "id": "W006",
+      "status": "mapped",
+      "title": "Record 6 — planned",
+      "href": null
+    },
+    {
+      "id": "W007",
+      "status": "mapped",
+      "title": "Record 7 — planned",
+      "href": null
+    },
+    {
+      "id": "W008",
+      "status": "mapped",
+      "title": "Record 8 — planned",
+      "href": null
+    },
+    {
+      "id": "W009",
+      "status": "mapped",
+      "title": "Record 9 — planned",
+      "href": null
+    },
+    {
+      "id": "W010",
+      "status": "mapped",
+      "title": "Record 10 — planned",
+      "href": null
+    },
+    {
+      "id": "W011",
+      "status": "mapped",
+      "title": "Record 11 — planned",
+      "href": null
+    },
+    {
+      "id": "W012",
+      "status": "mapped",
+      "title": "Record 12 — planned",
+      "href": null
+    },
+    {
+      "id": "W013",
+      "status": "mapped",
+      "title": "Record 13 — planned",
+      "href": null
+    },
+    {
+      "id": "W014",
+      "status": "mapped",
+      "title": "Record 14 — planned",
+      "href": null
+    },
+    {
+      "id": "W015",
+      "status": "mapped",
+      "title": "Record 15 — planned",
+      "href": null
+    },
+    {
+      "id": "W016",
+      "status": "mapped",
+      "title": "Record 16 — planned",
+      "href": null
+    },
+    {
+      "id": "W017",
+      "status": "mapped",
+      "title": "Record 17 — planned",
+      "href": null
+    },
+    {
+      "id": "W018",
+      "status": "mapped",
+      "title": "Record 18 — planned",
+      "href": null
+    },
+    {
+      "id": "W019",
+      "status": "mapped",
+      "title": "Record 19 — planned",
+      "href": null
+    },
+    {
+      "id": "W020",
+      "status": "mapped",
+      "title": "Record 20 — planned",
+      "href": null
+    },
+    {
+      "id": "W021",
+      "status": "mapped",
+      "title": "Record 21 — planned",
+      "href": null
+    },
+    {
+      "id": "W022",
+      "status": "mapped",
+      "title": "Record 22 — planned",
+      "href": null
+    },
+    {
+      "id": "W023",
+      "status": "mapped",
+      "title": "Record 23 — planned",
+      "href": null
+    },
+    {
+      "id": "W024",
+      "status": "mapped",
+      "title": "Record 24 — planned",
+      "href": null
+    },
+    {
+      "id": "W025",
+      "status": "mapped",
+      "title": "Record 25 — planned",
+      "href": null
+    },
+    {
+      "id": "W026",
+      "status": "mapped",
+      "title": "Record 26 — planned",
+      "href": null
+    },
+    {
+      "id": "W027",
+      "status": "mapped",
+      "title": "Record 27 — planned",
+      "href": null
+    },
+    {
+      "id": "W028",
+      "status": "mapped",
+      "title": "Record 28 — planned",
+      "href": null
+    },
+    {
+      "id": "W029",
+      "status": "mapped",
+      "title": "Record 29 — planned",
+      "href": null
+    },
+    {
+      "id": "W030",
+      "status": "mapped",
+      "title": "Record 30 — planned",
+      "href": null
+    },
+    {
+      "id": "W031",
+      "status": "mapped",
+      "title": "Record 31 — planned",
+      "href": null
+    },
+    {
+      "id": "W032",
+      "status": "mapped",
+      "title": "Record 32 — planned",
+      "href": null
+    },
+    {
+      "id": "W033",
+      "status": "mapped",
+      "title": "Record 33 — planned",
+      "href": null
+    },
+    {
+      "id": "W034",
+      "status": "mapped",
+      "title": "Record 34 — planned",
+      "href": null
+    },
+    {
+      "id": "W035",
+      "status": "mapped",
+      "title": "Record 35 — planned",
+      "href": null
+    },
+    {
+      "id": "W036",
+      "status": "mapped",
+      "title": "Record 36 — planned",
+      "href": null
+    },
+    {
+      "id": "W037",
+      "status": "mapped",
+      "title": "Record 37 — planned",
+      "href": null
+    },
+    {
+      "id": "W038",
+      "status": "mapped",
+      "title": "Record 38 — planned",
+      "href": null
+    },
+    {
+      "id": "W039",
+      "status": "mapped",
+      "title": "Record 39 — planned",
+      "href": null
+    },
+    {
+      "id": "W040",
+      "status": "mapped",
+      "title": "Record 40 — planned",
+      "href": null
+    }
+  ]
+}
