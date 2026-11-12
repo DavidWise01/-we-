@@ -1,0 +1,140 @@
+{
+  "id": "W011",
+  "title": "No, I Can't; Let It Be Without Headings!",
+  "source": "Original retelling of Record Eleven of Zamyatin's We, grounded in record summaries; dialogue newly authored",
+  "scenes": [
+    {
+      "setting": "MILKY SKY",
+      "title": "01 · The Sky That Cannot Be Seen",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "For once, I cannot see what lies beyond the clouds.",
+      "story": "D-503 watches an opaque white-gold sky obscure the world above. Once confident that everything was known and transparent, he now wonders what certainty really means.",
+      "observation": "The sky is obscured; D-503 expresses uncertainty about what can be known.",
+      "inference": "Not seeing the sky beyond proves no truth exists.",
+      "question": "What does limited visibility establish?",
+      "choices": [
+        "An observational limit and a change in his confidence.",
+        "The nonexistence of whatever cannot be seen."
+      ],
+      "reply": [
+        "Correct: this remains within what Record Eleven supports.",
+        "That conclusion is not established by the events."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "MIRROR",
+      "title": "02 · The Stranger in the Mirror",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "I have always called this face mine. Why does it look like a stranger's?",
+      "story": "In the mirror D-503 sees the dark brows and sleepless eyes of a man he thinks he hardly knows. He speaks of a second self and dismisses the feeling as possible illness, but that dismissal no longer settles him.",
+      "observation": "D-503 sees his reflected face and experiences alienation from his own self-image.",
+      "inference": "An uncomfortable reflection establishes a separate physical person.",
+      "question": "What is the observation?",
+      "choices": [
+        "A change in his self-perception.",
+        "A literal second human inhabitant of his body."
+      ],
+      "reply": [
+        "Correct: this remains within what Record Eleven supports.",
+        "That conclusion is not established by the events."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "R13 VISITS",
+      "title": "03 · An Old Friend at the Door",
+      "speaker": "R-13 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "Please, not that poem again. I have something else to show you.",
+      "story": "R-13 visits D-503, who eagerly praises his friend's official verse at the execution. R-13 does not want to revisit it. His new commission concerns the Integral, and he speaks with renewed energy.",
+      "observation": "R-13 avoids discussion of his execution poem and presents a new project.",
+      "inference": "Avoidance proves an explicitly stated secret political allegiance.",
+      "question": "What remains unknown?",
+      "choices": [
+        "Exactly why R-13 avoids the former subject.",
+        "That he changed the topic."
+      ],
+      "reply": [
+        "Correct: this remains within what Record Eleven supports.",
+        "That conclusion is not established by the events."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "PARADISE",
+      "title": "04 · Freedom or Happiness?",
+      "speaker": "R-13 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "The old tale can be told as a choice. But did it have only two answers?",
+      "story": "R-13 describes a poem about Adam and Eve, casting the old story as a choice between free will and guaranteed happiness. The One State claims to have chosen happiness without freedom. D-503 finds the argument persuasive.",
+      "observation": "R-13 proposes a poetic contrast and D-503 endorses it.",
+      "inference": "Two alternatives exhaust every possible form of a human life.",
+      "question": "What does the poem establish?",
+      "choices": [
+        "A rhetorically powerful framing of the State's ideology.",
+        "A mathematical proof that happiness and freedom cannot coexist."
+      ],
+      "reply": [
+        "Correct: this remains within what Record Eleven supports.",
+        "That conclusion is not established by the events."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "O90",
+      "title": "05 · The Pink Ticket and the Unequal Triangle",
+      "speaker": "R-13 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "She has requested you. You mean something to her that I do not.",
+      "story": "R-13 says O-90 has requested a visit with D-503, and he recognizes that her feelings for D-503 differ from her feelings for him. In the One State, the same regulated appointments cannot make every personal bond interchangeable.",
+      "observation": "O-90 has requested D-503 and R-13 describes differences in affection.",
+      "inference": "Administrative equivalence guarantees identical emotional meaning.",
+      "question": "What persists despite the pink ticket?",
+      "choices": [
+        "Individual attachment and relational difference.",
+        "A proof that all regulated relationships feel the same."
+      ],
+      "reply": [
+        "Correct: this remains within what Record Eleven supports.",
+        "That conclusion is not established by the events."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "JEALOUSY",
+      "title": "06 · The Hairy Self Breaks Through",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "Why does the mention of her make me so angry with my friend?",
+      "story": "D-503 asks whether R-13 knows anyone who uses forbidden tobacco or alcohol. When R-13 alludes to a woman, D-503 suspects I-330 and becomes jealous and angry. His reaction contradicts his earlier insistence that State regulation had removed jealousy.",
+      "observation": "D-503 reacts with suspicion and anger on hearing R-13's allusion.",
+      "inference": "Jealousy proves guilt in the other person or excuses aggression.",
+      "question": "What does this event disprove?",
+      "choices": [
+        "D-503's assumption that he personally no longer experiences jealousy.",
+        "Every possibility of a stable friendship."
+      ],
+      "reply": [
+        "Correct: this remains within what Record Eleven supports.",
+        "That conclusion is not established by the events."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "APOLOGY",
+      "title": "07 · The Triangle After the Fracture",
+      "speaker": "D-503 · ORIGINAL DRAMATIC INTERPRETATION",
+      "line": "He has left me a book. I am still here with the man in the mirror.",
+      "story": "D-503 apologizes to R-13 and attributes the outburst to illness. R-13 says he knows the feeling theoretically, gives him a book of poems, and leaves. The friendship has not been conclusively destroyed, but D-503's certainty about its shape has been shaken.",
+      "observation": "An apology, a gift of poems, and departure occur after an angry confrontation.",
+      "inference": "One quarrel proves a friendship ended permanently.",
+      "question": "What should W012 carry forward?",
+      "choices": [
+        "Altered trust and self-understanding, without inventing a final rupture.",
+        "A documented permanent break that neither character declared."
+      ],
+      "reply": [
+        "Correct: this remains within what Record Eleven supports.",
+        "That conclusion is not established by the events."
+      ],
+      "mode": 6
+    }
+  ]
+}
