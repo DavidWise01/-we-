@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W007",
+  "release": "W008",
   "record_count": 40,
-  "completed": 7,
+  "completed": 8,
   "records": [
     {
       "id": "W001",
@@ -50,9 +50,9 @@
     },
     {
       "id": "W008",
-      "status": "mapped",
-      "title": "Record 8 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Irrational Root, R-13, and the Triangle",
+      "href": "episodes/W008.html"
     },
     {
       "id": "W009",
