@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W006",
+  "release": "W007",
   "record_count": 40,
-  "completed": 6,
+  "completed": 7,
   "records": [
     {
       "id": "W001",
@@ -44,9 +44,9 @@
     },
     {
       "id": "W007",
-      "status": "mapped",
-      "title": "Record 7 — planned",
-      "href": null
+      "status": "playable",
+      "title": "An Eyelash, Taylor, Henbane and Lily of the Valley",
+      "href": "episodes/W007.html"
     },
     {
       "id": "W008",
