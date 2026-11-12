@@ -1,0 +1,140 @@
+{
+  "id": "W005",
+  "title": "The Square and the Rulers of the World",
+  "source": "Interpretation of Record Five of Zamyatin's We; original dialogue and commentary",
+  "scenes": [
+    {
+      "setting": "READER",
+      "title": "01 · The Square Explains Itself",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE VOICE",
+      "line": "What could be more ordinary than four equal corners?",
+      "story": "D-503 again addresses his unknown readers. He imagines a living square having to explain its equal angles: everyday institutions, especially pink tickets, seem too obvious to mention to someone raised inside the One State.",
+      "observation": "D-503 uses geometric familiarity to justify explaining unfamiliar social rules.",
+      "inference": "An institution is morally correct because it feels obvious to its citizens.",
+      "question": "What does the square analogy actually establish?",
+      "choices": [
+        "Familiarity affects which facts a narrator thinks need explanation.",
+        "Familiarity is sufficient evidence of justice."
+      ],
+      "reply": [
+        "Right: the available narrative evidence supports that narrower observation.",
+        "That goes beyond what the record establishes."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "TWO RULERS",
+      "title": "02 · Hunger and Love",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE VOICE",
+      "line": "The old world had two troubles. We have designed answers to both.",
+      "story": "He introduces an ancient idea that hunger and love dominate human life. To him, the One State's purpose is to subdue both sources of uncertainty. Naming human drives as problems is his political premise rather than a neutral observation.",
+      "observation": "D-503 describes hunger and love as governing forces in humanity's past.",
+      "inference": "Any difficult human desire must be extinguished for society to improve.",
+      "question": "Which distinction matters?",
+      "choices": [
+        "Describing a human drive and establishing a moral need to control it.",
+        "An explanation and an ethical justification are identical."
+      ],
+      "reply": [
+        "Right: the available narrative evidence supports that narrower observation.",
+        "That goes beyond what the record establishes."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "WAR",
+      "title": "03 · The Two-Hundred-Year War",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE VOICE",
+      "line": "The country fed the cities, until neither side could live as before.",
+      "story": "D-503 recounts the conflict between cities and countryside as a central turning point. The scale of the war makes the State's later order look desirable to him, while the suffering and destruction remain part of the historical story he tells.",
+      "observation": "He reports a devastating city-country conflict as the origin of present arrangements.",
+      "inference": "War's destructive outcome justifies every later policy.",
+      "question": "What does the history support?",
+      "choices": [
+        "An account of the State's origins, with severe costs.",
+        "A complete moral defense of the present regime."
+      ],
+      "reply": [
+        "Right: the available narrative evidence supports that narrower observation.",
+        "That goes beyond what the record establishes."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "FOOD",
+      "title": "04 · The End of Dependence",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE VOICE",
+      "line": "We found a way to eat without asking the fields for permission.",
+      "story": "Synthetic petroleum-based food eliminates the One State's dependence on farmland. D-503 celebrates the technical achievement. But productive independence and the consequences for people remain separate evaluations.",
+      "observation": "The State develops an artificial food supply and reduces dependence on agriculture.",
+      "inference": "Technological success proves all political outcomes are beneficial.",
+      "question": "What is proven by the food system?",
+      "choices": [
+        "A technical means of production exists within the story.",
+        "Every consequence of the governing system is ethical."
+      ],
+      "reply": [
+        "Right: the available narrative evidence supports that narrower observation.",
+        "That goes beyond what the record establishes."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "BUREAU",
+      "title": "05 · Love Made Administrative",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE VOICE",
+      "line": "No unruly heart could be permitted to overturn the schedule.",
+      "story": "D-503 explains the Bureau of Sex: physiological assessments prescribe when a Number may obtain a pink ticket for a partner. He believes state allocation has eliminated the old conflicts of jealousy and possessiveness. Whether individuals meaningfully consent is a different question.",
+      "observation": "The One State regulates intimate appointments through measurements and tickets.",
+      "inference": "Equal access rules automatically guarantee willing and mutual intimacy.",
+      "question": "What remains distinct?",
+      "choices": [
+        "Administrative eligibility and freely given consent.",
+        "Official permission and personal agreement are the same."
+      ],
+      "reply": [
+        "Right: the available narrative evidence supports that narrower observation.",
+        "That goes beyond what the record establishes."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "THE EQUATION",
+      "title": "06 · A Pleasant and Useful Function",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE VOICE",
+      "line": "How much suffering disappears when every relation has a rule!",
+      "story": "D-503 depicts the system as making happiness predictable and social life productive. He equates reduced conflict with progress. His confident calculation leaves little space for affection, disappointment, or desires outside the permitted formula.",
+      "observation": "D-503 praises the supposed efficiency of regulated relationships.",
+      "inference": "Lower conflict statistics alone prove individual happiness.",
+      "question": "Which value cannot simply be inferred from a formula?",
+      "choices": [
+        "Each person's experience and chosen relationships.",
+        "Whether a procedure has written rules."
+      ],
+      "reply": [
+        "Right: the available narrative evidence supports that narrower observation.",
+        "That goes beyond what the record establishes."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "THE X",
+      "title": "07 · Hairy Hands, an Unsolved Variable",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE VOICE",
+      "line": "I almost erased this. But then the record would not be exact.",
+      "story": "Looking down, D-503 notices his own hairy hands. They evoke the ancestors he dismisses as primitive. He senses an unfamiliar animal-like impulse, a disturbing X within himself. He wants to remove the passage but leaves it to keep his diary accurate.",
+      "observation": "D-503 experiences discomfort, associates his hands with the past, and refuses to erase the record.",
+      "inference": "An uncomfortable inner experience is proof of illness or a completed rebellion.",
+      "question": "What must W006 test next?",
+      "choices": [
+        "Whether his troubling perceptions change his behavior.",
+        "That his uncertainty has already ended the State."
+      ],
+      "reply": [
+        "Right: the available narrative evidence supports that narrower observation.",
+        "That goes beyond what the record establishes."
+      ],
+      "mode": 6
+    }
+  ]
+}
