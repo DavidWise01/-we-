@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W001",
+  "release": "W002",
   "record_count": 40,
-  "completed": 1,
+  "completed": 2,
   "records": [
     {
       "id": "W001",
@@ -14,9 +14,9 @@
     },
     {
       "id": "W002",
-      "status": "mapped",
-      "title": "Record 2 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The First Unknown Variable",
+      "href": "episodes/W002.html"
     },
     {
       "id": "W003",
