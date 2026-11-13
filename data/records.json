@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W027",
+  "release": "W028",
   "record_count": 40,
-  "completed": 27,
+  "completed": 28,
   "records": [
     {
       "id": "W001",
@@ -170,9 +170,9 @@
     },
     {
       "id": "W028",
-      "status": "mapped",
-      "title": "Record 28 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Both of Them, Entropy and Energy, The Opaque Part of the Body",
+      "href": "episodes/W028.html"
     },
     {
       "id": "W029",
