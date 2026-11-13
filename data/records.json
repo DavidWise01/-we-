@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W020",
+  "release": "W021",
   "record_count": 40,
-  "completed": 20,
+  "completed": 21,
   "records": [
     {
       "id": "W001",
@@ -128,9 +128,9 @@
     },
     {
       "id": "W021",
-      "status": "mapped",
-      "title": "Record 21 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Duty of an Author, The Ice Swells, The Most Difficult Love",
+      "href": "episodes/W021.html"
     },
     {
       "id": "W022",
