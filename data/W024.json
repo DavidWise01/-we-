@@ -1,0 +1,141 @@
+{
+  "id": "W024",
+  "title": "The Limit of the Function, Easter, To Cross Out Everything",
+  "source": "Original adaptation of Yevgeny Zamyatin's We, Record Twenty-Four, Gregory Zilboorg's 1924 translation",
+  "source_url": "https://monadnock.net/zamyatin/we-24.html",
+  "scenes": [
+    {
+      "setting": "OVERHEAT",
+      "title": "01 · The Motor Too Hot for Logic",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I pour logic over the bearings. It flashes into steam.",
+      "story": "D-503 compares his internal conflict after the intimate meeting with I-330 to an overheated engine. He tries to calculate his state but discovers that reasoning cannot extinguish what he feels.",
+      "observation": "D-503 describes fear, desire, and an overheated mechanical metaphor.",
+      "inference": "His mind has physically melted, or mathematics cannot describe any emotional experience.",
+      "question": "What is directly observed?",
+      "choices": [
+        "A mechanical analogy for overpowering emotion.",
+        "A proven thermal event inside his brain."
+      ],
+      "reply": [
+        "Correct: this keeps the observed event apart from the narrator's interpretation.",
+        "That goes beyond the information provided in this record."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "FUNCTION",
+      "title": "02 · Love as a Function of Death",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "If dissolution ends in death, perhaps love is its function. Yet I still want her.",
+      "story": "He proposes L=f(D), connecting the previous day's feeling of dissolving into the universe with the limit of death. This is private philosophical symbolism, not a mathematically derived relationship. His simultaneous desire and fear remain.",
+      "observation": "D-503 writes a symbolic equation and acknowledges opposing impulses.",
+      "inference": "The expression proves a mathematical or clinical law that love requires death.",
+      "question": "What kind of formula is it?",
+      "choices": [
+        "A narrator's metaphorical assertion, unsupported by defined variables or data.",
+        "An experimentally established function."
+      ],
+      "reply": [
+        "Correct: this keeps the observed event apart from the narrator's interpretation.",
+        "That goes beyond the information provided in this record."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "ANTICIPATION",
+      "title": "03 · Tomorrow, from a Distance",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Seeing her from afar will hurt. Still I want even that hurt.",
+      "story": "The Day of Unanimity is tomorrow. D-503 anticipates I-330 in the crowd and paradoxically welcomes the pain of being separated from her. His prior theory of happiness as pleasure minus pain no longer fits his experience.",
+      "observation": "He expects to see I-330 and reports wanting the painful anticipation.",
+      "inference": "His prediction verifies she will attend or that suffering benefits everyone.",
+      "question": "Which distinction matters?",
+      "choices": [
+        "Expected attendance is not yet observed attendance.",
+        "That tomorrow's events have already occurred."
+      ],
+      "reply": [
+        "Correct: this keeps the observed event apart from the narrator's interpretation.",
+        "That goes beyond the information provided in this record."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "EASTER",
+      "title": "04 · New Uniforms for a Certain Election",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The result is known; the ceremony tells us again that we are one.",
+      "story": "At a pink windy sunset D-503 moves his chair, then describes Unanimity as analogous to the ancient Easter holiday. New uniforms are delivered amid joyful hallway voices. He recalls childhood countdown calendars and explains that the annual election of the Benefactor ceremonially reaffirms a predetermined result.",
+      "observation": "Uniforms arrive; D-503 explains the annual voting ritual and its advertised symbolic purpose.",
+      "inference": "A foreknown result verifies genuine unanimity or individual free consent.",
+      "question": "What is guaranteed by the official narrative?",
+      "choices": [
+        "Only its declaration of certainty, not each participant's private belief.",
+        "An independently measured unanimous choice."
+      ],
+      "reply": [
+        "Correct: this keeps the observed event apart from the narrator's interpretation.",
+        "That goes beyond the information provided in this record."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "PUBLIC VOTE",
+      "title": "05 · The Transparent Ballot",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Everyone can see my vote, and the Guardians see every dissent.",
+      "story": "He contrasts the State's open ballots with the secret elections of ancient people. He celebrates visibility and cites Guardians who can register anyone breaking with the expected vote. His argument treats surveillance as transparent virtue, not coercion.",
+      "observation": "The One State promotes visible voting and observation by Guardians.",
+      "inference": "Surveillance proves that participants consent without pressure.",
+      "question": "What does observation measure?",
+      "choices": [
+        "Public conduct in a monitored environment.",
+        "Uncoerced private agreement."
+      ],
+      "reply": [
+        "Correct: this keeps the observed event apart from the narrator's interpretation.",
+        "That goes beyond the information provided in this record."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "CROSS OUT",
+      "title": "06 · One Glimpse Erases the Essay",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The whole glorious argument suddenly means nothing without her.",
+      "story": "D-503 glimpses a neighboring woman before a curtain descends. His desire for I-330 surges, obliterating his enthusiasm for the ceremony. He wishes to cross out the political praise he has just written and reaches for the telephone.",
+      "observation": "A brief sight triggers memory and reverses D-503's stated priorities.",
+      "inference": "The woman was I-330 or the entire ideology has been disproved by one feeling.",
+      "question": "What does the scene show?",
+      "choices": [
+        "A sudden shift in the narrator's attention and values.",
+        "A verified identification of the neighbor."
+      ],
+      "reply": [
+        "Correct: this keeps the observed event apart from the narrator's interpretation.",
+        "That goes beyond the information provided in this record."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "TELEPHONE",
+      "title": "07 · You Shall See Tomorrow",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "No. I cannot go with you. You will see why tomorrow.",
+      "story": "D-503 telephones I-330 and asks to sit with her at Unanimity. While waiting he remembers a fragile watch placed beneath an enormous hammer at the docks. He thinks he hears whispering in I-330's room. She declines to accompany him and refuses to explain until tomorrow. Record Twenty-Four ends before the ceremony.",
+      "observation": "I-330 answers, declines the invitation, and offers a future explanation; the whisper remains uncertain.",
+      "inference": "Her refusal confirms the next day's voting results, her companions' identity, or any guaranteed revelation.",
+      "question": "What is preserved for W025?",
+      "choices": [
+        "An unfulfilled invitation, an unexplained refusal, and a ceremony still in the future.",
+        "A confirmed outcome of the Day of Unanimity."
+      ],
+      "reply": [
+        "Correct: this keeps the observed event apart from the narrator's interpretation.",
+        "That goes beyond the information provided in this record."
+      ],
+      "mode": 6
+    }
+  ]
+}
