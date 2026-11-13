@@ -1,0 +1,140 @@
+{
+  "id": "W013",
+  "title": "Fog, Thou, and a Decidedly Absurd Adventure",
+  "source": "Original adaptation of Zamyatin's We, Record Thirteen, from the Zilboorg translation",
+  "scenes": [
+    {
+      "setting": "FOG",
+      "title": "01 · The Vanishing Glass City",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "A wall of glass can reveal nothing when the world outside becomes white.",
+      "story": "D-503 wakes hopeful for O-90's evening visit, but thick fog removes all visible boundaries between sky and earth. Transparent buildings seem to dissolve and inhabitants become silhouettes.",
+      "observation": "Dense fog obstructs D-503's view of buildings, streets and sky.",
+      "inference": "A loss of sight proves the city itself ceased to exist.",
+      "question": "What does the weather establish?",
+      "choices": [
+        "A loss of visibility, not of physical existence.",
+        "The buildings are actually gone."
+      ],
+      "reply": [
+        "Preserved: this is supported without inventing its cause.",
+        "This interpretation exceeds the observed facts."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "TELEPHONE",
+      "title": "02 · Eleven Forty-Five",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Meet me at the corner. The destination can remain a surprise.",
+      "story": "At 11:45, just before his required work period, I-330 calls. D-503 says that only the State directs his schedule, yet he goes to the corner to wait. Her delay takes him beyond noon and causes him to miss the beginning of work.",
+      "observation": "I-330 calls; D-503 waits; required work time is missed.",
+      "inference": "His verbal assertion of independence establishes that he refused her request.",
+      "question": "What occurred rather than merely being said?",
+      "choices": [
+        "He waited, despite declaring the contrary intention.",
+        "He reported to work on schedule."
+      ],
+      "reply": [
+        "Preserved: this is supported without inventing its cause.",
+        "This interpretation exceeds the observed facts."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "THOU",
+      "title": "03 · The Old Intimate Word",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The word sounds ancient, intimate, and frighteningly powerful.",
+      "story": "I-330 emerges from the fog and walks close to D-503. She uses the old familiar form thou. D-503 interprets the language through images of power and submission, and his dislike of fog turns into attraction as he follows her.",
+      "observation": "I-330 addresses him familiarly; D-503's feelings shift.",
+      "inference": "A term of address reveals an objectively necessary social hierarchy.",
+      "question": "Which part is interpretation?",
+      "choices": [
+        "His emotional meaning attached to the old word.",
+        "The fact that the word is spoken."
+      ],
+      "reply": [
+        "Preserved: this is supported without inventing its cause.",
+        "This interpretation exceeds the observed facts."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "DOCTOR",
+      "title": "04 · A Certificate Without Illness",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The doctor smiles, signs the papers, and sends them back into the fog.",
+      "story": "At the Medical Bureau, I-330 speaks to a thin, sharp-profiled doctor. He supplies both visitors certificates declaring them unable to work. D-503 accepts the document despite understanding that he has abandoned his work obligation.",
+      "observation": "The doctor issues certificates used to excuse their missed work.",
+      "inference": "A signed certificate demonstrates an actual medical diagnosis.",
+      "question": "What distinction matters?",
+      "choices": [
+        "Official attestation and independently established illness.",
+        "That the papers were issued."
+      ],
+      "reply": [
+        "Preserved: this is supported without inventing its cause.",
+        "This interpretation exceeds the observed facts."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "AERO",
+      "title": "05 · Flight Back to the Ancient House",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I used to imagine the universe turning around the sun. Today I feel at its center.",
+      "story": "I-330 takes the controls of an aero and flies them to the Ancient House. The caretaker recognizes her and offers to warn her if needed. D-503 follows I-330 through the opaque door into a preserved world beyond the usual State routines.",
+      "observation": "The pair travel to the Ancient House and enter with the caretaker's knowledge.",
+      "inference": "The caretaker's cooperation proves the whole plan or its consequences.",
+      "question": "What do we directly see?",
+      "choices": [
+        "A flight, a greeting, and access to the house.",
+        "The unseen full network of I-330's associates."
+      ],
+      "reply": [
+        "Preserved: this is supported without inventing its cause.",
+        "This interpretation exceeds the observed facts."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "ROOM",
+      "title": "06 · The Unnumbered Intimacy",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Behind the heavy door, the official timetable no longer describes what happens.",
+      "story": "In the dim, colorful room, D-503 and I-330 share intimacy outside the approved pink-ticket system. The diary shifts from administrative language to intense metaphors of sensation, desire and time. The adaptation represents the scene with intertwined lights and silhouettes.",
+      "observation": "D-503 recounts an intimate encounter without a State authorization ticket.",
+      "inference": "A relationship event proves lasting allegiance, perfect equality, or the future of the pair.",
+      "question": "What has changed?",
+      "choices": [
+        "He has crossed another concrete State boundary.",
+        "Every uncertainty about I-330's purposes is resolved."
+      ],
+      "reply": [
+        "Preserved: this is supported without inventing its cause.",
+        "This interpretation exceeds the observed facts."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "ABSENCE",
+      "title": "07 · The Key That Keeps Moving",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I looked for her. The key still swung, and no one was there.",
+      "story": "After I-330 instructs him to leave, D-503 does so, then returns seeking her. He sees the cupboard key moving, but she is absent from the room. He searches unsuccessfully and believes the room had no other exit, promising that one day he will find an explanation.",
+      "observation": "He observes a moving key and cannot locate I-330.",
+      "inference": "Her disappearance demonstrates teleportation or a supernatural event.",
+      "question": "What is the proper witness boundary?",
+      "choices": [
+        "An unexplained absence with a limited observer's perspective.",
+        "A verified impossible mechanism."
+      ],
+      "reply": [
+        "Preserved: this is supported without inventing its cause.",
+        "This interpretation exceeds the observed facts."
+      ],
+      "mode": 6
+    }
+  ]
+}
