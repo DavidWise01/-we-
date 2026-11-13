@@ -2,9 +2,9 @@
 
 Original interactive Canvas2D literary interpretation of **We** by Yevgeny Zamyatin, in the existing `DavidWise01/-we-` repository. Separate from the pre-existing `DavidWise01/we` NOUTHESIA corpus.
 
-## Current release: W015
-- One hundred five playable acts across fifteen records featuring D-503, O-90, the Table of Hours, the Green Wall, and the Integral
-- Forty-record atlas, W016–W040 explicitly planned (not complete)
+## Current release: W016
+- One hundred twelve playable acts across sixteen records featuring D-503, O-90, the Table of Hours, the Green Wall, and the Integral
+- Forty-record atlas, W017–W040 explicitly planned (not complete)
 - Source-bound witness crosswalk and browser-local append-only evidence desk
 - Procedural Canvas2D sprites; no mandatory third-party assets
 - GitHub Pages entry point: `index.html`
