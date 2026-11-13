@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W024",
+  "release": "W025",
   "record_count": 40,
-  "completed": 24,
+  "completed": 25,
   "records": [
     {
       "id": "W001",
@@ -152,9 +152,9 @@
     },
     {
       "id": "W025",
-      "status": "mapped",
-      "title": "Record 25 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Descent from Heaven, The Greatest Catastrophe in History, The Known Is Ended",
+      "href": "episodes/W025.html"
     },
     {
       "id": "W026",
