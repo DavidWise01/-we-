@@ -1,0 +1,141 @@
+{
+  "id": "W031",
+  "title": "The Great Operation, I Forgave Everything, The Collision of Trains",
+  "source": "Original dramatic interpretation of Yevgeny Zamyatin, We, Record Thirty-One, 1924 Gregory Zilboorg translation",
+  "source_url": "https://monadnock.net/zamyatin/we-31.html",
+  "scenes": [
+    {
+      "setting": "GAZETTE",
+      "title": "01 · Rejoice: The Great Operation",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The State has found the cause of imagination. It calls this salvation.",
+      "story": "The Gazette announces that an alleged brain center for fancy can be treated with three X-ray exposures. It promises perfect machine-like happiness. D-503 is ecstatic and telephones I-330, who agrees to meet after sixteen, but the treatment's claimed benefits are untested in his account.",
+      "observation": "The State announces an X-ray procedure and D-503 welcomes it.",
+      "inference": "The announcement establishes medical efficacy, safety or genuine consent.",
+      "question": "What is established?",
+      "choices": [
+        "An official claim and D-503's reaction, not proof that the procedure works.",
+        "A verified safe cure for imagination."
+      ],
+      "reply": [
+        "Correct: the observed scene stays separate from institutional claims and future plans.",
+        "That claim is not established in Record Thirty-One."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "AUDITORIUM",
+      "title": "02 · The White Table Behind Glass",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "They ask why I do not join the queue. I say there is something I must do first.",
+      "story": "Passing an auditorium, D-503 watches a Number lying on a white table under a sheet while medics work near the person's head, a syringe visible. Another waiting citizen asks why D-503 has not entered; he postpones because he wants to meet I-330.",
+      "observation": "A procedure is visibly underway and D-503 delays his participation.",
+      "inference": "Seeing a syringe proves the full medical protocol or patient outcomes.",
+      "question": "What is directly visible?",
+      "choices": [
+        "A patient, white-clad medics and equipment; no measured outcomes.",
+        "A demonstration that the operation gives lifelong happiness."
+      ],
+      "reply": [
+        "Correct: the observed scene stays separate from institutional claims and future plans.",
+        "That claim is not established in Record Thirty-One."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "DELAY",
+      "title": "03 · A Ship Postponed One Day",
+      "speaker": "SECOND BUILDER · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The flight has shifted to the day after tomorrow because of the Operation.",
+      "story": "At the Integral shipyard D-503 touches the cold engine with renewed tenderness. The Second Builder reports that the trial flight is postponed one day to accommodate the Great Operation. The revised schedule also shifts the proposed MEPHI action.",
+      "observation": "The Second Builder tells D-503 a one-day delay has been ordered.",
+      "inference": "A postponement means the trial is canceled or MEPHI's plot is over.",
+      "question": "Which time remains crucial?",
+      "choices": [
+        "Noon on the new flight day, day after tomorrow.",
+        "A flight that already happened."
+      ],
+      "reply": [
+        "Correct: the observed scene stays separate from institutional claims and future plans.",
+        "That claim is not established in Record Thirty-One."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "FORGIVE",
+      "title": "04 · U and the Children",
+      "speaker": "U · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I only wanted you restored, and the children are being taken to the procedure.",
+      "story": "At 12:30 D-503 finds U waiting at his desk. He forgives her earlier opposition to I-330. She celebrates his imminent cure and says schoolchildren have been taken for the Operation, some needing to be bound afterward. D-503 continues fantasizing that even shadows will disappear.",
+      "observation": "U describes children's treatment and restraints; D-503 forgives her.",
+      "inference": "Forgiveness validates coercion or establishes that the children freely consented.",
+      "question": "Which concepts remain separate?",
+      "choices": [
+        "D-503's interpersonal forgiveness and the children's autonomy.",
+        "A verified moral justification for restraints."
+      ],
+      "reply": [
+        "Correct: the observed scene stays separate from institutional claims and future plans.",
+        "That claim is not established in Record Thirty-One."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "MINUS",
+      "title": "05 · Happiness at Absolute Zero",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "If all wanting disappears, is an organized society of stones your final paradise?",
+      "story": "At sixteen D-503 kneels beside I-330, celebrating a star-bound future and the promised happiness. I-330 pushes his premise to an extreme: desirelessness would resemble absolute zero, or a society of stones. D-503 recognizes her irony and protests. Their discussion is metaphorical; absolute zero is not literally the State's target temperature.",
+      "observation": "I-330 challenges his premise by comparing desireless happiness to lifeless equilibrium.",
+      "inference": "The analogy mathematically proves which feelings are ethically good.",
+      "question": "What has been tested?",
+      "choices": [
+        "The internal consistency of D-503's ideal and his response.",
+        "A thermodynamic law of political well-being."
+      ],
+      "reply": [
+        "Correct: the observed scene stays separate from institutional claims and future plans.",
+        "That claim is not established in Record Thirty-One."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "COLLISION",
+      "title": "06 · Two Trains of Logic",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The Operation would free me from her. I cannot call that freedom.",
+      "story": "I-330 tells D-503 goodbye, arguing the Operation would cure him of his attachment and the pain of loving her. He refuses to accept that cure as desirable. He imagines two trains of logic colliding: State happiness against his need for I-330.",
+      "observation": "I-330 describes the personal consequence, and D-503 expresses unwillingness to lose his feelings.",
+      "inference": "His refusal establishes that he has already undergone or physically stopped the Operation.",
+      "question": "What has actually changed?",
+      "choices": [
+        "His stated preference, not his medical status.",
+        "A completed treatment."
+      ],
+      "reply": [
+        "Correct: the observed scene stays separate from institutional claims and future plans.",
+        "That claim is not established in Record Thirty-One."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "NEW NOON",
+      "title": "07 · Day After Tomorrow, Twelve",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Then we meet the postponed flight at twelve, not tomorrow.",
+      "story": "Still at her chair, D-503 tells I-330 that the Integral's flight has moved to the day after tomorrow; she corrects the seizure timing accordingly. He walks home amid wind, feeling isolated because he does not wish to be cured of what he feels. Neither the trial flight nor the takeover occurs in Record Thirty-One.",
+      "observation": "A revised target time is confirmed in dialogue; D-503 remains conflicted.",
+      "inference": "The promise proves the takeover will succeed or that he has already participated.",
+      "question": "What carries into W032?",
+      "choices": [
+        "The postponed noon plan and the Great Operation proceeding around him.",
+        "Any completed seizure or guaranteed victory."
+      ],
+      "reply": [
+        "Correct: the observed scene stays separate from institutional claims and future plans.",
+        "That claim is not established in Record Thirty-One."
+      ],
+      "mode": 6
+    }
+  ]
+}
