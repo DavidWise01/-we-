@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W016",
+  "release": "W017",
   "record_count": 40,
-  "completed": 16,
+  "completed": 17,
   "records": [
     {
       "id": "W001",
@@ -104,9 +104,9 @@
     },
     {
       "id": "W017",
-      "status": "mapped",
-      "title": "Record 17 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Through Glass, I Died, the Corridor",
+      "href": "episodes/W017.html"
     },
     {
       "id": "W018",
