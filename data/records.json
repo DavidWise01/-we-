@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W018",
+  "release": "W019",
   "record_count": 40,
-  "completed": 18,
+  "completed": 19,
   "records": [
     {
       "id": "W001",
@@ -116,9 +116,9 @@
     },
     {
       "id": "W019",
-      "status": "mapped",
-      "title": "Record 19 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Infinitesimal of the Third Order, From Under the Forehead, Over the Railing",
+      "href": "episodes/W019.html"
     },
     {
       "id": "W020",
