@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W023",
+  "release": "W024",
   "record_count": 40,
-  "completed": 23,
+  "completed": 24,
   "records": [
     {
       "id": "W001",
@@ -146,9 +146,9 @@
     },
     {
       "id": "W024",
-      "status": "mapped",
-      "title": "Record 24 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Limit of the Function, Easter, To Cross Out Everything",
+      "href": "episodes/W024.html"
     },
     {
       "id": "W025",
