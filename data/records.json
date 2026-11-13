@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W025",
+  "release": "W026",
   "record_count": 40,
-  "completed": 25,
+  "completed": 26,
   "records": [
     {
       "id": "W001",
@@ -158,9 +158,9 @@
     },
     {
       "id": "W026",
-      "status": "mapped",
-      "title": "Record 26 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The World Does Exist, Rash, Forty-One Degrees Centigrade",
+      "href": "episodes/W026.html"
     },
     {
       "id": "W027",
