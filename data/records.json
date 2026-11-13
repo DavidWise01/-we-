@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W014",
+  "release": "W015",
   "record_count": 40,
-  "completed": 14,
+  "completed": 15,
   "records": [
     {
       "id": "W001",
@@ -92,9 +92,9 @@
     },
     {
       "id": "W015",
-      "status": "mapped",
-      "title": "Record 15 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Bell, the Mirror-Like Sea, and the Eternal Fire",
+      "href": "episodes/W015.html"
     },
     {
       "id": "W016",
