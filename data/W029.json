@@ -1,0 +1,141 @@
+{
+  "id": "W029",
+  "title": "Threads on the Face, Sprouts, An Unnatural Compression",
+  "source": "Zamyatin We Record Twenty-Nine, Gregory Zilboorg translation (1924); newly dramatized descriptions and dialogue",
+  "source_url": "https://monadnock.net/zamyatin/we-29.html",
+  "scenes": [
+    {
+      "setting": "THREADS",
+      "title": "01 · Weather Before the Storm",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The barometer falls; the air is still, but invisible threads catch my face.",
+      "story": "Ahead of the Ancient House, D-503 observes swift clouds above calm streets and fine autumn filaments drifting in from the Green Wall. He treats the pressure of both as an omen but has not observed a storm striking the city.",
+      "observation": "Barometer falling, clouds moving, fine threads touching his face.",
+      "inference": "The cloud imagery establishes an actual city collapsing above him.",
+      "question": "Which part is observed?",
+      "choices": [
+        "The air, clouds, weather instrument, and threads.",
+        "A literal demolished city in the sky."
+      ],
+      "reply": [
+        "Correct. The witness preserves only what the scene establishes.",
+        "That claim is not established by Record Twenty-Nine."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "O90",
+      "title": "02 · O-90 Catches Up",
+      "speaker": "O-90 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I saw you at Unanimity. I have something wonderful inside me.",
+      "story": "O-90 comes running from behind, noticeably rounder beneath her uniform. She reminds D-503 that she saw him during Unanimity, and tells him about her happiness as she listens inwardly to the life she is carrying.",
+      "observation": "O-90 speaks of an anticipated child, with visibly changed appearance.",
+      "inference": "Her joy guarantees her safety under the State's laws.",
+      "question": "What is now established?",
+      "choices": [
+        "O-90 reports her pregnancy and happiness.",
+        "A medically examined birth or protected future."
+      ],
+      "reply": [
+        "Correct. The witness preserves only what the scene establishes.",
+        "That claim is not established by Record Twenty-Nine."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "KISS",
+      "title": "03 · The Hand He Pulls Away",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "She kissed my hand and I withdrew it. Why did kindness hurt?",
+      "story": "Overcome with joy, O-90 takes D-503's hand and kisses it. The unanticipated gesture shocks him; he withdraws brusquely, leaving her distressed.",
+      "observation": "An unusual tender gesture is followed by D-503's withdrawal.",
+      "inference": "His embarrassment proves O-90 intended manipulation.",
+      "question": "Which motive remains uncertain?",
+      "choices": [
+        "D-503 cannot read another person's entire inner intention from a kiss.",
+        "That the kiss and withdrawal occurred."
+      ],
+      "reply": [
+        "Correct. The witness preserves only what the scene establishes.",
+        "That claim is not established by Record Twenty-Nine."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "DANGER",
+      "title": "04 · The Price of a Child",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "There are only weeks before the State may punish you for this.",
+      "story": "D-503 reminds O-90 of the severe penalty for unauthorized pregnancy and motherhood. Her radiant mood fades, and he feels painful pity. He derides the feeling using an ideal pump analogy.",
+      "observation": "O-90 learns that D-503 fears punishment; his pity is personally distressing.",
+      "inference": "The punishment has already been carried out or his chest sensation proves a cardiac disease.",
+      "question": "What is the evidentiary boundary?",
+      "choices": [
+        "A threatened future consequence and experienced emotion.",
+        "A confirmed sentence and medical diagnosis."
+      ],
+      "reply": [
+        "Correct. The witness preserves only what the scene establishes.",
+        "That claim is not established by Record Twenty-Nine."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "ESCAPE",
+      "title": "05 · Green Wall and Red House",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Through the Ancient House we could reach the forest. Your child could grow there.",
+      "story": "The green Wall and red Ancient House suggest an escape route to D-503. He proposes introducing O-90 to I-330, who might help guide her beyond the Wall to a place where she could raise the child.",
+      "observation": "D-503 proposes a specific possible escape and names I-330 as helper.",
+      "inference": "I-330 has agreed, O-90 has consented, or the route is secured.",
+      "question": "Which facts remain future possibilities?",
+      "choices": [
+        "Both women's consent and the successful escape.",
+        "That D-503 made the offer."
+      ],
+      "reply": [
+        "Correct. The witness preserves only what the scene establishes.",
+        "That claim is not established by Record Twenty-Nine."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "REFUSAL",
+      "title": "06 · Not Through I-330",
+      "speaker": "O-90 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Ask her? No. Never say that to me again.",
+      "story": "O-90 initially clings to D-503's hope. When she learns the proposed helper is the same I-330 from the public Walk, she refuses sharply and moves away. Her decision is explicit despite the apparent danger.",
+      "observation": "O-90 declines to seek assistance through I-330.",
+      "inference": "An offer of rescue overrides a person's refusal.",
+      "question": "What must remain respected?",
+      "choices": [
+        "O-90's stated refusal in the scene.",
+        "A claim that she accepted the proposed plan."
+      ],
+      "reply": [
+        "Correct. The witness preserves only what the scene establishes.",
+        "That claim is not established by Record Twenty-Nine."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "COMPRESSION",
+      "title": "07 · The Threads Cannot Be Brushed Away",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "She has gone. The air presses on my face and something tightens in my chest.",
+      "story": "O-90 walks away, telling D-503 that her fate is her business. He remains with the windless sky, falling barometer and threads against his face, then continues toward the Ancient House weighed down by pity.",
+      "observation": "O-90 departs; D-503 remains troubled and continues walking.",
+      "inference": "A refused plan establishes O-90's final fate or proves D-503 can never help.",
+      "question": "What remains open for the next record?",
+      "choices": [
+        "O-90's future, D-503's feelings, and the still-anticipated meeting with I-330.",
+        "A completed rescue or established death."
+      ],
+      "reply": [
+        "Correct. The witness preserves only what the scene establishes.",
+        "That claim is not established by Record Twenty-Nine."
+      ],
+      "mode": 6
+    }
+  ]
+}
