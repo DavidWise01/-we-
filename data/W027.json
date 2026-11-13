@@ -1,0 +1,141 @@
+{
+  "id": "W027",
+  "title": "No Headings. It Is Impossible!",
+  "source": "Original adaptation of Zamyatin's We, Record Twenty-Seven, Gregory Zilboorg translation (1924)",
+  "source_url": "https://monadnock.net/zamyatin/we-27.html",
+  "scenes": [
+    {
+      "setting": "CORRIDOR",
+      "title": "01 · Sixteen O'Clock, No One Comes",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Fifteen minutes late. Perhaps if I leave now I can still escape.",
+      "story": "D-503 waits in the secret corridor below the Ancient House for I-330. She is late, and he begins leaving in frightened relief. Then a door rattles; I-330 runs after him, kisses him, and leads him toward ancient steps.",
+      "observation": "He waits past sixteen o'clock and I-330 eventually arrives.",
+      "inference": "The late arrival proves she chose not to meet him or that the corridor was a hallucination.",
+      "question": "What does the record verify?",
+      "choices": [
+        "An actual meeting after a delay.",
+        "That her reasons for being late are fully known."
+      ],
+      "reply": [
+        "Correct: the source event stays separate from an unverified conclusion.",
+        "That interpretation overstates what the witness can establish."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "FOREST",
+      "title": "02 · Beyond the Wall, Not Through Its Ruins",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The Wall hasn't fallen. We have gone beyond it.",
+      "story": "They emerge into intense sunlight, moving branches, birds, insects and soft grass. D-503 initially thinks the Green Wall was destroyed and wilderness invaded the city. I-330 explains that they have crossed outside the Wall.",
+      "observation": "D-503 experiences unfamiliar nature after using an underground route; I-330 identifies their location beyond the barrier.",
+      "inference": "They witnessed the Green Wall's demolition.",
+      "question": "What distinction is decisive?",
+      "choices": [
+        "Crossing an intact boundary is different from destroying it.",
+        "The feeling of being overwhelmed by sunlight."
+      ],
+      "reply": [
+        "Correct: the source event stays separate from an unverified conclusion.",
+        "That interpretation overstates what the witness can establish."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "DOCTOR",
+      "title": "03 · A Doctor Beneath the Trees",
+      "speaker": "THIN DOCTOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "It is difficult the first time. We can help you walk.",
+      "story": "D-503 freezes on living, springy ground, clinging to a branch. The thin doctor from the underground chamber appears alongside I-330. The pair support him as they move through the forest toward a clearing.",
+      "observation": "The doctor is present beyond the Green Wall with I-330 and guides D-503.",
+      "inference": "His presence reveals the identities of every person cooperating with them.",
+      "question": "What can be inferred safely?",
+      "choices": [
+        "The thin doctor is connected to this journey and location.",
+        "A complete roster or hierarchy of a secret group."
+      ],
+      "reply": [
+        "Correct: the source event stays separate from an unverified conclusion.",
+        "That interpretation overstates what the witness can establish."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "CLEARING",
+      "title": "04 · Hundreds of People Outside",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The world was supposed to end at the Wall. Yet here are hundreds of people.",
+      "story": "The trees open onto a clearing occupied by roughly three or four hundred people. Some wear the One State's gray-blue uniforms, while others have diverse appearances and much body hair unfamiliar to D-503. He is shocked to find humans living outside the city.",
+      "observation": "Hundreds of humans gather outside the Green Wall, including some in State uniforms.",
+      "inference": "D-503's surprised descriptions establish that the people are nonhuman or inferior.",
+      "question": "What has the scene overturned?",
+      "choices": [
+        "The completeness of the State's account of inhabited space.",
+        "The humanity of those gathered."
+      ],
+      "reply": [
+        "Correct: the source event stays separate from an unverified conclusion.",
+        "That interpretation overstates what the witness can establish."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "ROCK",
+      "title": "05 · The Integral Must Be Ours",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Not down with the ship. We must take it before it carries the Wall to the stars.",
+      "story": "I-330 addresses the clearing from a skull-like yellow rock. She warns that the Integral would spread the One State's coercive boundaries to distant worlds. Some call for destroying it. She instead proposes taking control of the spacecraft and announces D-503, its Builder, as an ally. The crowd raises him overhead.",
+      "observation": "I-330 publicly proposes capturing the Integral and presents D-503 as an ally.",
+      "inference": "Her announcement proves he gave informed agreement to every part of the plan or that the ship has already been seized.",
+      "question": "What is confirmed?",
+      "choices": [
+        "A public claim, crowd support, and an uncompleted plan.",
+        "A completed takeover or a full record of D-503's consent."
+      ],
+      "reply": [
+        "Correct: the source event stays separate from an unverified conclusion.",
+        "That interpretation overstates what the witness can establish."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "MEPHI",
+      "title": "06 · The Name on the Rock",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The green posters finally have a place. I still do not know all they contain.",
+      "story": "A golden-haired woman shares a cold drink from a wooden cup. D-503's sensations intensify; he sees the word MEPHI carved into the rock and a winged figure with a burning heart. Carried along by the gathering, he jumps onto the rock and joins the shouts.",
+      "observation": "The MEPHI inscription connects the public posters with this meeting; D-503 drinks and actively shouts.",
+      "inference": "The drink's composition, his precise mental state and the organization's entire structure are known.",
+      "question": "What did the new evidence actually connect?",
+      "choices": [
+        "A repeated name to a specific gathering and proposed action.",
+        "A complete membership registry or chemical analysis of the drink."
+      ],
+      "reply": [
+        "Correct: the source event stays separate from an unverified conclusion.",
+        "That interpretation overstates what the witness can establish."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "EARS",
+      "title": "07 · The Ears in the Crowd",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I saw S-4711—or thought I saw him. She says it is impossible.",
+      "story": "After fragmented images of birds, insects and unfamiliar food, D-503 glimpses what he takes for S-4711's distinct ears. He warns I-330 that a Guardian may have penetrated the gathering. She dismisses the possibility, saying those inside the Wall do not know this place exists. D-503 cannot verify his fleeting sight.",
+      "observation": "D-503 reports a fleeting possible recognition and I-330 rejects his inference.",
+      "inference": "Her confidence proves that no Guardian could have followed them, or his glimpse proves S-4711 was present.",
+      "question": "What must survive into W028?",
+      "choices": [
+        "A specific unresolved surveillance concern and the newly disclosed plan for the Integral.",
+        "Either an authenticated Guardian sighting or a guarantee of secrecy."
+      ],
+      "reply": [
+        "Correct: the source event stays separate from an unverified conclusion.",
+        "That interpretation overstates what the witness can establish."
+      ],
+      "mode": 6
+    }
+  ]
+}
