@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W030",
+  "release": "W031",
   "record_count": 40,
-  "completed": 30,
+  "completed": 31,
   "records": [
     {
       "id": "W001",
@@ -188,9 +188,9 @@
     },
     {
       "id": "W031",
-      "status": "mapped",
-      "title": "Record 31 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Great Operation, I Forgave Everything, The Collision of Trains",
+      "href": "episodes/W031.html"
     },
     {
       "id": "W032",
