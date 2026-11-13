@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W028",
+  "release": "W029",
   "record_count": 40,
-  "completed": 28,
+  "completed": 29,
   "records": [
     {
       "id": "W001",
@@ -176,9 +176,9 @@
     },
     {
       "id": "W029",
-      "status": "mapped",
-      "title": "Record 29 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Threads on the Face, Sprouts, An Unnatural Compression",
+      "href": "episodes/W029.html"
     },
     {
       "id": "W030",
