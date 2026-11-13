@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W017",
+  "release": "W018",
   "record_count": 40,
-  "completed": 17,
+  "completed": 18,
   "records": [
     {
       "id": "W001",
@@ -110,9 +110,9 @@
     },
     {
       "id": "W018",
-      "status": "mapped",
-      "title": "Record 18 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Logical Debris, Wounds and Plaster, Never Again",
+      "href": "episodes/W018.html"
     },
     {
       "id": "W019",
