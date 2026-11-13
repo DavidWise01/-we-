@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W013",
+  "release": "W014",
   "record_count": 40,
-  "completed": 13,
+  "completed": 14,
   "records": [
     {
       "id": "W001",
@@ -86,9 +86,9 @@
     },
     {
       "id": "W014",
-      "status": "mapped",
-      "title": "Record 14 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Mine, Impossible, a Cold Floor",
+      "href": "episodes/W014.html"
     },
     {
       "id": "W015",
