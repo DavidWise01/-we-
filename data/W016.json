@@ -1,0 +1,140 @@
+{
+  "id": "W016",
+  "title": "Yellow, a Two-Dimensional Shadow, an Incurable Soul",
+  "source": "Original interpretation of We, Record Sixteen, based on Gregory Zilboorg's 1924 English translation",
+  "scenes": [
+    {
+      "setting": "YELLOW",
+      "title": "01 · Days Without Separation",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I cannot distinguish one day from another. All of them are yellow.",
+      "story": "Several days have passed since the Ancient House. D-503 cannot keep track of time and describes his longing for I-330 as an endless desert of yellow sand.",
+      "observation": "He loses track of the number of days and reports longing and distress.",
+      "inference": "His colorful metaphor proves that the external world has literally turned yellow.",
+      "question": "What is observed?",
+      "choices": [
+        "His time confusion and emotional experience.",
+        "A verified alteration of the physical sun."
+      ],
+      "reply": [
+        "Correct: observation remains separate from its possible meaning.",
+        "That inference is not established by this record."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "THE FOUR",
+      "title": "02 · The Word Integral",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I heard my spacecraft's name. Why were they speaking about it?",
+      "story": "During an official walk D-503 sees I-330 with S-4711, the thin doctor, and a stranger with exceptionally long white fingers. She waves; he catches the word Integral. The group looks back at him and disappears into the crowd.",
+      "observation": "Four companions walk together and the word Integral is overheard.",
+      "inference": "The full plan, loyalties and objectives of the four are already established.",
+      "question": "What remains unknown?",
+      "choices": [
+        "The context and intention behind the overheard word.",
+        "That the group looked back at D-503."
+      ],
+      "reply": [
+        "Correct: observation remains separate from its possible meaning.",
+        "That inference is not established by this record."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "NO VISIT",
+      "title": "03 · A Pink Ticket Without Arrival",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Every elevator sound might be her. Every door opens for someone else.",
+      "story": "I-330 has registered an evening visit, but she never comes. D-503 waits by the signaling equipment, imagining that she might be with R-13, S-4711 or another man. He begins perceiving S-4711 as a pursuing two-dimensional shadow.",
+      "observation": "The authorized visit does not happen, and D-503 becomes suspicious.",
+      "inference": "Jealous speculation reveals I-330's actual whereabouts.",
+      "question": "What is certain?",
+      "choices": [
+        "She did not arrive as expected.",
+        "Where she went and with whom."
+      ],
+      "reply": [
+        "Correct: observation remains separate from its possible meaning.",
+        "That inference is not established by this record."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "SEARCH",
+      "title": "04 · Sixteen to Seventeen",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I have searched this street for an hour, and now I have missed my return.",
+      "story": "D-503 hangs up the telephone before speaking to I-330, then waits outside her home from sixteen to seventeen. After Personal Hour ends, the street empties. His delay becomes a new breach of the Table of Hours.",
+      "observation": "He approaches her building and remains outside after seventeen.",
+      "inference": "Desperation makes a rule violation disappear or proves I-330's presence inside.",
+      "question": "What action is established?",
+      "choices": [
+        "He misses the required time and remains outside.",
+        "He has located and spoken to I-330."
+      ],
+      "reply": [
+        "Correct: observation remains separate from its possible meaning.",
+        "That inference is not established by this record."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "SHADOW",
+      "title": "05 · The Inverted Glass City",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The reflection beneath him makes even the sky seem underfoot.",
+      "story": "S-4711 confronts D-503. D-503 says he needs medical assistance. Ordered to follow, he anticipates arrest and sees the city inverted in the glass pavement, before realizing S-4711 has brought him to the Medical Bureau.",
+      "observation": "S-4711 escorts D-503 to the Medical Bureau while D-503 fears detention.",
+      "inference": "D-503's feared destination was the actual destination.",
+      "question": "What does the destination confirm?",
+      "choices": [
+        "He reaches medical care rather than the feared Operation Department.",
+        "That the Guardian had promised protection or punishment."
+      ],
+      "reply": [
+        "Correct: observation remains separate from its possible meaning.",
+        "That inference is not established by this record."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "MIRROR",
+      "title": "06 · From Surface to Depth",
+      "speaker": "THIN DOCTOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "A reflection vanishes; an inner life can keep its traces.",
+      "story": "The thin physician tells D-503 a soul has developed, then compares a flat reflective plane with a surface that acquires depth and retains sunlight, motion, faces, and sound. D-503 recognizes this as an analogy for memory and emotion.",
+      "observation": "The physician offers a metaphorical diagnosis involving enduring inner impressions.",
+      "inference": "A literary metaphor is a medically validated neurological test.",
+      "question": "What does the mirror analogy describe?",
+      "choices": [
+        "A model of subjective depth and lasting experience.",
+        "A clinically proven anatomical soul."
+      ],
+      "reply": [
+        "Correct: observation remains separate from its possible meaning.",
+        "That inference is not established by this record."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "OPERATION",
+      "title": "07 · The Prescription to Walk",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I will not agree to lose imagination. And tomorrow there may be a path to her.",
+      "story": "The second doctor recommends removing imagination through surgery. D-503 does not consent; the thin doctor objects because of his role building the Integral. In private, the thin doctor hints that others share his condition and suggests a long walk to the Ancient House, issuing a sick certificate for two days.",
+      "observation": "Surgery is proposed but not performed; a certificate and Ancient House recommendation are given.",
+      "inference": "The proposed operation is safe, the hinted connection to I-330 proven, or any surgery completed.",
+      "question": "What carries forward to W017?",
+      "choices": [
+        "An unresolved hope, a new permission slip and an invitation to walk.",
+        "A completed cure and verified conspiracy."
+      ],
+      "reply": [
+        "Correct: observation remains separate from its possible meaning.",
+        "That inference is not established by this record."
+      ],
+      "mode": 6
+    }
+  ]
+}
