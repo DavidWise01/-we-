@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W035",
+  "release": "W036",
   "record_count": 40,
-  "completed": 35,
+  "completed": 36,
   "records": [
     {
       "id": "W001",
@@ -218,9 +218,9 @@
     },
     {
       "id": "W036",
-      "status": "mapped",
-      "title": "Record 36 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Empty Pages, The Christian God, About My Mother",
+      "href": "episodes/W036.html"
     },
     {
       "id": "W037",
