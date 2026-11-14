@@ -1,0 +1,141 @@
+{
+  "id": "W036",
+  "title": "Empty Pages, The Christian God, About My Mother",
+  "source": "Original seven-scene adaptation of Yevgeny Zamyatin, We, Record Thirty-Six, Gregory Zilboorg translation (1924)",
+  "source_url": "https://monadnock.net/zamyatin/we-36.html",
+  "scenes": [
+    {
+      "setting": "WHITE PAGE",
+      "title": "01 · Severed Wires of Memory",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I know I walked and waited, but the pages between are completely white.",
+      "story": "D-503 recalls neither his journey nor the wait before meeting the Benefactor. He likens himself to a machine with all connecting wires severed. When awareness resumes, he stands before the ruler, unable to lift his eyes.",
+      "observation": "The narrator reports a specific memory gap and perceives himself standing before the Benefactor.",
+      "inference": "No recollection establishes that nothing happened during the interval.",
+      "question": "What is preserved?",
+      "choices": [
+        "The missing recollection, not a fabricated account of the interval.",
+        "A fully observed path to the audience."
+      ],
+      "reply": [
+        "Correct: witness-supported observation and contested interpretation remain separate.",
+        "That inference is not established by Record Thirty-Six."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "IRON HANDS",
+      "title": "02 · The Benefactor's Cast-Iron Hands",
+      "speaker": "BENEFACTOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "You, the Builder of the Integral, were to lead the One State into the stars.",
+      "story": "D-503 stares at heavy hands resting on the ruler's knees and hears an ordinary human voice condemn his association with the conspirators. His memory blurs again as the Benefactor points accusingly at him.",
+      "observation": "An audience, a rebuke, a threatening gesture and another reported gap in recollection.",
+      "inference": "The ruler's impressive physical posture proves his moral or political authority.",
+      "question": "What has been observed?",
+      "choices": [
+        "A man speaking and pointing, not the legitimacy of his judgment.",
+        "A verdict authenticated by physical grandeur."
+      ],
+      "reply": [
+        "Correct: witness-supported observation and contested interpretation remain separate.",
+        "That inference is not established by Record Thirty-Six."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "EXECUTIONER",
+      "title": "03 · The Hill, Cross and Executioner",
+      "speaker": "BENEFACTOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "You call me an executioner. I argue that cruelty is necessary for love.",
+      "story": "The Benefactor invokes crucifixion and historical religious persecution to rationalize the State's violence. He casts those who administer suffering as indispensable to humanity's happiness and equates cruelty with truth. D-503 is unable to argue against ideas he once shared.",
+      "observation": "The ruler openly defends punishment through an analogy and D-503 remains silent.",
+      "inference": "Historical analogy establishes cruelty as justified or inevitable.",
+      "question": "Which boundary matters?",
+      "choices": [
+        "The ruler's argument is testimony about his ideology, not a moral proof.",
+        "That violence has been ethically validated."
+      ],
+      "reply": [
+        "Correct: witness-supported observation and contested interpretation remain separate.",
+        "That inference is not established by Record Thirty-Six."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "PARADISE",
+      "title": "04 · Paradise Without Desire",
+      "speaker": "BENEFACTOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Human beings wanted someone to choose happiness and bind them to it.",
+      "story": "The Benefactor asserts that people long for guaranteed happiness, even at the expense of desire and freedom. He compares the proposed Great Operation to an ancient paradise of obedient, desireless beings, and clenches his hand in triumph.",
+      "observation": "The Benefactor states a coercive conception of happiness and supports the Great Operation.",
+      "inference": "The existence of a government policy proves citizens consent to it.",
+      "question": "What is claim rather than evidence?",
+      "choices": [
+        "That every human wants happiness imposed upon them.",
+        "That he explains the policy."
+      ],
+      "reply": [
+        "Correct: witness-supported observation and contested interpretation remain separate.",
+        "That inference is not established by Record Thirty-Six."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "BUILDER",
+      "title": "05 · Thirty-Two, As Naive As Sixteen",
+      "speaker": "BENEFACTOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Did they love you, or the man who could hand them the Integral?",
+      "story": "Asked his age, D-503 answers thirty-two. The Benefactor mocks him as sixteen and asserts I-330's group wanted his position as Builder more than his person. D-503 protests and remembers U's earlier warning. The accusation devastates him but is not independently substantiated.",
+      "observation": "D-503 gives his age and hears an accusation of exploitation.",
+      "inference": "The Benefactor's interpretation proves I-330 never cared about D-503.",
+      "question": "What is still unverified?",
+      "choices": [
+        "I-330's complete motives; the accusation is not independent evidence.",
+        "D-503's reaction of pain."
+      ],
+      "reply": [
+        "Correct: witness-supported observation and contested interpretation remain separate.",
+        "That inference is not established by Record Thirty-Six."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "LAUGHTER",
+      "title": "06 · The Bald Man and the Broken Idol",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "He is a sweating bald man. I must see I-330 once more.",
+      "story": "D-503 finally looks up and sees an ordinary bald man sweating. He bursts into laughter and runs from the chamber through wind and streets. His memory gaps again, leaving images of stampeding feet and a voice calling him to join others.",
+      "observation": "D-503 sees the ruler plainly, laughs, runs and reports fragmented memories.",
+      "inference": "A fleeting crowd voice establishes exactly who called him or how he traveled.",
+      "question": "What shifts here?",
+      "choices": [
+        "His perception of the Benefactor as a human being, not a supernatural symbol.",
+        "Certain identification of every unseen participant."
+      ],
+      "reply": [
+        "Correct: witness-supported observation and contested interpretation remain separate.",
+        "That inference is not established by Record Thirty-Six."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "MOTHER",
+      "title": "07 · The Machine and the Mother",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "If only I had a mother who would hear me simply because I am hers.",
+      "story": "In a windswept deserted square D-503 sees the Benefactor's execution machine. An image of I-330 on a white pillow enters his mind, and he cannot bear the association. He sinks onto the steps and longs for an ancient mother to love him as her child rather than a useful Builder, a Number or a State molecule.",
+      "observation": "D-503 sits before the machine, recalls an image of I-330 and expresses a longing for maternal care.",
+      "inference": "The image proves I-330 has been executed or that such a mother has appeared.",
+      "question": "What remains unresolved?",
+      "choices": [
+        "I-330's fate, D-503's future and whether he will find care.",
+        "A witnessed execution or reunion."
+      ],
+      "reply": [
+        "Correct: witness-supported observation and contested interpretation remain separate.",
+        "That inference is not established by Record Thirty-Six."
+      ],
+      "mode": 6
+    }
+  ]
+}
