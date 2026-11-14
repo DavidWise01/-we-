@@ -1,0 +1,141 @@
+{
+  "id": "W038",
+  "title": "I Don't Know What Title—Perhaps the Whole Synopsis May Be Called a Castoff Cigarette Butt",
+  "source": "Original seven-scene interpretation of Yevgeny Zamyatin's We, Record Thirty-Eight, Gregory Zilboorg translation (1924)",
+  "source_url": "https://monadnock.net/zamyatin/we-38.html",
+  "scenes": [
+    {
+      "setting": "BLUE HAZE",
+      "title": "01 · A Figure Through Blue Smoke",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I woke to a brightness I had not made. And there, at my writing table, she sat.",
+      "story": "D-503 wakes, disoriented by a bluish haze and light. He realizes I-330 is sitting at his writing table, chin resting on her hand. He rushes toward her, trying to describe the overturned apartment and his fear that something happened to her.",
+      "observation": "I-330 is physically present in D-503's apartment after his failed search in the previous record.",
+      "inference": "Her return establishes safety for the future or resolves every earlier suspicion.",
+      "question": "What can the witness verify?",
+      "choices": [
+        "A visit and their encounter at the table.",
+        "Permanent safety and restored trust."
+      ],
+      "reply": [
+        "Correct: preserve what D-503 saw, heard and admitted rather than upgrading interpretation.",
+        "The source does not establish that conclusion."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "WATER",
+      "title": "02 · Words That Cannot Be Spoken",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Everything! I must tell you everything. First I need water, but I cannot drink.",
+      "story": "I-330's fixed gaze reminds D-503 of their estrangement on the Integral. He attempts to explain himself all at once, finds his mouth painfully dry, pours water and puts the glass down untouched. The blue haze comes from her cigarette.",
+      "observation": "D-503 tries to speak, pours water without drinking, and observes cigarette smoke.",
+      "inference": "His bodily distress verifies the contents of I-330's unspoken thoughts.",
+      "question": "What was observed?",
+      "choices": [
+        "An unsuccessful explanation, a water carafe and cigarette smoke.",
+        "Her complete emotional or strategic intentions."
+      ],
+      "reply": [
+        "Correct: preserve what D-503 saw, heard and admitted rather than upgrading interpretation.",
+        "The source does not establish that conclusion."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "CURTAINS",
+      "title": "03 · The Discarded Cigarette",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "People are waiting below. I came anyway. We may have only these minutes.",
+      "story": "I-330 tells D-503 that the people waiting downstairs make their meeting brief. She flicks the cigarette onto the floor and reaches backward to close the glass-room curtains, tilting her chair. They embrace after the curtains descend.",
+      "observation": "I-330 states that others wait below, discards her cigarette and closes the privacy curtains.",
+      "inference": "The privacy curtains themselves verify both partners' full emotional motives or their long-term future.",
+      "question": "What remains open?",
+      "choices": [
+        "Why I-330 chose to come and what will happen after she leaves.",
+        "That she discarded the cigarette."
+      ],
+      "reply": [
+        "Correct: preserve what D-503 saw, heard and admitted rather than upgrading interpretation.",
+        "The source does not establish that conclusion."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "TICKETS",
+      "title": "04 · Jealousy in the Embrace",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The letter F comes back to me. I hold her too tightly. She cries out.",
+      "story": "The tender meeting becomes troubled as D-503 remembers the unfamiliar F tickets in I-330's overturned room. He grips her so forcefully that she cries out in pain. His narration mixes affection with cruelty; the harm must not be treated as a mutual expression of love.",
+      "observation": "D-503 remembers F and squeezes I-330 painfully enough to elicit a cry.",
+      "inference": "His fear excuses harming her or the letter F identifies another lover's actions.",
+      "question": "Which limit is essential?",
+      "choices": [
+        "The cry marks harm; his jealousy is neither proof nor justification.",
+        "That pain equals consent."
+      ],
+      "reply": [
+        "Correct: preserve what D-503 saw, heard and admitted rather than upgrading interpretation.",
+        "The source does not establish that conclusion."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "BENEF ACTOR",
+      "title": "05 · The Visit He Describes, the Claim He Hides",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "You went to see the Benefactor yesterday—is that true?",
+      "story": "I-330 asks whether D-503 met the Benefactor, and he confirms it. Her face grows pale. He recounts their audience but intentionally leaves out the Benefactor's accusation that she and her allies used him merely for control of the Integral.",
+      "observation": "I-330 asks and reacts; D-503 gives an intentionally incomplete account.",
+      "inference": "Selective reporting is equivalent to full disclosure, or her shock proves specific wrongdoing.",
+      "question": "What is hidden?",
+      "choices": [
+        "The allegation about I-330's motives, deliberately withheld by D-503.",
+        "Everything the Benefactor said."
+      ],
+      "reply": [
+        "Correct: preserve what D-503 saw, heard and admitted rather than upgrading interpretation.",
+        "The source does not establish that conclusion."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "MIRROR",
+      "title": "06 · Silence at the Wardrobe Mirror",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Did you come only to learn what he told me? She turns, but does not answer.",
+      "story": "I-330 moves toward the wardrobe mirror as D-503 tries and fails to drink water once more. He asks whether her purpose was information about the Benefactor. Her brows sharpen; she turns without answering. D-503 interprets silence as confirmation, though the narrative supplies no independent confirmation.",
+      "observation": "The question is asked and goes unanswered; D-503 forms a strong conclusion.",
+      "inference": "Silence alone verifies the entirety of I-330's intentions.",
+      "question": "What are separate evidence classes?",
+      "choices": [
+        "Observable silence versus D-503's interpretation of it.",
+        "An independently proven confession of manipulation."
+      ],
+      "reply": [
+        "Correct: preserve what D-503 saw, heard and admitted rather than upgrading interpretation.",
+        "The source does not establish that conclusion."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "CIGARETTE",
+      "title": "07 · What Remains on the Floor",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The chair is overturned. Her kiss is cold. All that remains is the cigarette butt.",
+      "story": "D-503 stumbles against a chair and overturns it as they say goodbye. After I-330 leaves, he sinks to the floor beside her discarded cigarette butt. He declares that he cannot and no longer wants to write. The record does not show an arrest, death or independently confirmed betrayal.",
+      "observation": "I-330 departs, the chair falls and D-503 sits beside the cigarette butt in distress.",
+      "inference": "An emotional declaration that he cannot write is evidence the story has ended permanently.",
+      "question": "What crosses into W039?",
+      "choices": [
+        "The separation and his state of mind, without a verified final fate.",
+        "A completed arrest or end of the manuscript."
+      ],
+      "reply": [
+        "Correct: preserve what D-503 saw, heard and admitted rather than upgrading interpretation.",
+        "The source does not establish that conclusion."
+      ],
+      "mode": 6
+    }
+  ]
+}
