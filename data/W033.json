@@ -1,0 +1,141 @@
+{
+  "id": "W033",
+  "title": "This Without a Synopsis, Hastily, the Last",
+  "source": "Yevgeny Zamyatin, We, Record Thirty-Three, Gregory Zilboorg translation (1924); original seven-act interpretive expansion",
+  "source_url": "https://monadnock.net/zamyatin/we-33.html",
+  "scenes": [
+    {
+      "setting": "THE DAY",
+      "title": "01 · Two Words Before the Newspaper",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The day. I have only those words before I reach for the news.",
+      "story": "Record Thirty-Three begins with a compressed declaration that the day has arrived. D-503 rushes to read the newspaper; he describes his eyes as detached instruments, like a pen or calculating machine.",
+      "observation": "The record opens on the anticipated day and an estranged, instrumental perception.",
+      "inference": "D-503's perception proves his eyes have literally separated from his body.",
+      "question": "What is literal here?",
+      "choices": [
+        "He reads the newspaper and reports a disturbing sense of detachment.",
+        "Physical separation of the eyes from the body."
+      ],
+      "reply": [
+        "Correct: the record supports only what the narrator observes or reports.",
+        "That extrapolates beyond the very short Record Thirty-Three."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "ULTIMATUM",
+      "title": "02 · Enemies of Happiness",
+      "speaker": "GAZETTE · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Tomorrow all work stops; every Number is ordered to undergo the Operation.",
+      "story": "The front page demands compulsory attendance for the Great Operation on the following day, declaring refusal punishable by the Benefactor's machine. This is a threat issued by the State, not a record of the operation being performed on everyone.",
+      "observation": "The State publishes a mandatory-operation ultimatum and threatens those who refuse.",
+      "inference": "Publication proves universal compliance or punishment has already occurred.",
+      "question": "What is known?",
+      "choices": [
+        "The announcement and threat, not their completed enforcement.",
+        "A completed universal procedure."
+      ],
+      "reply": [
+        "Correct: the record supports only what the narrator observes or reports.",
+        "That extrapolates beyond the very short Record Thirty-Three."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "TOMORROW",
+      "title": "03 · The Word That Cannot Exist",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Tomorrow. How can there be a tomorrow after this?",
+      "story": "D-503 fixates on the word tomorrow and cannot picture the coming day. The very existence of a future feels psychologically impossible although the time sequence has not literally stopped.",
+      "observation": "D-503 experiences a crisis of anticipation after reading the threat.",
+      "inference": "His despair verifies time itself will end before tomorrow.",
+      "question": "What does the statement communicate?",
+      "choices": [
+        "A narrator's emotional inability to conceive the future.",
+        "A physical termination of time."
+      ],
+      "reply": [
+        "Correct: the record supports only what the narrator observes or reports.",
+        "That extrapolates beyond the very short Record Thirty-Three."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "GAZETTE",
+      "title": "04 · A Newspaper Falls to the Floor",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Why archive today's newspaper when I may never open this cover again?",
+      "story": "Following his daily routine, D-503 reaches toward a bookshelf to store the paper with his collected Gazettes in a decorated cover. Abruptly he doubts the value of the ritual and lets the paper fall.",
+      "observation": "D-503 begins a habitual archival gesture and drops the newspaper.",
+      "inference": "The fallen paper establishes that all of his earlier writing has been destroyed.",
+      "question": "What has changed in his routine?",
+      "choices": [
+        "He interrupts a familiar action, questioning its point.",
+        "The manuscript ceases to exist."
+      ],
+      "reply": [
+        "Correct: the record supports only what the narrator observes or reports.",
+        "That extrapolates beyond the very short Record Thirty-Three."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "ROOM",
+      "title": "05 · An Invisible Suitcase",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "My desk, my books, the chair, the bed—how do I take this room with me?",
+      "story": "D-503 looks around his room and figuratively tries to pack the desk, books, chair and bed into an invisible valise. He remembers I-330 seated in the armchair as he sat on the floor beside her. This is a memory and image of leaving, not literal packing of furniture.",
+      "observation": "D-503 inventories meaningful objects and remembers an intimate moment.",
+      "inference": "The invisible valise is a physical object or a completed departure.",
+      "question": "Which parts belong to imagery?",
+      "choices": [
+        "Packing the furnishings invisibly is his metaphor for loss.",
+        "A physical furniture-filled suitcase."
+      ],
+      "reply": [
+        "Correct: the record supports only what the narrator observes or reports.",
+        "That extrapolates beyond the very short Record Thirty-Three."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "SILENCE",
+      "title": "06 · No Miracle on the Telephone",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Perhaps I-330 will call. I stand and wait. The telephone stays quiet.",
+      "story": "D-503 waits for a sudden reversal, especially a telephone call from I-330. No message arrives during the wait. He confronts the absence of any last-minute reassurance.",
+      "observation": "He waits for a call; none comes in the described interval.",
+      "inference": "The silence proves that I-330 will never speak to him again.",
+      "question": "What does the silence verify?",
+      "choices": [
+        "No call reaches him during this short wait.",
+        "A permanent end to communication."
+      ],
+      "reply": [
+        "Correct: the record supports only what the narrator observes or reports.",
+        "That extrapolates beyond the very short Record Thirty-Three."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "FAREWELL",
+      "title": "07 · Last Lines to Unknown Readers",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I am going into the unknown. Farewell to those who have read my pages.",
+      "story": "D-503 addresses the future strangers who have followed his manuscript, saying he is leaving and this will be his final entry. The record stops as he departs into uncertainty, without depicting the Integral flight, any takeover or a completed Operation.",
+      "observation": "The narrator declares a final entry and an intention to leave.",
+      "inference": "His declaration proves the diary has no later record or that a flight already launched.",
+      "question": "What is the surviving boundary?",
+      "choices": [
+        "His farewell and intended departure, not their ultimate outcome.",
+        "A verified final end of the narrative."
+      ],
+      "reply": [
+        "Correct: the record supports only what the narrator observes or reports.",
+        "That extrapolates beyond the very short Record Thirty-Three."
+      ],
+      "mode": 6
+    }
+  ]
+}
