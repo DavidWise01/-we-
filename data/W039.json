@@ -1,0 +1,141 @@
+{
+  "id": "W039",
+  "title": "The End",
+  "source": "Yevgeny Zamyatin, We, Record Thirty-Nine, translated by Gregory Zilboorg (1924); original interactive interpretation",
+  "source_url": "https://monadnock.net/zamyatin/we-39.html",
+  "scenes": [
+    {
+      "setting": "CRYSTALS",
+      "title": "01 · The Decision Crystallizes",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Tomorrow I will tell everything, even if it destroys what I have become.",
+      "story": "The night following I-330's departure, D-503 forms a firm decision to confess to the Guardians. He compares it to salt crystals forming in a saturated solution and thinks of his choice as a personal death and possible rebirth. After little sleep, he wakes at ten, drinks the leftover water and rushes outside.",
+      "observation": "D-503 intends to confess and drinks the water left from I-330's visit.",
+      "inference": "His analogy proves an actual physical rebirth or a confession already completed.",
+      "question": "What remains intention?",
+      "choices": [
+        "The planned confession and imagined rebirth.",
+        "A completed statement to the Guardians."
+      ],
+      "reply": [
+        "Correct: report the event and preserve what remains uncertain.",
+        "That conclusion is not established by Record Thirty-Nine."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "BROKEN CITY",
+      "title": "02 · Birds, Branches, and a Body",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The sky is noisy, the pavement broken, and a dead man lies in my way.",
+      "story": "The battered city contains fallen branches and leaves, crisscrossing birds and Guardian aeros, loud crowds and unexpectedly empty streets. D-503 stumbles over the corpse of a man whose face he recognizes, then presses on toward the Bureau of Guardians.",
+      "observation": "D-503 directly perceives disorder and a motionless corpse in his path.",
+      "inference": "The single witnessed death establishes the total number or cause of citywide casualties.",
+      "question": "What is directly observed?",
+      "choices": [
+        "One dead person, scattered branches and public unrest.",
+        "A complete battle damage assessment."
+      ],
+      "reply": [
+        "Correct: report the event and preserve what remains uncertain.",
+        "That conclusion is not established by Record Thirty-Nine."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "QUEUE",
+      "title": "03 · The Bureau of Guardians",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Please, let me through. I must speak now.",
+      "story": "Inside the Bureau of Guardians, citizens stand in a long queue clutching small pages and notebooks. D-503 pleads to be heard immediately, disturbing the line. A woman mocks his desperation and others laugh. An agent touches his elbow and he turns to find S-4711.",
+      "observation": "A queue, D-503's pleas and S-4711's appearance.",
+      "inference": "Every queued person is verifiably confessing the same crime as D-503.",
+      "question": "What is known about the queue?",
+      "choices": [
+        "People are waiting with written materials; their exact purposes vary or remain unknown.",
+        "That each carries independently verified intelligence."
+      ],
+      "reply": [
+        "Correct: report the event and preserve what remains uncertain.",
+        "That conclusion is not established by Record Thirty-Nine."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "KNOWN DETAILS",
+      "title": "04 · A Confession That Knows Itself",
+      "speaker": "S-4711 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "You have told me much. What else? Continue.",
+      "story": "S-4711 brings D-503 to a private office. D-503 begins a fragmented account of I-330, false medical certificates, underground corridors, his changing self and the forest beyond the Wall. The Guardian frequently supplies missing words and details. D-503 realizes his interviewer already possesses substantial information.",
+      "observation": "D-503 starts disclosing secrets and S-4711 prompts with apparently prior knowledge.",
+      "inference": "Prompting proves when, where and from whom every fact was learned.",
+      "question": "What changes?",
+      "choices": [
+        "The Guardian demonstrates information D-503 did not expect him to have.",
+        "Authenticated provenance for each fact."
+      ],
+      "reply": [
+        "Correct: report the event and preserve what remains uncertain.",
+        "That conclusion is not established by Record Thirty-Nine."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "BEYOND WALL",
+      "title": "05 · S-4711 Was There",
+      "speaker": "S-4711 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "You failed to mention one thing: you saw me beyond the Wall.",
+      "story": "S-4711 reveals that D-503 encountered him on the forbidden side of the Green Wall. D-503 is stunned, recognizing the Guardian's previously hidden connection to events there, but this does not by itself determine whether he serves MEPHI, infiltrates it or follows another purpose. D-503 flees the office.",
+      "observation": "S-4711 claims to have been beyond the Wall and D-503 recalls a brief sighting.",
+      "inference": "A hidden presence conclusively determines S-4711's allegiance or role.",
+      "question": "What remains unproved?",
+      "choices": [
+        "Why S-4711 was there, his loyalties and his information sources.",
+        "That the encounter destabilizes D-503's assumptions."
+      ],
+      "reply": [
+        "Correct: report the event and preserve what remains uncertain.",
+        "That conclusion is not established by Record Thirty-Nine."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "FINITE",
+      "title": "06 · A Bald Forehead and a Finite Universe",
+      "speaker": "MATHEMATICIAN · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I have found the end of infinity. The universe is finite!",
+      "story": "D-503 reaches a public washroom in an Underground station, where order, water and music continue amid the turmoil above. A stranger with a large forehead holds a notebook and logarithmic dial, asserting that nonzero average matter density proves a finite spherical universe. His purported proof is not established by the stated argument.",
+      "observation": "An unknown man claims to have proved cosmic finitude and displays a notebook.",
+      "inference": "A self-described discovery is a valid established cosmological theorem.",
+      "question": "What is the evidence boundary?",
+      "choices": [
+        "A character's mathematical assertion, not a verified proof.",
+        "A settled equation for the universe's radius."
+      ],
+      "reply": [
+        "Correct: report the event and preserve what remains uncertain.",
+        "That conclusion is not established by Record Thirty-Nine."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "BEYOND",
+      "title": "07 · What Lies Beyond the Last Boundary?",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "If your universe ends, what is outside that ending?",
+      "story": "The stranger's commitment to calculation reminds D-503 to finish his own testimony for future readers. He borrows paper and writes in the washroom. Before closing the entry, D-503 asks what lies beyond the claimed boundary of the universe. The man cannot reply because approaching footsteps descend from upstairs, ending the record in uncertainty.",
+      "observation": "D-503 records his question; footsteps interrupt before an answer.",
+      "inference": "An unanswered question establishes infinite space or that the universe is finite.",
+      "question": "What carries into the final record?",
+      "choices": [
+        "Unanswered cosmological and political questions amid approaching footsteps.",
+        "An independently verified answer about the shape of the universe."
+      ],
+      "reply": [
+        "Correct: report the event and preserve what remains uncertain.",
+        "That conclusion is not established by Record Thirty-Nine."
+      ],
+      "mode": 6
+    }
+  ]
+}
