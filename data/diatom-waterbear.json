@@ -1,0 +1,439 @@
+{
+  "schema": "we.diatom-waterbear.v1",
+  "title": "WE: Diatom / Waterbear / Human Medium",
+  "status": "instantiated interpretation; not a scientific or authorial discovery",
+  "source": "Yevgeny Zamyatin, We (one literary ancestor)",
+  "scaffolding": [
+    "frustule (structured silica shell)",
+    "tardigrade cryptobiosis/tun as stress-state analogy",
+    "human symbolic narration as transmission medium"
+  ],
+  "carrier_model": {
+    "diatom": {
+      "role": "boundary / form / geometric indexing",
+      "evidence": "Diatoms have silica frustules",
+      "fiction_mapping": "the glass city; numbers; Table of Hours"
+    },
+    "waterbear": {
+      "role": "life-state / reversible stress analogy / adaptation",
+      "evidence": "Some tardigrades can enter cryptobiosis; survival varies by conditions and species",
+      "fiction_mapping": "D-503's changing awareness, O-90's survival possibility, resistance"
+    },
+    "human_medium": {
+      "role": "language / memory / motivation / story",
+      "fiction_mapping": "D-503's diary, I-330, U, the Benefactor, the Great Operation"
+    },
+    "nonidentity": [
+      "not literal diatom-or-tardigrade protagonists",
+      "not proof of actual cryobiosis in the text",
+      "not evidence of Zamyatin's hidden intended message",
+      "not equivalent to genuine memory survival after neurological alteration"
+    ]
+  },
+  "mnemonic_cycle": [
+    "SEE",
+    "DO",
+    "LEARN",
+    "RETAIN",
+    "WITNESS"
+  ],
+  "stages": [
+    {
+      "stage": "01",
+      "name": "SHELL FORMATION",
+      "range": "W001–W005",
+      "interpretation": "Construct identity, number, rigid geometry and the State's ordered glass envelope.",
+      "focus": "diatom",
+      "mnemonic": "The State is encoded as an engineered silica shell; D-503 begins inside its apparent security."
+    },
+    {
+      "stage": "02",
+      "name": "FIRST PERMEABILITY",
+      "range": "W006–W010",
+      "interpretation": "Unknown variables, unexpected desire and the first passage through an orderly boundary.",
+      "focus": "diatom",
+      "mnemonic": "Perforations in the boundary become a mnemonic for information and experience entering."
+    },
+    {
+      "stage": "03",
+      "name": "INTERNAL VARIATION",
+      "range": "W011–W015",
+      "interpretation": "The system senses contradictions: intimacy, uncertainty, hidden corridors and nonlinear response.",
+      "focus": "medium",
+      "mnemonic": "The human medium records the conflict between fixed form and living response."
+    },
+    {
+      "stage": "04",
+      "name": "MEMORY UNDER STRAIN",
+      "range": "W016–W020",
+      "interpretation": "The narrator's changing identity makes continuity, recollection and evidence separable.",
+      "focus": "waterbear",
+      "mnemonic": "Stress first exposes why retaining a stable external label does not preserve an inner state."
+    },
+    {
+      "stage": "05",
+      "name": "FRACTURE AND PASSAGE",
+      "range": "W021–W025",
+      "interpretation": "Boundary crossings and the competing worlds weaken the shell's authority.",
+      "focus": "diatom",
+      "mnemonic": "The shell's geometry remains visible while its exclusivity fails."
+    },
+    {
+      "stage": "06",
+      "name": "COMPRESSION AND CHOICE",
+      "range": "W026–W030",
+      "interpretation": "Attachment, threatened offspring, compassion and the apparent impossibility of final revolution.",
+      "focus": "waterbear",
+      "mnemonic": "A survival mnemonic: retreat, choose, store and preserve possibilities without claiming a guaranteed rescue."
+    },
+    {
+      "stage": "07",
+      "name": "EXTREME STRESS",
+      "range": "W031–W035",
+      "interpretation": "Compulsory treatment, threatened seizure, collapsing routine and near-violence.",
+      "focus": "waterbear",
+      "mnemonic": "The living system faces coercion and environmental collapse; its next state is not predetermined."
+    },
+    {
+      "stage": "08",
+      "name": "AFTER THE OPERATION",
+      "range": "W036–W040",
+      "interpretation": "Memory gaps, breached walls, fractured trust and the engineered cessation of desire.",
+      "focus": "medium",
+      "mnemonic": "W040 is a state-transition warning: persistent handwritten form does not authenticate continuity of feeling."
+    }
+  ],
+  "records": [
+    {
+      "id": "W001",
+      "title": "The Number Who Believed He Was Free",
+      "stage": 1,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 1",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W002",
+      "title": "The First Unknown Variable",
+      "stage": 1,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 2",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W003",
+      "title": "A Coat, a Wall, and the Tables",
+      "stage": 1,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 3",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W004",
+      "title": "The Savage, the Barometer, and the Piano",
+      "stage": 1,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 4",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W005",
+      "title": "The Square and the Rulers of the World",
+      "stage": 1,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 5",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W006",
+      "title": "The Accident and the Ancient House",
+      "stage": 2,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 6",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W007",
+      "title": "An Eyelash, Taylor, Henbane and Lily of the Valley",
+      "stage": 2,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 7",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W008",
+      "title": "The Irrational Root, R-13, and the Triangle",
+      "stage": 2,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 8",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W009",
+      "title": "Liturgy, Iambus, and the Cast-Iron Hand",
+      "stage": 2,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 9",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W010",
+      "title": "A Letter, a Membrane, and the Hairy I",
+      "stage": 2,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 10",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W011",
+      "title": "No, I Can't; Let It Be Without Headings!",
+      "stage": 3,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 11",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W012",
+      "title": "The Delimitation of the Infinite, Angel, and Meditations on Poetry",
+      "stage": 3,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 12",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W013",
+      "title": "Fog, Thou, and a Decidedly Absurd Adventure",
+      "stage": 3,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 13",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W014",
+      "title": "Mine, Impossible, a Cold Floor",
+      "stage": 3,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 14",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W015",
+      "title": "The Bell, the Mirror-Like Sea, and the Eternal Fire",
+      "stage": 3,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 15",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W016",
+      "title": "Yellow, a Two-Dimensional Shadow, an Incurable Soul",
+      "stage": 4,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 16",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W017",
+      "title": "Through Glass, I Died, the Corridor",
+      "stage": 4,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 17",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W018",
+      "title": "Logical Debris, Wounds and Plaster, Never Again",
+      "stage": 4,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 18",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W019",
+      "title": "The Infinitesimal of the Third Order, From Under the Forehead, Over the Railing",
+      "stage": 4,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 19",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W020",
+      "title": "Discharge, the Material of an Idea, the Zero Rock",
+      "stage": 4,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 20",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W021",
+      "title": "The Duty of an Author, The Ice Swells, The Most Difficult Love",
+      "stage": 5,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 21",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W022",
+      "title": "The Benumbed Waves, Everything Is Improving, I Am a Microbe",
+      "stage": 5,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 22",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W023",
+      "title": "Flowers, The Dissolution of a Crystal, If Only (?)",
+      "stage": 5,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 23",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W024",
+      "title": "The Limit of the Function, Easter, To Cross Out Everything",
+      "stage": 5,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 24",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W025",
+      "title": "The Descent from Heaven, The Greatest Catastrophe in History, The Known Is Ended",
+      "stage": 5,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 25",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W026",
+      "title": "The World Does Exist, Rash, Forty-One Degrees Centigrade",
+      "stage": 6,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 26",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W027",
+      "title": "No Headings. It Is Impossible!",
+      "stage": 6,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 27",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W028",
+      "title": "Both of Them, Entropy and Energy, The Opaque Part of the Body",
+      "stage": 6,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 28",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W029",
+      "title": "Threads on the Face, Sprouts, An Unnatural Compression",
+      "stage": 6,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 29",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W030",
+      "title": "The Last Number, Galileo's Mistake, Would It Not Be Better?",
+      "stage": 6,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 30",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W031",
+      "title": "The Great Operation, I Forgave Everything, The Collision of Trains",
+      "stage": 7,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 31",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W032",
+      "title": "I Do Not Believe, Tractors, A Little Human Splinter",
+      "stage": 7,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 32",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W033",
+      "title": "This Without a Synopsis, Hastily, the Last",
+      "stage": 7,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 33",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W034",
+      "title": "The Forgiven Ones, A Sunny Night, A Radio-Valkyrie",
+      "stage": 7,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 34",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W035",
+      "title": "In a Ring, A Carrot, A Murder",
+      "stage": 7,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 35",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W036",
+      "title": "Empty Pages, The Christian God, About My Mother",
+      "stage": 8,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 36",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W037",
+      "title": "Infusorian, Doomsday, Her Room",
+      "stage": 8,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 37",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W038",
+      "title": "I Don't Know What Title—Perhaps the Whole Synopsis May Be Called a Castoff Cigarette Butt",
+      "stage": 8,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 38",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W039",
+      "title": "The End",
+      "stage": 8,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 39",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    },
+    {
+      "id": "W040",
+      "title": "Facts, The Bell, I Am Certain",
+      "stage": 8,
+      "source_ancestry": "Yevgeny Zamyatin, We, Record 40",
+      "interpretation_status": "mnemonic overlay",
+      "verified_author_intent": false
+    }
+  ],
+  "invariants": [
+    "SHELL_PATTERN != LIVING_MEMORY",
+    "SURVIVAL_ANALOGY != EXPERIMENTAL_PROOF",
+    "CHARACTER == NARRATIVE_MEDIUM_NOT_LITERAL_SPECIES",
+    "CONFIDENCE != OBSERVED_OUTCOME",
+    "GITHUB_AND_PAGES = ONE_OWNED_ANCESTRY"
+  ],
+  "biology_sources": [
+    "https://diatoms.org/what-are-diatoms",
+    "https://pubmed.ncbi.nlm.nih.gov/33373690/"
+  ]
+}
