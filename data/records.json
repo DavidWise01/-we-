@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W039",
+  "release": "W040",
   "record_count": 40,
-  "completed": 39,
+  "completed": 40,
   "records": [
     {
       "id": "W001",
@@ -242,9 +242,12 @@
     },
     {
       "id": "W040",
-      "status": "mapped",
-      "title": "Record 40 — planned",
-      "href": null
+      "status": "playable",
+      "title": "Facts, The Bell, I Am Certain",
+      "href": "episodes/W040.html"
     }
-  ]
+  ],
+  "status": "complete",
+  "total_acts": 280,
+  "witness_crosswalks": 40
 }
