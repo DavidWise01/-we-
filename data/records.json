@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W038",
+  "release": "W039",
   "record_count": 40,
-  "completed": 38,
+  "completed": 39,
   "records": [
     {
       "id": "W001",
@@ -236,9 +236,9 @@
     },
     {
       "id": "W039",
-      "status": "mapped",
-      "title": "Record 39 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The End",
+      "href": "episodes/W039.html"
     },
     {
       "id": "W040",
