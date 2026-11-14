@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W033",
+  "release": "W034",
   "record_count": 40,
-  "completed": 33,
+  "completed": 34,
   "records": [
     {
       "id": "W001",
@@ -206,9 +206,9 @@
     },
     {
       "id": "W034",
-      "status": "mapped",
-      "title": "Record 34 — planned",
-      "href": null
+      "status": "playable",
+      "title": "The Forgiven Ones, A Sunny Night, A Radio-Valkyrie",
+      "href": "episodes/W034.html"
     },
     {
       "id": "W035",
