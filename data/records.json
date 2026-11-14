@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W034",
+  "release": "W035",
   "record_count": 40,
-  "completed": 34,
+  "completed": 35,
   "records": [
     {
       "id": "W001",
@@ -212,9 +212,9 @@
     },
     {
       "id": "W035",
-      "status": "mapped",
-      "title": "Record 35 — planned",
-      "href": null
+      "status": "playable",
+      "title": "In a Ring, A Carrot, A Murder",
+      "href": "episodes/W035.html"
     },
     {
       "id": "W036",
