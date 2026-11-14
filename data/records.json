@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W037",
+  "release": "W038",
   "record_count": 40,
-  "completed": 37,
+  "completed": 38,
   "records": [
     {
       "id": "W001",
@@ -230,9 +230,9 @@
     },
     {
       "id": "W038",
-      "status": "mapped",
-      "title": "Record 38 — planned",
-      "href": null
+      "status": "playable",
+      "title": "I Don't Know What Title—Perhaps the Whole Synopsis May Be Called a Castoff Cigarette Butt",
+      "href": "episodes/W038.html"
     },
     {
       "id": "W039",
