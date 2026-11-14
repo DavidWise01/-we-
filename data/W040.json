@@ -1,0 +1,142 @@
+{
+  "id": "W040",
+  "title": "Facts, The Bell, I Am Certain",
+  "source": "Yevgeny Zamyatin, We, Record Forty, Gregory Zilboorg translation (1924); original seven-act dramatic adaptation",
+  "source_url": "https://monadnock.net/zamyatin/we-40.html",
+  "scenes": [
+    {
+      "setting": "760 MM",
+      "title": "01 · A Clear Day, a Different Voice",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Daylight. Clear. My handwriting remains, but those feelings seem like another person's.",
+      "story": "D-503 opens with a measured report of clear weather and a barometer reading of 760 mm. He recognizes his own handwriting but disowns the emotions and metaphors throughout the earlier record. He insists he is smiling and healthy because the Great Operation has removed what he calls a splinter from his head.",
+      "observation": "The final entry is in D-503's hand and he declares a profound change in emotional response.",
+      "inference": "His cheerful declaration independently establishes medical safety, freedom or well-being.",
+      "question": "What is actually established?",
+      "choices": [
+        "His present report of transformed feelings and his own claim of health.",
+        "Independent confirmation that the Operation was beneficial."
+      ],
+      "reply": [
+        "Correct: the witness preserves events, reports and future claims separately.",
+        "That conclusion exceeds what Record Forty demonstrates."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "112",
+      "title": "02 · Auditorium 112",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "We were taken from the washroom, fastened to tables, and given the Operation.",
+      "story": "D-503 recounts that the authorities seized him, the mathematician who claimed the universe was finite, and others lacking Operation certificates after the footsteps in Record Thirty-Nine. They were taken to Auditorium 112, restrained and subjected to the Great Operation. He experiences the number as mysteriously familiar.",
+      "observation": "D-503 reports forced restraint and the procedure's completion, and notes a familiar auditorium number.",
+      "inference": "A procedure performed under coercion constitutes informed voluntary consent.",
+      "question": "Which condition is established?",
+      "choices": [
+        "Coercive treatment with restraint, not free consent.",
+        "That everyone freely chose the Operation."
+      ],
+      "reply": [
+        "Correct: the witness preserves events, reports and future claims separately.",
+        "That conclusion exceeds what Record Forty demonstrates."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "CONFESSION",
+      "title": "03 · Before the Benefactor",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The next day I told him everything I knew about the enemies of happiness.",
+      "story": "Following the Operation, D-503 meets the Benefactor and reveals the information he possesses about the State's opponents. He attributes his earlier difficulty confessing to his former soul or sickness. The changed judgment is observable in his narration, while the State's promise of a true cure remains unverified.",
+      "observation": "D-503 says he disclosed information after his Operation and no longer hesitates.",
+      "inference": "His compliance establishes that all his accusations are accurate or morally justified.",
+      "question": "What can a witness infer?",
+      "choices": [
+        "His cooperation and altered self-description, not the accuracy of every disclosed detail.",
+        "A validated report of each alleged opponent."
+      ],
+      "reply": [
+        "Correct: the witness preserves events, reports and future claims separately.",
+        "That conclusion exceeds what Record Forty demonstrates."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "THE BELL",
+      "title": "04 · I-330 Will Not Speak",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I will not supply the names you demand.",
+      "story": "I-330 is brought before the Benefactor and D-503 for interrogation in the gas chamber. D-503's description focuses on her physical features instead of their former intimacy. She is silent, even smiling, despite the demands that she testify. The illustration preserves her resistance without depicting physical suffering graphically.",
+      "observation": "I-330 refuses to provide testimony before the coercive procedure.",
+      "inference": "Her silence proves she is guilty of every offense alleged by the State.",
+      "question": "Which action is observed?",
+      "choices": [
+        "Refusal to give the demanded information.",
+        "A confession or independent determination of guilt."
+      ],
+      "reply": [
+        "Correct: the witness preserves events, reports and future claims separately.",
+        "That conclusion exceeds what Record Forty demonstrates."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "THREE",
+      "title": "05 · Three Times Under the Bell",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "They brought her out and returned her under the Bell. She said nothing.",
+      "story": "The interrogators subject I-330 to the Bell, pump out the air and revive her after loss of consciousness. They repeat the process three times. D-503 witnesses her prolonged silence and dispassionately describes what he sees, while the violence of the method remains unmistakable.",
+      "observation": "The narrative reports three coercive cycles and I-330's continued silence.",
+      "inference": "I-330 agreed, the methods were humane, or the interrogation established the truth.",
+      "question": "What is the important invariant?",
+      "choices": [
+        "Repeated coercion did not obtain a statement from her.",
+        "Consent or reliable testimony under pressure."
+      ],
+      "reply": [
+        "Correct: the witness preserves events, reports and future claims separately.",
+        "That conclusion exceeds what Record Forty demonstrates."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "AVENUE 40",
+      "title": "06 · The Temporary Electric Wall",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The west still resists. The State has raised a temporary electrical barrier.",
+      "story": "D-503 reports disorder, casualties, animals and continuing resistance in the western part of the city. The State has established a temporary wall of high-voltage waves across transverse Avenue Forty. It is described as a temporary defensive line, not the restoration of the original Green Wall.",
+      "observation": "There is ongoing resistance and a newly reported temporary high-voltage barrier.",
+      "inference": "A temporary barrier proves all resistance is ended and the old Wall restored.",
+      "question": "What is open?",
+      "choices": [
+        "The outcome of the conflict and the survival of the resisting groups.",
+        "A final settled State victory."
+      ],
+      "reply": [
+        "Correct: the witness preserves events, reports and future claims separately.",
+        "That conclusion exceeds what Record Forty demonstrates."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "CERTAINTY",
+      "title": "07 · The Last Sentence Is Not Proof",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The State must prevail. I am certain.",
+      "story": "Other detainees have given information under coercion, and D-503 reports executions planned for tomorrow, including I-330's group. He ends by expressing total certainty that Reason must win. The book does not show those future executions, the final political outcome or O-90's later life. His certainty closes the manuscript, not the evidence.",
+      "observation": "D-503 predicts victory and reports planned executions; the novel ends here.",
+      "inference": "The narrator's prediction establishes future victory or completes the scheduled executions.",
+      "question": "What remains unobserved?",
+      "choices": [
+        "The actual future of the State, prisoners and O-90's child.",
+        "A verified permanent victory of the One State."
+      ],
+      "reply": [
+        "Correct: the witness preserves events, reports and future claims separately.",
+        "That conclusion exceeds what Record Forty demonstrates."
+      ],
+      "mode": 6
+    }
+  ],
+  "finale": true
+}
