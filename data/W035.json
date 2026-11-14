@@ -1,0 +1,141 @@
+{
+  "id": "W035",
+  "title": "In a Ring, A Carrot, A Murder",
+  "source": "Yevgeny Zamyatin, We, Record Thirty-Five, Gregory Zilboorg translation (1924); original dramatic adaptation",
+  "source_url": "https://monadnock.net/zamyatin/we-35.html",
+  "scenes": [
+    {
+      "setting": "IRON RING",
+      "title": "01 · The Ring Around His Head",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The bandage feels like iron. My suspicion goes round and round.",
+      "story": "D-503 has returned after the Integral flight with a bandaged head. Sleepless and distressed, he is convinced U betrayed I-330, though he has no direct evidence. He retrieves a cracked piston rod from his closet and conceals it inside a rolled manuscript, intending to attack U.",
+      "observation": "D-503 is injured, suspects U and carries a heavy concealed rod.",
+      "inference": "His suspicion establishes U's guilt or the planned murder has happened.",
+      "question": "What is still only intention?",
+      "choices": [
+        "His imagined attack and his unproven attribution of the disclosure to U.",
+        "A proven betrayal or completed killing."
+      ],
+      "reply": [
+        "Correct: witness-supported event and uncertain inference remain separate.",
+        "That conclusion is not verified by Record Thirty-Five."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "CITY",
+      "title": "02 · Broken Streets and a Banner",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The city moves diagonally; the ordered rows have broken.",
+      "story": "Finding U's controller desk empty on the compulsory Operation holiday, D-503 goes outside. Citizens scatter erratically. He sees a banner opposing machines and the Operation, an anguished farewell in a glass apartment, and a crying boy. The boy makes him think U may be at her school.",
+      "observation": "The controller is absent and public disorder is plainly visible.",
+      "inference": "The chaos proves a new government has taken power or U is at school.",
+      "question": "What is observed?",
+      "choices": [
+        "Empty desk, opposition banner and distressed people.",
+        "U's actual whereabouts or the political outcome."
+      ],
+      "reply": [
+        "Correct: witness-supported event and uncertain inference remain separate.",
+        "That conclusion is not verified by Record Thirty-Five."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "CARROT",
+      "title": "03 · The Voice Under the City",
+      "speaker": "I-330 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I would rather struggle for my own desire than have someone choose for me.",
+      "story": "The underground trains are stopped and the platform is crowded. D-503 hears I-330 arguing against a happiness that would erase desire. Another speaker invokes fantasies and the ancient carrot suspended ahead of a donkey. D-503 tries to approach, but the surrounding people prevent him.",
+      "observation": "D-503 hears a recognizable voice and a dispute about desire and satisfaction.",
+      "inference": "The exchange proves that every desire must remain unfulfilled or that D-503 reaches I-330.",
+      "question": "Which point is central?",
+      "choices": [
+        "An argument about whether imposed satisfaction extinguishes agency.",
+        "A verified reunion in the underground."
+      ],
+      "reply": [
+        "Correct: witness-supported event and uncertain inference remain separate.",
+        "That conclusion is not verified by Record Thirty-Five."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "BLACKOUT",
+      "title": "04 · Lights Out, Voices Scattering",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The cable is cut, the platform goes dark, and we are carried away.",
+      "story": "A shout warns of people approaching the underground platform. Electricity is cut; the station fills with shouts and a turbulent rush of bodies. D-503 is pushed upstairs and eventually returns alone to his apartment, still carrying the concealed rod.",
+      "observation": "A blackout and public panic disperse the meeting; D-503 leaves without I-330.",
+      "inference": "The blackout identifies the person who cut the cable or proves I-330 was detained.",
+      "question": "What remains unknown?",
+      "choices": [
+        "The cable saboteur and I-330's location afterward.",
+        "D-503's separation from the speaker."
+      ],
+      "reply": [
+        "Correct: witness-supported event and uncertain inference remain separate.",
+        "That conclusion is not verified by Record Thirty-Five."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "U ARRIVES",
+      "title": "05 · Twenty-One O'Clock",
+      "speaker": "U · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I heard you were wounded and came immediately.",
+      "story": "At precisely 21:00 U visits D-503's glass apartment after learning of his injury. He closes the privacy curtains and locks the door as she notices his agitation. He holds the piston rod and approaches while U retreats in fear. No blow has yet occurred.",
+      "observation": "U arrives voluntarily; D-503 creates a closed room and threatens her with a rod.",
+      "inference": "His accusation or the enclosed space establish that she gave away the MEPHI plot.",
+      "question": "What is directly supported?",
+      "choices": [
+        "A frightening threat and U's response, not her guilt.",
+        "A completed murder."
+      ],
+      "reply": [
+        "Correct: witness-supported event and uncertain inference remain separate.",
+        "That conclusion is not verified by Record Thirty-Five."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "LAUGHTER",
+      "title": "06 · The Rod Falls",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "She misunderstands. I laugh—and the dreadful intention breaks.",
+      "story": "U misreads D-503's intent as a sexual advance and reacts accordingly. The misunderstanding shocks D-503 into laughter; his arm relaxes and the piston drops. He does not strike her. The scene illustrates a dangerous difference between intended and perceived action.",
+      "observation": "A mistaken interpretation interrupts an imminent assault and the weapon falls.",
+      "inference": "The event proves violence occurred or that the interaction was consensual.",
+      "question": "What prevented the blow?",
+      "choices": [
+        "His startling laughter and release of the rod.",
+        "A completed assault or mutually shared intention."
+      ],
+      "reply": [
+        "Correct: witness-supported event and uncertain inference remain separate.",
+        "That conclusion is not verified by Record Thirty-Five."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "SUMMONS",
+      "title": "07 · The Benefactor on the Line",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The Benefactor calls me. U says she concealed I-330's name because she feared losing me.",
+      "story": "The telephone rings and the Benefactor himself summons D-503 immediately. D-503 confronts U, asking whether she reported I-330's name. She says no and tearfully explains she feared he would stop loving her. He believes this personal confession and lets her leave, while still not knowing how the Guardians learned the plan.",
+      "observation": "The Benefactor issues a summons; U denies naming I-330 and offers a motive; D-503 lets her go.",
+      "inference": "U's denial independently proves the whole investigation, or the Benefactor has already issued a verdict.",
+      "question": "What goes forward to W036?",
+      "choices": [
+        "A pending summons, U alive, and an unidentified source of the disclosure.",
+        "A completed interrogation or authenticated informer."
+      ],
+      "reply": [
+        "Correct: witness-supported event and uncertain inference remain separate.",
+        "That conclusion is not verified by Record Thirty-Five."
+      ],
+      "mode": 6
+    }
+  ]
+}
