@@ -1,0 +1,141 @@
+{
+  "id": "W032",
+  "title": "I Do Not Believe, Tractors, A Little Human Splinter",
+  "source": "Yevgeny Zamyatin, We, Record Thirty-Two, 1924 Gregory Zilboorg translation; original scene adaptation",
+  "source_url": "https://monadnock.net/zamyatin/we-32.html",
+  "scenes": [
+    {
+      "setting": "TOMORROW",
+      "title": "01 · I Know, But Cannot Believe",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The clock approaches tomorrow, and my body refuses to believe it.",
+      "story": "D-503 thinks about the difference between logically knowing one will die and bodily believing it. The trial flight is imminent, but its approach seems unreal. He climbs the Integral ladder and watches cranes and the darkening river.",
+      "observation": "D-503 anticipates the imminent flight and experiences disbelief.",
+      "inference": "His anxious disbelief proves the flight will never occur.",
+      "question": "What is preserved?",
+      "choices": [
+        "An expected event and his difficulty imagining its arrival.",
+        "A verified cancellation of the trial."
+      ],
+      "reply": [
+        "Correct: the event is preserved without upgrading a plan or fear into an outcome.",
+        "This inference is not verified by Record Thirty-Two."
+      ],
+      "mode": 0
+    },
+    {
+      "setting": "FUEL",
+      "title": "02 · Fifteen Tons or a Thousand",
+      "speaker": "SECOND BUILDER · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "For three and a half hours, how can we need a thousand tons?",
+      "story": "The Second Builder asks how much explosive fuel to load. D-503's logarithmic calculation indicates fifteen tons, but he orders one thousand. The Second Builder objects that this would power the Integral for over a week. D-503 has the planned seizure in mind but doesn't explain it.",
+      "observation": "The calculated estimate differs dramatically from D-503's deliberate loading instruction.",
+      "inference": "The order proves exactly how long the flight will last or that the seizure has already succeeded.",
+      "question": "What are the two distinct quantities?",
+      "choices": [
+        "Fifteen tons estimated for the planned flight; one thousand ordered.",
+        "One thousand tons verified consumed in flight."
+      ],
+      "reply": [
+        "Correct: the event is preserved without upgrading a plan or fear into an outcome.",
+        "This inference is not verified by Record Thirty-Two."
+      ],
+      "mode": 1
+    },
+    {
+      "setting": "TRACTORS",
+      "title": "03 · Fifty Operated Numbers",
+      "speaker": "NARRATOR · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "They carry a bright banner but move like an unyielding machine.",
+      "story": "The Walk halts near an auditorium where roughly fifty citizens who have undergone the Great Operation emerge beneath a white banner with a golden sun. They appear unnaturally mechanical to D-503, link arms and confront the crowd.",
+      "observation": "A group of operated Numbers appears and announces its status.",
+      "inference": "Their uniform motion proves the operation's medical benefits or voluntary consent.",
+      "question": "What is directly seen?",
+      "choices": [
+        "Their procession, banner and coordinated behavior.",
+        "An independent health and consent assessment."
+      ],
+      "reply": [
+        "Correct: the event is preserved without upgrading a plan or fear into an outcome.",
+        "This inference is not verified by Record Thirty-Two."
+      ],
+      "mode": 2
+    },
+    {
+      "setting": "ENCIRCLE",
+      "title": "04 · The Ring Closes",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "The chain closes around us; everyone runs toward the last opening.",
+      "story": "The operated Numbers spread around the crowd and move it toward auditorium doors. A shout warns that they are driving people inside. The unoperated citizens force a passage and flee in panic. D-503 glimpses S-4711 amid the tumult and escapes.",
+      "observation": "Citizens are encircled and panic, while D-503 escapes the immediate scene.",
+      "inference": "The gathered citizens all consent to the proposed treatment.",
+      "question": "What is disproven by the crowd's behavior?",
+      "choices": [
+        "The claim that visible participation demonstrates free agreement.",
+        "That the chain was present."
+      ],
+      "reply": [
+        "Correct: the event is preserved without upgrading a plan or fear into an outcome.",
+        "This inference is not verified by Record Thirty-Two."
+      ],
+      "mode": 3
+    },
+    {
+      "setting": "SPLINTER",
+      "title": "05 · O-90's Little Human Splinter",
+      "speaker": "O-90 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I think of my child every night. Do not let them take that away.",
+      "story": "Outside a building O-90 runs into D-503 and sinks to the doorstep, distraught. She says that every night she dreams of her unborn son and fears losing those feelings in the Great Operation. D-503 feels a new protective tenderness and says he must help.",
+      "observation": "O-90 explicitly fears loss of imagination and asks for help; D-503 responds emotionally.",
+      "inference": "The child has already been born or the Operation has already been performed on O-90.",
+      "question": "What has changed since W029?",
+      "choices": [
+        "O-90 asks for aid and D-503 acknowledges a protective duty.",
+        "A confirmed safe delivery."
+      ],
+      "reply": [
+        "Correct: the event is preserved without upgrading a plan or fear into an outcome.",
+        "This inference is not verified by Record Thirty-Two."
+      ],
+      "mode": 4
+    },
+    {
+      "setting": "AGREES",
+      "title": "06 · An Escape Now Accepted",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "I offered I-330's help before. This time O-90 says yes.",
+      "story": "D-503 again proposes seeking I-330 to help O-90 escape beyond the Green Wall. O-90 quietly agrees. As they walk, D-503 notices familiar footsteps and a figure he identifies as S-4711 behind them. Fearful of revealing I-330, he diverts their route toward his own house.",
+      "observation": "O-90 accepts the proposal, but the pair do not go directly to I-330; D-503 observes a possible follower.",
+      "inference": "Consent to a plan confirms the safe escape was completed.",
+      "question": "What is pending?",
+      "choices": [
+        "Contact with I-330, the success of the escape and the follower's precise purpose.",
+        "O-90's agreement to seek help."
+      ],
+      "reply": [
+        "Correct: the event is preserved without upgrading a plan or fear into an outcome.",
+        "This inference is not verified by Record Thirty-Two."
+      ],
+      "mode": 5
+    },
+    {
+      "setting": "NOTE",
+      "title": "07 · The Note and the Farewell",
+      "speaker": "D-503 · ORIGINAL INTERPRETIVE DIALOGUE",
+      "line": "Take this message to I-330 alone. I cannot safely lead him there.",
+      "story": "In his building lobby D-503 shows O-90 the moving shadow outside. He writes a note for I-330 and sends O-90 alone, watching her depart after a painful farewell. At U's desk a Number reports a hairy, naked man near the Ancient House; U dismisses it as delirium. D-503 remembers the forest people and looks at his own hairy hand.",
+      "observation": "D-503 writes and gives O-90 a note; she leaves; someone reports a person near the Ancient House.",
+      "inference": "The note was received, O-90 escaped safely, or U's dismissal disproves the sighting.",
+      "question": "What carries forward?",
+      "choices": [
+        "A dispatched message, uncertain rescue outcome, and another disputed report.",
+        "Confirmed delivery and successful refuge."
+      ],
+      "reply": [
+        "Correct: the event is preserved without upgrading a plan or fear into an outcome.",
+        "This inference is not verified by Record Thirty-Two."
+      ],
+      "mode": 6
+    }
+  ]
+}
