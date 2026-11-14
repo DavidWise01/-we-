@@ -2,9 +2,9 @@
   "project": "-we-",
   "source": "Yevgeny Zamyatin, We",
   "edition_note": "Original interpretive prose, not copied novel text",
-  "release": "W032",
+  "release": "W033",
   "record_count": 40,
-  "completed": 32,
+  "completed": 33,
   "records": [
     {
       "id": "W001",
@@ -200,9 +200,9 @@
     },
     {
       "id": "W033",
-      "status": "mapped",
-      "title": "Record 33 — planned",
-      "href": null
+      "status": "playable",
+      "title": "This Without a Synopsis, Hastily, the Last",
+      "href": "episodes/W033.html"
     },
     {
       "id": "W034",
