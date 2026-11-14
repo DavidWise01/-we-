@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jane MoE Hive · WAG Visual Journal</title>
+<style>
+:root{color-scheme:dark;--bg:#06151c;--panel:#0b2330;--teal:#40f6e2;--orange:#ff952f;--ink:#e9f9fa}
+*{box-sizing:border-box}body{margin:0;font:16px system-ui,Segoe UI,sans-serif;color:var(--ink);background:radial-gradient(ellipse at top,#133a45,#030a0e 75%)}
+header{padding:30px clamp(16px,5vw,70px);border-bottom:1px solid #315560;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}
+h1{margin:0;font-size:clamp(1.5rem,3vw,2.5rem)}.eyebrow{color:var(--orange);letter-spacing:.17em;text-transform:uppercase;font-size:.75rem}
+nav a{color:var(--teal);margin-left:18px}main{max-width:1180px;margin:auto;padding:20px}
+article{background:linear-gradient(120deg,#102a36aa,#071419);border:1px solid #32606b;border-radius:18px;padding:clamp(16px,3vw,36px);margin:24px 0;box-shadow:0 0 45px #00a6aa18}
+article h2{color:var(--orange)}.sub{color:#aac7d1}.mesh{display:block;width:100%;height:auto;border:1px solid #21586a;border-radius:12px;background:#041118}
+mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
+table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
+footer{padding:24px;text-align:center;color:#9cb2b9}
+a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a></nav></header>
+<main>
+<p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
+<article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
+<svg class="mesh" viewBox="0 0 1100 510" role="img" aria-label="Jane routes one witness dependency into Lab A, which supports a local result, and Lab B, which holds. Both are saved in an append-only ledger.">
+<defs><linearGradient id="back" x2="1" y2="1"><stop stop-color="#09313b"/><stop offset="1" stop-color="#050c17"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect width="1100" height="510" fill="url(#back)"/><g fill="none" stroke="#163c49" stroke-width="1"><path d="M0 80H1100M0 160H1100M0 240H1100M0 320H1100M0 400H1100M100 0V510M300 0V510M500 0V510M700 0V510M900 0V510"/></g>
+<g text-anchor="middle" font-family="system-ui" fill="#eafffb"><circle cx="550" cy="68" r="52" stroke="#ff9e36" stroke-width="4" fill="#432311"/><text x="550" y="77" font-size="26" fill="#ffd5a0">JANE</text>
+<rect x="395" y="137" width="310" height="60" rx="12" stroke="#ff9e36" stroke-width="2" fill="#1d2224"/><text x="550" y="162" font-size="18">Frozen Dependency</text><text x="550" y="184" fill="#ffba76">A     ⟷     B     ⟷     C</text>
+<path d="M395 166H250V230M705 166H850V230" stroke="#ff9e36" stroke-width="4" fill="none"/>
+<rect x="55" y="230" width="390" height="158" rx="15" stroke="#40f6e2" stroke-width="3" fill="#082e35"/><rect x="655" y="230" width="390" height="158" rx="15" stroke="#ff8e35" stroke-width="3" fill="#342016"/>
+<text x="250" y="266" font-size="26" fill="#40f6e2">LAB A</text><text x="850" y="266" font-size="26" fill="#ffac70">LAB B</text>
+<text x="250" y="316" font-size="22">12 / 12 parity matches</text><text x="850" y="316" font-size="22">6 / 12 parity matches</text>
+<text x="250" y="356" font-size="22" fill="#40f6e2">LOCAL SUPPORT</text><text x="850" y="356" font-size="22" fill="#ffa66a">LOCAL HOLD</text>
+<path d="M250 388V439H550M850 388V439H550" stroke="#ff9e36" stroke-width="2" fill="none"/>
+<rect x="372" y="433" width="356" height="52" rx="12" stroke="#40f6e2" fill="#0c2730" stroke-width="2"/><text x="550" y="454" font-size="18">IMMUTABLE EVIDENCE LEDGER</text><text x="550" y="475" font-size="13" fill="#9fcdd1">Both contextual outcomes preserved</text></g></svg>
+<p><strong>Invariant:</strong> Local replication failure ≠ historical invalidation. <a href="../invariants/WAG-044-context-specific-replication.md">Read WAG-044</a></p>
+</article>
+<article id="wag045"><span class="pill">WAG-045</span><h2>Minimal Context Difference and Holdout Validation</h2><p>Compare environments, select the smallest discovery feature set that distinguishes the results, freeze that feature set, and retest on separate observations.</p>
+<svg class="mesh" viewBox="0 0 1100 540" role="img" aria-label="WAG-045 comparison showing sensor model temperature and software unchanged but calibration different, then an independent predictive holdout and immutable ledger.">
+<rect width="1100" height="540" fill="#071923"/><g text-anchor="middle" font-family="system-ui" fill="#effffc">
+<circle cx="550" cy="57" r="46" fill="#43250f" stroke="#ff9e36" stroke-width="4"/><text x="550" y="66" font-size="25" fill="#ffc27a">JANE</text>
+<rect x="385" y="115" width="330" height="45" rx="12" fill="#242322" stroke="#ff9636" stroke-width="2"/><text x="550" y="143" font-size="20">Context comparison</text>
+<rect x="65" y="182" width="295" height="100" rx="12" fill="#0a3035" stroke="#40f6e2" stroke-width="3"/><rect x="740" y="182" width="295" height="100" rx="12" fill="#33201a" stroke="#ff9646" stroke-width="3"/>
+<text x="210" y="217" font-size="25" fill="#40f6e2">LAB A</text><text x="890" y="217" font-size="25" fill="#ffad71">LAB B</text>
+<text x="210" y="249" font-size="19">12 / 12 · SUPPORT</text><text x="890" y="249" font-size="19">6 / 12 · HOLD</text>
+<path d="M360 230H425M675 230H740" stroke="#ff9e36" stroke-width="3"/>
+<rect x="425" y="177" width="250" height="154" rx="12" fill="#0e2531" stroke="#55d2d4" stroke-width="2"/>
+<text x="550" y="201" font-size="14">DIFFERENCE AUDIT</text>
+<text x="550" y="225" font-size="16" fill="#bce5e7">Sensor: S100 = S100</text>
+<text x="550" y="247" font-size="16" fill="#ffad65">Calibration: v1.0 ≠ v1.1</text>
+<text x="550" y="269" font-size="16" fill="#bce5e7">Temperature: 22°C</text>
+<text x="550" y="291" font-size="16" fill="#bce5e7">Software: r7.4</text>
+<text x="550" y="316" font-size="12" fill="#f5c999">Difference ≠ cause</text>
+<path d="M550 332V352" stroke="#ff9933" stroke-width="3"/>
+<rect x="305" y="353" width="490" height="54" rx="12" fill="#30231d" stroke="#ff9a36" stroke-width="3"/><text x="550" y="375" font-size="21" fill="#ffb46f">FROZEN FEATURE: CALIBRATION</text><text x="550" y="397" font-size="14">Independent holdout validates predictive separation</text>
+<path d="M550 408V436" stroke="#40f6e2" stroke-width="3"/>
+<rect x="260" y="437" width="580" height="69" rx="14" stroke="#40f6e2" fill="#0a2930" stroke-width="2"/><text x="550" y="462" font-size="20" fill="#b9fff5">PREDICTIVE BOUNDARY · NOT CAUSAL PROOF</text><text x="550" y="490" font-size="15">Immutable ledger retains both results + exceptions</text></g></svg>
+<p><strong>Invariant:</strong> Minimal predictive difference ≠ verified causal explanation. <a href="../invariants/WAG-045-context-difference-minimization.md">Read WAG-045</a></p>
+</article>
+</main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
