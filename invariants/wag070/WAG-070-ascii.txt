@@ -1,0 +1,25 @@
++================================================================================+
+| JANE / THE SOURCE                  WAG-070 EPOCH-BOUND EVIDENCE FRESHNESS       |
++================================================================================+
+|   EPOCH 0                       EPOCH 1                    EPOCH 2             |
+|   POWER-Y OK                    POWER-Y X                  POWER-Y OK          |
+|      |                              |                         |               |
+|   NETWORK-X OK                 NETWORK-X X               NETWORK-X OK         |
+|      |                              |                         |               |
+|   W1  W2  W3                   W1 X W2 X W3              W1   W2   W3         |
+|      |                              |                         |               |
+|   VERIFY SNAPSHOT              QUORUM HOLD                VERIFY NEW SNAPSHOT |
+|      |                                                        |               |
+|   3 FRESH RECEIPTS              OLD EPOCH-0 DATA          3 NEW RECEIPTS      |
+|      |                           REJECTED                     |               |
+|   LOCAL CERTIFICATE                                    LOCAL CERTIFICATE     |
++================================================================================+
+|          OLD SNAPSHOT HASH != NEW SNAPSHOT HASH; EPOCH 0 != EPOCH 2             |
+|           OLD RECEIPT IDS MAY NOT BE REUSED IN A LATER EPOCH                   |
+|       AVAILABLE != VERIFIED != FRESH-ATTESTED != CERTIFIED                      |
++================================================================================+
+| LOCAL DEMO: 45/45 TESTS PASS | 13 SHA256-LINKED RECORDS VERIFY                |
+| LIMIT: SOURCE LABELS / RECEIPTS ARE DECLARED, NOT CRYPTOGRAPHIC PROOF.         |
++================================================================================+
+| NEXT WAG-071: SIGNED RECOVERY SNAPSHOT & CROSS-WITNESS STATE AGREEMENT         |
++================================================================================+
