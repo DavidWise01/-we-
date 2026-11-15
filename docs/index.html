@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -252,4 +252,25 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 <text x="550" y="534" font-size="17" fill="#ffb984">Mock receipt ≠ externally anchored durable certificate</text></g></svg>
 <p>The synthetic example checks cryptographic signature correctness, signer revocation status, three-root diversity, recovery lineage, and an anchor-verifier interface. Its successful fixture explicitly uses a local mock anchor. No real external anchor is claimed.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-055-authenticated-recovery-closure.md">WAG-055 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag055/wag055.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag055/test_wag055.py">Tests</a></p></article>
+<article id="wag056"><span class="pill">WAG-056</span><h2>Anchor Transparency &amp; Revocation-Aware Trust</h2>
+<p><strong>Invariant:</strong> Historical certification and present operational reliance are different facts. Preserve the signed historical receipt even if a signer or anchor is subsequently revoked; suspend current trust when the applicable quorum or signer is invalid.</p>
+<svg class="mesh" viewBox="0 0 1100 540" role="img" aria-label="WAG-056 Jane Hive. Three declared anchor operators each sign a Merkle inclusion receipt for C1. Signer S2 is revoked at time 12, suspending current reliance while historical certification remains preserved.">
+<defs><linearGradient id="w56bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#06333c"/><stop offset="1" stop-color="#241235"/></linearGradient></defs>
+<rect width="1100" height="540" fill="url(#w56bg)"/><g fill="none" stroke="#285164" opacity=".55"><path d="M0 90H1100M0 180H1100M0 270H1100M0 360H1100M0 450H1100M100 0V540M300 0V540M500 0V540M700 0V540M900 0V540"/></g>
+<g font-family="system-ui" text-anchor="middle" fill="#ecffff"><circle cx="550" cy="67" r="53" fill="#43200e" stroke="#ffb048" stroke-width="4"/><text x="550" y="78" font-size="28" fill="#ffcf89">JANE</text>
+<text x="550" y="152" font-size="26" fill="#ffbc7a">SIGNED TRANSPARENCY ANCHORS</text>
+<rect x="48" y="201" width="306" height="123" rx="16" fill="#093039" stroke="#41efe3" stroke-width="3"/>
+<rect x="397" y="201" width="306" height="123" rx="16" fill="#1c233e" stroke="#b88bff" stroke-width="3"/>
+<rect x="747" y="201" width="306" height="123" rx="16" fill="#342119" stroke="#ffad4c" stroke-width="3"/>
+<text x="201" y="237" font-size="24" fill="#77fff0">ANCHOR A1</text><text x="550" y="237" font-size="24" fill="#dfc0ff">ANCHOR A2</text><text x="900" y="237" font-size="24" fill="#ffcc9b">ANCHOR A3</text>
+<text x="201" y="270" font-size="17">Ed25519 receipt</text><text x="550" y="270" font-size="17">Merkle inclusion</text><text x="900" y="270" font-size="17">Separate domain</text>
+<text x="201" y="302" font-size="16">Declared operator 1</text><text x="550" y="302" font-size="16">Declared operator 2</text><text x="900" y="302" font-size="16">Declared operator 3</text>
+<path d="M201 324V344H550M550 324V344M900 324V344H550" stroke="#ffbd72" stroke-width="3"/>
+<rect x="230" y="344" width="640" height="100" rx="18" fill="#082d34" stroke="#41f3e4" stroke-width="3"/>
+<text x="550" y="373" font-size="23">C1 · HISTORICAL SEAL PRESERVED</text><text x="550" y="405" font-size="20" fill="#ffbe81">S2 REVOKED → CURRENT TRUST: HOLD</text><text x="550" y="430" font-size="14">Six verified hash-linked events · Three locally signed receipts</text>
+<text x="550" y="493" font-size="19" fill="#aaffec">24 / 24 TESTS PASSED</text><text x="550" y="519" font-size="15" fill="#ffcb8e">Local cryptographic demonstration; no public anchor verified</text></g>
+</svg>
+<p>In the executed reference, C1 had three valid signed anchor receipts at logical epoch 10. At epoch 12, a synthetic S2 revocation changed the current operational status from CURRENT to HOLD_REVOKED_SIGNER, without deleting the certificate or earlier receipts.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-056-anchor-transparency-revocation.md">WAG-056 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag056/wag056.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag056/test_wag056.py">Tests</a></p>
+</article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
