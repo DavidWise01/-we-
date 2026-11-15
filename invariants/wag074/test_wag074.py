@@ -54,7 +54,9 @@ class RotationTests(unittest.TestCase):
         self.proposal()
         with self.assertRaises(ValueError):self.g.review('W2','approve',self.sig('W2',self.g.review_payload('W2')),at_epoch=5)
     def test_review_tampering(self):
-        self.ready();self.g.reviews['W2']=('approve',b'fake',self.g.reviews['W2'][2]);self.assertFalse(self.g.valid_ledger()==False)
+        self.proposal();self.sign_review('W2');self.sign_review('W3')
+        self.g.reviews['W2']=('approve',b'fake',self.g.reviews['W2'][2])
+        with self.assertRaises(ValueError):self.g.authorize()
     def test_unauthorized_rotate(self):
         self.proposal()
         with self.assertRaises(ValueError):self.g.rotate()
