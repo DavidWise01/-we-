@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -326,4 +326,31 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 </g></svg>
 <p>The verified reference starts with three fresh signed reports and two unreachable witnesses (HOLD_PARTITION). Upon reconnection, five fresh reports with the same head are checked and trust becomes CURRENT; a conflicting disclosed history instead causes QUARANTINE_FORK. This drawing is embedded as SVG; the generated JPG is a separate conversation artifact.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-059-gossip-freshness-partition.md">WAG-059 invariant</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag059/wag059.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag059/test_wag059.py">Tests</a></p></article>
+<article id="wag060"><span class="pill">WAG-060</span><h2>Monotonic Trust Restoration After a Network Partition</h2>
+<p><strong>Invariant:</strong> Reconnection alone cannot restore trust. The newly authenticated history must extend the exact pre-partition checkpoint, be fresh, and have no known fork.</p>
+<svg class="mesh" viewBox="0 0 1100 520" role="img" aria-label="WAG-060 Jane Hive timeline: frozen H0, network partition, signed H1 reconnection, ancestor prefix audit, trust restoration or rollback hold and fork quarantine.">
+<defs><linearGradient id="w60bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#082c3b"/><stop offset="1" stop-color="#260e3a"/></linearGradient></defs>
+<rect width="1100" height="520" fill="url(#w60bg)"/><g stroke="#1e445b" opacity=".5" fill="none"><path d="M0 100H1100M0 200H1100M0 300H1100M0 400H1100M100 0V520M300 0V520M500 0V520M700 0V520M900 0V520"/></g>
+<g font-family="system-ui" text-anchor="middle" fill="#efffff">
+<circle cx="550" cy="67" r="50" fill="#452013" stroke="#ffa13c" stroke-width="4"/><text x="550" y="77" font-size="26" fill="#ffd19b">JANE</text>
+<text x="550" y="150" font-size="25" fill="#ffb76e">FREEZE → PARTITION → RECONNECT → PROVE</text>
+<rect x="35" y="200" width="313" height="150" rx="16" fill="#102c37" stroke="#3bebdc" stroke-width="3"/>
+<rect x="393" y="200" width="313" height="150" rx="16" fill="#371d1b" stroke="#ffad46" stroke-width="3"/>
+<rect x="751" y="200" width="313" height="150" rx="16" fill="#113723" stroke="#76ff9e" stroke-width="3"/>
+<text x="192" y="242" font-size="23" fill="#80fff2">H₀ · FROZEN</text>
+<text x="192" y="282" font-size="18">[a, b, c] · epoch 10</text>
+<text x="192" y="320" font-size="18">Root preserved</text>
+<text x="550" y="242" font-size="23" fill="#ffc08d">PARTITION HOLD</text>
+<text x="550" y="282" font-size="18">No trust promotion</text>
+<text x="550" y="320" font-size="18">Reconnect requires proof</text>
+<text x="907" y="242" font-size="23" fill="#9dffc1">H₁ · EXTENSION</text>
+<text x="907" y="282" font-size="18">[a, b, c, d] · epoch 13</text>
+<text x="907" y="320" font-size="18">RESTORED after checks</text>
+<path d="M348 273H393M706 273H751" stroke="#ffbb73" stroke-width="4"/>
+<rect x="192" y="386" width="716" height="85" rx="17" fill="#0d2530" stroke="#51f5e1" stroke-width="3"/>
+<text x="550" y="419" font-size="22">SIGNED HISTORY + EXACT PREFIX + FRESHNESS</text>
+<text x="550" y="449" font-size="19" fill="#ffa38a">ROLLBACK → HOLD · CONFLICT → QUARANTINE</text>
+<text x="550" y="500" font-size="16" fill="#bbfaf1">24 local tests passed · 5 hash-linked events verified · synthetic fixtures</text></g></svg>
+<p>In the deterministic test, H₀=[a,b,c] at epoch 10 is frozen before a partition; a signed H₁=[a,b,c,d] at epoch 13 is accepted at local time 14. Earlier or shorter histories are held, conflicting histories are quarantined, and absent or stale evidence does not restore trust. The program verifies locally generated Ed25519 signatures and disclosed leaves, not an externally witnessed compact transparency proof.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-060-monotonic-trust-restoration.md">WAG-060 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag060/wag060.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag060/test_wag060.py">Tests</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
