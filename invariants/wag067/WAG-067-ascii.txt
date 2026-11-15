@@ -1,0 +1,31 @@
++==============================================================================+
+| JANE / THE SOURCE                 WAG-067 COMMON-CAUSE FAILURE DOMAINS         |
++==============================================================================+
+|       DECLARED ROOT A            DECLARED ROOT B          DECLARED ROOT C     |
+|             |                          |                        |            |
+|           [W1]                       [W2]                     [W3]           |
+|             | \\                        | \\                      / |            |
+|          host-a \\                   host-b \\               / host-c           |
+|                  \\                        \\              /                  |
+|                   +------------------------+------------+                   |
+|                                 network-x                                    |
+|                                    |                                         |
+|                             SINGLE DOMAIN CUT                               |
+|                                    X                                         |
+|                   +----------------+---------------+                        |
+|                   X                X               X                        |
+|                  W1               W2              W3                        |
+|                                                                              |
+|                          0 / 3 WITNESSES SURVIVE                             |
+|                              HOLD_COMMON_CAUSE                               |
++==============================================================================+
+| MINIMAL ALL-THREE FAILURE SETS (INCLUSION-MINIMAL):                          |
+|     {network-x}              OR          {host-a, host-b, host-c}            |
+| SMALLEST CARDINALITY CUT: 1 DOMAIN                                          |
++==============================================================================+
+| AFTER REPAIR: 3/3 AVAILABLE => FRESH W1/W2/W3 RECEIPTS STILL REQUIRED      |
+| ANCESTRY ROOTS A,B,C PRESERVED; DIFFERENT ROOTS != INDEPENDENT INFRA        |
+| 28/28 LOCAL TESTS PASS   |   4 HASH-LINKED EVENTS VERIFY                      |
++==============================================================================+
+| NEXT WAG-068: DEPENDENCY HYPERGRAPH & CORRELATED FAILURES                    |
++==============================================================================+
