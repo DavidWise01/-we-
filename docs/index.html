@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -113,4 +113,22 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 </g></svg>
 <p>Reproducibility is necessary, but concealment, real entropy quality, and honest allocation generation require independent verification. This reference uses synthetic witnesses, not cryptographically authenticated provenance.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-048-randomization-mechanism.md">WAG-048 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag048/wag048.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag048/test_wag048.py">Tests</a></p></article>
+<article id="wag049"><span class="pill">WAG-049</span><h2>Independent Entropy Provenance and Concealment</h2><p><strong>Invariant:</strong> Three claimed entropy sources and a reproducible seed commitment are not sufficient to prove real entropy independence or secrecy. This reference verifies the recorded order of commitments, cutoff, reveal, and deterministic assignment.</p>
+<svg class="mesh" viewBox="0 0 1100 555" role="img" aria-label="Neon Jane WAG-049 visual: three declared entropy sources commit before enrollment cutoff, disclose afterwards, combine to seed balanced 24/24 allocation and preserve historical records.">
+<defs><linearGradient id="w49g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#062a3b"/><stop offset="1" stop-color="#220b34"/></linearGradient></defs><rect width="1100" height="555" fill="url(#w49g)"/>
+<g stroke="#17364c" opacity=".7"><path d="M0 93H1100M0 186H1100M0 279H1100M0 372H1100M0 465H1100M100 0V555M300 0V555M500 0V555M700 0V555M900 0V555"/></g>
+<g text-anchor="middle" font-family="system-ui" fill="#eafffe">
+<circle cx="550" cy="70" r="54" stroke="#ffa43d" stroke-width="4" fill="#432011"/><text x="550" y="80" font-size="29" fill="#ffe0a1">JANE</text>
+<text x="550" y="155" font-size="26" fill="#ffb76d">ENTROPY → COMMIT → CUTOFF → REVEAL</text>
+<rect x="36" y="198" width="316" height="168" rx="16" stroke="#3aefe3" stroke-width="3" fill="#082d35"/>
+<rect x="392" y="198" width="316" height="168" rx="16" stroke="#ffad47" stroke-width="3" fill="#302219"/>
+<rect x="748" y="198" width="316" height="168" rx="16" stroke="#bc86ff" stroke-width="3" fill="#271b39"/>
+<text x="194" y="234" font-size="21" fill="#6affec">SOURCE CLAIMS</text><text x="194" y="274" font-size="18">Physical · Beacon</text><text x="194" y="304" font-size="18">Astronomical</text><text x="194" y="341" font-size="16">3 commitments sealed</text>
+<text x="550" y="234" font-size="22" fill="#ffcb92">CUTOFF BARRIER</text><text x="550" y="274" font-size="18">All hashes recorded</text><text x="550" y="304" font-size="18">3 witness-root labels</text><text x="550" y="341" font-size="16">No reveal before cutoff</text>
+<text x="906" y="234" font-size="22" fill="#d7aeff">REPRODUCE</text><text x="906" y="274" font-size="18">3 reveals match</text><text x="906" y="304" font-size="18">24 control · 24 intervention</text><text x="906" y="341" font-size="16">HMAC allocation verified</text>
+<path d="M352 286H392M708 286H748" stroke="#ffae54" stroke-width="5"/>
+<rect x="202" y="397" width="696" height="101" rx="16" stroke="#3ef4e6" stroke-width="3" fill="#102e37"/><text x="550" y="433" font-size="23">IMMUTABLE REFERENCE LEDGER</text><text x="550" y="470" font-size="19">9 records verified · 24 / 24 tests passed</text>
+<text x="550" y="536" fill="#ffb780" font-size="17">REPRODUCIBLE ≠ AUTHENTICATED ENTROPY OR CONCEALMENT</text></g></svg>
+<p>Reference result: 24/24 balanced assignment, seed reveals matched three precommitted digests, all 24 Python tests passed. The source IDs, witness attestations, and concealment claim are not authenticated; the example uses deterministic synthetic seed material.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-049-entropy-provenance.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag049/wag049.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag049/test_wag049.py">Tests</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
