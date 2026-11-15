@@ -1,0 +1,39 @@
++==========================================================================+
+| JANE / THE SOURCE     WAG-073: REVIEW -> REVOKE -> ROTATE -> REATTEST     |
++==========================================================================+
+|   ORIGINAL RING                      REPLACEMENT RING                   |
+|          W1                                  W4                          |
+|         /  \                                /  \                         |
+|        /    \                              /    \                        |
+|       W2----W3                            W2----W3                      |
+|       ROOTS A,B,C                        ROOTS B,C,D                    |
++==========================================================================+
+| W1 / EPOCH 2 / CHALLENGE 7                                              |
+|      SIGN(snapshot A)       SIGN(snapshot B)                              |
+|            \                  /                                           |
+|             +-- TWO VALID ED25519 SIGNATURES --+                         |
+|                           |                                             |
+|                    EQUIVOCATION CERTIFICATE                              |
+|                    PRESERVE BOTH SIGNED STATES                           |
+|                           |                                             |
+|                    QUARANTINE W1                                         |
+|                           |                                             |
+|                    W2 SIGNED REVIEW                                     |
+|                           |                                             |
+|                    RETIRE OLD KEY W1                                    |
+|                           |                                             |
+|                    ADMIT NEW KEY W4                                     |
+|                           |                                             |
+|                  EPOCH 3 / NEW CHALLENGE                                 |
+|                           |                                             |
+|                     W2 + W3 + W4                                        |
+|                  FRESH SIGNED RECEIPTS                                  |
+|                           |                                             |
+|                  LOCAL QUORUM REBUILT                                   |
++==========================================================================+
+| 52/52 LOCAL TESTS PASS   |   FIVE HASH-LINKED AUDIT RECORDS VERIFY      |
+| PRESERVED HISTORICAL EVIDENCE != CURRENT SIGNING AUTHORITY               |
+| DECLARED INDEPENDENCE != AUTHENTICATED EXTERNAL SOURCE ANCESTRY           |
++==========================================================================+
+| NEXT WAG-074: COLLUSION-SAFE INDEPENDENT REVIEW AUTHORIZATION            |
++==========================================================================+
