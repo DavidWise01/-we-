@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a><a href="#wag069">WAG-069</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -513,4 +513,29 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 | INCLUSION-MINIMAL ALL-WITNESS CUT SETS: FOUR                        |
 | 34/34 LOCAL TESTS PASSED   |   15 SHA-256 LEDGER EVENTS VERIFY      |
 +-----------------------------------------------------------------------+</pre><p>Executed synthetic reference: fail power-y and W1/W2 become unavailable, leaving 1/3. The four inclusion-minimal all-witness cut sets include {power-y,power-z}. The strict quorum holds; 34 of 34 local tests passed with 15 verified hash-linked events. No physical independence is authenticated.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag068/WAG-068-ascii.txt">ASCII (.txt)</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-068-dependency-hypergraph.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag068/wag068.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag068/test_wag068.py">Tests</a></p></article>
+<article id="wag069"><span class="pill">WAG-069</span><h2>Recovery Dependency Order and Fresh Three-Witness Quorum</h2><p><strong>Invariant:</strong> Repair upstream dependencies, verify each repaired layer, then obtain three fresh independent declared witness receipts. Routing restoration alone does not restore certification.</p><pre style="overflow-x:auto;white-space:pre;color:#58f5e4;background:#04121c;padding:16px;border:1px solid #26a4af;border-radius:12px;font:clamp(7px,1.05vw,13px)/1.3 monospace">+--------------------------------------------------------------------------+
+| WAG-069: RECOVERY ORDER, FRESH THREE-WITNESS QUORUM                       |
++--------------------------------------------------------------------------+
+|                        POWER-Y [X]                                       |
+|                            |                                             |
+|                       NETWORK-X [X]                                     |
+|                        /       \                                         |
+|                  ROUTER-A X   ROUTER-B X       POWER-Z OK                |
+|                       |          |                |                     |
+|                      W1 X       W2 X          ROUTER-C OK                |
+|                                                  |                       |
+|                                                 W3 OK                    |
+|                                                                         |
+|                     1/3 SURVIVE -&gt; QUORUM HOLD                           |
++--------------------------------------------------------------------------+
+| 1. REPAIR + VERIFY POWER-Y                                               |
+| 2. REPAIR + VERIFY NETWORK-X                                             |
+| 3. REPAIR + VERIFY ROUTER-A                                              |
+| 4. REPAIR + VERIFY ROUTER-B                                              |
+| 5. REQUEST FRESH RECEIPTS W1 + W2 + W3                                   |
+| 6. RESTORE LOCAL DECLARED QUORUM (NOT BYZANTINE CERTIFICATION)           |
++--------------------------------------------------------------------------+
+| 36/36 LOCAL TESTS PASSED | 13 HASH-LINKED RECORDS VERIFIED               |
+| INFRA REPAIRED != VERIFIED != FRESHLY ATTESTED                            |
++--------------------------------------------------------------------------+</pre><p>Local synthetic run: fail power-y → network-x, router-a and router-b cascade → W1/W2 lost, W3 remains → ordered repairs + verification → fresh W1/W2/W3 attestations → local declared quorum accepted. 36/36 local unit tests and 13/13 audit records verified. Distinct ancestry and receipt values are declarations, not authenticated external proof.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag069/WAG-069-ascii.txt">ASCII artwork (.txt)</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-069-topological-repair-order.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag069/wag069.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag069/test_wag069.py">36 tests</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
