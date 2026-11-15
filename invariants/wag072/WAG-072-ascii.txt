@@ -1,0 +1,31 @@
++==============================================================================+
+| JANE / THE SOURCE              WAG-072 CHALLENGE / EQUIVOCATION GATE           |
++==============================================================================+
+|                   RECOVERY EPOCH: 2   ROUND: recovery-round-7                |
+|                     NONCE: 0123456789abcdef...                              |
+|                                                                            |
+|            ROOT A                ROOT B                  ROOT C             |
+|              |                     |                       |                |
+|             W1                    W2                      W3                |
+|            /  \                    |                       |                |
+|     SIGN SNAP A SIGN SNAP B    SIGN SNAP A             SIGN SNAP A           |
+|            \  /                    |                       |                |
+|             \/                     |                       |                |
+|        SAME WITNESS                |                       |                |
+|       TWO VALID SIGS               |                       |                |
+|             |                      |                       |                |
+|             +----------------------+-----------------------+                |
+|                                    |                                        |
+|                         EQUIVOCATION CERTIFICATE                            |
+|                        {W1, signature A, signature B}                       |
+|                                    |                                        |
+|                             QUARANTINE W1                                  |
+|                             HOLD_EQUIVOCATION                              |
++==============================================================================+
+| HONEST CONTROL: W1=A, W2=A, W3=A -> LOCAL_SIGNED_AGREEMENT                  |
+| ATTACK: W1=A THEN W1=B, same signed challenge -> HOLD_EQUIVOCATION         |
+| ORIGINAL OBSERVATION PRESERVED / APPEND CERTIFICATE / NEVER SILENTLY REWRITE|
+| 49/49 LOCAL TESTS PASS / 5 SHA256 HASH-LINKED EVENT RECORDS VERIFIED       |
++==============================================================================+
+| NEXT: WAG-073 INDEPENDENT EQUIVOCATION REVIEW AND WITNESS REPLACEMENT      |
++==============================================================================+
