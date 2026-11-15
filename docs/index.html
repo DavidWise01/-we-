@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -304,4 +304,26 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 </g></svg>
 <p>In the executed synthetic fixture, the operator signs H₃ and H₆, three witnesses sign their respective gossip reports, and an RFC6962-style compact consistency path links the older tree to the newer. Same-size conflicts and invalid proofs produce QUARANTINE; missing proof produces HOLD, rather than a false accusation.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-058-authenticated-gossip-consistency.md">WAG-058 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag058/wag058.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag058/test_wag058.py">Tests</a></p></article>
+<article id="wag059"><span class="pill">WAG-059</span><h2>Gossip Freshness &amp; Network Partition Resilience</h2>
+<p><strong>Invariant:</strong> Consistent received views are not necessarily complete, fresh network knowledge. A known partition holds operational trust even if a local quorum agrees, until disconnected witnesses rejoin and their histories are checked.</p>
+<svg class="mesh" viewBox="0 0 1100 555" role="img" aria-label="WAG-059: a five-witness gossip mesh with three fresh compatible heads in one partition and two unreachable witnesses. After rejoining and consistency checks, all five report the same head.">
+<defs><linearGradient id="w59bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#052d3b"/><stop offset="1" stop-color="#241138"/></linearGradient></defs>
+<rect width="1100" height="555" fill="url(#w59bg)"/><g fill="none" stroke="#214453" opacity=".6"><path d="M0 92H1100M0 184H1100M0 276H1100M0 368H1100M0 460H1100M100 0V555M300 0V555M500 0V555M700 0V555M900 0V555"/></g>
+<g font-family="system-ui" text-anchor="middle" fill="#efffff">
+<circle cx="550" cy="65" r="52" fill="#472314" stroke="#ffa843" stroke-width="4"/><text x="550" y="76" font-size="27" fill="#ffd59a">JANE</text>
+<text x="550" y="152" font-size="26" fill="#ffc38a">FRESHNESS · PARTITION · REJOIN</text>
+<rect x="52" y="199" width="446" height="167" rx="17" fill="#0a303b" stroke="#40edda" stroke-width="3"/>
+<rect x="603" y="199" width="446" height="167" rx="17" fill="#38201c" stroke="#ff9956" stroke-width="3"/>
+<text x="275" y="238" font-size="25" fill="#62ffec">PARTITION A</text><text x="826" y="238" font-size="25" fill="#ffaf83">PARTITION B</text>
+<text x="275" y="277" font-size="20">W1 · W2 · W3</text><text x="826" y="277" font-size="20">W4 · W5</text>
+<text x="275" y="307" font-size="18">3 fresh compatible heads</text><text x="826" y="307" font-size="18">Unreachable from Jane</text>
+<text x="275" y="340" font-size="21" fill="#ffe1a0">HOLD_PARTITION</text><text x="826" y="340" font-size="21" fill="#ffa685">NO ASSUMED AGREEMENT</text>
+<path d="M498 282H603" stroke="#ff9f6a" stroke-dasharray="12 8" stroke-width="4"/>
+<rect x="245" y="405" width="610" height="99" rx="17" fill="#103329" stroke="#66f5a0" stroke-width="3"/>
+<text x="550" y="435" font-size="23" fill="#a4ffba">REJOIN + CRYPTOGRAPHIC RECHECK</text>
+<text x="550" y="468" font-size="19">5 fresh matching heads → CURRENT</text>
+<text x="550" y="535" font-size="16" fill="#ffbc86">24/24 tests passed · 8 append-only records · locally signed synthetic witnesses</text>
+</g></svg>
+<p>The verified reference starts with three fresh signed reports and two unreachable witnesses (HOLD_PARTITION). Upon reconnection, five fresh reports with the same head are checked and trust becomes CURRENT; a conflicting disclosed history instead causes QUARANTINE_FORK. This drawing is embedded as SVG; the generated JPG is a separate conversation artifact.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-059-gossip-freshness-partition.md">WAG-059 invariant</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag059/wag059.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag059/test_wag059.py">Tests</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
