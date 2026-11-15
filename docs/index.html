@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -153,5 +153,29 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 </g></svg>
 <p>Reference outcomes: three separately labeled domains with all reveals → eligible for external verification; shared failure-domain → HOLD; withheld reveal → ABORT with no same-ceremony retry. All original events remain in hash-linked history.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-050-entropy-contributor-independence.md">WAG-050 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag050/wag050.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag050/test_wag050.py">Tests</a></p>
+</article>
+<article id="wag051"><span class="pill">WAG-051</span><h2>Selective-Abort Bias and Ceremony Recovery</h2>
+<p><strong>Invariant:</strong> commitments alone cannot prevent a last contributor from withholding a reveal. Every attempt and abort must be preserved; a recovery is a new ceremony linked to the failed one, not a silent retry.</p>
+<svg class="mesh" viewBox="0 0 1100 555" role="img" aria-label="WAG-051 cybernetic witness ceremony: three committed sources, reveal gate, complete versus aborted rounds, explicit new-round recovery and append-only ledger.">
+<defs><linearGradient id="w51bg" x2="1" y2="1"><stop stop-color="#071f34"/><stop offset="1" stop-color="#260f37"/></linearGradient></defs>
+<rect width="1100" height="555" fill="url(#w51bg)"/>
+<g stroke="#21465a" opacity=".55"><path d="M0 100H1100M0 200H1100M0 300H1100M0 400H1100M0 500H1100M100 0V555M300 0V555M500 0V555M700 0V555M900 0V555"/></g>
+<g font-family="system-ui" text-anchor="middle" fill="#eaffff">
+<circle cx="550" cy="65" r="48" fill="#4a2013" stroke="#ffa242" stroke-width="4"/><text x="550" y="76" font-size="27" fill="#ffd698">JANE</text>
+<text x="550" y="148" font-size="26" fill="#ffbb72">COMMIT · REVEAL · ABORT AUDIT</text>
+<rect x="54" y="203" width="310" height="155" rx="15" stroke="#53eedf" stroke-width="3" fill="#09323b"/>
+<rect x="395" y="203" width="310" height="155" rx="15" stroke="#f49e53" stroke-width="3" fill="#342018"/>
+<rect x="736" y="203" width="310" height="155" rx="15" stroke="#be87fc" stroke-width="3" fill="#291c3d"/>
+<text x="209" y="247" font-size="23" fill="#8ffff0">ROUND 1</text><text x="550" y="247" font-size="23" fill="#ffc084">ROUND 2</text><text x="891" y="247" font-size="23" fill="#d8b4ff">ROUND 3</text>
+<text x="209" y="290" font-size="18">A + B + C revealed</text><text x="550" y="290" font-size="18">C withheld</text><text x="891" y="290" font-size="18">New committed round</text>
+<text x="209" y="330" font-size="20" fill="#60ffd9">COMPLETE</text><text x="550" y="330" font-size="20" fill="#ff8068">ABORT · PRESERVE</text><text x="891" y="330" font-size="20" fill="#caa4ff">RECOVERY COMPLETE</text>
+<path d="M364 279H395M705 279H736" stroke="#ffb167" stroke-width="3"/>
+<rect x="200" y="402" width="700" height="100" rx="17" stroke="#42f0de" stroke-width="3" fill="#0c2b35"/>
+<text x="550" y="433" font-size="24">APPEND-ONLY CEREMONY LEDGER</text>
+<text x="550" y="467" font-size="20">3 attempts · 1 abort · 27 records · 24 tests passed</text>
+<text x="550" y="538" font-size="16" fill="#ffb981">Descriptive abort count ≠ statistically proven adversarial bias</text>
+</g></svg>
+<p>Local synthetic result: 3 total ceremonies, 2 complete, 1 aborted after contributor C withheld. A new round explicitly cites the aborted predecessor. All 27 hash-linked records verify.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-051-selective-abort-resistance.md">Invariant</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag051/wag051.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag051/test_wag051.py">Regression tests</a></p>
 </article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
