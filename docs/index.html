@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -178,4 +178,28 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 <p>Local synthetic result: 3 total ceremonies, 2 complete, 1 aborted after contributor C withheld. A new round explicitly cites the aborted predecessor. All 27 hash-linked records verify.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-051-selective-abort-resistance.md">Invariant</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag051/wag051.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag051/test_wag051.py">Regression tests</a></p>
 </article>
+<article id="wag052"><span class="pill">WAG-052</span><h2>Abort-Censoring Bias Detection</h2>
+<p><strong>Invariant:</strong> Accepted outcomes can be biased when completion depends on the result. Preserve every attempted ceremony and never infer unavailable aborted outcomes.</p>
+<svg class="mesh" viewBox="0 0 1100 550" role="img" aria-label="Jane WAG-052 censoring audit: 30 attempted ceremonies split into 20 completed and 10 aborted, observed success rates 80% and 10%, two-sided Fisher exact p 0.000414.">
+<defs><linearGradient id="w52bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#082d36"/><stop offset="1" stop-color="#251036"/></linearGradient></defs>
+<rect width="1100" height="550" fill="url(#w52bg)"/>
+<g stroke="#284559" opacity=".6"><path d="M0 90H1100M0 180H1100M0 270H1100M0 360H1100M0 450H1100M100 0V550M300 0V550M500 0V550M700 0V550M900 0V550"/></g>
+<g text-anchor="middle" font-family="system-ui" fill="#eaffff">
+<circle cx="550" cy="62" r="48" stroke="#ff9d3d" stroke-width="4" fill="#40200e"/><text x="550" y="72" font-size="25" fill="#ffd091">JANE</text>
+<text x="550" y="143" font-size="26" fill="#ffb66c">ABORT-CENSORING AUDIT</text><text x="550" y="172" font-size="18">30 committed attempts · 20 completed · 10 aborted</text>
+<rect x="53" y="210" width="435" height="174" rx="16" fill="#0b3236" stroke="#3bf0da" stroke-width="3"/>
+<rect x="612" y="210" width="435" height="174" rx="16" fill="#362018" stroke="#ffad55" stroke-width="3"/>
+<text x="270" y="246" font-size="23" fill="#55f9e7">COMPLETED</text><text x="830" y="246" font-size="23" fill="#ffc080">ABORTED</text>
+<text x="270" y="308" font-size="31">16 / 20 successes</text><text x="830" y="308" font-size="31">1 / 10 successes</text>
+<text x="270" y="350" font-size="26" fill="#56f5e0">80.0%</text><text x="830" y="350" font-size="26" fill="#ffaf71">10.0%</text>
+<path d="M488 297H612" stroke="#ffc27b" stroke-width="4"/>
+<rect x="492" y="266" width="116" height="63" rx="10" fill="#182c36" stroke="#ff9f48"/>
+<text x="550" y="290" font-size="14">Difference</text><text x="550" y="314" font-size="21">70 pp</text>
+<rect x="205" y="412" width="690" height="88" rx="16" fill="#0b2833" stroke="#47f3df" stroke-width="3"/>
+<text x="550" y="443" font-size="21">TWO-SIDED FISHER EXACT · p = 0.000414</text>
+<text x="550" y="472" font-size="18">SELECTION ASSOCIATION FLAG · 24 / 24 TESTS PASSED</text>
+<text x="550" y="530" font-size="16" fill="#ffbe7c">Synthetic reference · Unknown aborted outcomes must remain bounded / unresolved</text>
+</g></svg>
+<p>Observed outcomes in this synthetic reference: 16 of 20 completed successful, 1 of 10 aborted successful. Overall rate 17/30. The exact two-sided p value is 0.0004140787. A real aborted outcome may be missing, in which case the kernel reports partial-identification bounds and does not invent success labels. The generated JPG has an inconsistent decorative p-value; this HTML panel uses the executed result.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-052-abort-censoring-bias.md">WAG-052 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag052/wag052.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag052/test_wag052.py">Tests</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
