@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -450,4 +450,26 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 +------------------------------------------------------------------+</pre>
 <p>In the local demonstration, the five-event hash chain preserved both cut events and later repairs; 24/24 tests passed. An intact communications graph does not guarantee independent witnesses or Byzantine consensus.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag065/WAG-065-ascii.txt">ASCII text artwork</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-065-minimum-cuts.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag065/wag065.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag065/test_wag065.py">Regression tests</a></p></article>
+<article id="wag066"><span class="pill">WAG-066</span><h2>Vertex Cuts &amp; Quorum Loss</h2>
+<p><strong>Invariant:</strong> A connected surviving witness pair is not a valid three-witness quorum. κ(K3)=2, but losing one witness immediately triggers HOLD_QUORUM_LOSS under Jane's strict quorum policy.</p>
+<pre style="overflow-x:auto;white-space:pre;color:#58f5e4;background:#04121c;padding:16px;border:1px solid #26a4af;border-radius:12px;font:clamp(7px,1.05vw,13px)/1.3 monospace">+------------------------------------------------------------------+
+| WAG-066 : VERTEX CUTS / QUORUM LOSS                               |
++------------------------------------------------------------------+
+|    BEFORE K3          W1 FAILED          RESTORED                |
+|        W1                 X                 W1                   |
+|       /  \               . .               /  \                  |
+|      /    \             .   .             /    \                 |
+|     W2----W3           W2----W3           W2----W3               |
+|                                                                  |
+|      3/3 live           2/3 live           3/3 live              |
+|      CONNECTED          CONNECTED          CONNECTED             |
+|      ELIGIBLE           HOLD_QUORUM_LOSS   REATTEST x3           |
++------------------------------------------------------------------+
+| kappa(K3) = 2   |   lambda(K3) = 2                                |
+| SOURCE ROOTS: A, B, C PERSIST DURING FAILURE AND REPAIR           |
+| CONNECTIVITY != CERTIFICATION != BYZANTINE AGREEMENT              |
+| 26/26 LOCAL TESTS PASSED  |  4-RECORD AUDIT CHAIN VERIFIED        |
++------------------------------------------------------------------+</pre>
+<p>Locally executed: fail W1 → W2 and W3 remain connected → quorum hold. Restore W1 → all three must newly attest → local declared quorum accepted. 26 tests passed; four hash-linked events verified. Source ancestry and domain labels are declarations, not independently verified real-world properties.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag066/WAG-066-ascii.txt">ASCII .txt artwork</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-066-vertex-cuts-quorum-loss.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag066/wag066.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag066/test_wag066.py">Tests</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
