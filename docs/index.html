@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a><a href="#wag069">WAG-069</a><a href="#wag070">WAG-070</a><a href="#wag071">WAG-071</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a><a href="#wag069">WAG-069</a><a href="#wag070">WAG-070</a><a href="#wag071">WAG-071</a><a href="#wag072">WAG-072</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -578,4 +578,32 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 | MATCHING CONTROL: W1=A, W2=A, W3=A -&gt; LOCAL SIGNED ACCEPT       |
 | 42/42 LOCAL TESTS PASSED | 4 VERIFIED HASH-LINKED DEMO EVENTS  |
 +------------------------------------------------------------------+</pre><p>Executed locally: 42/42 tests passed; a deliberately conflicting third report resulted in QUARANTINE_SNAPSHOT_CONFLICT; four-event hash chain verified. The matching three-signer control accepted locally. Signing keys are deterministic test fixtures.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag071/WAG-071-ascii.txt">ASCII artwork</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-071-signed-recovery-snapshots.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag071/wag071.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag071/test_wag071.py">42 tests</a></p></article>
+<article id="wag072"><span class="pill">WAG-072</span><h2>Signed Challenge Freshness and Equivocation Certificates</h2>
+<p><strong>Invariant:</strong> a witness producing two valid Ed25519 signatures for distinct snapshots under an identical challenge, epoch and round provides an equivocation certificate. Jane preserves both statements and quarantines the signer. Three matching signatures without a fork produce local agreement; signed disagreement between distinct witnesses alone is not equivocation.</p>
+<pre style="overflow-x:auto;white-space:pre;color:#58f5e4;background:#04121c;padding:16px;border:1px solid #26a4af;border-radius:12px;font:clamp(7px,1.05vw,13px)/1.3 monospace">+-----------------------------------------------------------------------+
+| WAG-072 : CHALLENGE-BOUND SIGNATURES AND EQUIVOCATION DETECTION        |
++-----------------------------------------------------------------------+
+|                     RECOVERY ROUND 7                                  |
+|                     CHALLENGE NONCE                                   |
+|                           |                                           |
+|            W1             W2              W3                         |
+|          /    \            |               |                          |
+|      SIGN A  SIGN B     SIGN A          SIGN A                        |
+|          \    /            |               |                          |
+|           \  /             |               |                          |
+|        TWO STATES          |               |                          |
+|       ONE SIGNER           |               |                          |
+|            +---------------+---------------+                          |
+|                            |                                          |
+|               PROOF: W1 SIGNED A AND B                               |
+|               QUARANTINE W1 + PRESERVE BOTH                           |
+|                   HOLD_EQUIVOCATION                                   |
++-----------------------------------------------------------------------+
+| SAME CHALLENGE + EPOCH + ROUND REQUIRED                               |
+| DIFFERENT HONEST OBSERVATIONS != SIGNER EQUIVOCATION                  |
+| 49/49 LOCAL TESTS PASSED | 5 HASH-LINKED AUDIT RECORDS VERIFIED      |
++-----------------------------------------------------------------------+</pre>
+<p>Local synthetic verification: 49/49 tests passed. Ed25519 keys are generated in memory, witness ancestry is declared, and the SHA-256-linked ledger is not externally anchored. This is a signed evidence gate, not distributed Byzantine consensus.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag072/WAG-072-ascii.txt">ASCII art .txt</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-072-challenge-bound-equivocation.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag072/wag072.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag072/test_wag072.py">49 tests</a></p>
+</article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
