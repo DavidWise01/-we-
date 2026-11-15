@@ -1,0 +1,34 @@
++=============================================================================+
+| JANE / THE SOURCE            WAG-065 : MINIMUM CUT / REDUNDANT WITNESS PATHS |
+| Witness  | Evidence | Topology | Gravity /\ | Void \/ | Append-only Ledger |
++=============================================================================+
+|       STAGE 0                 STAGE 1                STAGE 2                  |
+|       ALL LINKS               ONE EDGE CUT          TWO EDGES CUT            |
+|                                                                             |
+|          W1                       W1                     W1                  |
+|         /  \                       \                      .                  |
+|        /    \                       \                     .                   |
+|       /      \                       \                    .                    |
+|      W2------W3                W2------W3             W2------W3               |
+|                                                                             |
+|    E = 3 : CONNECTED          E = 2 : CONNECTED     E = 1 : DISCONNECTED     |
+|    two edge-disjoint          one route remains     W1 isolated: HOLD       |
+|    paths per pair             no redundancy         quorum not valid        |
++=============================================================================+
+|                    STAGE 3 : RESTORE / REVERIFY                             |
+|                                                                             |
+|           W1 ---- repair W1-W2, repair W1-W3 ----> W1                      |
+|           .                                      /  \                      |
+|          .                                      /    \                     |
+|         W2-------W3                            W2----W3                    |
+|                                                                             |
+|         PRESERVE ORIGINAL CUT EVENTS. RECHECK ALL THREE ANCESTOR ROOTS.     |
++=============================================================================+
+| λ(K3) = 2 | Minimum disconnecting EDGE CUT = 2 | Three ancestors: A,B,C     |
+| Graph redundancy != Byzantine agreement. BFT f=1 generally requires n>=4.  |
+|                                                                 LOCAL DEMO |
+|  Genesis -> CUT(W1,W2) -> CUT(W1,W3) -> REPAIR(W1,W2) -> REPAIR(W1,W3)       |
+|  Five hash-linked events. No implicit restoration of independent consensus.|
++=============================================================================+
+| NEXT WAG-066: VERTEX CUTS, QUORUM LOSS, AND FAILURE-DOMAIN SEPARATION        |
++=============================================================================+
