@@ -1,0 +1,29 @@
++================================================================================+
+| JANE / THE SOURCE             WAG-071 SIGNED RECOVERY SNAPSHOTS                 |
++================================================================================+
+|                            RECOVERY EPOCH 2                                    |
+|                                   |                                            |
+|                          VERIFIED SNAPSHOT A                                  |
+|                                   |                                            |
+|            +----------------------+----------------------+                     |
+|            |                      |                      |                     |
+|           W1                     W2                     W3                     |
+|       KEY W1/A                KEY W2/B                KEY W3/C                  |
+|            |                      |                      |                     |
+|       SIGN HASH A             SIGN HASH A             SIGN HASH B             |
+|            |                      |                      |                     |
+|            +----------------------+----------------------+                     |
+|                                   |                                            |
+|                        SIGNATURES VALID (3/3)                                 |
+|                        SNAPSHOT HASHES DIFFER                                 |
+|                                   |                                            |
+|                      QUARANTINE_SNAPSHOT_CONFLICT                              |
+|                                   |                                            |
+|                 PRESERVE ALL 3 REPORTS AND SIGNATURES                          |
++================================================================================+
+|    EPOCH 1 SIGNATURE --X--> EPOCH 2   |   NONCE REUSE --X--> SECOND WITNESS     |
+| MATCHING CASE: W1:A + W2:A + W3:A => LOCAL_SIGNED_QUORUM_ACCEPTED              |
+| 42/42 LOCAL TESTS PASSED | 4 HASH-LINKED EVENTS IN THE CONFLICT DEMO          |
++================================================================================+
+| NEXT WAG-072: CHALLENGE BINDING AND CROSS-WITNESS EQUIVOCATION                 |
++================================================================================+
