@@ -1,0 +1,44 @@
++==============================================================================+
+| JANE / THE SOURCE       WAG-074 COLLUSION-SAFE ROTATION                      |
++==============================================================================+
+|                        ORIGINAL RING                                       |
+|                             W1                                             |
+|                            /  \                                            |
+|                           W2----W3                                          |
+|                              |                                               |
+|            W1 SIGN(A) + W1 SIGN(B), SAME EPOCH/ROUND                         |
+|                              |                                               |
+|                   FROZEN EQUIVOCATION CERTIFICATE                           |
+|                              |                                               |
+|                       QUARANTINE W1                                         |
+|                              |                                               |
+|                      PROPOSE W1 -> W4                                       |
+|                              |                                               |
+|                 +------------+------------+                                 |
+|                 |                         |                                 |
+|                W2                        W3                                 |
+|           SIGN PROPOSAL              SIGN PROPOSAL                          |
+|           INDEPENDENT ROOT           INDEPENDENT ROOT                       |
+|                 |                         |                                 |
+|                 +------------+------------+                                 |
+|                              |                                               |
+|                    TWO VALID APPROVALS?                                     |
+|                      /            \                                        |
+|                   YES              NO                                       |
+|                    |               |                                        |
+|               ROTATE W1->W4       HOLD                                      |
+|                    |                                                        |
+|                    W4                                                       |
+|                   /  \                                                     |
+|                  W2----W3                                                   |
+|                    |                                                        |
+|            NEW EPOCH / NEW SNAPSHOT                                         |
+|            3 NEW SIGNED ATTESTATIONS                                        |
+|                    |                                                        |
+|           LOCAL RECERTIFICATION                                            |
++==============================================================================+
+| 58/58 FULL LOCAL TESTS PASSED | 8 HASH-LINKED AUDIT EVENTS VERIFIED        |
+| TWO SIGNED APPROVALS != PROOF OF REAL WORLD INDEPENDENCE                    |
++==============================================================================+
+| NEXT WAG-075 : REVIEWER COMPROMISE & CROSS-GENERATION CONTROL ANCESTRY      |
++==============================================================================+
