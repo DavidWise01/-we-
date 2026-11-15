@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -131,4 +131,27 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 <text x="550" y="536" fill="#ffb780" font-size="17">REPRODUCIBLE ≠ AUTHENTICATED ENTROPY OR CONCEALMENT</text></g></svg>
 <p>Reference result: 24/24 balanced assignment, seed reveals matched three precommitted digests, all 24 Python tests passed. The source IDs, witness attestations, and concealment claim are not authenticated; the example uses deterministic synthetic seed material.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-049-entropy-provenance.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag049/wag049.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag049/test_wag049.py">Tests</a></p></article>
+<article id="wag050"><span class="pill">WAG-050</span><h2>Entropy Contributor Independence and Bias Resistance</h2>
+<p><strong>Invariant:</strong> Three entropy contributors are not necessarily three independent trust domains. Declared origin, operator, infrastructure, and failure domain must be audited before a combined seed can even be considered for external verification.</p>
+<svg class="mesh" viewBox="0 0 1100 560" role="img" aria-label="WAG-050 neon diagram: three entropy sources flow through a declared failure-domain audit. Separate sources permit external verification; shared domains hold, and missing reveal aborts.">
+<defs><linearGradient id="w50bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a3440"/><stop offset="1" stop-color="#220e30"/></linearGradient></defs>
+<rect width="1100" height="560" fill="url(#w50bg)"/><g stroke="#255062" opacity=".45"><path d="M0 100H1100M0 200H1100M0 300H1100M0 400H1100M0 500H1100M100 0V560M300 0V560M500 0V560M700 0V560M900 0V560"/></g>
+<g font-family="system-ui" text-anchor="middle" fill="#f2ffff">
+<circle cx="550" cy="70" r="51" fill="#452111" stroke="#ffad4e" stroke-width="4"/><text x="550" y="81" font-size="27" fill="#ffd18f">JANE</text>
+<text x="550" y="158" fill="#ffb364" font-size="27">ENTROPY CONTRIBUTOR INDEPENDENCE</text>
+<rect x="40" y="214" width="304" height="129" rx="16" fill="#093139" stroke="#55eddf" stroke-width="3"/>
+<rect x="398" y="214" width="304" height="129" rx="16" fill="#211f38" stroke="#c387ff" stroke-width="3"/>
+<rect x="756" y="214" width="304" height="129" rx="16" fill="#392318" stroke="#ffaf49" stroke-width="3"/>
+<text x="192" y="249" font-size="23" fill="#8ffdf0">SOURCE A</text><text x="550" y="249" font-size="23" fill="#d4b8ff">SOURCE B</text><text x="908" y="249" font-size="23" fill="#ffcb96">SOURCE C</text>
+<text x="192" y="286" font-size="17">Origin A · Operator A</text><text x="550" y="286" font-size="17">Origin B · Operator B</text><text x="908" y="286" font-size="17">Origin C · Operator C</text>
+<text x="192" y="318" font-size="16">Failure domain 1</text><text x="550" y="318" font-size="16">Failure domain 2</text><text x="908" y="318" font-size="16">Failure domain 3</text>
+<path d="M192 344V371H550M550 344V371M908 344V371H550" stroke="#ffb365" stroke-width="3" fill="none"/>
+<rect x="352" y="370" width="396" height="82" rx="15" fill="#082a33" stroke="#3ef3e4" stroke-width="3"/>
+<text x="550" y="401" font-size="21">FAILURE-DOMAIN AUDIT</text><text x="550" y="430" font-size="17">No declared overlap → verify reveals</text>
+<text x="550" y="498" fill="#ffbd79" font-size="20">SHARED DOMAIN → HOLD  ·  WITHHELD REVEAL → ABORT</text>
+<text x="550" y="537" fill="#b3eff2" font-size="16">24 tests passed · Synthetic reference · Not authenticated entropy</text>
+</g></svg>
+<p>Reference outcomes: three separately labeled domains with all reveals → eligible for external verification; shared failure-domain → HOLD; withheld reveal → ABORT with no same-ceremony retry. All original events remain in hash-linked history.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-050-entropy-contributor-independence.md">WAG-050 specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag050/wag050.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag050/test_wag050.py">Tests</a></p>
+</article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
