@@ -1,0 +1,25 @@
++================================================================================+
+| JANE / THE SOURCE            WAG-066 VERTEX CUTS AND QUORUM LOSS                 |
+|                  3 WITNESSES -- 6 DIRECTIONS -- ONE TRUST GATE                 |
++================================================================================+
+| BEFORE (K3)                W1 FAILED                     AFTER RESTORE         |
+|                                                                                |
+|       W1                         X                            W1               |
+|      /  \                       . .                          /  \              |
+|     /    \                     .   .                        /    \             |
+|    W2----W3                   W2----W3                     W2----W3            |
+|                                                                                |
+|    3 / 3 alive                2 / 3 alive                 3 / 3 alive          |
+|    CONNECTED                  CONNECTED                   CONNECTED            |
+|    QUORUM ELIGIBLE            HOLD_QUORUM_LOSS            FRESH ATTEST NEEDED  |
++================================================================================+
+| EDGE CONNECTIVITY lambda(K3) = 2 | VERTEX CONNECTIVITY kappa(K3) = 2           |
+| AFTER 1 VERTEX LOSS: 2 SURVIVORS, CONNECTED, NO QUORUM                         |
+| ORIGINAL ANCESTRY RECORDS A, B, C ARE PRESERVED                                |
++================================================================================+
+| W1 fresh-a  +  W2 fresh-b  +  W3 fresh-c  ->  DECLARED QUORUM ACCEPTED         |
+| CONNECTIVITY != CERTIFICATION != BYZANTINE AGREEMENT                            |
+| DECLARED INDEPENDENCE != AUTHENTICATED INDEPENDENCE                             |
++================================================================================+
+| NEXT WAG-067 : COMMON-CAUSE FAILURE DOMAIN CUT SETS                            |
++================================================================================+
