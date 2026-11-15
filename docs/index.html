@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a><a href="#wag069">WAG-069</a><a href="#wag070">WAG-070</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a><a href="#wag069">WAG-069</a><a href="#wag070">WAG-070</a><a href="#wag071">WAG-071</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -556,4 +556,26 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 | LOCAL 45/45 TESTS PASS | 13 MEMORY-RESIDENT HASH-LINKED EVENTS VERIFIED  |
 | DECLARED RECEIPTS != CRYPTOGRAPHICALLY AUTHENTICATED WITNESSES           |
 +--------------------------------------------------------------------------+</pre><p>In the executed local reference, epoch 0 was certified, power-y failed at epoch 1, and repair created epoch 2. Old evidence was rejected; three fresh receipts after snapshot verification allowed a new local certificate. 45/45 Python tests passed and 13 local SHA-256-linked records verified. This is a deterministic demonstration, not cryptographic witness authentication or Byzantine agreement.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag070/WAG-070-ascii.txt">ASCII .txt artwork</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-070-epoch-evidence-freshness.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag070/wag070.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag070/test_wag070.py">Tests</a></p></article>
+<article id="wag071"><span class="pill">WAG-071</span><h2>Signed Recovery Snapshots and Cross-Witness Agreement</h2><p><strong>Invariant:</strong> valid Ed25519 signatures prove that the relevant test keys signed the reports—not that the reports agree or that the claimed observations occurred. Jane compares all three signed epoch-specific snapshot digests, quarantines conflicts, and preserves the signed evidence.</p><pre style="overflow-x:auto;white-space:pre;color:#58f5e4;background:#04121c;padding:16px;border:1px solid #26a4af;border-radius:12px;font:clamp(7px,1.05vw,13px)/1.3 monospace">+------------------------------------------------------------------+
+| WAG-071 : SIGNED RECOVERY SNAPSHOT AGREEMENT                      |
++------------------------------------------------------------------+
+|               VERIFIED RECOVERY EPOCH 2                          |
+|                            |                                     |
+|        +-------------------+-------------------+                 |
+|        |                   |                   |                 |
+|       W1                  W2                  W3                 |
+|        |                   |                   |                 |
+|     SIGN A              SIGN A              SIGN B               |
+|        |                   |                   |                 |
+|        +-------------------+-------------------+                 |
+|                            |                                     |
+|                  THREE VALID SIGNATURES                         |
+|                  TWO DIFFERENT SNAPSHOTS                        |
+|                            |                                     |
+|                  QUARANTINE_SNAPSHOT_CONFLICT                    |
++------------------------------------------------------------------+
+| EPOCH REPLAY: REJECT | NONCE REPLAY: REJECT | TAMPERING: REJECT   |
+| MATCHING CONTROL: W1=A, W2=A, W3=A -&gt; LOCAL SIGNED ACCEPT       |
+| 42/42 LOCAL TESTS PASSED | 4 VERIFIED HASH-LINKED DEMO EVENTS  |
++------------------------------------------------------------------+</pre><p>Executed locally: 42/42 tests passed; a deliberately conflicting third report resulted in QUARANTINE_SNAPSHOT_CONFLICT; four-event hash chain verified. The matching three-signer control accepted locally. Signing keys are deterministic test fixtures.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag071/WAG-071-ascii.txt">ASCII artwork</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-071-signed-recovery-snapshots.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag071/wag071.py">Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag071/test_wag071.py">42 tests</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
