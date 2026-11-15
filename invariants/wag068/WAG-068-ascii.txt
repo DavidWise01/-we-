@@ -1,0 +1,32 @@
++==============================================================================+
+| JANE / THE SOURCE       WAG-068 : RECURSIVE COMMON-CAUSE FAILURE PROPAGATION |
++==============================================================================+
+|                EVIDENCE ANCESTORS: A      B      C                           |
+|                                     |      |      |                           |
+|                                    W1     W2     W3                          |
+|                                     |      |      |                           |
+|                                router-a router-b router-c                    |
+|                                   /      /         |                         |
+|                               network-x         network-z                    |
+|                                   |                 |                         |
+|                                power-y           power-z                      |
+|                                   X                                           |
+|                             CASCADE ORIGIN                                   |
+|                            /              \                                  |
+|                      router-a            router-b                            |
+|                          X                   X                                |
+|                         W1 X                W2 X         W3 OK                |
++==============================================================================+
+| LIVE WITNESSES: 1/3                   DECISION: HOLD_CASCADE                  |
+| FAILED: power-y, network-x, router-a, router-b, W1, W2                      |
+| QUORUM-LOSS MINIMAL CUTS: {host-a}, {host-b}, {host-c}, {power-y}, {power-z} |
+| ALL-WITNESS MINIMAL CUTS:                                                  |
+|   {host-c, power-y}       {power-y, power-z}                                |
+|   {host-a,host-b,host-c}  {host-a,host-b,power-z}                           |
+| SMALLEST ALL-WITNESS CUT: 2 DOMAINS                                        |
++==============================================================================+
+| VERIFIED LEDGER EVENTS: 15 | LOCAL TESTS: 34/34 PASSED                      |
+| DECLARED DEPENDENCIES ARE NOT INDEPENDENT REAL-WORLD ATTESTATIONS           |
++==============================================================================+
+| NEXT WAG-069: REPAIR ORDER, RECOVERY GRAPH, AND CAUSAL REVALIDATION          |
++==============================================================================+
