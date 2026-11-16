@@ -1,0 +1,41 @@
++================================================================================+
+| JANE / THE SOURCE                          WAG-082 : POWER-LOSS RECOVERY       |
+| 3 WITNESSES    3 DECLARED ANCESTORS    SIGNED ANCHOR CHAIN    SQLITE CHECKPOINT|
++================================================================================+
+|        LOCAL CHECKPOINT (SQLite)            SEPARATE ANCHOR RECORD (JSONL)     |
+|                   |                                     |                     |
+|           EPOCH 0 / ROOT A                       EPOCH 0 / ROOT A              |
+|                   |                                     |                     |
+|           3 WITNESSES SIGN ---------> SIGNATURES W1 W2 W3                     |
+|                   +----------------------+--------------+                     |
+|                                          |                                    |
+|                              MATCH : LOCAL RECOVERY                          |
++================================================================================+
+|                     CRASH BETWEEN LOCAL COMMIT AND ANCHOR                     |
+|                                                                              |
+|         LOCAL EPOCH 1 / ROOT B          ANCHOR EPOCH 0 / ROOT A                |
+|                   |                                 |                         |
+|                   +------------ DIFF --------------+                         |
+|                                |                                             |
+|                      HOLD_UNANCHORED_LOCAL_ADVANCE                            |
+|                                |                                             |
+|                    PRESERVE BOTH ORIGINAL RECORDS                            |
++================================================================================+
+|                     AFTER VERIFIED ANCHOR APPEND                              |
+|                                                                              |
+|          LOCAL EPOCH 1 / ROOT B          ANCHOR EPOCH 1 / ROOT B               |
+|                   |                                  |                        |
+|                   +--------------- MATCH ------------+                        |
+|                                   |                                          |
+|                        RECOVERY_MATCH_LOCAL                                   |
++================================================================================+
+| OTHER ATTACK BRANCHES:                                                        |
+|  LOCAL BEHIND ANCHOR      -> HOLD_LOCAL_ROLLBACK                               |
+|  EQUAL EPOCH, DIFF ROOT   -> QUARANTINE_FORK                                   |
+|  BROKEN CHAIN / SIGNATURE -> QUARANTINE                                        |
+|  NO ANCHOR / NO LOCAL     -> HOLD                                              |
++================================================================================+
+| LOCAL TESTS: 30/30 PASS     |     SHA256 HASH CHAIN + ED25519 3/3 SIGNATURES   |
+| DISCLAIMER: TWO FILES ON SAME HOST ARE NOT PHYSICALLY INDEPENDENT ANCHORS.    |
+| NEXT WAG-083: REMOTE MULTI-OBSERVER ANCHOR QUORUM AND OFF-HOST RECOVERY        |
++================================================================================+
