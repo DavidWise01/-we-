@@ -1,0 +1,34 @@
++==============================================================================+
+| JANE / THE SOURCE          WAG-081 : ATOMIC VERIFY AND COMMIT                  |
++==============================================================================+
+|                            ROOT 079 / EPOCH N                                |
+|                                    |                                         |
+|                        +-----------+-----------+                             |
+|                        |                       |                             |
+|                    PROPOSAL A               PROPOSAL B                        |
+|                    PROOF VALID              PROOF VALID                       |
+|                    W1 W2 W3                W1 W2 W3                           |
+|                        |                       |                             |
+|                        +-----------+-----------+                             |
+|                                    |                                         |
+|                           BEGIN IMMEDIATE                                    |
+|                           VERIFY MERKLE                                      |
+|                           VERIFY SIGNATURES                                 |
+|                           CHECK RECEIPT IDs                                 |
+|                                    |                                         |
+|                         +----------+-----------+                             |
+|                         |                      |                             |
+|                     COMMIT ONE              STALE ROOT                         |
+|                         |                      |                             |
+|                     ROOT 080                  HOLD                            |
+|                     NEW EPOCH                                                |
+|                     NEW CHALLENGE                                            |
+|                     RECEIPTS CONSUMED                                        |
++==============================================================================+
+| CRASH BEFORE COMMIT -> ROLLBACK STATE + RECEIPTS + AUDIT                      |
+| REOPEN AFTER COMMIT -> NEW CHECKPOINT STILL PRESENT                          |
+| 34 / 34 LOCAL TESTS PASSED                                                    |
+| LOCAL SQLITE TRANSACTION != DISTRIBUTED BYZANTINE CONSENSUS                   |
++==============================================================================+
+| NEXT: WAG-082 - POWER LOSS, EXTERNAL ANCHORS, PARTITION RECONCILIATION        |
++==============================================================================+
