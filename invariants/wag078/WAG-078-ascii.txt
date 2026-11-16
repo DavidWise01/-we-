@@ -1,0 +1,33 @@
++=============================================================================+
+| JANE / THE SOURCE            WAG-078 SIGNED PREFIX CONTINUITY              |
++=============================================================================+
+|                       FROZEN CHECKPOINT                                  |
+|                          [A][B][C]                                       |
+|                        SIGNED ROOT OLD                                   |
+|                              |                                           |
+|                  +-----------+-----------+                               |
+|                  |                       |                               |
+|               HONEST APPEND          REWRITE ATTACK                      |
+|                  |                       |                               |
+|            [A][B][C][D]             [A][X][C][D]                         |
+|                  |                       |                               |
+|            VALID SIGNED HEAD         VALID SIGNED HEAD                   |
+|                  |                       |                               |
+|             EXACT PREFIX               PREFIX CHANGED                    |
+|                  |                       |                               |
+|           +------+------+           QUARANTINE / HOLD                   |
+|           |      |      |           PRESERVE THE FORK                   |
+|          W1     W2     W3                                                |
+|           |      |      |                                                |
+|           +------+------+                                                |
+|                  |                                                       |
+|          3 VALID OBSERVER VOTES                                          |
+|                  |                                                       |
+|          LOCAL PREFIX CERTIFIED                                          |
++=============================================================================+
+| 36/36 FULL LOCAL TESTS  |  4 HASH-LINKED DEMO EVENTS VERIFY              |
+| SIGNED HEAD != APPEND-ONLY PROOF                                         |
+| FULL-SNAPSHOT REFERENCE (NOT COMPACT MERKLE PROOF)                       |
++=============================================================================+
+| NEXT: WAG-079 COMPACT CONSISTENCY / OBSERVER FRESHNESS                   |
++=============================================================================+
