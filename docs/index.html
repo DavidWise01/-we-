@@ -13,7 +13,7 @@ mark{background:#743600;color:#ffe3b3;padding:2px 7px}strong{color:var(--teal)}
 table{border-collapse:collapse;width:100%;margin:16px 0}td,th{border-bottom:1px solid #294450;padding:9px;text-align:left}
 footer{padding:24px;text-align:center;color:#9cb2b9}
 a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:6px 12px;color:#ffd4ad}
-</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a><a href="#wag069">WAG-069</a><a href="#wag070">WAG-070</a><a href="#wag071">WAG-071</a><a href="#wag072">WAG-072</a><a href="#wag073">WAG-073</a><a href="#wag074">WAG-074</a><a href="#wag075">WAG-075</a><a href="#wag076">WAG-076</a><a href="#wag077">WAG-077</a><a href="#wag078">WAG-078</a></nav></header>
+</style></head><body><header><div><div class="eyebrow">Witness · Evidence · Replicate · Evolve</div><h1>JANE / MoE HIVE — Visual Invariant Journal</h1></div><nav><a href="#wag044">WAG-044</a><a href="#wag045">WAG-045</a><a href="#wag046">WAG-046</a><a href="#wag047">WAG-047</a><a href="#wag048">WAG-048</a><a href="#wag049">WAG-049</a><a href="#wag050">WAG-050</a><a href="#wag051">WAG-051</a><a href="#wag052">WAG-052</a><a href="#wag053">WAG-053</a><a href="#wag054">WAG-054</a><a href="#wag055">WAG-055</a><a href="#wag056">WAG-056</a><a href="#wag057">WAG-057</a><a href="#wag058">WAG-058</a><a href="#wag059">WAG-059</a><a href="#wag060">WAG-060</a><a href="#wag061">WAG-061</a><a href="#wag062">WAG-062</a><a href="#wag063">WAG-063</a><a href="#wag064">WAG-064</a><a href="#wag065">WAG-065</a><a href="#wag066">WAG-066</a><a href="#wag067">WAG-067</a><a href="#wag068">WAG-068</a><a href="#wag069">WAG-069</a><a href="#wag070">WAG-070</a><a href="#wag071">WAG-071</a><a href="#wag072">WAG-072</a><a href="#wag073">WAG-073</a><a href="#wag074">WAG-074</a><a href="#wag075">WAG-075</a><a href="#wag076">WAG-076</a><a href="#wag077">WAG-077</a><a href="#wag078">WAG-078</a><a href="#wag079">WAG-079</a></nav></header>
 <main>
 <p class="sub">Self-contained illustrated HTML records. These embedded SVG panels recreate the architectural diagrams for browser and GitHub Pages viewing; the original generated JPG artwork is a separate artifact. All numerical observations below are synthetic reference examples.</p>
 <article id="wag044"><span class="pill">WAG-044</span><h2>Context-Specific Replication Failure</h2><p>Replication failure in one laboratory does not rewrite the valid observations in another. Retain both outcomes, scope operational trust, and request a new focused test.</p>
@@ -778,4 +778,45 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 +--------------------------------------------------------------------+</pre>
 <p>Local full implementation: <strong>36/36 tests passed</strong>; honest signed append accepted; correctly signed prefix rewrite quarantined; four hash-linked demo records verified. The GitHub kernel is a separately authored compact reference with 20 tests, not independently CI-executed. This example checks full event snapshots and is not a compact Merkle consistency proof.</p>
 <p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag078/WAG-078-ascii.txt">ASCII .txt artwork</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-078-signed-prefix-continuity.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag078/wag078.py">Python reference</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag078/test_wag078.py">Reference tests</a></p></article>
+<article id="wag079"><span class="pill">WAG-079</span><h2>Compact Merkle Consistency &amp; Signed Observer Certification</h2>
+<p><strong>Invariant:</strong> A newly signed head is not proof that it preserves a frozen prefix. Verify a compact two-frontier subtree-hash proof for old and new Merkle roots, then require three separately keyed Ed25519 observer signatures bound to exact roots, sizes, epoch and challenge.</p>
+<pre style="overflow-x:auto;white-space:pre;color:#58f5e4;background:#04121c;padding:16px;border:1px solid #26a4af;border-radius:12px;font:clamp(7px,1.05vw,13px)/1.3 monospace">+===============================================================================+
+| JANE / THE SOURCE       WAG-079 : COMPACT MERKLE PREFIX CONSISTENCY             |
+| Three witness roots  |  one frozen history  |  no rewritten ancestors         |
++===============================================================================+
+|                 FROZEN HEAD                      EXTENDED HEAD                 |
+|                                                                               |
+|                  [A][B][C]                         [A][B][C][D][E]           |
+|                      |                                   |                    |
+|              MERKLE ROOT OLD                     MERKLE ROOT NEW              |
+|                      |                                   |                    |
+|                      +-------------+---------------------+                    |
+|                                    |                                          |
+|                         COMPACT RANGE FRONTIER PROOF                         |
+|                          Old:  [A B] [C]                                    |
+|                          New:        [D] [E]                                |
+|                          (4 hashes; no leaf bodies)                         |
+|                                    |                                          |
+|                        REBUILD BOTH TREE ROOTS                              |
+|                                    |                                          |
+|                 +------------------+--------------------+                     |
+|                 |                                       |                     |
+|           HONEST EXTENSION                        REWRITTEN PREFIX           |
+|           [A][B][C][D][E]                        [A][X][C][D][E]            |
+|                 |                                       |                     |
+|          MATCH FROZEN ROOT                         MISMATCH ROOT             |
+|                 |                                       |                     |
+|          W1 + W2 + W3 SIGN                         QUARANTINE                 |
+|                 |                                       |                     |
+|       LOCAL_PREFIX_CERTIFIED                  PRESERVE FAILED PROOF           |
++===============================================================================+
+| TESTED: 48/48 local unit tests pass.  |  DEMO LEDGER: 3 records verified.      |
+| TREE: RFC6962 domain-separated hashes; reference range-frontier proof format. |
+| NOT: the standard RFC6962 consistency-proof wire format or public anchoring.   |
+| OBSERVER SOURCES: test keys and declared domains, NOT external authentication.  |
++===============================================================================+
+| NEXT: WAG-080 — CHECKPOINT CHALLENGE ROTATION AND REPLAY-SAFE CERTIFICATION     |
++===============================================================================+</pre>
+<p><strong>Executed locally:</strong> 48/48 Python unittest cases passed, including exhaustive tree prefixes up to 79 leaves. Five-leaf demo proves a 3→5 append with four subtree hashes and quarantines a rewritten old event. Three hash-linked demo audit records verified. This uses an RFC6962-style tree with a custom compact range-frontier proof encoding, NOT the RFC6962 wire consistency proof. Synthetic witness keys and declared domains do not establish external independence.</p>
+<p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag079/WAG-079-ascii.txt">ASCII .txt</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-079-compact-merkle-consistency.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag079/wag079.py">Locally tested Python kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag079/test_wag079.py">48-test suite</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
