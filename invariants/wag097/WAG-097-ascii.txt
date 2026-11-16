@@ -1,0 +1,34 @@
++=============================================================================+
+| WAG-097          SIGNED TREE-HEAD GOSSIP / SPLIT VIEW DETECTION              |
++=============================================================================+
+|                     REGISTRY A : SIGNED MERKLE HEAD                         |
+|                                    |                                        |
+|                     +--------------+--------------+                        |
+|                     |              |              |                        |
+|                    W1             W2             W3                        |
+|                     |              |              |                        |
+|                    ABC            ABC            ABC                       |
+|                     +--------------+--------------+                        |
+|                                    |                                        |
+|                         3 / 3 ROOT AGREEMENT                                |
++=============================================================================+
+| ATTACK: REGISTRY SIGNS TWO DIFFERENT ROOTS AT THE SAME TREE SIZE            |
+|                                                                             |
+|                W1                   W2                    W3                |
+|            SIGN(ABC)            SIGN(ABC)             SIGN(AXC)              |
+|                 \                   |                   /                   |
+|                  +------------------+------------------+                    |
+|                                     |                                       |
+|                          QUARANTINE_SPLIT_VIEW                              |
+|                          PRESERVE BOTH SIGNED HEADS                         |
+|                          KEEP HISTORICAL CERTIFICATES                       |
++=============================================================================+
+| [A][B][C] -> [A][B][C][D] : PREFIX INTACT                                  |
+| [A][B][C] -> [A][X][C][D] : PREFIX REWRITE => QUARANTINE                    |
+| DIFFERENT SIZE WITHOUT CONTINUITY PROOF => HOLD                             |
++=============================================================================+
+| 44/44 LOCAL TESTS PASSED | SQLITE AUDIT PERSISTS ACROSS RESTART              |
+| NOTE: WITNESS INDEPENDENCE IS DECLARED, NOT PUBLICLY AUTHENTICATED         |
++=============================================================================+
+| NEXT: WAG-098 -- CROSS-SIZE CRYPTOGRAPHIC CONSISTENCY / FORK CERTIFICATES   |
++=============================================================================+
