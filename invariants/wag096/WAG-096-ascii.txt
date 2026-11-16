@@ -1,0 +1,35 @@
++==============================================================================+
+| JANE / THE SOURCE        WAG-096 PUBLIC LOG INCLUSION & CONSISTENCY           |
++==============================================================================+
+|                   FROZEN ARCHIVE COMMITMENT R                                 |
+|                              |                                               |
+|                  FROZEN PREVIOUS ROOT C                                       |
+|                              |                                               |
+|             +----------------+----------------+                              |
+|             |                |                |                              |
+|           LOG A            LOG B            LOG C                           |
+|          [A B C R]        [A B C R]        [A B C R]                         |
+|             |                |                |                              |
+|         SIGN HEAD        SIGN HEAD        SIGN HEAD                          |
+|         INCLUSION        INCLUSION        INCLUSION                          |
+|         PREFIX OK        PREFIX OK        PREFIX OK                          |
+|             |                |                |                              |
+|             +----------------+----------------+                              |
+|                              |                                               |
+|                    VERIFY 3 PROOF BUNDLES                                    |
+|                     SAME COMMIT RECORD R                                     |
+|                  EACH LOG EXTENDS FROZEN C                                   |
+|                              |                                               |
+|                      BEACON SIGNED LATER                                     |
+|                              |                                               |
+|                   LOCAL ORDER ELIGIBLE                                       |
++==============================================================================+
+| ATTACK 1: [A B C R] -> [A X C R]  -> PREFIX REWRITE -> HOLD                  |
+| ATTACK 2: SAME SIGNED LOG/SIZE + TWO ROOTS -> SPLIT VIEW -> FORK EVIDENCE    |
+| ATTACK 3: SIGNED HEAD WITHOUT INCLUSION -> INVALID INCLUSION -> HOLD         |
+| ATTACK 4: BEACON SLOT <= LOG SLOT -> ORDER UNPROVEN -> HOLD                   |
++==============================================================================+
+| TEST: 51 / 51 LOCAL PASS | TWO HASH-LINKED EVENTS IN HONEST DEMO             |
+| LIMIT: locally generated signer keys; slot claims are NOT public chronology. |
+| NEXT WAG-097: EXTERNAL TREE HEAD GOSSIP & REVOCATION-AWARE LOG AGREEMENT     |
++==============================================================================+
