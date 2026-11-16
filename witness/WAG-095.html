@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-095 · Gossip & Partitions</title><style>body{background:#09131d;color:#e8f1fa;font:16px system-ui;max-width:970px;margin:0 auto;padding:24px}h1{color:#70efd6}pre{background:#102438;color:#a5e8ff;padding:24px;border-radius:12px;overflow:auto}button{cursor:pointer;background:#183c4b;color:white;border:1px solid #69baa9;border-radius:8px;padding:12px;margin:4px}output{display:block;background:#122638;padding:14px;border-left:3px solid #70efd6;white-space:pre-wrap}small{color:#b5bfce}</style><h1>WAG-095 — Cross-Operator Gossip</h1><p>Jane's three-witness policy: no fresh evidence, no new approval.</p><pre>              {{ JANE }}
+                  |
+             GOSSIP BUS
+            /     |     \\
+        A [R1]  B [R2]  C [R3]
+            \\     |     /
+             COMPARE ROUND
+              /   |   \\
+           MATCH  LAG  FORK
+             |     |     |
+           VERIFY HOLD  QUARANTINE</pre><div id="buttons"></div><output id="answer">Select an adversarial scenario.</output><p><small>Illustrative policy decisions only. These examples do not establish cryptographic signatures, independent ancestry, remote durability, or real network availability.</small></p><script>const tests=[["Three agree","ELIGIBLE_FOR_EXTERNAL_VERIFICATION"],["One partitioned","HOLD_PARTITION_OR_MISSING"],["Partition recovered","ELIGIBLE_FOR_EXTERNAL_VERIFICATION"],["Same operator forks","QUARANTINE_EQUIVOCATION"],["Shared ancestry","HOLD_SHARED_ANCESTRY"],["Shared anchor","HOLD_SHARED_ANCHOR"],["Cross-operator disagreement","HOLD_CROSS_OPERATOR_DISAGREEMENT"],["Unverified external receipt","HOLD_UNVERIFIED_EVIDENCE"]];const box=document.querySelector("#buttons");for(const [name,result] of tests){const b=document.createElement("button");b.textContent=name;b.onclick=()=>document.querySelector("#answer").textContent=name+"\n"+result;box.appendChild(b)}</script></html>
