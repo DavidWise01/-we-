@@ -1,0 +1,53 @@
++================================================================================+
+| JANE / THE SOURCE       WAG-088 OPTIONAL-STOPPING-SAFE STORAGE AUDIT            |
+|                       STORY IN ASCII / TXT                                     |
++================================================================================+
+|           FROZEN DECLARATION: N=17; M>=3; K=3; FAMILY ALPHA=1/20              |
+|                  q = C(14,3)/C(17,3) = 91/170                                 |
+|                                                                                |
+|                       {{ JANE }}                                               |
+|                           |                                                    |
+|                     FAMILY BUDGET                                              |
+|                           |                                                    |
+|                 RESERVE AUDIT ALPHA                                             |
+|                           |                                                    |
+|                  CHALLENGE ROUND 1                                              |
+|                           |                                                    |
+|                   SAMPLE 3 CHUNKS                                               |
+|                           |                                                    |
+|                +----------+----------+                                         |
+|                |                     |                                         |
+|               PASS                DETECT LOSS                                 |
+|                |                     |                                         |
+|              p = q^1             HOLD / PRESERVE                               |
+|                |                                                               |
+|                v                                                               |
+|                  CHALLENGE ROUND 2                                              |
+|                           |                                                    |
+|                         PASS                                                   |
+|                           |                                                    |
+|                       p = q^2                                                  |
+|                           |                                                    |
+|                          ...                                                   |
+|                           |                                                    |
+|                 CHALLENGE ROUND 14                                             |
+|                           |                                                    |
+|                   NO MISSING REPORTED                                          |
+|                           |                                                    |
+|                 p_14 <= alpha/(14*15)                                          |
+|                           |                                                    |
+|               STATISTICAL BOUND ELIGIBLE                                       |
++================================================================================+
+|  STOP EARLY -> HOLD_EARLY_STOP      DETECT LOSS -> HOLD_DETECTED_MISSING        |
+|  EACH LOOK: alpha_t=alpha_audit/[t(t+1)] ; TOTAL ALLOCATION <= alpha           |
+|  EACH ROUND: new uniform k-subset (without replacement within round)          |
+|  SHARED HOST OBSERVATIONS != INDEPENDENT SAMPLE COVERAGE                       |
+|  SIMULATED missing_detected BOOLEAN: NOT CRYPTOGRAPHIC STORAGE EVIDENCE        |
++================================================================================+
+|   W1 ---------+                                                              |
+|   W2 ---------+----> SAME SAMPLED CHUNK POSITIONS --> UNIQUE UNION              |
+|   W3 ---------+                  COUNT ONCE                                    |
++================================================================================+
+|  TEST RUN: 56/56 PASSED | 14 ROUNDS | 16 HASH-LINKED EVENTS | 17/17 COVERED    |
+|  NEXT WAG-089: BIND TO SIGNED MERKLE READBACK + AUTHENTICATED PROVENANCE       |
++================================================================================+
