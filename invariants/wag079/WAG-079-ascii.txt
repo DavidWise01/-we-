@@ -1,0 +1,37 @@
++===============================================================================+
+| JANE / THE SOURCE       WAG-079 : COMPACT MERKLE PREFIX CONSISTENCY             |
+| Three witness roots  |  one frozen history  |  no rewritten ancestors         |
++===============================================================================+
+|                 FROZEN HEAD                      EXTENDED HEAD                 |
+|                                                                               |
+|                  [A][B][C]                         [A][B][C][D][E]           |
+|                      |                                   |                    |
+|              MERKLE ROOT OLD                     MERKLE ROOT NEW              |
+|                      |                                   |                    |
+|                      +-------------+---------------------+                    |
+|                                    |                                          |
+|                         COMPACT RANGE FRONTIER PROOF                         |
+|                          Old:  [A B] [C]                                    |
+|                          New:        [D] [E]                                |
+|                          (4 hashes; no leaf bodies)                         |
+|                                    |                                          |
+|                        REBUILD BOTH TREE ROOTS                              |
+|                                    |                                          |
+|                 +------------------+--------------------+                     |
+|                 |                                       |                     |
+|           HONEST EXTENSION                        REWRITTEN PREFIX           |
+|           [A][B][C][D][E]                        [A][X][C][D][E]            |
+|                 |                                       |                     |
+|          MATCH FROZEN ROOT                         MISMATCH ROOT             |
+|                 |                                       |                     |
+|          W1 + W2 + W3 SIGN                         QUARANTINE                 |
+|                 |                                       |                     |
+|       LOCAL_PREFIX_CERTIFIED                  PRESERVE FAILED PROOF           |
++===============================================================================+
+| TESTED: 48/48 local unit tests pass.  |  DEMO LEDGER: 3 records verified.      |
+| TREE: RFC6962 domain-separated hashes; reference range-frontier proof format. |
+| NOT: the standard RFC6962 consistency-proof wire format or public anchoring.   |
+| OBSERVER SOURCES: test keys and declared domains, NOT external authentication.  |
++===============================================================================+
+| NEXT: WAG-080 — CHECKPOINT CHALLENGE ROTATION AND REPLAY-SAFE CERTIFICATION     |
++===============================================================================+
