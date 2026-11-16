@@ -1,0 +1,44 @@
++===============================================================================+
+| JANE / THE SOURCE         WAG-093: BEACON + PRECOMMIT + MERKLE EVIDENCE        |
++===============================================================================+
+|                                                                               |
+|                        FROZEN ARCHIVE ROOT                                    |
+|                           17 CHUNKS                                           |
+|                              |                                                |
+|                      PERSIST COMMITMENT                                       |
+|                              |                                                |
+|                       SIGNED BEACON                                           |
+|                              |                                                |
+|                      VERIFY SIGNATURE                                         |
+|                              |                                                |
+|                   DERIVE SAMPLE ONCE                                          |
+|                         [1] [5] [9]                                           |
+|                              |                                                |
+|                +-------------+-------------+                                  |
+|                |             |             |                                  |
+|               W1            W2            W3                                  |
+|                |             |             |                                  |
+|             CHUNK +       CHUNK +       CHUNK +                                |
+|             MERKLE        MERKLE        MERKLE                                 |
+|                |             |             |                                  |
+|             SIGN W1       SIGN W2       SIGN W3                                |
+|                |             |             |                                  |
+|                +-------------+-------------+                                  |
+|                              |                                                |
+|                      VERIFY MERKLE ROOT                                       |
+|                      VERIFY SIGNATURES                                        |
+|                      VERIFY ROUND / NONCE                                     |
+|                              |                                                |
+|                      +-------+-------+                                        |
+|                      |               |                                        |
+|                     PASS            FAIL                                      |
+|                      |               |                                        |
+|               CERTIFY LOCALLY     REJECT / PRESERVE                           |
+|                                                                               |
++===============================================================================+
+| REPLAY        : BLOCKED     | 45 / 45 LOCAL UNIT TESTS PASS                    |
+| AUDIT EVENTS  : 3          | SAMPLE POSITIONS: 1, 5, 9                       |
+| INDEPENDENCE  : DECLARED   | PUBLIC BEACON / REMOTE HOSTS NOT VERIFIED        |
++===============================================================================+
+| NEXT WAG-094: EXTERNAL TIMESTAMP ANCHORS AND BEACON UNPREDICTABILITY         |
++===============================================================================+
