@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-097 · Durable Recovery</title><style>body{background:#091320;color:#e9f4fa;font:16px system-ui;max-width:960px;margin:auto;padding:24px}h1{color:#73eed6}pre{background:#122639;border:1px solid #33546c;border-radius:12px;padding:24px;color:#a8e8ff;overflow:auto}button{margin:4px;padding:10px;border-radius:8px;border:1px solid #6ac8bb;background:#173d4c;color:white;cursor:pointer}output{display:block;padding:14px;margin:12px 0;background:#142d3c;border-left:4px solid #73eed6;white-space:pre-wrap}small{color:#9bb7c7}a{color:#73eed6}</style><h1>WAG-097 · Durable Witness Recovery</h1><p>Jane · MoE Hive · Local persistence and signed synthetic anchor receipts</p><pre>               {{ JANE }}
+                   |
+          W1       W2       W3
+           \\       |       /
+        SIGNED TREE HEADS
+                   |
+          ANCHOR RECEIPTS
+                   |
+            SQLITE PINS
+                   |
+               RESTART
+                   |
+            RELOAD HISTORY
+            /      |      \\
+          MATCH   OLDER    FORK
+            |       |       |
+         VERIFY    HOLD  QUARANTINE</pre><p>Choose a deterministic policy outcome:</p><div id="choices"></div><output id="out">Choose a scenario.</output><small>Illustrative ASCII panel; the actual 15 passing tests were executed in the local Python runtime. This HTML does not verify remote custody or cryptography.</small><p><a href="../invariants/WAG-097-durable-pin-recovery.md">Technical invariant</a></p><script>for(const [name,result] of [["Three signed pins","ELIGIBLE_FOR_EXTERNAL_CUSTODY_VERIFICATION"],["Restart","RELOAD_VERIFIED_PINS"],["Rollback after restart","HOLD_ROLLBACK"],["History fork after restart","QUARANTINE_FORK"],["Bad anchor signature","HOLD_INVALID_RECEIPT"],["Shared anchors","HOLD_SHARED_ANCHOR"],["Audit mutation","QUARANTINE_AUDIT_TAMPER"]]){let b=document.createElement("button");b.textContent=name;b.onclick=()=>document.querySelector("#out").textContent=name+"\n"+result;document.querySelector("#choices").append(b)}</script></html>
