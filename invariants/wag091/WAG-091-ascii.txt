@@ -1,0 +1,41 @@
++===============================================================================+
+| JANE / THE SOURCE          WAG-091: SELECTIVE-ABORT RECOVERY                   |
++===============================================================================+
+|             IMMUTABLE FAMILY POLICY                                            |
+|          checkpoint = root-A   retry_budget = 1                               |
+|                      |                                                        |
+|                ATTEMPT ZERO                                                   |
+|          +-----------+-----------+                                            |
+|          |           |           |                                            |
+|         W1          W2          W3                                            |
+|         |           |           |                                            |
+|       COMMIT      COMMIT      COMMIT                                          |
+|          +-----------+-----------+                                            |
+|                      |                                                        |
+|                    FREEZE                                                     |
+|                      |                                                        |
+|          W1 REVEALS  W2 REVEALS   W3 WITHHOLDS                                |
+|                      |                                                        |
+|             RECORD ABORT + MISSING W3                                          |
+|                      |                                                        |
+|               DO NOT COUNT AS PASS                                            |
+|                      |                                                        |
+|              FIXED RETRY BUDGET                                               |
+|                      |                                                        |
+|             EXTERNAL BEACON LABEL                                             |
+|                      |                                                        |
+|                ATTEMPT ONE                                                    |
+|          W1 / W2 / W3 COMMIT -> FREEZE -> REVEAL                              |
+|                      |                                                        |
+|             COMBINE CONTEXT + ENTROPY                                         |
+|                      |                                                        |
+|             UNBIASED INDEX DRAW                                               |
+|                      |                                                        |
+|         FINAL SAMPLES + APPEND-ONLY AUDIT                                     |
++===============================================================================+
+| THREAT BOUNDARY: ONE REPLACEMENT ROUND IS STILL SELECTABLE BY AN ABORTER.      |
+| A TRUSTED UNPREDICTABLE BEACON IS ASSUMED, NOT VERIFIED HERE.                  |
+| 46/46 LOCAL TESTS PASSED; PREVIOUS ABORT ALWAYS RETAINED IN EVIDENCE.          |
++===============================================================================+
+| NEXT WAG-092: THRESHOLD ENTROPY / NON-ABORTABLE PUBLIC BEACON EVIDENCE         |
++===============================================================================+
