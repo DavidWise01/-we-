@@ -1,0 +1,36 @@
++==================================================================================+
+| JANE / THE SOURCE             WAG-086 : RANDOM CHUNK STORAGE AUDIT              |
++==================================================================================+
+|               COMMITTED MERKLE ROOT R                                           |
+|                         |                                                        |
+|                  CHALLENGE NONCE N                                              |
+|                         |                                                        |
+|             SELECT k=3 OF N=17 CHUNKS                                           |
+|                         |                                                        |
+|          +--------------+--------------+                                        |
+|          |              |              |                                        |
+|         W1             W2             W3                                       |
+|          |              |              |                                        |
+|       READ 3          READ 3         READ 3                                     |
+|          |              |              |                                        |
+|      CHUNKS+PATHS  CHUNKS+PATHS  CHUNKS+PATHS                                   |
+|          |              |              |                                        |
+|       SIGN(N)        SIGN(N)        SIGN(N)                                     |
+|          |              |              |                                        |
+|          +--------------+--------------+                                        |
+|                         |                                                        |
+|              VERIFY SIGNATURES                                                  |
+|              VERIFY CHUNK INCLUSION                                             |
+|              VERIFY ROOT / EPOCH / NONCE                                        |
+|                         |                                                        |
+|                +--------+---------+                                              |
+|                |                  |                                              |
+|             ALL PASS          ONE FAILURE                                       |
+|                |                  |                                              |
+|          ATOMIC CONSUME     HOLD + PRESERVE                                     |
+|          DURABLE RECEIPT                                                        |
++==================================================================================+
+| 40/40 LOCAL TESTS PASSED | MERKLE: SHA256 LEAF 00 / INTERNAL 01                  |
+| NOTE: SPOT CHECK != ALL-BYTES RETRIEVABILITY; THREE LOCAL SIMULATED HOSTS       |
+| NEXT: WAG-087 -- SAMPLING COVERAGE / DETECTION BOUNDS / AUDIT ROTATION          |
++==================================================================================+
