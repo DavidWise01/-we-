@@ -1,0 +1,45 @@
++================================================================================+
+| JANE / THE SOURCE                   WAG-092 FIXED-SAMPLE RECOVERY               |
+| BEACON SIGNATURE + CHECKPOINT BINDING + EXACTLY ONE SAMPLE IDENTITY           |
++================================================================================+
+|                             {{ JANE }}                                          |
+|                                 |                                              |
+|                        CHECKPOINT ROOT 091                                     |
+|                                 |                                              |
+|                        SIGNED BEACON OUTPUT                                    |
+|                                 |                                              |
+|                      VERIFY SIGNATURE + ROUND                                 |
+|                                 |                                              |
+|                 SHA-256 + UNBIASED REJECTION SAMPLING                          |
+|                                 |                                              |
+|                          FREEZE SAMPLE [ i j k ]                               |
+|                                 |                                              |
+|                       PERSIST IN SQLITE FIRST                                 |
+|                                 |                                              |
+|                   +-------------+-------------+                                |
+|                   |                           |                                |
+|              HOSTS ANSWER                  W3 ABORTS                            |
+|                   |                           |                                |
+|              W1 / W2 / W3                  RECORD HOLD                          |
+|                   |                           |                                |
+|              VERIFY 3 SIGS                RESTART PROCESS                      |
+|                   |                           |                                |
+|                ACCEPT                   RECOVER SAME [ i j k ]                 |
+|                   |                           |                                |
+|              CONSUME IDs                  W1 / W2 / W3 RESPOND                  |
+|                   |                           |                                |
+|                  DONE                 VERIFY ROOT / EPOCH / CHALLENGE           |
+|                                               |                                |
+|                                             ACCEPT                             |
++================================================================================+
+| REDRAW ATTACK: NEW BEACON FOR SAME CHECKPOINT + ROUND   -> REJECT              |
+| REPLAY ATTACK: OLD RECEIPT ID / ALREADY CONSUMED ROUND  -> REJECT              |
+| MISSING HOST / FORGED HOST SIGNATURE / WRONG SAMPLE     -> REJECT              |
+| ABORTED ROUND: SAME SAMPLE IS FROZEN, NEVER RESELECTED                         |
++================================================================================+
+| LOCAL TESTS: 42 / 42 PASSED  | SQLITE TXNS + HASH-LINKED EVENTS               |
+| LIMITATION: A SIGNED TEST BEACON IS NOT INDEPENDENT PUBLIC RANDOMNESS.        |
+| LIMITATION: SIGNED HOST ASSERTIONS ARE NOT MERKLE DATA POSSESSION PROOFS.     |
++================================================================================+
+| NEXT WAG-093: AUTHENTICATED BEACON PRECOMMIT + OBSERVATION BINDING             |
++================================================================================+
