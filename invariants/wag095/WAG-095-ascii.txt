@@ -1,0 +1,32 @@
++==============================================================================+
+| JANE / THE SOURCE             WAG-095 : THREE-WITNESS COMMITMENT RECEIPTS    |
++==============================================================================+
+|                         FROZEN ARCHIVE ROOT R                                |
+|                                  |                                           |
+|                           EPOCH 95 / ROUND 1                                |
+|                                  |                                           |
+|                +-----------------+-----------------+                         |
+|                |                 |                 |                         |
+|              LOG A             LOG B             LOG C                       |
+|              ROOT A            ROOT B            ROOT C                      |
+|                |                 |                 |                         |
+|            SIGN SLOT 12     SIGN SLOT 12     SIGN SLOT 12                   |
+|                |                 |                 |                         |
+|                +-----------------+-----------------+                         |
+|                                  |                                           |
+|                      VERIFY THREE RECEIPTS                                  |
+|                      FREEZE RECEIPT SET HASH                                |
+|                                  |                                           |
+|                     BEACON SIGNS RELEASE SLOT 13                            |
+|                                  |                                           |
+|                   CHECK BINDING / ORDER / SIGNATURE                          |
+|                                  |                                           |
+|                     LOCAL DECLARED ORDER ACCEPTED                           |
++==============================================================================+
+| ATTACKS: FALSE SIGNATURE / MISSING RECEIPT / DISAGREEING SLOT / EARLY RELEASE|
+|                              REJECT OR HOLD                                 |
++==============================================================================+
+| NOTE: SIGNED LOGICAL SLOTS ARE CLAIMS, NOT EXTERNAL REAL-TIME PROOF.         |
+| LOG A/B/C AND BEACON KEYS ARE SIMULATED, NOT REAL INDEPENDENT SERVICES.      |
+| NEXT WAG-096: EXTERNALLY VERIFIABLE LOG INCLUSION + RELEASE ORDERING        |
++==============================================================================+
