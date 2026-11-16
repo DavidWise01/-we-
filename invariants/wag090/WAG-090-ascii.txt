@@ -1,0 +1,40 @@
++==============================================================================+
+| JANE / THE SOURCE           WAG-090 : ENTROPY COMMITMENT / CHALLENGE SELECTION |
++==============================================================================+
+|          CHECKPOINT ROOT A         EPOCH 90         CHALLENGE 90             |
+|                                   |                                          |
+|                  +----------------+----------------+                         |
+|                  |                |                |                         |
+|                 W1               W2               W3                        |
+|             COMMIT H(S1)     COMMIT H(S2)     COMMIT H(S3)                   |
+|                  |                |                |                         |
+|                  +----------------+----------------+                         |
+|                                   |                                          |
+|                       F R E E Z E   R O U N D                              |
+|                                   |                                          |
+|                  +----------------+----------------+                         |
+|                  |                |                |                         |
+|             REVEAL S1        REVEAL S2        REVEAL S3                      |
+|                  |                |                |                         |
+|             MATCH H(S1)      MATCH H(S2)      MATCH H(S3)                    |
+|                  +----------------+----------------+                         |
+|                                   |                                          |
+|                   DOMAIN-SEPARATED SHA-256 MIXTURE                           |
+|                                   |                                          |
+|                     REJECTION-SAMPLED POSITIONS                              |
+|                                   |                                          |
+|                         [ 2 ] [ 8 ] [ 6 ]                                   |
+|                                   |                                          |
+|                          NO MODULO BIAS                                     |
+|                          NO DUPLICATE INDEX                                 |
+|                          NO REDRAW ON ABORT                                 |
++==============================================================================+
+| ATTACK: W3 WITHHOLDS SEED                                                   |
+|     W1 REVEAL --> W2 REVEAL --> W3 [NO REVEAL] --> HOLD_SELECTIVE_ABORT       |
+|     PRESERVE COMMITMENTS AND ABORT EVENT. DO NOT DECLARE SAMPLE VALID.       |
++==============================================================================+
+| LIMIT: ONE PARTICIPANT CAN STILL BIAS THE DISTRIBUTION BY CHOOSING TO ABORT. |
+| NEED WAG-091: RECOVERY POLICY, RETRY BUDGET, AND NON-GRINDABLE ENTROPY.      |
++==============================================================================+
+| LOCAL TESTS: 52 / 52 PASS  | DEMO AUDIT: 9 HASH-LINKED EVENTS VALID        |
++==============================================================================+
