@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-094 | External Anchor Ordering</title><style>body{background:#09121c;color:#e5effb;font:16px system-ui;margin:0;padding:2rem;max-width:1000px}h1{color:#65f4d2}pre{background:#111f30;border:1px solid #33516d;border-radius:12px;padding:1.3rem;overflow:auto;color:#9be6fb}button{padding:.7rem 1rem;margin:.3rem;border:1px solid #5eb9b3;background:#173744;color:white;border-radius:8px;cursor:pointer}output{display:block;margin:1rem 0;padding:1rem;border-left:4px solid #65f4d2;background:#142638}.small{color:#9bb0c5}a{color:#65f4d2}</style><h1>WAG-094 · External Anchor Ordering</h1><p>Jane / MoE Hive · deterministic offline demonstrator · not an externally authenticated proof</p><pre>       ARCHIVE ROOT (frozen)
+               |
+       EXTERNAL AUTHORITY
+         authenticated
+               |
+      FINAL ANCHOR PROOF
+               |
+         BEACON ROUND
+               |
+         SAMPLE ONCE
+               |
+       W1     W2     W3
+         \\    |    //
+         JANE VERIFY</pre><p>Choose a scenario to see the fail-closed rule.</p><div id="controls"></div><output id="result">Choose a case.</output><p class="small">A passing model check proves only that this deterministic policy behaves as specified. It does not verify real third-party timestamps, signed beacon services, or independent witness custody.</p><p><a href="../invariants/WAG-094-external-anchor-ordering.md">Specification and limitations</a></p><script>const cases=[["ordered",true,["frozen","anchored","beacon","sampled"],"ELIGIBLE_TO_VERIFY"],["early beacon",true,["frozen","beacon","anchored","sampled"],"HOLD_EARLY_BEACON"],["missing anchor",true,["frozen","beacon","sampled"],"HOLD_ANCHOR_UNAVAILABLE"],["untrusted anchor",false,["frozen","anchored","beacon","sampled"],"HOLD_UNTRUSTED_ANCHOR"]];function decision(seq,trusted){if(seq.includes("anchored")&&!trusted)return "HOLD_UNTRUSTED_ANCHOR";if(!seq.includes("anchored"))return "HOLD_ANCHOR_UNAVAILABLE";if(seq.indexOf("beacon")<seq.indexOf("anchored"))return "HOLD_EARLY_BEACON";return "ELIGIBLE_TO_VERIFY"};for(const [name,trusted,sequence,expected] of cases){const b=document.createElement("button");b.textContent=name;b.onclick=()=>document.querySelector("#result").textContent=sequence.join(" → ")+"\n"+decision(sequence,trusted)+(decision(sequence,trusted)===expected?" · PASS":" · FAIL");document.querySelector("#controls").append(b)};</script></html>
