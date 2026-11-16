@@ -1,0 +1,42 @@
++====================================================================================+
+| JANE / THE SOURCE               WAG-085 FRESH STORAGE CHALLENGE                     |
++====================================================================================+
+|                       FROZEN CHECKPOINT : ROOT R                                  |
+|                                 |                                                  |
+|                         EPOCH 85 / NONCE N                                         |
+|                                 |                                                  |
+|               +-----------------+-----------------+                                |
+|               |                 |                 |                                |
+|             HOST W1           HOST W2           HOST W3                             |
+|             DOMAIN A          DOMAIN B          DOMAIN C                            |
+|               |                 |                 |                                |
+|           OPEN FILE         OPEN FILE         OPEN FILE                            |
+|           READ BYTES        READ BYTES        READ BYTES                           |
+|               |                 |                 |                                |
+|           SHA256(data)      SHA256(data)      SHA256(data)                         |
+|               |                 |                 |                                |
+|           SIGN N,R,85      SIGN N,R,85      SIGN N,R,85                           |
+|               |                 |                 |                                |
+|               +-----------------+-----------------+                                |
+|                                 |                                                  |
+|                          VERIFY 3 SIGNATURES                                      |
+|                          VERIFY 3 BYTE HASHES                                     |
+|                          VERIFY ONE CHALLENGE                                     |
+|                          VERIFY DISTINCT KEYS                                     |
+|                                 |                                                  |
+|                  +--------------+----------------+                                |
+|                  |                               |                                |
+|            ALL MATCH                     MISSING / STALE / FORGED                 |
+|                  |                               |                                |
+|          ATOMIC ACCEPT                       REJECT / HOLD                        |
+|                  |                               |                                |
+|       CONSUME RECEIPT IDs                  NO PARTIAL COMMIT                      |
+|                  |                                                                |
+|       PERSIST CHALLENGE STATE / AUDIT LEDGER                                      |
++====================================================================================+
+| TESTS: 35/35 LOCAL PASSED  | AUDIT: 2 VERIFIED EVENTS | RESTART REPLAY: REJECTED   |
+| LIMIT: THREE SIMULATED HOST DIRECTORIES SHARE THE SAME PHYSICAL MACHINE           |
+| READING BYTES + SIGNATURE != PHYSICAL STORAGE OR REMOTE HOST INDEPENDENCE         |
++====================================================================================+
+| NEXT: WAG-086 -- UNPREDICTABLE SPOT CHECKS AND REMOTE HOST BOUNDARY               |
++====================================================================================+
