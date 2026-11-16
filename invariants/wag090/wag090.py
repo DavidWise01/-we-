@@ -140,5 +140,4 @@ def example():
     indexes=r.derive()
     return {'indices':indexes,'audit_records':len(r.events),'audit_valid':r.audit_valid(),'state':r.phase}
 
-
 if __name__=='__main__':print(json.dumps(example(),indent=2))
