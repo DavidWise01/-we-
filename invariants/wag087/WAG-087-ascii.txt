@@ -1,0 +1,33 @@
++==================================================================================+
+| JANE / THE SOURCE         WAG-087  DETECTION BOUNDS AND ROTATING COVERAGE        |
++==================================================================================+
+|                       FROZEN ARCHIVE: 17 CHUNKS                                |
+|            [00][01][02][03][04][05][06][07][08]...[16]                          |
+|                                  |                                               |
+|                  ROUND 1: 3 CHUNKS / HOST                                       |
+|                  ROUND 2: 3 CHUNKS / HOST                                       |
+|                                  |                                               |
+|                    +-------------+-------------+                                 |
+|                    |             |             |                                 |
+|                   W1            W2            W3                                |
+|                  ROOT A        ROOT B        ROOT C                              |
+|                    |             |             |                                 |
+|                6 UNIQUE      6 UNIQUE      6 UNIQUE                             |
+|                    +-------------+-------------+                                 |
+|                                  |                                               |
+|                      SAME CHALLENGE PER ROUND                                   |
+|                      SAME SIX POSITIONS TOTAL                                   |
+|                         UNION COVERAGE: 6/17                                   |
+|                NOT 18 UNIQUE CHUNKS, NOT 18 INDEPENDENT TESTS                   |
++==================================================================================+
+| EXACT PLANNING DETECTION BOUNDS  (N=17, m=3 MISSING, k=3 PER ROUND)            |
+| ONE UNIFORM ROUND:                  P(detect) = 79 / 170 = 46.4706%              |
+| TWO INDEPENDENT UNIFORM ROUNDS:     P(detect) = 20619 / 28900 = 71.3460%        |
+| NOTE: THESE ARE CONDITIONAL PLANNING PROBABILITIES, NOT OBSERVED CONFIDENCE.    |
+| REQUIRE UNPREDICTABLE SEED, FIXED MISSING SET, AND VALID RESPONSE VERIFICATION. |
++==================================================================================+
+|             PASS -> UPDATE OBSERVED COVERAGE  |  FAIL -> PRESERVE EVIDENCE       |
+|             LEDGER: 7 HASH-LINKED RECORDS  |  LOCAL TESTS: 51 / 51 PASSED       |
++==================================================================================+
+| NEXT WAG-088: ADAPTIVE SAMPLING AND OPTIONAL-STOPPING-SAFE EVIDENCE             |
++==================================================================================+
