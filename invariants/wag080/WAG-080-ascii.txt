@@ -1,0 +1,42 @@
++================================================================================+
+| JANE / THE SOURCE           WAG-080 REPLAY-SAFE CHECKPOINT ADVANCEMENT          |
++================================================================================+
+|                           FROZEN CHECKPOINT 079                                |
+|                              ROOT = OLD                                       |
+|                                  |                                            |
+|                    COMPACT PREFIX PROOF VERIFIED                              |
+|                                  |                                            |
+|                         EPOCH 0 + NONCE 0                                     |
+|                                  |                                            |
+|                  +---------------+---------------+                            |
+|                  |               |               |                            |
+|                 W1              W2              W3                            |
+|                  |               |               |                            |
+|             Ed25519 SIGN    Ed25519 SIGN    Ed25519 SIGN                      |
+|                  +---------------+---------------+                            |
+|                                  |                                            |
+|                       VERIFY ALL THREE VOTES                                 |
+|                                  |                                            |
+|                         ADVANCE EXACTLY ONCE                                 |
+|                                  |                                            |
+|                 +----------------+----------------+                           |
+|                 |                |                |                           |
+|            ROOT := NEW      EPOCH := 1       NONCE := NEXT                    |
+|                 |                |                |                           |
+|                 +----------------+----------------+                           |
+|                                  |                                            |
+|                     CONSUME 3 RECEIPT IDS                                    |
+|                                  |                                            |
+|                        CERTIFICATE PRESERVED                                 |
++================================================================================+
+|              REPLAY / REKEY / CONFLICT BOUNDARY                               |
+|            OLD ROOT -> REJECT          OLD NONCE -> REJECT                     |
+|            OLD EPOCH -> REJECT         REUSED IDS -> REJECT                    |
+|            FORGED SIG -> REJECT        BAD PROOF -> REJECT                     |
+|                         50 / 50 LOCAL TESTS PASS                              |
+|              2 HASH-LINKED AUDIT RECORDS VALID                               |
++================================================================================+
+|  DECLARED ANCESTRY != AUTHENTICATED INDEPENDENCE                              |
+|  TRUSTED proof_ok MUST COME FROM INDEPENDENT WAG-079 VERIFIER                 |
+|  NEXT WAG-081: ATOMIC PROOF VERIFICATION + ADVANCEMENT                        |
++================================================================================+
