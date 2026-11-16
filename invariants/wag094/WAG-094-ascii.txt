@@ -1,0 +1,35 @@
++==============================================================================+
+| JANE / THE SOURCE   WAG-094 : SIGNED RELEASE ORDER AND ENTROPY ANCESTRY       |
++==============================================================================+
+|                       ARCHIVE ROOT R                                         |
+|                            |                                                 |
+|                       SIGNED COMMIT                                         |
+|                       CLOCK A / SLOT 12                                     |
+|                            |                                                 |
+|                +-----------+-----------+                                     |
+|                |                       |                                     |
+|           BEACON B                 BEACON C                                  |
+|           SLOT 13                  SLOT 14                                   |
+|           SIGNED B                 SIGNED C                                  |
+|                |                       |                                     |
+|                +-----------+-----------+                                     |
+|                            |                                                 |
+|                   VERIFY SIGNATURES                                         |
+|                   VERIFY EPOCH / ROOT                                       |
+|                   VERIFY LOGICAL ORDER                                      |
+|                   VERIFY DECLARED ANCESTRY                                  |
+|                            |                                                 |
+|                   COMBINE TWO OUTPUTS                                       |
+|                   REJECTION SAMPLE ONCE                                     |
+|                            |                                                 |
+|                       [7] [8] [9]                                            |
+|                            |                                                 |
+|                    AUDIT THE CHUNKS                                         |
++==============================================================================+
+| WRONG ROOT / SLOT / SIGNATURE -> REJECT   |   MISSING RELEASE -> HOLD        |
+| DECLARED SOURCE INDEPENDENCE != AUTHENTICATED INDEPENDENCE                    |
+| SIGNED LOGICAL ORDER != REAL-WORLD EXTERNAL TIME                             |
+| LOCAL EXECUTION: 43 / 43 TESTS PASSED; 5 HASH-LINKED AUDIT RECORDS          |
++==============================================================================+
+| NEXT: WAG-095 : EXTERNAL COMMIT RECEIPTS AND AUTHENTICATED BEACON SCHEDULES |
++==============================================================================+
