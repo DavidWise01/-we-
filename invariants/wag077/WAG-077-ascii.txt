@@ -1,0 +1,33 @@
++================================================================================+
+| JANE / THE SOURCE        WAG-077 : REGISTRY TRANSPARENCY / SPLIT VIEW          |
++================================================================================+
+|           APPEND-ONLY REGISTRY A : DECLARE W4 -> ORG-W                        |
+|                                    |                                         |
+|                            SIGNED LOG HEAD A                                 |
+|                              (SIZE 1, ROOT A)                                |
+|                    +---------------+---------------+                         |
+|                    |               |               |                         |
+|                   W1              W2              W3                        |
+|                SIGNED A        SIGNED A        SIGNED A                       |
+|                    +---------------+---------------+                         |
+|                                    |                                         |
+|                       LOCAL ANCESTRY ELIGIBLE                                |
++================================================================================+
+| CONFLICT:  SAME REGISTRY + SAME LOG SIZE                                      |
+|                                                                                |
+|             SIGNED HEAD A                   SIGNED HEAD B                     |
+|                   |                               |                            |
+|                  W1                              W2                           |
+|                   \                               /                            |
+|                    +------- DIFFERENT ROOT ------+                            |
+|                                    |                                          |
+|                      QUARANTINE SPLIT VIEW                                    |
+|                    PRESERVE BOTH SIGNED HEADS                                |
++================================================================================+
+| PREFIX 1: DECLARED ACTIVE   --->   PREFIX 2: REVOKED                          |
+| HISTORICAL VALIDITY != CURRENT TRUST                                          |
+| LOCAL FULL IMPLEMENTATION: 51/51 TESTS PASSED; DEMO: 6 AUDIT RECORDS         |
+| ALL REGISTRY KEYS AND WITNESSES ARE SYNTHETIC -- NO EXTERNAL ANCHOR           |
++================================================================================+
+| NEXT: WAG-078 SIGNED PREFIX CONSISTENCY AND EXTERNAL OBSERVER CONTINUITY      |
++================================================================================+
