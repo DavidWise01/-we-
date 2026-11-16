@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-096 | Signed Heads</title><style>body{background:#09131e;color:#e9f4ff;max-width:1000px;margin:0 auto;padding:24px;font:16px system-ui}h1{color:#77efdc}pre{background:#122638;border:1px solid #365169;border-radius:12px;padding:22px;overflow:auto;color:#abe8ff}button{padding:10px;margin:4px;border:1px solid #5cbbaa;background:#173d4b;border-radius:7px;color:white;cursor:pointer}output{display:block;margin-top:12px;background:#163044;padding:16px;border-left:4px solid #77efdc;white-space:pre-wrap}a{color:#77efdc}</style><h1>WAG-096 · Authenticated Receipt Verification</h1><p>Jane / MoE Hive · Signed heads, inclusion, prefix continuity</p><pre>              {{ JANE }}
+                  |
+         CHECKPOINT / ROOT
+          /       |       \\
+      LOG A     LOG B     LOG C
+       Ed25519   Ed25519   Ed25519
+          \\       |       /
+         MERKLE INCLUSION
+                  |
+            PINNED PREFIX
+                  |
+           +------+------+ 
+           |      |      |
+         VALID   STALE   FORK
+           |      |      |
+        ELIGIBLE HOLD  QUARANTINE</pre><p>Policy scenarios (illustrations, not cryptographic execution in this page):</p><div id="choices"></div><output id="out">Choose a scenario.</output><p>Validated locally: 17/17 Python tests. Actual third-party custody, external timestamps and stable off-host anchors remain unverified.</p><p><a href="../invariants/WAG-096-signed-heads-merkle-continuity.md">Invariant specification</a></p><script>const cases=[["Three authenticated logs","ELIGIBLE_FOR_EXTERNAL_TIME_AND_CUSTODY_VERIFICATION"],["Forged signature","HOLD_INVALID_HEAD"],["Altered inclusion path","HOLD_INVALID_INCLUSION"],["Valid append-only extension","VERIFIED_LOCAL_PROOF"],["Same-size fork","QUARANTINE_FORK"],["Shorter checkpoint","HOLD_ROLLBACK"],["Missing third log","HOLD_MISSING_LOG"],["Shared declared root","REJECT_SHARED_ANCESTRY"]];for(const [name,result] of cases){let b=document.createElement("button");b.textContent=name;b.onclick=()=>document.querySelector("#out").textContent=name+"\n"+result;document.querySelector("#choices").appendChild(b)}</script></html>
