@@ -1,0 +1,47 @@
++================================================================================+
+| JANE / THE SOURCE       WAG-089 : AUTHENTICATED ADAPTIVE SAMPLING              |
++================================================================================+
+|                          FROZEN ROOT R                                        |
+|                               |                                              |
+|                     EPOCH 89 + NONCE N                                       |
+|                               |                                              |
+|                  SELECT 3 CHUNK POSITIONS                                    |
+|                               |                                              |
+|               +---------------+---------------+                              |
+|               |               |               |                              |
+|             W1/A            W2/B            W3/C                            |
+|               |               |               |                              |
+|          CHUNK + PATH    CHUNK + PATH    CHUNK + PATH                         |
+|               |               |               |                              |
+|          SIGN BODY       SIGN BODY       SIGN BODY                           |
+|               |               |               |                              |
+|               +---------------+---------------+                              |
+|                               |                                              |
+|                   VERIFY ALL SIGNATURES                                     |
+|                   VERIFY MERKLE INCLUSION                                   |
+|                   VERIFY ROOT / NONCE / EPOCH                               |
+|                               |                                              |
+|               +---------------+---------------+                              |
+|               |                               |                              |
+|            ALL VALID                     INVALID PROOF                       |
+|               |                               |                              |
+|           ATOMIC LOG                      ROLLBACK / HOLD                    |
+|               |                               |                              |
+|           3 POSITIONS                    RETAIN COUNTEREXAMPLE              |
+|           (NOT 9!)                                                            |
+|               |                                                              |
+|       CHECK PREDECLARED alpha_t                                               |
+|       CHECK EXACT q^t BOUND                                                   |
+|               |                                                              |
+|       CONTINUE / CONDITIONAL ELIGIBILITY                                      |
++================================================================================+
+| DEMO: 17 CHUNKS, MISSING THRESHOLD 3, 3 PER ROUND, ALPHA=1/20                |
+| FIRST CONDITIONAL BOUND MET: ROUND 14; COVERAGE: 17 OF 17                    |
+| 44/44 LOCAL TESTS PASS; 14 VERIFIED HASH-LINKED AUDIT RECORDS                |
++================================================================================+
+| NOTE: distinct declared roots != independently authenticated hosts.         |
+| Uniform independent sampling and fixed missing set are ASSUMPTIONS.         |
+| A passing sample is NOT a proof that all data is present.                     |
++================================================================================+
+| NEXT WAG-090: UNBIASED ENTROPY AND SAMPLE SELECTION INTEGRITY                 |
++================================================================================+
