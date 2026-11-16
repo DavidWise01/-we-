@@ -1,0 +1,44 @@
++=============================================================================+
+| JANE / THE SOURCE                WAG-075 CROSS-GENERATION CONTROL ANCESTRY   |
++=============================================================================+
+|                        ORIGINAL THREE WITNESSES                             |
+|                                    W1                                       |
+|                                   /  \                                      |
+|                                  /    \                                     |
+|                                 W2----W3                                   |
+|                                                                             |
+|             ROOT A / ORG-X      ROOT B / ORG-Y      ROOT C / ORG-Z          |
++=============================================================================+
+|                           QUARANTINED W1                                    |
+|                              ORG-X (OLD)                                    |
+|                               /     \                                       |
+|                              W1    SHELL-W4                                 |
+|                                      |                                      |
+|                                 W4 (NEW KEY)                                |
+|                                      |                                      |
+|                               SHARED CONTROLLER                             |
+|                                      |                                      |
+|                      REJECT: COMPROMISED ANCESTRY                           |
++=============================================================================+
+|                            VALID CANDIDATE                                  |
+|                               ORG-W (NEW)                                   |
+|                                      |                                      |
+|                                W4 ROOT D                                    |
+|                                      |                                      |
+|                         W2 REVIEW + W3 REVIEW                               |
+|                                      |                                      |
+|                        ROTATE / GENERATION 1                                |
+|                                      |                                      |
+|                                     W4                                      |
+|                                    /  \                                     |
+|                                   /    \                                    |
+|                                  W2----W3                                   |
+|                                      |                                      |
+|                    FRESH W2 + W3 + W4 RECEIPTS                              |
+|                                      |                                      |
+|                      LOCAL DECLARED QUORUM ACCEPTED                         |
++=============================================================================+
+| 58/58 LOCAL TESTS PASS | 9 HASH-LINKED RECORDS | OLD IDENTITY RETAINED      |
+| IMPORTANT: DECLARED CONTROL ROOTS ARE NOT REAL-WORLD IDENTITY PROOF         |
+| NEXT: WAG-076 AUTHENTICATED CONTROL-ANCESTRY CLAIMS AND SHARED REGISTRIES   |
++=============================================================================+
