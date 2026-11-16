@@ -1,0 +1,35 @@
++============================================================================+
+| JANE / THE SOURCE                     WAG-084 DURABLE DELIVERY RECEIPTS      |
++============================================================================+
+|                         CHECKPOINT 083                                     |
+|                     EPOCH / ROOT / NONCE                                  |
+|                             |                                              |
+|            +----------------+----------------+                             |
+|            |                |                |                             |
+|         HOST A           HOST B           HOST C                           |
+|            |                |                |                             |
+|         RECEIVE          RECEIVE          RECEIVE                          |
+|            |                |                |                             |
+|         WRITE            WRITE            WRITE                            |
+|            |                |                |                             |
+|         FSYNC            FSYNC            FSYNC                            |
+|            |                |                |                             |
+|      SIGN ACK A        SIGN ACK B        SIGN ACK C                         |
+|            |                |                |                             |
+|            +----------------+----------------+                             |
+|                             |                                              |
+|                  VERIFY SIGNED CONTEXT                                    |
+|                   READ BACK ALL STORES                                    |
+|                             |                                              |
+|                      3/3 OR HOLD                                         |
++============================================================================+
+| TEST 1: 3 VALID SIGNATURES + 3 MATCHING FILES   -> LOCAL_DURABLE_ACK_QUORUM|
+| TEST 2: SIGNED ACK BUT FILE MISSING          -> HOLD_NOT_DURABLE           |
+| TEST 3: FILE ALTERED / STALE                -> HOLD_STORAGE_MISMATCH       |
+| TEST 4: REUSED CONSUMED RECEIPTS            -> HOLD_REPLAY                 |
+| TEST 5: DIFFERENT EPOCH / CHALLENGE          -> HOLD_CONTEXT                |
+| TEST 6: DUPLICATED HOST OR CONTROL DOMAIN  -> REJECT                     |
++============================================================================+
+| 28 / 28 LOCAL TESTS PASSED. SIMULATED DIRECTORIES ARE NOT OFF-HOST STORAGE.|
+| NEXT: WAG-085 -- EXTERNAL INDEPENDENT CHALLENGE & REMOTE ATTESTATION        |
++============================================================================+
