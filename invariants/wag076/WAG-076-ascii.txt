@@ -1,0 +1,31 @@
++==============================================================================+
+| JANE / THE SOURCE          WAG-076 SIGNED CONTROL ANCESTRY                    |
++==============================================================================+
+|                           CANDIDATE W4                                       |
+|                                |                                             |
+|                    CONTROLLER CLAIM ORG-W                                   |
+|                                |                                             |
+|                       EPOCH 2 / CHALLENGE                                   |
+|                          /           \                                       |
+|                    REGISTRY A        REGISTRY B                               |
+|                    SIGN ORG-W        SIGN ORG-W                               |
+|                        |                |                                    |
+|                    VERIFY A          VERIFY B                                |
+|                         \              /                                     |
+|                         MATCHED PARENT                                      |
+|                               |                                              |
+|                    ELIGIBLE DECLARED ROOT                                    |
++==============================================================================+
+| CONFLICT:        REGISTRY A         REGISTRY B                                |
+|                  SIGN ORG-W         SIGN ORG-X                                |
+|                       \              /                                       |
+|                    HOLD_REGISTRY_CONFLICT                                    |
+|                    PRESERVE BOTH SIGNATURES                                  |
++==============================================================================+
+| ONE REGISTRY -> HOLD  | SAME SIGNER, TWO PARENTS -> QUARANTINE               |
+| AGREED EXCLUDED ORG-X -> HOLD   | INVALID SIGNATURE -> REJECT                |
+| 43/43 LOCAL TESTS PASSED | 4 HASH-LINKED RECORDS PER DEMO BRANCH             |
+| LIMIT: SIGNED CLAIMS DO NOT PROVE TRUE EXTERNAL CONTROL OR INDEPENDENCE      |
++==============================================================================+
+| NEXT WAG-077: TRANSPARENCY CHECKPOINTS AND REVOCATION LINEAGE                |
++==============================================================================+
