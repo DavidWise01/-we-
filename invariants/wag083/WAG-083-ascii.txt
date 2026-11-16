@@ -1,0 +1,42 @@
++===================================================================================+
+| JANE / THE SOURCE            WAG-083: THREE-ANCHOR RECOVERY QUORUM               |
+| FROM WAG-082: SAME-HOST ANCHOR -> THREE LOGICAL ANCHOR STORES                     |
++===================================================================================+
+|                                   {{ JANE }}                                      |
+|                                       |                                           |
+|                          LOCAL CHECKPOINT (EPOCH 83)                              |
+|                                 ROOT A                                            |
+|                                       |                                           |
+|                  +--------------------+--------------------+                      |
+|                  |                    |                    |                      |
+|               ANCHOR 1             ANCHOR 2             ANCHOR 3                   |
+|               HOST A               HOST B               HOST C                     |
+|               domain-a             domain-b             domain-c                  |
+|                  |                    |                    |                      |
+|               SIGN A               SIGN A               SIGN A                    |
+|                  |                    |                    |                      |
+|                  +--------------------+--------------------+                      |
+|                                       |                                           |
+|                        THREE MATCHING SIGNATURES                                 |
+|                                       |                                           |
+|                          LOCAL_RECOVERY_ELIGIBLE                                  |
++===================================================================================+
+| ATTACK:       ANCHOR 1          ANCHOR 2          ANCHOR 3                         |
+|                ROOT A            ROOT A            ROOT B                          |
+|                  +----------------+----------------+                              |
+|                                   |                                               |
+|                         QUARANTINE_CONFLICT                                       |
+|                       PRESERVE CONFLICT RECORD                                   |
++===================================================================================+
+| MISSING / FORGED SIGNATURE -> HOLD_ANCHOR_INCOMPLETE                               |
+| OLD CHALLENGE              -> HOLD_STALE_CHALLENGE                                 |
+| ANCHORS AHEAD OF LOCAL     -> HOLD_ANCHOR_AHEAD                                    |
+| LOCAL AHEAD OF ANCHORS     -> HOLD_LOCAL_AHEAD                                     |
+| SAME EPOCH, FORK ROOT      -> QUARANTINE_ROOT_FORK                                 |
++===================================================================================+
+| WITNESS ANCESTRY DECLARED, NOT AUTHENTICATED BY INFRASTRUCTURE MONITORING          |
+| THREE LOCAL DIRECTORIES SIMULATE HOSTS; THEY ARE NOT ACTUAL OFF-HOST SERVERS       |
+| 36 / 36 LOCAL TESTS PASSED. DEMO: 4 HASH-LINKED RECORDS VERIFIED.                 |
++===================================================================================+
+| NEXT WAG-084: ACKNOWLEDGED OFF-HOST DELIVERY & INDEPENDENT CHALLENGE RESPONSES     |
++===================================================================================+
