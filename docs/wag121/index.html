@@ -1,0 +1,5 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-121</title><style>body{background:#0a1522;color:#eaf5ff;font:16px system-ui;max-width:800px;margin:auto;padding:24px}h1{color:#7de9d3}pre{background:#152b40;padding:22px;overflow:auto}button{background:#25495a;color:white;padding:12px;margin:4px;border:1px solid #79c8b9;border-radius:8px}output{display:block;padding:18px}small{color:#aabacb}</style><h1>WAG-121 · Three Witness Commitment</h1><pre>       H / W1
+       /    \
+  N / W3 --- O / W2
+        {{i}}
+   LOCK → SIGN → COMMIT</pre><div id="buttons"></div><output id="out"></output><script>for(const [n,r] of [['Three signed locks','COMMIT'],['One missing vote','HOLD_INCOMPLETE'],['Conflicting locks','HOLD_CONFLICT'],['Partial commit + certificate','RECOVER'],['Forged signature','REJECT']]){let b=document.createElement('button');b.textContent=n;b.onclick=()=>document.querySelector('#out').textContent=r;document.querySelector('#buttons').append(b)}</script><small>Illustrative policy viewer, not live signature verification. 14 locally executed tests. One host.</small></html>
