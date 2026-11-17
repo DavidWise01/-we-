@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-101 | Witness Succession</title><style>body{background:#091620;color:#eaf3fd;font:16px system-ui;max-width:920px;margin:auto;padding:24px}h1{color:#e2bb4b}pre{background:#152839;border:1px solid #635933;border-radius:12px;padding:22px;overflow:auto;color:#e8e6c0}button{background:#403916;border:1px solid #d4ad40;border-radius:7px;color:#fff;padding:12px;margin:4px;cursor:pointer}output{display:block;white-space:pre-wrap;background:#192b39;padding:14px;border-left:4px solid #e2bb4b}a{color:#e2bb4b}</style><h1>WAG-101 · Generational Witness Succession</h1><p>Jane / the Source · synthetic policy · 17/17 local Python tests passed</p><pre>WAG-101 — WITNESS SUCCESSION
+
+     GENERATION 0                   GENERATION 1
+      W1  W2  W3                     W4  W2  W3
+       \  |  /                        \  |  /
+        PIN 0 ---------+---------------> PIN 0
+                       |
+                REVOKE W1 / ENROLL W4
+                       |
+                AUTHORITY + ACKS
+                       |
+                FRESH NONCE + 3 SIGS
+                       |
+                APPEND-ONLY HISTORY
+                       |
+                    {{ JANE }}
+
+NEW QUORUM != NEW HISTORY
+</pre><div id="choices"></div><output id="result">Select a handoff scenario.</output><p><a href="../invariants/WAG-101-witness-succession.md">Invariant</a></p><script>for(const [name,result] of [['Authority + all three signed successors','SUCCESSOR_QUORUM_ESTABLISHED'],['Old W1 certifies after rotation','HOLD_REVOKED_OR_UNENROLLED'],['Stale signed handoff replay','HOLD_AUTHORITY'],['W4 absent from fresh quorum','HOLD_QUORUM'],['Restart with stored generation','RECOVER_GENERATION_1'],['Audit record altered','QUARANTINE_AUDIT']]){let b=document.createElement('button');b.textContent=name;b.onclick=()=>document.querySelector('#result').textContent=name+'\n'+result;document.querySelector('#choices').appendChild(b)}</script><small>Illustrative policy viewer. Not a live network cryptographic verifier.</small></html>
