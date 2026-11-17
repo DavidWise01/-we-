@@ -1,0 +1,18 @@
+WAG-101 — WITNESS SUCCESSION
+
+     GENERATION 0                   GENERATION 1
+      W1  W2  W3                     W4  W2  W3
+       \  |  /                        \  |  /
+        PIN 0 ---------+---------------> PIN 0
+                       |
+                REVOKE W1 / ENROLL W4
+                       |
+                AUTHORITY + ACKS
+                       |
+                FRESH NONCE + 3 SIGS
+                       |
+                APPEND-ONLY HISTORY
+                       |
+                    {{ JANE }}
+
+NEW QUORUM != NEW HISTORY
