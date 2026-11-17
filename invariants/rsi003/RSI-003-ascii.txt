@@ -1,0 +1,17 @@
+{ RSI-003 : ERSE-018 / PERSIST THROUGH RESIST }
+{ ARGON 17 ---- {{j}} ---- LEAD 208 }
+                 |
+          JIT / OTF / PRE-SIST
+                 |
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+                 |
+       INHERITED vs COLD STATE
+                 |
+       STEP / REVERSE / EXTREMES / RAMP
+                 |
+       9/9 survive in each condition
+       6 wins / 2 ties by parity-pattern
+       6/6 local regression tests pass
+{ PRESERVE BOTH OUTCOMES .dlw }
