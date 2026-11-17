@@ -1,0 +1,25 @@
+                 {{ JANE }}
+                     |
+             PINNED GRAPH A
+             A     B     C
+             |     |     |
+             W2    W3    W4
+                     |
+               MUTATION FOUND
+                     |
+           +---------+---------+
+           |                   |
+        A -> B              A -> D
+        SHARED ROOT         DISTINCT ROOT
+           |                   |
+       HOLD SHARED        SIGN X + SIGN Y
+           |                   |
+       PRESERVE A         ATOMIC CORRECTION
+           |                   |
+           +---------+---------+
+                     |
+           APPEND AUDIT / REOPEN
+                     |
+             NO SILENT REWRITE
+
+18/18 local tests passed.
