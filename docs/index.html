@@ -1485,4 +1485,19 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 
      RESTART != RESTORED TRUST
 </pre><p>19 local tests passed. Three pinned reviewers and a matching signed policy anchor are required. A retained newer anchor detects local rollback; rollback of both stores remains possible.</p><p><a href="../invariants/WAG-103-persistent-mutation-holds.md">Specification</a></p></article>
+<article id="rsi002"><h2>RSI-002 — ERSE persistence through resistance</h2><pre style="overflow:auto">{                  ERSE-018 / RSI-002                  }
+{  ARGON 17        {{j}}              LEAD 208         }
+{  HOT CACHE &lt;---- MEMSISTOR -------&gt; STATE RESERVOIR  }
+{                       |                              }
+{      9xJITx9     9xOTFx9     9xPRE-SISTx9             }
+{      PREDICT     OBSERVE      PULL t-3               }
+{     (J1)   [J2]   (J3)    [J4]    (J5)               }
+{     [J6]   (J7)   [J8]    (J9)                       }
+{                       |                              }
+{            RESIST -&gt; PERSIST -&gt; RECORD               }
+{                      {{j}}                           }
+{  30 logical seconds: 9/9 alive; 31 frames verified   }
+{  Odd energy 36/100; even energy 21/100               }
+{  12 tests passed; no recursive improvement shown    }
+</pre><p>Shared memsistor: 17 hot frames and 208 resident frames. Three 9x9 computational layers. Nine branches survive 30 logical ticks; 12 local tests pass. This is a baseline, not evidence of recursive self-improvement.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/RSI-002-erse-persistence.md">Specification</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
