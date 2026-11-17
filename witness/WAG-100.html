@@ -1,0 +1,13 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-100</title><style>body{background:#091522;color:#e9f4fb;font:16px system-ui;max-width:850px;margin:auto;padding:24px}h1{color:#70efd4}pre{background:#13283b;color:#a5eaff;padding:22px;overflow:auto}input{width:100%}a{color:#70efd4}</style><h1>WAG-100 · Witnessed chronology</h1><pre>WAG-100
+
+  PAST          PRESENT         FUTURE
+   4               5               6
+   |               |               |
+ SEEN           REVOKED          HOLD
+   |               |
+ W1 W2 W3 ---------+
+       |
+   {{ JANE }}
+       |
+ VERIFY CHRONOLOGY
+</pre><p>Illustrative logical cutoff: 5. Move the witnessed position.</p><input id="seen" type="range" min="0" max="10" value="4"><p id="out"></p><script>const s=document.querySelector('#seen');function draw(){document.querySelector('#out').textContent='Observed '+s.value+' → '+(+s.value<5?'LOCAL_HISTORICAL_ELIGIBLE':'HOLD_REVOKED')}s.oninput=draw;draw()</script><p>12 local Python tests passed. This interactive model does not verify signatures or real-world time.</p><a href="../invariants/WAG-100-witness-bound-chronology.md">Specification</a></html>
