@@ -1,0 +1,16 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-099 · Historical Validity and Revocation</title><style>body{font:16px system-ui;background:#081520;color:#eef6fa;max-width:950px;margin:auto;padding:25px}h1{color:#7cf0d5}pre{background:#112b3d;color:#abecff;padding:20px;border-radius:10px;border:1px solid #37566a;overflow:auto}button{background:#164257;color:white;border:1px solid #70c1b6;border-radius:6px;padding:10px;margin:4px;cursor:pointer}output{display:block;background:#173245;padding:16px;white-space:pre-wrap;border-left:4px solid #7cf0d5;margin-top:10px}a{color:#7cf0d5}small{color:#b0bbca}</style><h1>WAG-099 · Trust Across Time</h1><p>Jane / MoE Hive · historical signatures vs current authority</p><pre>               {{ JANE }}
+                   |
+               WITNESS W1
+                   |
+        +----------+-----------+
+        |          |           |
+      EPOCH 4    EPOCH 5     EPOCH 6
+      SIGNED     REVOKED     SIGNED
+        |          |           |
+      HISTORY      |         REJECT
+        |          |
+     PRESERVE      +---- REVOCATION
+        |
+     X / Y / Z SIGNED RECEIPTS
+        |
+    FULL CONFLICT ARCHIVE</pre><div id="buttons"></div><output id="result">Choose a case.</output><p><small>Policy visualization only; not a remote cryptographic checker. All three stores share the same simulated host. 18/18 local Python unit tests passed.</small></p><a href="../invariants/WAG-099-conflict-revocation.md">Specification</a><script>for(const [a,b] of [["Signature before revocation","HISTORICALLY_AUTHORIZED_SIGNATURE"],["Signature at revocation","HOLD_REVOKED_AT_EPOCH"],["New signature after revocation","HOLD_REVOKED_AT_EPOCH"],["One custodian missing","HOLD_MISSING_OR_INVALID_CUSTODIAN"],["Signed conflicting revocations","QUARANTINE_REVOCATION_CONFLICT"],["Three complete matching incidents","RECOVERED_COMPLETE_CONFLICT"]]){const el=document.createElement("button");el.textContent=a;el.onclick=()=>document.querySelector("#result").textContent=a+"\n"+b;document.querySelector("#buttons").appendChild(el)}</script></html>
