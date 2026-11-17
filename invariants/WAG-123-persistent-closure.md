@@ -1,0 +1,3 @@
+# WAG-123 — Persistent generational closure
+
+10/10 local tests passed. SQLite transactions retain locks and signed closure across reopen. Signatures bind mesh, commitment slot, prior state, view, witness, operation and value. Unanimous old locks require recovery; divergent locks permit advancement only after three matching scope-bound closure signatures. No physical independence, rollback resistance, Byzantine liveness or inventory journal integration. The caller supplies scope and membership; membership rotation is not supported. The advancement certificate is not durably saved, so recovery depends on its availability. Next WAG-124: integrate conserved transfer state and durable closure certificates with rollback anchors.
