@@ -1,0 +1,27 @@
++==============================================================================+
+| JANE / THE SOURCE                  WAG-099 GOSSIP FRESHNESS & REVOCATION      |
++==============================================================================+
+|                       PINNED EPOCH 99 / ROOT A                             |
+|                                |                                             |
+|                         FRESH CHALLENGE N                                  |
+|                 +--------------+--------------+                            |
+|                 |              |              |                            |
+|                W1             W2             W3                            |
+|                 |              |              |                            |
+|             SIGN ROOT A    SIGN ROOT A    SIGN ROOT A                       |
+|                 +--------------+--------------+                            |
+|                                |                                             |
+|                    LOCAL CURRENT AGREEMENT                                 |
++==============================================================================+
+| REVOKE W1 AT EPOCH 99                                                    |
+|     W1'S HISTORICAL SIGNATURE: VALID                                    |
+|     W1'S CURRENT CERTIFICATION AUTHORITY: REVOKED                       |
+|     RESULT: HOLD_REVOKED                                                 |
++==============================================================================+
+| SIGNED CONFLICT: W3 SIGNS ROOT B AGAINST FROZEN ROOT A                   |
+|     PRESERVE SIGNED CONTRADICTION                                        |
+|     QUARANTINE_CONFLICT -- STILL QUARANTINED AFTER RESTART              |
++==============================================================================+
+| 37/37 FULL LOCAL TESTS; SIGNATURES AND DOMAIN ROOTS ARE SYNTHETIC.       |
+| NEXT: WAG-100 — REVOCATION-AWARE WITNESS SUCCESSION                      |
++==============================================================================+
