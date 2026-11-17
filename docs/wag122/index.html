@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-122</title><style>body{background:#0b1724;color:#eaf5ff;font:16px system-ui;max-width:800px;margin:auto;padding:24px}h1{color:#76efd0}pre{background:#172c40;padding:20px;overflow:auto}select{padding:10px;margin:8px}output{display:block;padding:20px;color:#76efd0}</style><h1>WAG-122 · Diodic view change</h1><pre> W1 --- W2 --- W3
+        |
+   CLOSE VIEW
+        |
+ PRESERVE / ADVANCE
+        |
+      {{i}}</pre><div id="w"></div><output id="o"></output><p>Illustrative policy calculator, not a cryptographic verifier. Seven Python tests passed. Assumes honest witnesses and a single symbolic slot.</p><script>let a=[];for(let n of ['H','O','N']){let s=document.createElement('select');s.setAttribute('aria-label',n);for(let v of ['A','B','EMPTY','UNAVAILABLE'])s.add(new Option(n+': '+v,v));s.onchange=draw;w.append(s);a.push(s)}function draw(){let v=a.map(s=>s.value);o.textContent=v.includes('UNAVAILABLE')?'HOLD':v[0]!=='EMPTY'&&v.every(x=>x===v[0])?'RECOVER '+v[0]:'ADVANCE VIEW'}draw()</script></html>
