@@ -1,0 +1,15 @@
+{ RSI-005 / ERSE-018 : ONE UP TWO DOWN }
+       TEAM A       TEAM B       TEAM C
+       (J1) UP      [J4] UP      (J7) UP
+       [J2] REST    (J5) REST    [J8] REST
+       (J3) REM     [J6] REM     (J9) REM
+           |            |            |
+           +------------+------------+
+                        |
+                       {{j}}
+                  { MEMSISTOR }
+               ARGON 17 / LEAD 208
+          ROTATE WATCH EVERY LOGICAL TICK
+       steady / steps / alternating: 9/9 alive
+       8 tests passed; no compute savings shown
+{ PERSIST THROUGH RESIST .dlw }
