@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-120</title><style>body{background:#0b1624;color:#eaf5ff;font:16px system-ui;max-width:800px;margin:auto;padding:24px}h1{color:#74ead1}pre{background:#142d40;padding:24px;overflow:auto}button{padding:12px;margin:4px;background:#23465b;color:white;border:1px solid #76c9b8;border-radius:8px}output{display:block;padding:16px}a{color:#74ead1}</style><h1>WAG-120 · Obligation Memory</h1><pre>       { H.db }
+        /    \
+       /      \
+   ( N.db )--[ O.db ]
+
+        {{i}}
+    156 conserved ticks</pre><p>Illustrative journal publication: choose number of durable copies.</p><div id="buttons"></div><output id="status"></output><script>for(let i=0;i<=3;i++){let b=document.createElement('button');b.textContent=i+' copies';b.onclick=()=>document.querySelector('#status').textContent=i===3?'COMMITTED — all three copies agree':'HOLD — publication incomplete';document.querySelector('#buttons').append(b)}</script><p>10 local Python tests passed. Single-host reference; not a distributed consensus service.</p></html>
