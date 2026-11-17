@@ -1,0 +1,4 @@
+# RSI-005 — One up, two down
+Three teams of three, one direct observer per team per logical tick, rotating through all nine branches. The other two receive the sentinel's current observation; one has its three-tick prior observation recorded as replay metadata. The original ERSE-018 energy and action model is unchanged.
+Local tests: 8 passed. Steady, steps, alternating: rotating watch 9/9 survive, always awake 9/9 survive, synchronous sleep 9/9, 0/9, 0/9 respectively. Energy exactly matches always-awake control. This demonstrates broadcast perception coverage, not actual reduced computational cost, sleep, consolidation, independence, or recursive improvement. Shared uniform signals are a strong simplifying assumption.
+Next RSI-006: genuine reduced-work rest, asynchronous handoff and sentinel failure under spatially distinct signals.
