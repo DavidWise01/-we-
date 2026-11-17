@@ -1,0 +1,14 @@
+{                  ERSE-018 / RSI-002                  }
+{  ARGON 17        {{j}}              LEAD 208         }
+{  HOT CACHE <---- MEMSISTOR -------> STATE RESERVOIR  }
+{                       |                              }
+{      9xJITx9     9xOTFx9     9xPRE-SISTx9             }
+{      PREDICT     OBSERVE      PULL t-3               }
+{     (J1)   [J2]   (J3)    [J4]    (J5)               }
+{     [J6]   (J7)   [J8]    (J9)                       }
+{                       |                              }
+{            RESIST -> PERSIST -> RECORD               }
+{                      {{j}}                           }
+{  30 logical seconds: 9/9 alive; 31 frames verified   }
+{  Odd energy 36/100; even energy 21/100               }
+{  12 tests passed; no recursive improvement shown    }
