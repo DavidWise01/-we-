@@ -1458,4 +1458,31 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
 
 18/18 local tests passed.
 </pre><p>18 local tests passed. Corrections require two pinned signatures and distinct declared control ancestry; local SQLite persistence and audit verification are tested. Compact repository reference not separately executed.</p><p><a href="../invariants/WAG-102-control-graph-pinning.md">Specification</a></p></article>
+<article id="wag103"><h2>WAG-103 — Persistent mutation holds</h2><pre style="overflow:auto">             {{ JANE }}
+                 |
+            PINNED GRAPH
+                 |
+          MUTATION OBSERVED
+                 |
+          SQLITE HOLD RECORD
+                 |
+              RESTART
+                 |
+             HOLD REMAINS
+                 |
+          W1 + W2 + W3
+          SIGN EXACT STATE
+                 |
+           REVALIDATE GRAPH
+                 |
+          HOLD_PENDING_ANCHOR
+                 |
+         SIGNED POLICY ANCHOR
+                 |
+          MATCH / MISMATCH
+             /       \
+       ELIGIBLE       HOLD
+
+     RESTART != RESTORED TRUST
+</pre><p>19 local tests passed. Three pinned reviewers and a matching signed policy anchor are required. A retained newer anchor detects local rollback; rollback of both stores remains possible.</p><p><a href="../invariants/WAG-103-persistent-mutation-holds.md">Specification</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
