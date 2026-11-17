@@ -1,0 +1,4 @@
+# RSI-008 — Ephemeral authority
+One-tick rank/file leases from RSI-007, persisted in SQLite. A receipt binds branch ID, assignment, tick and frame digest. Current UP branches may record one observation per tick. Transactions serialize advancement and observation insertion. Twelve local tests pass, including restart, stale and replayed receipts, emergency wake, failed advancement and frame hash tampering.
+Receipts are unsigned and reproducible, not authenticated credentials. Experience is stored separately without hash chaining; frame history is locally hash-linked but not externally anchored. Logical time is not wall time. This is not distributed consensus, ERSE energy integration or proof of persistence under physical resistance.
+Next: authenticated identity-bound handoff and experience-chain integration.
