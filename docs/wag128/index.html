@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-128</title><style>body{background:#0b1724;color:#eaf5ff;font:16px system-ui;max-width:780px;margin:auto;padding:24px}h1{color:#70eacb}pre{background:#193047;padding:24px}button{padding:12px;margin:5px;background:#204459;color:white;border:1px solid #70eacb;border-radius:8px}output{display:block;padding:18px}</style><h1>WAG-128 · Atomic temporal authorization</h1><pre>       PARENT G0
+       /       \
+      A         B
+       \       /
+      ATOMIC GATE
+          |
+        {{i}}</pre><button id="a">Commit A</button><button id="b">Commit B</button><button id="reset">Reset demonstration</button><output id="out">G0 · awaiting proposal</output><p>Illustrative race, not live Python or signature verification.</p><script>let winner=null;function go(n){if(winner===null){winner=n;out.textContent='G1 · '+n+' committed · total 26'}else out.textContent=winner===n?'G1 · identical historical receipt':'G1 · stale parent rejected'}a.onclick=()=>go('A');b.onclick=()=>go('B');reset.onclick=()=>{winner=null;out.textContent='G0 · awaiting proposal'}</script></html>
