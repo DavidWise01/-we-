@@ -1,0 +1,5 @@
+# WAG-127 — Temporal challenge-response
+
+11 local unittest cases passed in 0.087s. A live Ed25519 signer answers a 256-bit nonce with a mesh-bound generation and state digest read from a durable SQLite floor. A verifier consumes each challenge once, expires it using a local monotonic clock (default 5s), verifies signature and exact nonce, and checks three identical valid histories against the floor. Ordinary restart preserves the floor; regression and fork attempts via the normal advancement API fail.
+
+Limits: direct calls on one host, synthetic keys, trusted configuration, single-threaded challenge consumption, no network or independent custody. A valid fresh response can describe a stale database: rolling back both witness floor and histories remains undetectable. A response may become stale after it is signed, and verification is not an atomic authorization to mutate. Next WAG-128: bind a fresh response to the exact proposed operation and enforce compare-and-advance at the witness, testing stale authorization and concurrent attempts.

@@ -1,0 +1,9 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-127</title><style>body{background:#0b1624;color:#eaf5ff;font:16px system-ui;max-width:780px;margin:auto;padding:24px}h1{color:#70eacb}pre{background:#193047;padding:24px}button{padding:12px;margin:5px;background:#204459;color:white;border:1px solid #70eacb;border-radius:8px}output{display:block;padding:18px}</style><h1>WAG-127 · Temporal challenge</h1><pre> { PAST } [ PRESENT ] ( FUTURE )
+                |
+           256-BIT NONCE
+                |
+          [ LIVE WITNESS ]
+                |
+           SIGNED RESPONSE
+                |
+              {{i}}</pre><div id="controls"></div><output id="out"></output><p>Illustrative policy viewer, not live signature verification. Eleven Python tests passed.</p><script>for(const [label,result] of [['Fresh response','CURRENT'],['Historical response','HOLD_INVALID'],['Expired challenge','HOLD_EXPIRED'],['Witness absent','HOLD_UNAVAILABLE'],['Histories rolled back','HOLD_ROLLBACK'],['Witness and histories rolled back','CURRENT — limitation']]){const b=document.createElement('button');b.textContent=label;b.onclick=()=>document.querySelector('#out').textContent=result;document.querySelector('#controls').append(b)}</script></html>
