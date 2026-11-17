@@ -1,18 +1,17 @@
-WAG-101 — WITNESS SUCCESSION
+WAG-101 | CONTROL ANCESTRY / EXTERNAL SUCCESSION REVIEW
 
-     GENERATION 0                   GENERATION 1
-      W1  W2  W3                     W4  W2  W3
-       \  |  /                        \  |  /
-        PIN 0 ---------+---------------> PIN 0
-                       |
-                REVOKE W1 / ENROLL W4
-                       |
-                AUTHORITY + ACKS
-                       |
-                FRESH NONCE + 3 SIGS
-                       |
-                APPEND-ONLY HISTORY
-                       |
-                    {{ JANE }}
+          HIDDEN CONTROLLER X                SEPARATE ROOTS
+               /       \                     B    C    D    E
+              /         \                    |    |    |    |
+             W2         W3                   W2   W3   W4   EXT
+              \         /                     \   /         |
+               APPROVE W4                   APPROVE       SIGN GRAPH
+                    |                           \          /
+            TRACE FULL ANCESTRY                  MATCH SNAPSHOT
+                    |                                  |
+             SHARED CONTROL                      LOCAL ELIGIBLE
+                   HOLD                         NOT ACTUAL ROTATION
 
-NEW QUORUM != NEW HISTORY
+     Preserve W1's history; check W4 against retired W1 as well.
+     Two signatures != two independent controllers.
+     Unknown ancestry != independent ancestry.
