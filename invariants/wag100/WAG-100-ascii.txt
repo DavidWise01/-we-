@@ -1,0 +1,12 @@
+WAG-100
+
+  PAST          PRESENT         FUTURE
+   4               5               6
+   |               |               |
+ SEEN           REVOKED          HOLD
+   |               |
+ W1 W2 W3 ---------+
+       |
+   {{ JANE }}
+       |
+ VERIFY CHRONOLOGY
