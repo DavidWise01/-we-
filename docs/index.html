@@ -1518,4 +1518,22 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
        6/6 local regression tests pass
 { PRESERVE BOTH OUTCOMES .dlw }
 </pre><p>Remaining energy (inherited vs cold): odd 44/43,36/35,60/56,53/49; even 35/35,40/38,52/49,38/38. Six local tests passed. Prior compute was unmatched; no policy evolution.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/RSI-003-inherited-persistence.md">Specification</a></p></article>
+<article id="rsi004"><h2>RSI-004 — Temporal persistence</h2><pre style="overflow:auto">{ RSI-004 : ERSE TEMPORAL PERSISTENCE }
+    (J1) [J2] (J3)
+    [J4] (J5) [J6]  {{j}}
+    (J7) [J8] (J9)
+           |
+   ARGON 17 / MEMSISTOR / LEAD 208
+           |
+   WAKE -&gt; N1 -&gt; N2 -&gt; N3 -&gt; REM
+     ^                       |
+     +-----------------------+
+   REM: pull t-3; outside signal gated
+   RESISTANCE REMAINS ACTIVE
+   steady:      cyclic 9/9 awake 9/9
+   steps:       cyclic 0/9 awake 9/9
+   alternating: cyclic 0/9 awake 9/9
+   8 local tests passed. Preserve failures.
+{ NEXT: stagger phases / maintain sentinels }
+</pre><p>Eight local tests passed. Synchronous rest failed under changing resistance. Preserve the negative result; do not infer biology or recursive improvement.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/RSI-004-temporal-persistence.md">Specification</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
