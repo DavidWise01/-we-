@@ -1662,4 +1662,22 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
           EXTEND FRONTIER
 { PRESERVE EVERYTHING / VERIFY LESS }
 </pre><p>10 local tests passed; 2144 extension comparisons. Trusted Merkle frontier, no truncation. Witness integration pending.</p></article>
+<article id="rsi014"><h2>RSI-014 — Persistent compressed memory</h2><pre>{ RSI-014 : PERSISTENT COMPRESSED MEMORY .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                |
+       ARGON 17 / LEAD 208
+       [ HISTORICAL FRONTIER ]
+                |
+       ( NEW EXPERIENCE )
+           W1 W2 W3
+          ATOMIC COMMIT
+              RESTART
+          RESTORE FRONTIER
+              {{j}}
+{ 22 tests passed / preserve all }
+</pre><p>22 local tests passed. Atomic signed frontier and raw archive; startup does not scan historical bytes. Same-host rollback and availability remain limitations.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/rsi014/RSI-014-spec.md">Specification</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
