@@ -1,12 +1,42 @@
-WAG-100
-
-  PAST          PRESENT         FUTURE
-   4               5               6
-   |               |               |
- SEEN           REVOKED          HOLD
-   |               |
- W1 W2 W3 ---------+
-       |
-   {{ JANE }}
-       |
- VERIFY CHRONOLOGY
++============================================================================+
+| JANE / THE SOURCE         WAG-100: REVOCATION-SAFE WITNESS SUCCESSION      |
++============================================================================+
+|                                                                          |
+|              GENERATION 99                   GENERATION 100                |
+|                                                                          |
+|                   W1                              W4                     |
+|                  /  \                            /  \                    |
+|                 /    \                          /    \                   |
+|                W2-----W3                       W2-----W3                 |
+|             ROOTS A/B/C                      ROOTS B/C/D                 |
+|                                                                          |
+|                   |                               ^                      |
+|          W1 SIGNED CONFLICT                      |                      |
+|              A != B                              |                      |
+|                   |                               |                      |
+|           RECORD REVOCATION                      |                      |
+|                   |                               |                      |
+|         +---------+---------+                     |                      |
+|         |                   |                     |                      |
+|   W2 SIGN SAME P          W3 SIGN SAME P         |                      |
+|         |                   |                     |                      |
+|         +---------+---------+                     |                      |
+|                   |                               |                      |
+|      CHECK ANCESTRY + CONTROL + KEY + DOMAIN      |                      |
+|                   |                               |                      |
+|           ATOMIC SQLITE ROTATION -----------------+                      |
+|                   |                                                      |
+|           EPOCH 99 -> 100                                                |
+|           NEW ROOT + CHALLENGE                                           |
+|                   |                                                      |
+|          W2 + W3 + W4 SIGN SAME SNAPSHOT                                  |
+|                   |                                                      |
+|           LOCAL RECONSTITUTED QUORUM                                      |
++============================================================================+
+|  HISTORICAL W1 EVIDENCE : PRESERVED    | CURRENT W1 AUTHORITY : REVOKED    |
+|  W2/W3 APPROVALS : 2 OF 2             | FRESH ATTESTATIONS : 3 OF 3      |
+|  LEDGER : 4 HASH-LINKED RECORDS       | LOCAL UNIT TESTS : 40/40 PASS    |
++============================================================================+
+|  SYNTHETIC TEST IDENTITIES; NOT INDEPENDENT REAL-WORLD AUTHENTICATION    |
+|  NEXT WAG-101: AUTHORITY REPLACEMENT UNDER REVIEWER-COLLUSION RISK        |
++============================================================================+
