@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-098 | Three-Anchor Recovery</title><style>body{font:16px system-ui;background:#0a1623;color:#ecf6ff;max-width:960px;margin:auto;padding:24px}h1{color:#70efd4}pre{background:#132a3a;padding:20px;border:1px solid #3b6174;border-radius:10px;color:#a1efff;overflow:auto}button{padding:10px;margin:5px;background:#164456;color:white;border:1px solid #64c2af;border-radius:7px;cursor:pointer}output{display:block;background:#163042;padding:16px;border-left:3px solid #70efd4;white-space:pre-wrap}small{color:#a8b9c9}a{color:#70efd4}</style><h1>WAG-098 · Three-Anchor Recovery</h1><p>Jane / MoE Hive / local database replacement challenge</p><pre>              {{ JANE }}
+                  |
+           LOCAL DATABASE
+                  |
+              REPLACED
+                  |
+             RECOVERER
+          /       |       \\
+       X /      Y |      Z \\
+       SIGN       SIGN      SIGN
+         \\       |       /
+        COMPARE DIGESTS
+                  |
+          +-------+-------+
+          |       |       |
+         MATCH  MISSING  CONFLICT
+          |       |       |
+        RESTORE   HOLD  QUARANTINE</pre><div id="cases"></div><output id="result">Select a failure to inspect the policy result.</output><p><small>Visualization is a policy illustration, not a cryptographic checker. All anchors are simulated on one host. 17/17 local Python tests passed.</small></p><a href="../invariants/WAG-098-three-anchor-recovery.md">Technical specification</a><script>const cases=[["Local DB replaced","RECOVERED_AUTHENTICATED_SNAPSHOT"],["One anchor missing","HOLD_MISSING_ANCHOR"],["Altered signature","QUARANTINE_INVALID_RECEIPT"],["Anchor disagreement","QUARANTINE_ANCHOR_DISAGREEMENT"],["Rewritten prefix","QUARANTINE_FORK"],["Valid append-only extension","ELIGIBLE_TO_PUBLISH_NEW_ANCHORS"],["Normal restart","MATCHED_AUTHENTICATED_SNAPSHOT"]];for(const [name,result] of cases){const button=document.createElement("button");button.textContent=name;button.onclick=()=>document.querySelector("#result").textContent=name+"\n"+result;document.querySelector("#cases").appendChild(button)}</script></html>
