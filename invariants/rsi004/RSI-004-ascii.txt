@@ -1,0 +1,17 @@
+{ RSI-004 : ERSE TEMPORAL PERSISTENCE }
+    (J1) [J2] (J3)
+    [J4] (J5) [J6]  {{j}}
+    (J7) [J8] (J9)
+           |
+   ARGON 17 / MEMSISTOR / LEAD 208
+           |
+   WAKE -> N1 -> N2 -> N3 -> REM
+     ^                       |
+     +-----------------------+
+   REM: pull t-3; outside signal gated
+   RESISTANCE REMAINS ACTIVE
+   steady:      cyclic 9/9 awake 9/9
+   steps:       cyclic 0/9 awake 9/9
+   alternating: cyclic 0/9 awake 9/9
+   8 local tests passed. Preserve failures.
+{ NEXT: stagger phases / maintain sentinels }
