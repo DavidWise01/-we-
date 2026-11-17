@@ -1,0 +1,28 @@
+{
+  "id": "WAG-101",
+  "date": "2026-11-16",
+  "title": "Revocation-aware successor enrollment",
+  "generation_0": [
+    "W1",
+    "W2",
+    "W3"
+  ],
+  "generation_1": [
+    "W2",
+    "W3",
+    "W4"
+  ],
+  "revoked": "W1",
+  "enrolled": "W4",
+  "tests": {
+    "passed": 17,
+    "failed": 0,
+    "scope": "local generated keys"
+  },
+  "limits": [
+    "declared ancestry",
+    "no off-host anchor",
+    "no external chronology",
+    "g0 to g1 only"
+  ]
+}
