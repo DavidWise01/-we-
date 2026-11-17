@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-124</title><style>body{background:#0e1826;color:#e7f5ff;font:16px system-ui;max-width:780px;margin:auto;padding:24px}h1{color:#71e7c5}button{padding:12px;margin:5px}pre{background:#192f43;padding:20px}output{display:block;padding:20px}</style><h1>WAG-124 · Conserved graduation</h1><pre>H --- O --- N
+      |
+  THREE SIGNERS
+      |
+    ANCHOR
+      |
+     {{i}}</pre><button id="next">Advance checkpoint</button><button id="old">Present old checkpoint</button><output id="out"></output><p>Illustrative sequence, not live cryptographic verification. 10 local Python tests passed.</p><script>let g=0;const states=['26 | 0 | 0 | 0','21⅔ | 0 | 0 | 4⅓','21⅔ | 0 | 0 | 4⅓','21⅔ | 4⅓ | 0 | 0'];function draw(){out.textContent='G'+g+' · H | O | N | flight: '+states[g]+' · total 26'}next.onclick=()=>{g=Math.min(3,g+1);draw()};old.onclick=()=>{out.textContent=g?'ROLLBACK_HOLD · anchor remains G'+g:'CURRENT'};draw()</script></html>
