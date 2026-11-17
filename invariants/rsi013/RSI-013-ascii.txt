@@ -1,0 +1,15 @@
+{ RSI-013 : COMPRESSED TEMPORAL LINEAGE .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                |
+       ARGON 17 / LEAD 208
+          [ MERKLE ROOT ]
+          /              \
+        H12              H34
+       E1 E2            E3 E4
+                |
+          EXTEND FRONTIER
+{ PRESERVE EVERYTHING / VERIFY LESS }
