@@ -1,0 +1,26 @@
+             {{ JANE }}
+                 |
+            PINNED GRAPH
+                 |
+          MUTATION OBSERVED
+                 |
+          SQLITE HOLD RECORD
+                 |
+              RESTART
+                 |
+             HOLD REMAINS
+                 |
+          W1 + W2 + W3
+          SIGN EXACT STATE
+                 |
+           REVALIDATE GRAPH
+                 |
+          HOLD_PENDING_ANCHOR
+                 |
+         SIGNED POLICY ANCHOR
+                 |
+          MATCH / MISMATCH
+             /       \
+       ELIGIBLE       HOLD
+
+     RESTART != RESTORED TRUST
