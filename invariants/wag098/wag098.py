@@ -1,93 +1,114 @@
-"""WAG-098 reference: signed snapshots in three simulated anchor directories.
-This is not actual off-host custody, nor independently witnessed chronology.
+"""WAG-098 repository reference: signed cross-size Merkle gossip.
+Synthetic keys and declared ancestry; not distributed Byzantine consensus.
+Compact aligned-subtree frontier proof, not RFC6962 wire proof format.
 """
-import hashlib,json,os,sqlite3
-from pathlib import Path
+import hashlib,json
+from dataclasses import dataclass
 from cryptography.exceptions import InvalidSignature
-
-def canonical(x): return json.dumps(x,sort_keys=True,separators=(',',':'),ensure_ascii=True).encode()
-def digest(x): return hashlib.sha256(canonical(x)).hexdigest()
-def snapshot(logs,epoch):
-    if type(epoch)!=int or epoch<0 or not isinstance(logs,dict) or set(logs)!={'A','B','C'}:raise ValueError('scope')
-    if any(not isinstance(v,list) or not v for v in logs.values()):raise ValueError('nonempty logs')
-    return {'tag':'WAG098-snapshot-v1','epoch':epoch,'logs':logs}
-
-class Anchor:
-    def __init__(self,name,folder,signing_key,pubkey=None):
-        self.name=name;self.folder=Path(folder);self.folder.mkdir(parents=True,exist_ok=True)
-        self.signer=signing_key;self.public=pubkey or signing_key.public_key()
-    def file(self,epoch): return self.folder / f'{epoch:012d}.json'
-    def sign(self,state):
-        body={'tag':'WAG098-anchor-v1','anchor':self.name,'epoch':state['epoch'],'state_digest':digest(state)}
-        return {'body':body,'signature':self.signer.sign(canonical(body)).hex(),'snapshot':state}
-    def publish(self,state):
-        item=self.sign(state);p=self.file(state['epoch'])
-        try:fd=os.open(p,os.O_WRONLY|os.O_CREAT|os.O_EXCL,0o600)
-        except FileExistsError:raise ValueError('immutable receipt already exists')
-        with os.fdopen(fd,'wb') as f:
-            f.write(canonical(item));f.flush();os.fsync(f.fileno())
-        return item
-    def read(self,epoch):
-        p=self.file(epoch)
-        return json.loads(p.read_text()) if p.is_file() else None
-
-def verify_receipt(item,name,pub,epoch):
+from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
+def enc(x):return json.dumps(x,sort_keys=True,separators=(',',':')).encode()
+def leaf(x):return hashlib.sha256(b'\0'+x).digest()
+def node(a,b):return hashlib.sha256(b'\1'+a+b).digest()
+def root(xs):
+    if not xs:return hashlib.sha256(b'').digest()
+    if len(xs)==1:return leaf(xs[0])
+    n=1<<((len(xs)-1).bit_length()-1)
+    return node(root(xs[:n]),root(xs[n:]))
+def cover(a,b):
+    out=[]
+    while a<b:
+        n=1<<((b-a).bit_length()-1)
+        if a:n=min(n,a&-a)
+        out.append((a,n));a+=n
+    return out
+def proof(xs,m):
+    if not 1<=m<=len(xs):raise ValueError('prefix size')
+    return {'m':m,'n':len(xs),'before':[(a,k,root(xs[a:a+k]).hex()) for a,k in cover(0,m)],
+            'after':[(a,k,root(xs[a:a+k]).hex()) for a,k in cover(m,len(xs))]}
+def fold(blocks):
+    stack=[]
+    for a,n,h in blocks:
+        v=bytes.fromhex(h)
+        if len(v)!=32:raise ValueError('digest')
+        stack.append((a,n,v))
+        while len(stack)>1:
+            x,k,hx=stack[-2];y,j,hy=stack[-1]
+            if k!=j or x+k!=y or x%(2*k)!=0:break
+            stack[-2:]=[(x,2*k,node(hx,hy))]
+    v=stack[-1][2]
+    for _,_,h in reversed(stack[:-1]):v=node(h,v)
+    return v
+def verify(p,m,old,n,new):
     try:
-        b=item['body'];s=item['snapshot']
-        expected={'tag':'WAG098-anchor-v1','anchor':name,'epoch':epoch,'state_digest':digest(s)}
-        if b!=expected or s['epoch']!=epoch or s['tag']!='WAG098-snapshot-v1':return False
-        snapshot(s['logs'],epoch)
-        pub.verify(bytes.fromhex(item['signature']),canonical(b))
-        return True
-    except (InvalidSignature,ValueError,TypeError,KeyError,AttributeError,OverflowError):return False
-
-class Recovery:
-    def __init__(self,dbpath,anchors):
-        if len(anchors)!=3 or len({a.name for a in anchors})!=3:raise ValueError('three anchors')
-        self.dbpath=Path(dbpath);self.anchors=anchors;self.incidents=[]
-    def decision(self,epoch):
-        receipts=[a.read(epoch) for a in self.anchors]
-        if any(x is None for x in receipts):
-            self.incidents.append(('HOLD_MISSING_ANCHOR',epoch));return ('HOLD_MISSING_ANCHOR',None)
-        for a,r in zip(self.anchors,receipts):
-            if not verify_receipt(r,a.name,a.public,epoch):
-                self.incidents.append(('QUARANTINE_INVALID_RECEIPT',r));return ('QUARANTINE_INVALID_RECEIPT',None)
-        states=[r['snapshot'] for r in receipts]
-        if len({digest(x) for x in states})!=1:
-            self.incidents.append(('QUARANTINE_ANCHOR_DISAGREEMENT',receipts))
-            return ('QUARANTINE_ANCHOR_DISAGREEMENT',None)
-        return ('VERIFIED_THREE_SIMULATED_ANCHORS',states[0])
-    def _connect(self):
-        c=sqlite3.connect(self.dbpath);c.execute('PRAGMA synchronous=FULL')
-        c.execute('CREATE TABLE IF NOT EXISTS state (id INTEGER PRIMARY KEY CHECK(id=1), json TEXT NOT NULL)')
-        return c
-    def install(self,state):
-        with self._connect() as c:
-            c.execute('INSERT INTO state(id,json) VALUES(1,?) ON CONFLICT(id) DO UPDATE SET json=excluded.json',(canonical(state).decode(),))
-    def local(self):
-        if not self.dbpath.exists():return None
-        try:
-            with self._connect() as c:row=c.execute('SELECT json FROM state WHERE id=1').fetchone()
-            return json.loads(row[0]) if row else None
-        except (ValueError,sqlite3.DatabaseError,KeyError):return None
-    def recover(self,epoch):
-        _,state=self.decision(epoch)
-        if state is None:return self.incidents[-1][0]
-        local=self.local()
-        if local is not None and digest(local)!=digest(state):
-            self.incidents.append(('LOCAL_REPLACEMENT_DETECTED',{'local':local,'trusted':state}))
-        self.install(state)
-        return 'RECOVERED_AUTHENTICATED_SNAPSHOT' if local!=state else 'MATCHED_AUTHENTICATED_SNAPSHOT'
-    def extend(self,new_state,old_epoch):
-        status,old=self.decision(old_epoch)
-        if old is None:return status
-        try:snapshot(new_state['logs'],new_state['epoch'])
-        except (KeyError,ValueError,TypeError):return 'HOLD_INVALID_STATE'
-        if new_state['epoch']<=old_epoch:return 'HOLD_ROLLBACK'
-        for log,leaves in old['logs'].items():
-            newer=new_state['logs'][log]
-            if len(newer)<len(leaves):return 'HOLD_ROLLBACK'
-            if newer[:len(leaves)]!=leaves:
-                self.incidents.append(('QUARANTINE_FORK',{'old':old,'new':new_state}))
-                return 'QUARANTINE_FORK'
-        return 'ELIGIBLE_TO_PUBLISH_NEW_ANCHORS'
+        if p['m']!=m or p['n']!=n or not 1<=m<=n:return False
+        a=p['before'];b=p['after']
+        if [(s,k) for s,k,_ in a]!=cover(0,m) or [(s,k) for s,k,_ in b]!=cover(m,n):return False
+        return fold(a)==old and fold(a+b)==new
+    except (KeyError,TypeError,IndexError,ValueError):return False
+@dataclass(frozen=True)
+class Observer:
+    name:str
+    ancestor:str
+    operator:str
+    domain:str
+    key:object
+def sign_head(private,log,epoch,xs):
+    body={'log':log,'epoch':epoch,'size':len(xs),'root':root(xs).hex()}
+    return {'body':body,'sig':private.sign(b'HEAD\0'+enc(body))}
+def sign_gossip(private,name,head,nonce):
+    body={'observer':name,'head':head['body'],'nonce':nonce}
+    return {'body':body,'sig':private.sign(b'GOSSIP\0'+enc(body))}
+def sig_ok(public,signed,prefix):
+    try:public.verify(signed['sig'],prefix+enc(signed['body']));return True
+    except (InvalidSignature,ValueError,TypeError,KeyError):return False
+class Gate:
+    def __init__(self,log,epoch,nonce,log_key,observers):
+        if len(observers)!=3:raise ValueError('three observers')
+        for attr in ('name','ancestor','operator','domain'):
+            vals=[getattr(o,attr) for o in observers]
+            if len(set(vals))!=3 or not all(vals):raise ValueError('declared independence')
+        self.log=log;self.epoch=epoch;self.nonce=nonce;self.log_key=log_key
+        self.observers={o.name:o for o in observers}
+        self.views={};self.edges=set();self.events=[];self.decision='HOLD_NO_OBSERVERS'
+    def observe(self,name,head,gossip,prior=None,consistency=None):
+        if name not in self.observers:raise ValueError('observer')
+        if not sig_ok(self.log_key,head,b'HEAD\0'):raise ValueError('log signature')
+        if not sig_ok(self.observers[name].key,gossip,b'GOSSIP\0'):raise ValueError('observer signature')
+        h=head['body']
+        if h['log']!=self.log or h['epoch']!=self.epoch or h['size']<1:raise ValueError('scope')
+        if gossip['body']!={'observer':name,'head':h,'nonce':self.nonce}:raise ValueError('challenge')
+        if prior is not None:
+            if not sig_ok(self.log_key,prior,b'HEAD\0'):raise ValueError('old signature')
+            o=prior['body']
+            if o['log']!=self.log or o['epoch']!=self.epoch:raise ValueError('old scope')
+            if not verify(consistency,o['size'],bytes.fromhex(o['root']),h['size'],bytes.fromhex(h['root'])):
+                self.events.append(('INVALID_PROOF',prior,head))
+                self.decision='HOLD_INVALID_PREFIX_PROOF';return self.decision
+            self.edges.add((o['size'],o['root'],h['size'],h['root']))
+        for (who,n,r),signed in self.views.items():
+            if n==h['size'] and r!=h['root']:
+                self.events.append(('SIGNED_FORK',signed,head))
+                self.decision='QUARANTINE_SPLIT_VIEW';return self.decision
+        self.views[(name,h['size'],h['root'])]=head
+        self.events.append(('OBSERVE',name,h))
+        if self.decision.startswith('QUARANTINE'):return self.decision
+        high=max(n for _,n,_ in self.views);last={r for _,n,r in self.views if n==high}
+        if len(last)!=1:self.decision='HOLD_UNPROVEN_EXTENSION';return self.decision
+        target=(high,next(iter(last)))
+        def reaches(start):
+            if start==target:return True
+            queue=[start];seen={start}
+            while queue:
+                u=queue.pop()
+                for a,ar,b,br in self.edges:
+                    v=(b,br)
+                    if u==(a,ar) and v not in seen:
+                        if v==target:return True
+                        seen.add(v);queue.append(v)
+            return False
+        if not all(reaches((n,r)) for _,n,r in self.views):
+            self.decision='HOLD_UNPROVEN_EXTENSION'
+        elif len({who for who,n,r in self.views if (n,r)==target})==3:
+            self.decision='LOCAL_CROSS_SIZE_AGREEMENT'
+        else:self.decision='HOLD_INCOMPLETE_GOSSIP'
+        return self.decision
