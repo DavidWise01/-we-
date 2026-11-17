@@ -1631,4 +1631,19 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
                  {{j}}
 { 34 tests passed; separate local anchor }
 </pre><p>34 local tests passed. Separate monotonic anchor and persistent HOLD. Same-host rollback and missing prefix proof remain limitations.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/rsi011/RSI-011-spec.md">Specification</a></p></article>
+<article id="rsi012"><h2>RSI-012 — Temporal lineage</h2><pre>{ RSI-012 : TEMPORAL LINEAGE .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                |
+       ARGON 17 / LEAD 208
+       [PAST] -&gt; {{j}} -&gt; (FUTURE)
+                |
+       VERIFY BOTH HISTORICAL PREFIXES
+       W1 + W2 + W3
+       EXTEND / REJECT FORK
+{ 42 tests passed; preserve through resist }
+</pre><p>42 local tests passed. Both historical prefixes must extend the anchored past. Full-history verification; same-host rollback remains possible.</p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
