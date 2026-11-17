@@ -1,0 +1,10 @@
+{ RSI-006 : 1 UP / 2 DOWN }
+ TEAM A      TEAM B      TEAM C
+  U D D       U D D       U D D
+    |           |           |
+    +-----------+-----------+
+                {{j}}
+     LOCAL ALERT -> U U U | U D D | U D D
+     GLOBAL ALERT -> U U U | U U U | U U U
+     TWO QUIET TICKS -> ROTATE NORMAL
+{ ARGON 17 / MEMSISTOR / LEAD 208 }
