@@ -1,68 +1,57 @@
-import json,tempfile,unittest
-from pathlib import Path
+import unittest
 from cryptography.hazmat.primitives.asymmetric.ed25519 import Ed25519PrivateKey
-from wag098 import Anchor,Recovery,snapshot,verify_receipt,digest
+from wag098 import Observer,Gate,root,proof,verify,sign_head,sign_gossip
 
-class Tests(unittest.TestCase):
- def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory();self.addCleanup(self.tmp.cleanup)
-  p=Path(self.tmp.name)
-  self.anchors=[Anchor(n,p/n,Ed25519PrivateKey.generate()) for n in 'XYZ']
-  self.g=Recovery(p/'local.db',self.anchors)
-  self.s=snapshot({n:[{'event':'genesis','log':n}] for n in 'ABC'},98)
- def publish(self,s=None):
-  for a in self.anchors:a.publish(s or self.s)
- def test_recover_missing_local_db(self):
-  self.publish();self.assertEqual('RECOVERED_AUTHENTICATED_SNAPSHOT',self.g.recover(98));self.assertEqual(self.s,self.g.local())
- def test_match_after_restart(self):
-  self.publish();self.g.recover(98);h=Recovery(self.g.dbpath,self.anchors)
-  self.assertEqual('MATCHED_AUTHENTICATED_SNAPSHOT',h.recover(98))
- def test_replaced_local_db(self):
-  self.publish();self.g.recover(98)
-  self.g.install(snapshot({n:[{'forged':n}] for n in 'ABC'},98))
-  self.assertEqual('RECOVERED_AUTHENTICATED_SNAPSHOT',self.g.recover(98))
-  self.assertEqual('LOCAL_REPLACEMENT_DETECTED',self.g.incidents[-1][0])
-  self.assertEqual(self.s,self.g.local())
- def test_missing_anchor(self):
-  self.anchors[0].publish(self.s)
-  self.assertEqual('HOLD_MISSING_ANCHOR',self.g.recover(98))
- def test_bad_signature(self):
-  self.publish();p=self.anchors[1].file(98);obj=json.loads(p.read_text());obj['signature']='00'*64;p.write_text(json.dumps(obj))
-  self.assertEqual('QUARANTINE_INVALID_RECEIPT',self.g.recover(98))
- def test_changed_snapshot(self):
-  self.publish();p=self.anchors[1].file(98);obj=json.loads(p.read_text());obj['snapshot']['logs']['A'][0]['event']='forged';p.write_text(json.dumps(obj))
-  self.assertEqual('QUARANTINE_INVALID_RECEIPT',self.g.recover(98))
- def test_signed_anchor_disagreement(self):
-  self.anchors[0].publish(self.s);self.anchors[1].publish(self.s)
-  alt=snapshot({n:[{'another':n}] for n in 'ABC'},98);self.anchors[2].publish(alt)
-  self.assertEqual('QUARANTINE_ANCHOR_DISAGREEMENT',self.g.recover(98))
- def test_immutable_anchor_receipt(self):
-  self.anchors[0].publish(self.s)
-  with self.assertRaises(ValueError):self.anchors[0].publish(self.s)
- def test_valid_append_only(self):
-  self.publish();nxt=snapshot({n:self.s['logs'][n]+[{'next':1}] for n in 'ABC'},99)
-  self.assertEqual('ELIGIBLE_TO_PUBLISH_NEW_ANCHORS',self.g.extend(nxt,98))
- def test_extended_fork(self):
-  self.publish();nxt=snapshot({n:[{'rewritten':1},{'new':2}] for n in 'ABC'},99)
-  self.assertEqual('QUARANTINE_FORK',self.g.extend(nxt,98))
-  self.assertEqual('QUARANTINE_FORK',self.g.incidents[-1][0])
- def test_shorter_extension(self):
-  self.publish();nxt={'tag':'WAG098-snapshot-v1','epoch':99,'logs':{n:[] for n in 'ABC'}}
-  self.assertEqual('HOLD_INVALID_STATE',self.g.extend(nxt,98))
- def test_earlier_epoch(self):
-  self.publish();self.assertEqual('HOLD_ROLLBACK',self.g.extend(self.s,98))
- def test_cross_anchor_replay(self):
-  self.publish();self.anchors[2].file(98).write_bytes(self.anchors[0].file(98).read_bytes())
-  self.assertEqual('QUARANTINE_INVALID_RECEIPT',self.g.recover(98))
- def test_wrong_epoch_receipt(self):
-  self.publish();item=self.anchors[0].read(98)
-  self.assertFalse(verify_receipt(item,'X',self.anchors[0].public,97))
- def test_corrupt_local_db(self):
-  self.publish();self.g.dbpath.write_text('not sqlite')
-  with self.assertRaises(Exception):self.g.recover(98)
- def test_published_digest(self):
-  self.publish();self.assertEqual(self.anchors[0].read(98)['body']['state_digest'],digest(self.s))
- def test_no_approval_on_missing(self):
-  self.assertEqual('HOLD_MISSING_ANCHOR',self.g.recover(98));self.assertIsNone(self.g.local())
-
+class WAG098Tests(unittest.TestCase):
+    def setUp(self):
+        self.log=Ed25519PrivateKey.generate()
+        self.keys=[Ed25519PrivateKey.generate() for _ in range(3)]
+        people=[Observer('W'+str(i+1),'A'+str(i),'O'+str(i),'D'+str(i),k.public_key()) for i,k in enumerate(self.keys)]
+        self.g=Gate('REG',98,'NONCE',self.log.public_key(),people)
+        self.base=(b'A',b'B',b'C');self.ext=self.base+(b'D',b'E')
+        self.old=sign_head(self.log,'REG',98,self.base)
+        self.new=sign_head(self.log,'REG',98,self.ext)
+        self.p=proof(self.ext,3)
+    def put(self,i,head=None,prior=None,consistency=None):
+        h=head or self.new
+        return self.g.observe('W'+str(i+1),h,sign_gossip(self.keys[i],'W'+str(i+1),h,'NONCE'),prior,consistency)
+    def test_honest(self):
+        self.put(0,self.old)
+        for i in range(3):result=self.put(i,self.new,self.old,self.p)
+        self.assertEqual(result,'LOCAL_CROSS_SIZE_AGREEMENT')
+    def test_no_proof(self):
+        self.put(0,self.old)
+        self.assertEqual(self.put(1),'HOLD_UNPROVEN_EXTENSION')
+    def test_same_size_fork(self):
+        self.put(0,self.old)
+        altered=sign_head(self.log,'REG',98,(b'A',b'X',b'C'))
+        self.assertEqual(self.put(1,altered),'QUARANTINE_SPLIT_VIEW')
+        self.assertEqual(self.g.events[-1][0],'SIGNED_FORK')
+    def test_bad_proof_not_fork(self):
+        self.put(0,self.old)
+        self.assertEqual(self.put(1,self.new,self.old,{'invalid':1}),'HOLD_INVALID_PREFIX_PROOF')
+        self.assertEqual(self.g.events[-1][0],'INVALID_PROOF')
+    def test_forged_head(self):
+        h=dict(self.new);h['sig']=b'0'*64
+        with self.assertRaises(ValueError):self.put(0,h)
+    def test_nonce(self):
+        with self.assertRaises(ValueError):
+            self.g.observe('W1',self.new,sign_gossip(self.keys[0],'W1',self.new,'OLD'))
+    def test_three(self):
+        for i in range(3):s=self.put(i)
+        self.assertEqual(s,'LOCAL_CROSS_SIZE_AGREEMENT')
+    def test_prefixes(self):
+        xs=tuple(str(i).encode() for i in range(1,81))
+        for m in range(1,81):self.assertTrue(verify(proof(xs,m),m,root(xs[:m]),80,root(xs)))
+    def test_prefix_rewrite(self):
+        rewritten=(b'A',b'X',b'C',b'D',b'E')
+        self.assertFalse(verify(proof(rewritten,3),3,root(self.base),5,root(rewritten)))
+    def test_repeated_observation_not_quorum(self):
+        self.put(0);self.put(0);self.put(1)
+        self.assertNotEqual(self.g.decision,'LOCAL_CROSS_SIZE_AGREEMENT')
+    def test_bad_witness_ancestry(self):
+        people=[Observer('W1','A','O1','D1',self.keys[0].public_key()),
+                Observer('W2','A','O2','D2',self.keys[1].public_key()),
+                Observer('W3','C','O3','D3',self.keys[2].public_key())]
+        with self.assertRaises(ValueError):Gate('REG',98,'N',self.log.public_key(),people)
 if __name__=='__main__':unittest.main()
