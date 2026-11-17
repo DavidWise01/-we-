@@ -1646,4 +1646,20 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
        EXTEND / REJECT FORK
 { 42 tests passed; preserve through resist }
 </pre><p>42 local tests passed. Both historical prefixes must extend the anchored past. Full-history verification; same-host rollback remains possible.</p></article>
+<article id="rsi013"><h2>RSI-013 — Compressed temporal lineage</h2><pre>{ RSI-013 : COMPRESSED TEMPORAL LINEAGE .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                |
+       ARGON 17 / LEAD 208
+          [ MERKLE ROOT ]
+          /              \
+        H12              H34
+       E1 E2            E3 E4
+                |
+          EXTEND FRONTIER
+{ PRESERVE EVERYTHING / VERIFY LESS }
+</pre><p>10 local tests passed; 2144 extension comparisons. Trusted Merkle frontier, no truncation. Witness integration pending.</p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
