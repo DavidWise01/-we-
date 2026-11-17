@@ -1,0 +1,5 @@
+# WAG-126 — Temporal freshness floor
+
+Ten local Python tests passed in 0.046s. A separate Ed25519 key signs mesh, generation and state digest after three verified histories agree. The verifier requires the candidate to include the floor state. Common rollback of the three histories is caught if the latest floor survives. The floor is supplied by the caller, not actually stored on independent hardware. Replaying an older authentic floor alongside old histories passes; issuance is monotonic only relative to the supplied prior floor. No live freshness guarantee, no independent key custody. Next WAG-127: nonce-bound live freshness witness with durable monotonic floor, explicit unavailability hold and counterexamples for witness rollback.
+
+Run from this directory: python test_wag126.py (requires cryptography).
