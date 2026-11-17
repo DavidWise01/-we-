@@ -1,0 +1,42 @@
++==================================================================================+
+| JANE / THE SOURCE                 WAG-098 : CROSS-SIZE GOSSIP CONSISTENCY        |
++==================================================================================+
+|                          {{ SIGNED REGISTRY LOG }}                              |
+|                                  |                                               |
+|                +-----------------+-----------------+                             |
+|                |                                   |                             |
+|               W1                                  W2                            |
+|                |                                   |                             |
+|          [ A ][ B ][ C ]                 [ A ][ B ][ C ][ D ][ E ]             |
+|                |                                   |                             |
+|          SIGNED ROOT OLD                      SIGNED ROOT NEW                      |
+|                |                                   |                             |
+|                +-----------------+-----------------+                             |
+|                                  |                                               |
+|                      COMPACT FRONTIER PROOF                                      |
+|                                  |                                               |
+|                        VERIFY OLD + NEW ROOTS                                    |
+|                                  |                                               |
+|                        +---------+---------+                                     |
+|                        |                   |                                     |
+|                  VALID EXTENSION        INVALID PROOF                             |
+|                        |                   |                                     |
+|                  W1 + W2 + W3          HOLD INVALID                              |
+|                  SIGNED GOSSIP         PRESERVE INPUT                             |
+|                        |                   |                                     |
+|                   LOCAL AGREEMENT       NO FORK CLAIM                            |
++==================================================================================+
+| SAME-SIZE ATTACK                                                               |
+|             [ A B C ]                       [ A X C ]                            |
+|             SIGNED ROOT X                   SIGNED ROOT Y                        |
+|                    +--------------------------+                                  |
+|                               |                                                  |
+|                      SIGNED FORK CERTIFICATE                                    |
+|                      QUARANTINE_SPLIT_VIEW                                      |
++==================================================================================+
+| 43 / 43 LOCAL UNIT TESTS PASS | 4 EVENTS IN HONEST DEMO | SHA-256 AUDIT VERIFIED|
+| THREE OBSERVER SOURCE ROOTS ARE DECLARED, NOT INDEPENDENTLY AUTHENTICATED        |
+| MERKLE PROOF USES ALIGNED RANGE FRONTIERS, NOT RFC6962 WIRE PROOF FORMAT        |
++==================================================================================+
+| NEXT WAG-099 : FRESH CONSISTENCY GOSSIP, PINNED HEADS, REVOCATION-SAFE RECOVERY |
++==================================================================================+
