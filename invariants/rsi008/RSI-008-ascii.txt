@@ -1,0 +1,11 @@
+{ RSI-008 : EPHEMERAL AUTHORITY }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+                  |
+          RANK x FILE x TIME
+      U D D | U D D | U D D
+                  |
+          RECORD EXPERIENCE
+          EXPIRE AUTHORITY
+          ROTATE ASSIGNMENT
+                  {{j}}
+{ 12/12 tests passed; identity persists }
