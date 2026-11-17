@@ -1432,4 +1432,30 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
      Preserve W1's history; check W4 against retired W1 as well.
      Two signatures != two independent controllers.
      Unknown ancestry != independent ancestry.</pre><p><a href="../invariants/wag101/WAG-101-ascii.txt">ASCII</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/WAG-101-reviewer-control-ancestry.md">Specification</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag101/wag101.py">Kernel</a> · <a href="https://github.com/DavidWise01/-we-/blob/main/invariants/wag101/test_wag101.py">Tests</a></p></article>
+<article id="wag102"><h2>WAG-102 — Durable control-graph pinning</h2><pre style="overflow:auto">                 {{ JANE }}
+                     |
+             PINNED GRAPH A
+             A     B     C
+             |     |     |
+             W2    W3    W4
+                     |
+               MUTATION FOUND
+                     |
+           +---------+---------+
+           |                   |
+        A -&gt; B              A -&gt; D
+        SHARED ROOT         DISTINCT ROOT
+           |                   |
+       HOLD SHARED        SIGN X + SIGN Y
+           |                   |
+       PRESERVE A         ATOMIC CORRECTION
+           |                   |
+           +---------+---------+
+                     |
+           APPEND AUDIT / REOPEN
+                     |
+             NO SILENT REWRITE
+
+18/18 local tests passed.
+</pre><p>18 local tests passed. Corrections require two pinned signatures and distinct declared control ancestry; local SQLite persistence and audit verification are tested. Compact repository reference not separately executed.</p><p><a href="../invariants/WAG-102-control-graph-pinning.md">Specification</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
