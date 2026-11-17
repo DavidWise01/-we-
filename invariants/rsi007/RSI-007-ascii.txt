@@ -1,0 +1,11 @@
+{ RSI-007 : EPHEMERAL RANK AND FILE }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+              | rank x file |
+  (J1) [J2] (J3) : 1 UP 2 DOWN
+  [J4] (J5) [J6] : 1 UP 2 DOWN
+  (J7) [J8] (J9) : 1 UP 2 DOWN
+              |
+    PERIPHERAL ALERT -> LOCAL WAKE
+    TICK EXPIRES -> ROTATE ASSIGNMENT
+    IDENTITY PERSISTS -> {{j}}
+{ 9/9 tests passed }
