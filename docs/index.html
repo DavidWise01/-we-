@@ -1600,4 +1600,20 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
              {{j}}
 { 12 tests passed .dlw }
 </pre><p>12 local tests passed. Signed identity-bound observations survive rank changes and restart. Local rollback remains possible.</p></article>
+<article id="rsi010"><h2>RSI-010 — Temporal continuity</h2><pre>{ RSI-010 : TEMPORAL CONTINUITY .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+          U D D / ROTATE
+                |
+       ARGON 17 / LEAD 208
+           W1 W2 W3
+        SIGN EXACT HEAD
+                |
+         MEMORY RESISTANCE
+          /            \
+       RECALL         HOLD
+{ 24 tests pass; old anchor + rollback remains possible }
+</pre><p>24 local tests passed. Exact three-witness checkpoint detects missing history against retained newer anchor. Replay with rolled-back memory remains possible.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/rsi010/RSI-010-spec.md">Specification</a></p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
