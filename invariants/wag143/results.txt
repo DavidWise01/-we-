@@ -1,0 +1,15 @@
+test_budget (__main__.Test.test_budget) ... ok
+test_capacity (__main__.Test.test_capacity) ... ok
+test_conservation (__main__.Test.test_conservation) ... ok
+test_cut (__main__.Test.test_cut) ... ok
+test_exhaustive_cut (__main__.Test.test_exhaustive_cut) ... ok
+test_full (__main__.Test.test_full) ... ok
+test_infeasible (__main__.Test.test_infeasible) ... ok
+test_monotonic (__main__.Test.test_monotonic) ... ok
+test_optimal (__main__.Test.test_optimal) ... ok
+test_zero (__main__.Test.test_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.034s
+
+OK
