@@ -1,0 +1,15 @@
+test_admin (__main__.Tests.test_admin) ... ok
+test_blast (__main__.Tests.test_blast) ... ok
+test_cycle (__main__.Tests.test_cycle) ... ok
+test_duplicate (__main__.Tests.test_duplicate) ... ok
+test_exhaustive (__main__.Tests.test_exhaustive) ... ok
+test_hidden_root_limit (__main__.Tests.test_hidden_root_limit) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_recovery (__main__.Tests.test_recovery) ... ok
+test_separate (__main__.Tests.test_separate) ... ok
+test_unknown (__main__.Tests.test_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK
