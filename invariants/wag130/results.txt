@@ -1,0 +1,16 @@
+test_bad_history (__main__.Tests.test_bad_history) ... ok
+test_complete (__main__.Tests.test_complete) ... ok
+test_extension (__main__.Tests.test_extension) ... ok
+test_fork (__main__.Tests.test_fork) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_missing_vote (__main__.Tests.test_missing_vote) ... ok
+test_old_bound_limit (__main__.Tests.test_old_bound_limit) ... ok
+test_scope (__main__.Tests.test_scope) ... ok
+test_shared_key (__main__.Tests.test_shared_key) ... ok
+test_tampered (__main__.Tests.test_tampered) ... ok
+test_truncated (__main__.Tests.test_truncated) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.010s
+
+OK
