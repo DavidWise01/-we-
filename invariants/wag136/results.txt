@@ -1,0 +1,15 @@
+test_accept (__main__.Tests.test_accept) ... ok
+test_full (__main__.Tests.test_full) ... ok
+test_gap (__main__.Tests.test_gap) ... ok
+test_middle (__main__.Tests.test_middle) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_no_pin (__main__.Tests.test_no_pin) ... ok
+test_reorder (__main__.Tests.test_reorder) ... ok
+test_retired (__main__.Tests.test_retired) ... ok
+test_rollback_limit (__main__.Tests.test_rollback_limit) ... ok
+test_tamper (__main__.Tests.test_tamper) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.182s
+
+OK
