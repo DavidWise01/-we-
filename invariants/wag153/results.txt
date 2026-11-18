@@ -1,0 +1,7 @@
+0 10 540
+1 8.75 539
+30 1.64881987834 507.583333333
+90 0.360081881682 427.75
+180 0.0141213661942 270.5
+360 5.42424838621e-05 0
+PASS: 360 disturbance updates; 360 equilibrium phase checks; 2 budget boundary checks; center=6; inventory=26; budget spent=540
