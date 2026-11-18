@@ -1,0 +1,16 @@
+test_anchor_rollback (__main__.Tests.test_anchor_rollback) ... ok
+test_common_limit (__main__.Tests.test_common_limit) ... ok
+test_current (__main__.Tests.test_current) ... ok
+test_duplicate (__main__.Tests.test_duplicate) ... ok
+test_keeper_rollback (__main__.Tests.test_keeper_rollback) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_partial (__main__.Tests.test_partial) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_tamper (__main__.Tests.test_tamper) ... ok
+test_truncation (__main__.Tests.test_truncation) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.199s
+
+OK
