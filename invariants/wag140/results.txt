@@ -1,0 +1,15 @@
+test_availability (__main__.Tests.test_availability) ... ok
+test_empty (__main__.Tests.test_empty) ... ok
+test_exhaustive (__main__.Tests.test_exhaustive) ... ok
+test_incomplete (__main__.Tests.test_incomplete) ... ok
+test_independent (__main__.Tests.test_independent) ... ok
+test_minimal (__main__.Tests.test_minimal) ... ok
+test_overlap (__main__.Tests.test_overlap) ... ok
+test_shared (__main__.Tests.test_shared) ... ok
+test_shared_admin (__main__.Tests.test_shared_admin) ... ok
+test_unknown (__main__.Tests.test_unknown) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.005s
+
+OK
