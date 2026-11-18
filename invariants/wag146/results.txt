@@ -1,0 +1,15 @@
+test_all_simultaneous (__main__.Tests.test_all_simultaneous) ... ok
+test_all_temporal (__main__.Tests.test_all_temporal) ... ok
+test_availability (__main__.Tests.test_availability) ... ok
+test_erasure (__main__.Tests.test_erasure) ... ok
+test_exact_boundary (__main__.Tests.test_exact_boundary) ... ok
+test_forgery (__main__.Tests.test_forgery) ... ok
+test_incompatible (__main__.Tests.test_incompatible) ... ok
+test_invalid (__main__.Tests.test_invalid) ... ok
+test_offline_keys (__main__.Tests.test_offline_keys) ... ok
+test_recovery (__main__.Tests.test_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.019s
+
+OK

@@ -1,0 +1,6 @@
+# WAG-146 — Temporal resistance geometry
+
+Actual local Python execution: 10 tests passed in 0.019s. Discrete half-open effect intervals; online = n - unavailable; new conflicting certificates feasible only when online >= q and online equivocators >= max(0,2q-online). Search minimum distinct activated domains across a bounded horizon. For 13 witnesses, quorum 9, four steps, and two-step effects, all three objectives cannot hold at one instant but can be reached across time by three domains. Backup and provider start at 0, recovery at 1.
+
+Limits: synthetic four-domain model, one activation per domain, assumed recovery from an external source, fixed membership, no persistent collected signatures or copied keys, no actual attacks or deployed infrastructure. Offline means incapable of signing, including through stolen keys, by model assumption. Across-time means each objective reached at least once, not necessarily in a prescribed order. The erasure state is temporary unavailability of modeled evidence, not irreversible destruction. Prior certificates may coexist with outages in real systems. Next WAG-147: persistent evidence and irreversible effects, retained signature artifacts, and separately modeled restorative sources.
+.dlw

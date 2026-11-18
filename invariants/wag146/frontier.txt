@@ -1,0 +1,7 @@
+(1,) simultaneous (2, ('backup', 'recovery'), (0, 0)) across_time (2, ('backup', 'recovery'), (0, 0))
+(2,) simultaneous (1, ('provider',), (0,)) across_time (1, ('provider',), (0,))
+(3,) simultaneous (1, ('admin',), (0,)) across_time (1, ('admin',), (0,))
+(1, 2) simultaneous (3, ('backup', 'provider', 'recovery'), (0, 0, 0)) across_time (3, ('backup', 'provider', 'recovery'), (0, 0, 0))
+(1, 3) simultaneous (2, ('backup', 'recovery'), (0, 0)) across_time (2, ('backup', 'recovery'), (0, 0))
+(2, 3) simultaneous None across_time (2, ('admin', 'provider'), (0, 1))
+(1, 2, 3) simultaneous None across_time (3, ('backup', 'provider', 'recovery'), (0, 0, 1))
