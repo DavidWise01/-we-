@@ -1721,4 +1721,21 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
           VERIFIED RECALL
 { 56 tests passed / preserve all }
 </pre><p>56 local tests passed. Cache bytes persist across signed roots; inclusion is reverified. Availability remains a separate invariant.</p></article>
+<article id="rsi018"><h2>RSI-018 — Memory through loss</h2><pre>{ RSI-018 : MEMORY THROUGH LOSS .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                 |
+       ARGON 17 / LEAD 208
+           [ EXPERIENCE ]
+            /    |    \
+          R1     R2    R3
+          XX     XX    OK
+            \    |    /
+          VERIFY -&gt; RESTORE
+            ROOT UNCHANGED
+{ 68 tests passed / preserve all }
+</pre><p>68 local tests passed. One authentic replica can restore lost bytes without changing the signed root. Same-host storage only; delivery reliability is next.</p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
