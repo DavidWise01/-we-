@@ -1,0 +1,16 @@
+test_head (__main__.Tests.test_head) ... ok
+test_hidden_root_limit (__main__.Tests.test_hidden_root_limit) ... ok
+test_missing_ancestry (__main__.Tests.test_missing_ancestry) ... ok
+test_missing_vote (__main__.Tests.test_missing_vote) ... ok
+test_old_response (__main__.Tests.test_old_response) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_shared (__main__.Tests.test_shared) ... ok
+test_stale (__main__.Tests.test_stale) ... ok
+test_tamper (__main__.Tests.test_tamper) ... ok
+test_used (__main__.Tests.test_used) ... ok
+test_valid (__main__.Tests.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.011s
+
+OK
