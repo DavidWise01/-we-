@@ -1,0 +1,15 @@
+test_budget (__main__.Tests.test_budget) ... ok
+test_capacity (__main__.Tests.test_capacity) ... ok
+test_correlated (__main__.Tests.test_correlated) ... ok
+test_cut (__main__.Tests.test_cut) ... ok
+test_full (__main__.Tests.test_full) ... ok
+test_infeasible (__main__.Tests.test_infeasible) ... ok
+test_isolated (__main__.Tests.test_isolated) ... ok
+test_monotone (__main__.Tests.test_monotone) ... ok
+test_symmetry (__main__.Tests.test_symmetry) ... ok
+test_zero (__main__.Tests.test_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.294s
+
+OK
