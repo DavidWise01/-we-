@@ -1706,4 +1706,19 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
        W1 W2 W3 -&gt; ATOMIC COMMIT
 { 44 tests passed / preserve all }
 </pre><p>44 local tests passed. Incremental Merkle nodes and signed checkpoint commit atomically with experience. Cache rebasing remains pending.</p></article>
+<article id="rsi017"><h2>RSI-017 — Continuous recall</h2><pre>{ RSI-017 : CONTINUOUS RECALL .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                 |
+       ARGON 17 / LEAD 208
+          [ EXPERIENCE ]
+          ROOT ADVANCES
+          PRESERVE BYTES
+          UPDATE PROOF
+          VERIFIED RECALL
+{ 56 tests passed / preserve all }
+</pre><p>56 local tests passed. Cache bytes persist across signed roots; inclusion is reverified. Availability remains a separate invariant.</p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
