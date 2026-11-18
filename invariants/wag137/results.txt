@@ -1,0 +1,15 @@
+test_extension (__main__.Tests.test_extension) ... ok
+test_forged_bound (__main__.Tests.test_forged_bound) ... ok
+test_full (__main__.Tests.test_full) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_old_bound_limit (__main__.Tests.test_old_bound_limit) ... ok
+test_retired (__main__.Tests.test_retired) ... ok
+test_shared (__main__.Tests.test_shared) ... ok
+test_tampered (__main__.Tests.test_tampered) ... ok
+test_truncate (__main__.Tests.test_truncate) ... ok
+test_wrong_genesis (__main__.Tests.test_wrong_genesis) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.059s
+
+OK
