@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-135</title><style>body{background:#0b1724;color:#eaf5ff;font:16px system-ui;max-width:780px;margin:auto;padding:24px}h1{color:#70eacb}pre{background:#193047;padding:24px}button{padding:12px;margin:5px;background:#204459;color:white;border:1px solid #70eacb;border-radius:8px}output{display:block;padding:18px}</style><h1>WAG-135 · Atomic authority graduation</h1><pre> H0    O0    N0
+   3:0 APPROVAL
+        |
+    ATOMIC GATE
+        |
+   3:0 ACCEPTANCE
+ H0    O0    N1
+      {{i}}</pre><button id="send">Send</button><button id="rotate">Rotate</button><button id="receive">Receive</button><button id="stale">Old authority transfer</button><output id="out"></output><script>let epoch=0,h=156,o=0,f=0,sent=false;function draw(msg){document.querySelector('#out').textContent=msg+' · epoch '+epoch+' · H '+h/6+' · O '+o/6+' · flight '+f/6+' · total '+(h+o+f)/6}document.querySelector('#send').onclick=()=>{if(!sent){h-=26;f+=26;sent=true;draw('SEND')}else draw('Duplicate held')};document.querySelector('#rotate').onclick=()=>{if(!epoch)epoch=1;draw('ROTATE')};document.querySelector('#receive').onclick=()=>{o+=f;f=0;draw('RECEIVE')};document.querySelector('#stale').onclick=()=>draw(epoch?'REJECT retired authority':'Old membership still active');draw('GENESIS')</script><p>Illustrative state machine; actual cryptographic checks are in Python.</p></html>

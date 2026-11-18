@@ -1,0 +1,15 @@
+test_alias (__main__.Tests.test_alias) ... ok
+test_missing_accept (__main__.Tests.test_missing_accept) ... ok
+test_old_key (__main__.Tests.test_old_key) ... ok
+test_pending (__main__.Tests.test_pending) ... ok
+test_race (__main__.Tests.test_race) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_retired (__main__.Tests.test_retired) ... ok
+test_rotation (__main__.Tests.test_rotation) ... ok
+test_stale (__main__.Tests.test_stale) ... ok
+test_wrong_role (__main__.Tests.test_wrong_role) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.082s
+
+OK
