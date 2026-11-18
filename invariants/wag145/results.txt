@@ -1,0 +1,15 @@
+test_disjoint_quorum (__main__.Tests.test_disjoint_quorum) ... ok
+test_exact_witness (__main__.Tests.test_exact_witness) ... ok
+test_independent (__main__.Tests.test_independent) ... ok
+test_invalid (__main__.Tests.test_invalid) ... ok
+test_invalid_axis (__main__.Tests.test_invalid_axis) ... ok
+test_invalid_quorum (__main__.Tests.test_invalid_quorum) ... ok
+test_joint_lower_bound (__main__.Tests.test_joint_lower_bound) ... ok
+test_overlap (__main__.Tests.test_overlap) ... ok
+test_same_domain (__main__.Tests.test_same_domain) ... ok
+test_unreachable (__main__.Tests.test_unreachable) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.098s
+
+OK
