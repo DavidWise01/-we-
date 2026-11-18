@@ -1680,4 +1680,17 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
               {{j}}
 { 22 tests passed / preserve all }
 </pre><p>22 local tests passed. Atomic signed frontier and raw archive; startup does not scan historical bytes. Same-host rollback and availability remain limitations.</p><p><a href="https://github.com/DavidWise01/-we-/blob/main/invariants/rsi014/RSI-014-spec.md">Specification</a></p></article>
+<article id="rsi015"><h2>RSI-015 — Selective historical recall</h2><pre>{ RSI-015 : SELECTIVE HISTORICAL RECALL .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                |
+       ARGON 17 -&gt; LEAD 208 -&gt; ARCHIVE
+                |
+       MERKLE INCLUSION -&gt; SIGNED ROOT
+          RECALL / REJECT
+{ 34 tests passed / preserve all }
+</pre><p>34 local tests passed. Selective inclusion verification across Argon 17, Lead 208 and full archive. Explicit index rebuild required after append.</p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
