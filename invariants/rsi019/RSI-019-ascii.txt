@@ -1,0 +1,17 @@
+{ RSI-019 : PERSISTENT DELIVERY .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                 |
+       ARGON 17 / LEAD 208
+           [ DURABLE OUTBOX ]
+             /    |    \
+           R1     R2    R3
+           OK     XX    OK
+                 |
+            RESTART / RETRY R2
+                 |
+           OK + OK + OK
+{ 80 tests passed / preserve all }
