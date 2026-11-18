@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-131</title><style>body{background:#0b1724;color:#eaf5ff;font:16px system-ui;max-width:780px;margin:auto;padding:24px}h1{color:#70eacb}pre{background:#193047;padding:24px}button{padding:12px;margin:5px;background:#204459;color:white;border:1px solid #70eacb;border-radius:8px}output{display:block;padding:18px}</style><h1>WAG-131 · Temporal completeness</h1><pre> H / W1 --- O / W2 --- N / W3
+            |
+       LIVE NONCE
+            |
+    REPLAY + VERIFY
+            |
+          {{i}}</pre><div id="controls"></div><output id="out"></output><p>Illustrative scenario viewer, not live cryptographic verification.</p><script>for(const [a,b] of [['All agree','VERIFIED_THROUGH_LIVE_BOUND'],['Missing history','HOLD_TRUNCATED'],['Witness disagreement','HOLD_DISAGREEMENT'],['Unretained extension','HOLD_UNRETAINED_EXTENSION'],['Common rollback','VERIFIED — limitation']]){let e=document.createElement('button');e.textContent=a;e.onclick=()=>document.querySelector('#out').textContent=b;document.querySelector('#controls').append(e)}</script></html>

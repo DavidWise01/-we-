@@ -1,0 +1,16 @@
+test_common_rollback_limit (__main__.Tests.test_common_rollback_limit) ... ok
+test_disagreement (__main__.Tests.test_disagreement) ... ok
+test_expired (__main__.Tests.test_expired) ... ok
+test_extension (__main__.Tests.test_extension) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_regression (__main__.Tests.test_regression) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_truncated (__main__.Tests.test_truncated) ... ok
+test_used (__main__.Tests.test_used) ... ok
+test_valid (__main__.Tests.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.294s
+
+OK
