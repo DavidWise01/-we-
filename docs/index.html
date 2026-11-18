@@ -1738,4 +1738,22 @@ a{color:#54e9e0}.pill{border:1px solid var(--orange);border-radius:20px;padding:
             ROOT UNCHANGED
 { 68 tests passed / preserve all }
 </pre><p>68 local tests passed. One authentic replica can restore lost bytes without changing the signed root. Same-host storage only; delivery reliability is next.</p></article>
+<article id="rsi019"><h2>RSI-019 — Persistent delivery</h2><pre>{ RSI-019 : PERSISTENT DELIVERY .dlw }
+~~1~~2~~3~~4~~5~~{{j}}~~-5~~-4~~-3~~-2~~-1
+       (J1) [J2] (J3)
+       [J4] (J5) [J6]
+       (J7) [J8] (J9)
+       U D D / U D D / U D D
+                 |
+       ARGON 17 / LEAD 208
+           [ DURABLE OUTBOX ]
+             /    |    \
+           R1     R2    R3
+           OK     XX    OK
+                 |
+            RESTART / RETRY R2
+                 |
+           OK + OK + OK
+{ 80 tests passed / preserve all }
+</pre><p>80 local tests passed. Atomic durable outbox and signed replica readback receipts. Historical delivery is not current availability.</p></article>
 </main><footer>Jane / MoE Hive · Illustrative synthetic science, append-only provenance · GitHub Pages compatible</footer></body></html>
