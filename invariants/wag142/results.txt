@@ -1,0 +1,15 @@
+test_balanced (__main__.Tests.test_balanced) ... ok
+test_fibonacci (__main__.Tests.test_fibonacci) ... ok
+test_frontier (__main__.Tests.test_frontier) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_modes (__main__.Tests.test_modes) ... ok
+test_overlap (__main__.Tests.test_overlap) ... ok
+test_shared_signing (__main__.Tests.test_shared_signing) ... ok
+test_three (__main__.Tests.test_three) ... ok
+test_unknown (__main__.Tests.test_unknown) ... ok
+test_zero_intersection (__main__.Tests.test_zero_intersection) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.039s
+
+OK
