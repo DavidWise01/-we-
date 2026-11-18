@@ -1,0 +1,15 @@
+test_current (__main__.Tests.test_current) ... ok
+test_expiry (__main__.Tests.test_expiry) ... ok
+test_extension (__main__.Tests.test_extension) ... ok
+test_fork (__main__.Tests.test_fork) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_regression (__main__.Tests.test_regression) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_rollback_limit (__main__.Tests.test_rollback_limit) ... ok
+test_used (__main__.Tests.test_used) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.103s
+
+OK
