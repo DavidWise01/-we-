@@ -1,0 +1,16 @@
+test_duplicate (__main__.Tests.test_duplicate) ... ok
+test_forged_receipt (__main__.Tests.test_forged_receipt) ... ok
+test_forged_witness (__main__.Tests.test_forged_witness) ... ok
+test_missing_db_evidence (__main__.Tests.test_missing_db_evidence) ... ok
+test_missing_middle (__main__.Tests.test_missing_middle) ... ok
+test_modified_operation (__main__.Tests.test_modified_operation) ... ok
+test_reorder (__main__.Tests.test_reorder) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_tail_with_floor (__main__.Tests.test_tail_with_floor) ... ok
+test_tail_without_floor (__main__.Tests.test_tail_without_floor) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.143s
+
+OK
