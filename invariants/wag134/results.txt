@@ -1,0 +1,17 @@
+test_missing_new (__main__.Tests.test_missing_new) ... ok
+test_missing_old (__main__.Tests.test_missing_old) ... ok
+test_new_observation (__main__.Tests.test_new_observation) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_retired_observation (__main__.Tests.test_retired_observation) ... ok
+test_retired_reentry (__main__.Tests.test_retired_reentry) ... ok
+test_shared_root (__main__.Tests.test_shared_root) ... ok
+test_success (__main__.Tests.test_success) ... ok
+test_tamper (__main__.Tests.test_tamper) ... ok
+test_tampered_history (__main__.Tests.test_tampered_history) ... ok
+test_wrong_mesh (__main__.Tests.test_wrong_mesh) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.126s
+
+OK

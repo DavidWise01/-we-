@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-134</title><style>body{background:#0b1724;color:#eaf5ff;font:16px system-ui;max-width:780px;margin:auto;padding:24px}h1{color:#70eacb}pre{background:#193047;padding:24px}button{padding:12px;margin:5px;background:#204459;color:white;border:1px solid #70eacb;border-radius:8px}output{display:block;padding:18px}</style><h1>WAG-134 · Sovereign succession</h1><pre> H0    O0    N0
+   3:0 APPROVAL
+        |
+    SUCCESSION
+        |
+   3:0 ACCEPTANCE
+ H0    O0    N1
+      {{i}}</pre><div id="controls"></div><output id="out"></output><p>Illustrative policy viewer; Python tests perform actual cryptographic verification.</p><script>let g=0;for(const [a,b] of [['Approve and accept','ACTIVE G1'],['Missing old approval','HOLD'],['Missing new acceptance','HOLD'],['Replay retired signature','REJECT after graduation']]){let e=document.createElement('button');e.textContent=a;e.onclick=()=>{if(a==='Approve and accept')g=1;document.querySelector('#out').textContent='G'+g+' · '+b};document.querySelector('#controls').append(e)}</script></html>

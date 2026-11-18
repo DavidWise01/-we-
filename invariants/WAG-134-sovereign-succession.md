@@ -1,0 +1,5 @@
+# WAG-134 — Sovereign authority succession
+
+12 local unittest cases passed in 0.126s. A pinned genesis and SQLite lineage enforce consecutive topology generations. Three outgoing approval signatures and three incoming acceptance signatures bind the old and new manifest hashes and mesh, with separate role domains. Full lineage replay rejects altered history and reentry of retired key strings. Declared root sets must be pairwise disjoint.
+
+Limits: one trusted local registry, synthetic keys, declared roots rather than independently verified custody. Hex key encodings should be normalized before comparing identity (case/whitespace aliases are not yet rejected). Observe authorization is a snapshot signature check, not an atomic mutation or nonce-based freshness check. Registry rollback, conflicting certificates across replicas, and integration with the conserved inventory journal remain open. All outgoing witnesses must be available; no emergency replacement rule. Next WAG-135: atomic authority activation against the inventory state, canonical key identity, and stale authorization race tests.
