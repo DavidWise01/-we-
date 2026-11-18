@@ -1,0 +1,15 @@
+test_cut_witnesses (__main__.Tests.test_cut_witnesses) ... ok
+test_four (__main__.Tests.test_four) ... ok
+test_intersection (__main__.Tests.test_intersection) ... ok
+test_invalid (__main__.Tests.test_invalid) ... ok
+test_majority (__main__.Tests.test_majority) ... ok
+test_overlap (__main__.Tests.test_overlap) ... ok
+test_quorum (__main__.Tests.test_quorum) ... ok
+test_shared (__main__.Tests.test_shared) ... ok
+test_single (__main__.Tests.test_single) ... ok
+test_unanimous (__main__.Tests.test_unanimous) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.004s
+
+OK
