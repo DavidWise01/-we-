@@ -1,0 +1,16 @@
+dark 0 1.0 2
+dark 1 1.0 2
+dark 4 1.0 2
+dark 19 1.0 2
+dark 172 1.0 2
+bright 0 1.0 2
+bright 1 0.36 6
+bright 4 0.002472873984 10
+bright 19 0.0002525823439282995 10
+bright 172 0.7836956986505408 10
+single 0 1.0 1
+single 1 0.7696 6
+single 4 0.64089023463424 10
+single 19 0.6400909296438142 10
+single 172 0.9221304515141947 10
+PASS: 516 forward/inverse checks; 3 full rewinds; exact dark-state persistence
