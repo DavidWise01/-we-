@@ -1,0 +1,20 @@
+test_all_phases (__main__.Tests.test_all_phases) ... ok
+test_dissipation_not_recycled (__main__.Tests.test_dissipation_not_recycled) ... ok
+test_empty (__main__.Tests.test_empty) ... ok
+test_invalid (__main__.Tests.test_invalid) ... ok
+test_negative (__main__.Tests.test_negative) ... ok
+test_no_absorption (__main__.Tests.test_no_absorption) ... ok
+test_partial (__main__.Tests.test_partial) ... ok
+test_stored (__main__.Tests.test_stored) ... ok
+test_sweep (__main__.Tests.test_sweep) ... ok
+test_zero_net (__main__.Tests.test_zero_net) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.012s
+
+OK
+0 540 0 0
+90 360 271/4 449/4
+180 180 181/2 539/2
+270 0 451/4 1709/4
+360 0 0 540
