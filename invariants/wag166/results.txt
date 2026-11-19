@@ -1,0 +1,17 @@
+test_append (__main__.Tests.test_append) ... ok
+test_bad_hash (__main__.Tests.test_bad_hash) ... ok
+test_conservation (__main__.Tests.test_conservation) ... ok
+test_extra (__main__.Tests.test_extra) ... ok
+test_matrix (__main__.Tests.test_matrix) ... ok
+test_reverse (__main__.Tests.test_reverse) ... ok
+test_rewrite (__main__.Tests.test_rewrite) ... ok
+test_same (__main__.Tests.test_same) ... ok
+test_truncate (__main__.Tests.test_truncate) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.233s
+
+OK
+old 1e2b2778ad378674705931fcfe3aa85a8a0372a858612a2f539e291f61f08f25
+new 6c2ddd404b4a5cc3f926b58a0a6c91be5bf21bb6d1c376423830b2b1c616c7d3
+proof hashes 5 bytes 160
