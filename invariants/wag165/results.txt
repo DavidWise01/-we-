@@ -1,0 +1,18 @@
+test_all (__main__.Tests.test_all) ... ok
+test_conservation (__main__.Tests.test_conservation) ... ok
+test_extra (__main__.Tests.test_extra) ... ok
+test_index (__main__.Tests.test_index) ... ok
+test_links (__main__.Tests.test_links) ... ok
+test_tamper (__main__.Tests.test_tamper) ... ok
+test_truncated (__main__.Tests.test_truncated) ... ok
+test_wrong_root (__main__.Tests.test_wrong_root) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.040s
+
+OK
+records 165 root 1e2b2778ad378674705931fcfe3aa85a8a0372a858612a2f539e291f61f08f25
+proof hashes min/max 3 8
+proof bytes max 256 full canonical records bytes 29033
+last proof hashes 3
+all 165 inclusion proofs verified
