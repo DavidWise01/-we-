@@ -1,0 +1,4 @@
+360 updates: inventory=26; resources=540; max residual= 8.0
+external, local, dissipated: 0.0 536.0 4.0
+PASS: asymmetric custody preserves equilibrium
+PASS: stranded surplus counterexample reproduced

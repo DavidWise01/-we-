@@ -1,0 +1,3 @@
+# WAG-156 — Adaptive homeostatic resistance
+Exact fraction execution: 360 updates conserved inventory and credits, maintained nonnegativity and nonincreasing squared error. Asymmetric custody preserves equilibrium, but a balanced intermediary blocks surplus-to-deficit exchange. Final maximum deviation 8, spent 4 of 540. Fight and flight are descriptive labels for budget-limited exchange, not different routing algorithms. Fixed center 6; local ad only of {{y:m:d:h:m:s:d:am:as:ad}}. Resource diffusion unpriced. Sequential deterministic arbitration may introduce ordering bias. Next: conservative relay through balanced intermediaries, with explicit receipts and bounded cost. Symbolic model, not physical fields.
+.dlw
