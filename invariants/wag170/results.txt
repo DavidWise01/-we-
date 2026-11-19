@@ -1,0 +1,6 @@
+1 1.8 3.2 5
+2 5.0 0.0 5
+5 1.8 3.2 5
+10 5.0 0.0 5
+170 5.0 0.0 5
+PASS: 170 norm/inverse updates, full rewind, 32 configurations; fixed external fulcrum 0

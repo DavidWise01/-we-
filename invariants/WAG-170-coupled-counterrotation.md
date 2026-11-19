@@ -1,0 +1,4 @@
+# WAG-170 — Coupled SeeCsaW counterrotation
+
+Exact local Python execution: 170 forward updates and inverse checks, complete rewind, 32 additional configurations. Each opposite pair receives opposite discrete half-angle rotations and a rational orthogonal 3/5,4/5 mixing operation. Norm squared is five for the disturbed fixture; first update partitions 1.8 and 3.2; second restores allocation. The full operator squares to negative identity and fourth power is identity (algebraic consequence of opposite rotations and shared mixing). Center is fixed external directional reference zero, not a dynamical spinor. No energy, physical spin measurement, or emergent growth implied. Five pairs remain independent of neighboring pairs. Next: staggered inter-rank coupling to break the short recurrence while preserving norm.
+.dlw
