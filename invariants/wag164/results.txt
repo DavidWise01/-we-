@@ -1,0 +1,17 @@
+test_empty (__main__.Tests.test_empty) ... ok
+test_immutable_input (__main__.Tests.test_immutable_input) ... ok
+test_inherit (__main__.Tests.test_inherit) ... ok
+test_order (__main__.Tests.test_order) ... ok
+test_overlap (__main__.Tests.test_overlap) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_stale (__main__.Tests.test_stale) ... ok
+test_tamper (__main__.Tests.test_tamper) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.006s
+
+OK
+1 26 538 2 bb4ab64b42af521d38642240b18245cd60cece36dc4a5b13fa9f065691793396
+2 26 536 4 7e5fa0836172d72184f58d2e9fc91090d467190b2ffecf9585038f1b51335fe1
+164 26 536 4 997cf7c9806e32b92aa29fb4837d9978de252c0ba920b3f33c7173608589ad02
+PASS: replayed 164 generations; 2 transfers, 162 observation-only checkpoints
