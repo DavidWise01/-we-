@@ -1,0 +1,14 @@
+test_duplicate_admission (__main__.Tests.test_duplicate_admission) ... ok
+test_log (__main__.Tests.test_log) ... ok
+test_no_outsider (__main__.Tests.test_no_outsider) ... ok
+test_race (__main__.Tests.test_race) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_sibling (__main__.Tests.test_sibling) ... ok
+test_signature_scope (__main__.Tests.test_signature_scope) ... ok
+test_spend (__main__.Tests.test_spend) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.126s
+
+OK
