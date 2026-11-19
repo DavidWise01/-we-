@@ -1,0 +1,18 @@
+test_empty (__main__.Tests.test_empty) ... ok
+test_equilibrium (__main__.Tests.test_equilibrium) ... ok
+test_invalid (__main__.Tests.test_invalid) ... ok
+test_no_creation (__main__.Tests.test_no_creation) ... ok
+test_partial_input (__main__.Tests.test_partial_input) ... ok
+test_recover (__main__.Tests.test_recover) ... ok
+test_sweep (__main__.Tests.test_sweep) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.733s
+
+OK
+0 540.0 0.0 0.0 10.0
+30 480.0 27.842505894349078 32.15749410565092 3.9033868585230658
+90 360.0 68.00917256101575 111.99082743898425 1.3146557162345014
+180 180.0 90.75917256101575 269.24082743898424 0.27709105032844394
+270 0.0 113.00917256101575 426.99082743898424 0.06060717699153388
+360 0.0 0.3546993549275873 539.6453006450724 0.02238958629024503
