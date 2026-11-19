@@ -1,0 +1,15 @@
+test_concurrent_disjoint (__main__.Tests.test_concurrent_disjoint) ... ok
+test_concurrent_overlap (__main__.Tests.test_concurrent_overlap) ... ok
+test_disjoint (__main__.Tests.test_disjoint) ... ok
+test_failure_unchanged (__main__.Tests.test_failure_unchanged) ... ok
+test_journal (__main__.Tests.test_journal) ... ok
+test_overlap (__main__.Tests.test_overlap) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_reverse (__main__.Tests.test_reverse) ... ok
+test_signature_scope (__main__.Tests.test_signature_scope) ... ok
+test_withdraw (__main__.Tests.test_withdraw) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.205s
+
+OK
