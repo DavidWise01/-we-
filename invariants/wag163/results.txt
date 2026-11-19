@@ -1,0 +1,15 @@
+test_conservation (__main__.Tests.test_conservation) ... ok
+test_observe_only (__main__.Tests.test_observe_only) ... ok
+test_order (__main__.Tests.test_order) ... ok
+test_overlap (__main__.Tests.test_overlap) ... ok
+test_shared_key (__main__.Tests.test_shared_key) ... ok
+test_shared_root (__main__.Tests.test_shared_root) ... ok
+test_stale (__main__.Tests.test_stale) ... ok
+test_three (__main__.Tests.test_three) ... ok
+test_two (__main__.Tests.test_two) ... ok
+test_wrong_checkpoint (__main__.Tests.test_wrong_checkpoint) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.028s
+
+OK
