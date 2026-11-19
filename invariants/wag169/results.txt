@@ -1,0 +1,8 @@
+16 spinor cases: norm, inversion, restoration PASS
+32 five-loop parity configurations PASS
+12 direction/scale configurations PASS
+0 (1, 0) 1
+180 (0, 1) 1
+360 (-1, 0) 1
+540 (0, -1) 1
+720 (1, 0) 1
