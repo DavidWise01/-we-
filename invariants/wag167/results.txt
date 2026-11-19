@@ -1,0 +1,17 @@
+test_both_proofs_valid (__main__.Tests.test_both_proofs_valid) ... ok
+test_fork (__main__.Tests.test_fork) ... ok
+test_prior_root (__main__.Tests.test_prior_root) ... ok
+test_reset_counterexample (__main__.Tests.test_reset_counterexample) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_shared_root (__main__.Tests.test_shared_root) ... ok
+test_tampered_proof (__main__.Tests.test_tampered_proof) ... ok
+test_two (__main__.Tests.test_two) ... ok
+test_valid (__main__.Tests.test_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.152s
+
+OK
+old 6c2ddd404b4a5cc3f926b58a0a6c91be5bf21bb6d1c376423830b2b1c616c7d3
+new c463e7871d7c33cbfedd05745232f09bf03a71f694a889e42888047cd8743a14
+proof bytes 160
