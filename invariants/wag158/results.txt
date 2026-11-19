@@ -1,0 +1,22 @@
+test_alternate (__main__.Tests.test_alternate) ... ok
+test_partial (__main__.Tests.test_partial) ... ok
+test_receipt_replay (__main__.Tests.test_receipt_replay) ... ok
+test_receiver_refusal (__main__.Tests.test_receiver_refusal) ... ok
+test_refusal (__main__.Tests.test_refusal) ... ok
+test_short (__main__.Tests.test_short) ... ok
+test_starved_route (__main__.Tests.test_starved_route) ... ok
+test_sweep (__main__.Tests.test_sweep) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.026s
+
+OK
+1 residual 10 spent 2 receipt ((4, 3), Fraction(2, 1))
+2 residual 8 spent 4 receipt ((5, 6), Fraction(2, 1))
+3 residual 8 spent 8 receipt ((4, 3, 2), Fraction(2, 1))
+4 residual 6 spent 12 receipt ((5, 6, 7), Fraction(2, 1))
+5 residual 6 spent 18 receipt ((4, 3, 2, 1), Fraction(2, 1))
+6 residual 4 spent 24 receipt ((5, 6, 7, 8), Fraction(2, 1))
+7 residual 2 spent 32 receipt ((5, 6, 7, 8, 9), Fraction(2, 1))
+8 residual 0 spent 42 receipt ((5, 4, 3, 2, 1, 0), Fraction(2, 1))
+FINAL 0 498 42
