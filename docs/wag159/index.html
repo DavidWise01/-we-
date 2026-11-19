@@ -1,0 +1,8 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-159</title><style>body{background:#101827;color:#e9f4ff;font:16px system-ui;max-width:700px;margin:auto;padding:24px}h1{color:#65dfc3}button{padding:10px;margin:4px}pre{white-space:pre-wrap}output{display:block;padding:15px}</style><h1>WAG-159 · Diodic consent</h1><pre>| REQUEST
+. MAYBE
+# NO
+@ YES
+\ LOCK
+/ CONSEQUENCE
+| RECEIPT
+       {{i}}</pre><label><input type="checkbox" id="permit" checked> Intermediary consents</label><p><button id="sign">Authorize</button><button id="commit">Commit</button><button id="replay">Replay</button><button id="reset">Reset</button></p><output id="out"></output><p>Illustrative state machine, not browser cryptography. Actual signatures and atomic transactions are tested in Python.</p><footer>.dlw</footer><script>let n=0,s=null;const e=id=>document.getElementById(id),show=x=>e('out').textContent=x+' | state '+n;e('sign').onclick=()=>{s=e('permit').checked?n:null;show(s===null?'NO':'YES: bound to state '+n)};e('commit').onclick=e('replay').onclick=()=>{if(s!==n){show('HOLD: missing or stale consent');return}if(n!==0){show('HOLD: no surplus');return}n++;show('COMMITTED: inventory 26, cost 2')};e('reset').onclick=()=>{n=0;s=null;show('REQUEST')};show('REQUEST')</script>

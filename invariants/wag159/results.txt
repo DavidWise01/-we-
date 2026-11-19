@@ -1,0 +1,15 @@
+test_alternate (__main__.Tests.test_alternate) ... ok
+test_amount (__main__.Tests.test_amount) ... ok
+test_missing (__main__.Tests.test_missing) ... ok
+test_no (__main__.Tests.test_no) ... ok
+test_race (__main__.Tests.test_race) ... ok
+test_replay (__main__.Tests.test_replay) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_route (__main__.Tests.test_route) ... ok
+test_success (__main__.Tests.test_success) ... ok
+test_wrong_signer (__main__.Tests.test_wrong_signer) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.107s
+
+OK
