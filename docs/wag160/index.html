@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-160</title><style>body{background:#101827;color:#edf5ff;font:16px system-ui;max-width:650px;margin:auto;padding:24px}h1{color:#65dfc3}pre{background:#1d2c40;padding:24px}button{padding:12px;margin:5px;color:inherit;background:#24465a;border:1px solid #65dfc3;border-radius:8px}output{display:block;padding:20px}</style><h1>WAG-160 · Sovereign revocation</h1><pre>| REQUEST
+. MAYBE
+@ YES
+  +--- # WITHDRAW
+  \
+  /
+| RECEIPT
+    {{i}}</pre><button id="yes">Commit relay</button><button id="no">Withdraw consent</button><button id="fresh">New proposal</button><button id="reset">Reset</button><output id="out"></output><p>Illustrative ordering model. Actual Ed25519 and SQLite checks run in Python.</p><footer>.dlw</footer><script>let closed=false,n=0,spent=0;const e=id=>document.getElementById(id);function draw(m){e('out').textContent=m+' | receipts '+n+' | inventory 26 | spent '+spent}function close(kind){if(closed||spent){draw('HOLD: stale or no surplus');return}closed=true;n++;if(kind==='COMMIT')spent=2;draw(kind)}e('yes').onclick=()=>close('COMMIT');e('no').onclick=()=>close('WITHDRAW');e('fresh').onclick=()=>{closed=false;draw('NEW PROPOSAL: fresh consent required')};e('reset').onclick=()=>{closed=false;n=spent=0;draw('REQUEST')};draw('REQUEST')</script></html>

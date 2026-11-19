@@ -1,0 +1,15 @@
+test_altered (__main__.Tests.test_altered) ... ok
+test_commit_first (__main__.Tests.test_commit_first) ... ok
+test_duplicate_no (__main__.Tests.test_duplicate_no) ... ok
+test_new_consent (__main__.Tests.test_new_consent) ... ok
+test_outsider (__main__.Tests.test_outsider) ... ok
+test_race (__main__.Tests.test_race) ... ok
+test_restart (__main__.Tests.test_restart) ... ok
+test_withdraw_first (__main__.Tests.test_withdraw_first) ... ok
+test_wrong_role (__main__.Tests.test_wrong_role) ... ok
+test_wrong_signer (__main__.Tests.test_wrong_signer) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.102s
+
+OK
