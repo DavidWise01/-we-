@@ -1,0 +1,9 @@
+policy origin_pct floor_pct avg_min_floor_pct blocked mean_tolerance_pct
+None 59.2819 2.4188 0.0439 0 0.0
+0 56.9917 8.0715 0.8813 978 0.0
+5 56.386 6.406 0.9307 174 0.5
+10 55.4183 5.8431 0.9596 84 1.0
+25 57.4799 4.3227 0.9129 7 2.5
+1000 58.6506 3.7287 0.8061 0 100.0
+adaptive 55.1098 5.5456 0.9395 58 1.2053
+PASS 15624 exact updates, 84 amplitude rewinds, 13392 candidate floor checks
