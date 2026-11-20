@@ -1,0 +1,7 @@
+leak_den,noise_events,noise_cumulative,weak_detected,weak_median,strong_detected,strong_median
+1,0,0,0,NA,0,NA
+8,0,0,0,NA,0,NA
+32,0,0,0,NA,32,10.0
+128,0,0,32,83.0,32,9.0
+0,39,39,32,61.5,32,9.0
+PASS 819680 integer updates
