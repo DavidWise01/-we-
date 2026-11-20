@@ -1,0 +1,243 @@
+{
+  "mirrorChecks": 1376256,
+  "rows": [
+    {
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 128,
+      "correct": 128,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "periodic",
+      "policy": "half",
+      "runs": 128,
+      "correct": 128,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "periodic",
+      "policy": "thirds",
+      "runs": 128,
+      "correct": 96,
+      "wrong": 0,
+      "unknown": 32
+    },
+    {
+      "kind": "periodic",
+      "policy": "guard",
+      "runs": 128,
+      "correct": 128,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 128,
+      "correct": 120,
+      "wrong": 1,
+      "unknown": 7
+    },
+    {
+      "kind": "jittered",
+      "policy": "half",
+      "runs": 128,
+      "correct": 116,
+      "wrong": 1,
+      "unknown": 11
+    },
+    {
+      "kind": "jittered",
+      "policy": "thirds",
+      "runs": 128,
+      "correct": 80,
+      "wrong": 0,
+      "unknown": 48
+    },
+    {
+      "kind": "jittered",
+      "policy": "guard",
+      "runs": 128,
+      "correct": 116,
+      "wrong": 1,
+      "unknown": 11
+    },
+    {
+      "kind": "skipped",
+      "policy": "baseline",
+      "runs": 128,
+      "correct": 32,
+      "wrong": 0,
+      "unknown": 96
+    },
+    {
+      "kind": "skipped",
+      "policy": "half",
+      "runs": 128,
+      "correct": 32,
+      "wrong": 0,
+      "unknown": 96
+    },
+    {
+      "kind": "skipped",
+      "policy": "thirds",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "skipped",
+      "policy": "guard",
+      "runs": 128,
+      "correct": 32,
+      "wrong": 0,
+      "unknown": 96
+    },
+    {
+      "kind": "drift",
+      "policy": "baseline",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "drift",
+      "policy": "half",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "drift",
+      "policy": "thirds",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "drift",
+      "policy": "guard",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "mixed",
+      "policy": "baseline",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 32,
+      "unknown": 96
+    },
+    {
+      "kind": "mixed",
+      "policy": "half",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 32,
+      "unknown": 96
+    },
+    {
+      "kind": "mixed",
+      "policy": "thirds",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 32,
+      "unknown": 96
+    },
+    {
+      "kind": "mixed",
+      "policy": "guard",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "shuffled",
+      "policy": "half",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "shuffled",
+      "policy": "thirds",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "shuffled",
+      "policy": "guard",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "alternating",
+      "policy": "baseline",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "alternating",
+      "policy": "half",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "alternating",
+      "policy": "thirds",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    },
+    {
+      "kind": "alternating",
+      "policy": "guard",
+      "runs": 128,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 128
+    }
+  ],
+  "interpretation": {
+    "fixedPeriod": [
+      "periodic",
+      "jittered",
+      "skipped"
+    ],
+    "noSinglePeriod": [
+      "drift",
+      "mixed",
+      "alternating",
+      "shuffled"
+    ],
+    "note": "Nonstationary patterns have unknown target by construction; a reported fixed period scores as wrong, not as a partial explanation."
+  }
+}
