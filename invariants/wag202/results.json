@@ -1,0 +1,126 @@
+{
+  "count": 278528,
+  "mirroredChecks": 278528,
+  "rows": [
+    {
+      "mode": "continuous",
+      "stats": {
+        "isolated": {
+          "correct": 16384,
+          "wrong": 0,
+          "unknown": 0
+        },
+        "paired": {
+          "correct": 16384,
+          "wrong": 0,
+          "unknown": 0
+        },
+        "reversal": {
+          "correct": 3619,
+          "wrong": 128,
+          "unknown": 4445
+        },
+        "quiet": {
+          "correct": 5327,
+          "wrong": 128,
+          "unknown": 10929
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096
+        }
+      }
+    },
+    {
+      "mode": "weighted",
+      "stats": {
+        "isolated": {
+          "correct": 14464,
+          "wrong": 0,
+          "unknown": 1920
+        },
+        "paired": {
+          "correct": 12160,
+          "wrong": 0,
+          "unknown": 4224
+        },
+        "reversal": {
+          "correct": 3619,
+          "wrong": 0,
+          "unknown": 4573
+        },
+        "quiet": {
+          "correct": 8947,
+          "wrong": 0,
+          "unknown": 7437
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096
+        }
+      }
+    },
+    {
+      "mode": "latest",
+      "stats": {
+        "isolated": {
+          "correct": 15424,
+          "wrong": 0,
+          "unknown": 960
+        },
+        "paired": {
+          "correct": 14976,
+          "wrong": 0,
+          "unknown": 1408
+        },
+        "reversal": {
+          "correct": 3619,
+          "wrong": 0,
+          "unknown": 4573
+        },
+        "quiet": {
+          "correct": 5327,
+          "wrong": 0,
+          "unknown": 11057
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096
+        }
+      }
+    },
+    {
+      "mode": "robust",
+      "stats": {
+        "isolated": {
+          "correct": 16384,
+          "wrong": 0,
+          "unknown": 0
+        },
+        "paired": {
+          "correct": 14976,
+          "wrong": 0,
+          "unknown": 1408
+        },
+        "reversal": {
+          "correct": 3619,
+          "wrong": 64,
+          "unknown": 4509
+        },
+        "quiet": {
+          "correct": 10121,
+          "wrong": 64,
+          "unknown": 6199
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096
+        }
+      }
+    }
+  ]
+}

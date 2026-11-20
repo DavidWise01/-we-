@@ -1,0 +1,3 @@
+# WAG-202 — Robust temporal relevance
+.dlw
+Executed JS experiment, 64 seeds, four policies, sign mirrored for every slot. Isolated glitches every 17 observations, paired glitches every 23, then sustained reversal, quiet with isolated spikes and missing data. Robust gate requires six of eight supporting and two of newest three, including for neutral. Results in results.json. Targets are prescribed latent conditions; fixtures deliberately designed, not random real-world validation. No physical timing or amplitude claims.

@@ -1,0 +1,52 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-202</title><style>body{background:#101827;color:#e7f5ff;font:16px system-ui;max-width:720px;margin:auto;padding:24px}h1{color:#65dfc3}button,select{padding:12px;margin:4px;background:#233b50;color:white;border:1px solid #65dfc3}svg{width:100%}output{display:block;padding:16px}</style><h1>WAG-202 · Robust temporal relevance</h1><svg id="v" viewBox="0 0 340 280"></svg><select id="mode"><option>robust</option><option>weighted</option><option>continuous</option><option>latest</option></select><div><button onclick="go(900,128)">Establish +</button><button onclick="go(-900,1)">Negative glitch</button><button onclick="go(900,1)">Positive sample</button><button onclick="go(-900,128)">Reverse</button><button onclick="go(0,256)">Quiet</button><button onclick="go(null,8)">Missing</button><button onclick="reset()">Reset</button></div><output id="o"></output><p>Fixed-point estimator · .dlw</p><script>// WAG-202 — continuous observational homeostasis .dlw
+const Q=[8,32,128], H=[5000,15000,30000];
+function initial(){return {c:[0,0,0],s:0,p:0,age:0,quiet:0,fresh:[],reacq:false,o:null,n:0}}
+function step(old,d,mode='continuous'){
+ const z={...old,c:[...old.c],fresh:[...old.fresh],n:old.n+1};
+ if(d===null){z.reacq=true;z.fresh=[];z.o=null;return z}
+ z.c=z.c.map((v,j)=>Math.trunc(v*(Q[j]-1)/Q[j])+d);
+ if(z.s){
+  z.quiet=z.c.every((v,j)=>2*z.s*v<H[j])?z.quiet+1:0;
+  if(z.quiet>=8)z.s=z.quiet=0;
+ }
+ if(!z.s){
+  if(!z.p){let j=z.c.findIndex((v,j)=>Math.abs(v)>=H[j]);if(j>=0){z.p=Math.sign(z.c[j]);z.age=0}}
+  if(z.p){
+   if(z.age>=3&&z.c.filter((v,j)=>z.p*v>=H[j]).length>=2){z.s=z.p;z.p=z.age=z.quiet=0}
+   else if(z.age>=64||z.p*z.c[0]<0)z.p=z.age=0;
+   else z.age++;
+  }
+ }
+ z.fresh=[...z.fresh,d].slice(-8);
+ const qualified=z.fresh.length===8&&(z.s?z.fresh.filter(v=>z.s*v>=200).length>=6:z.fresh.every(v=>Math.abs(v)<200));
+ if(mode==='outage'){if(z.reacq&&qualified)z.reacq=false;z.o=z.reacq?null:z.s}
+ else if(mode==='continuous'||mode==='weighted'||mode==='latest'||mode==='robust'){let q=qualified;if(mode==='weighted'){const score=z.fresh.reduce((a,v,j)=>a+(z.s?z.s*v>=200:Math.abs(v)<200)*(j+1),0);q=z.fresh.length===8&&score>=30;}if(mode==='robust'){const support=z.fresh.map(v=>z.s?z.s*v>=200:Math.abs(v)<200);q=support.length===8&&support.filter(Boolean).length>=6&&support.slice(-3).filter(Boolean).length>=2;}if(mode==='latest')q=qualified&&(z.s?z.s*d>=200:Math.abs(d)<200);z.o=q?z.s:null;z.reacq=!q}
+ else z.o=z.s;
+ if(![-1,0,1].includes(z.s)||z.age>64||z.quiet>=8)throw Error('state bounds');
+ return z;
+}
+function experiment(){
+const rows=[];let count=0;
+for(const mode of ['continuous','weighted','latest','robust']){
+ let stats={};
+ for(let seed=202;seed<266;seed++){
+ let x=seed,sign=seed%2?1:-1;
+ const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x};
+ let z=initial(),m=initial();
+ function obs(d,target,phase){z=step(z,d,mode);m=step(m,d===null?null:-d,mode);count++;if(z.s!==-m.s||z.o!==(m.o===null?null:-m.o)||z.c.some((v,j)=>v!==-m.c[j]))throw Error('symmetry');if(d===null&&z.o!==null)throw Error('missing');if(!phase)return;let r=stats[phase]??={correct:0,wrong:0,unknown:0};r[z.o===null?'unknown':z.o===target?'correct':'wrong']++}
+ const sig=s=>s*(700+rand()%401);
+ for(let i=0;i<128;i++)obs(sig(sign),sign,null);
+ for(let i=0;i<256;i++)obs(sig(i%17===8?-sign:sign),sign,'isolated');
+ for(let i=0;i<256;i++)obs(sig(i%23===8||i%23===9?-sign:sign),sign,'paired');
+ for(let i=0;i<128;i++)obs(sig(-sign),-sign,'reversal');
+ for(let i=0;i<256;i++)obs(i%17===8?sig(sign):0,0,'quiet');
+ for(let i=0;i<64;i++)obs(null,null,'missing');
+ }
+ rows.push({mode,stats});
+}
+return {count,mirroredChecks:count,rows};
+}
+if(typeof module!=='undefined')module.exports={initial,step,experiment};
+if(typeof require!=='undefined'&&typeof module!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment(),null,2));
+
+let z=initial();const e=id=>document.getElementById(id);function go(d,k){for(let i=0;i<k;i++)z=step(z,d,e('mode').value);draw()}function reset(){z=initial();draw()}function draw(){let a='';for(let j=0;j<3;j++){let r=40+j*29,col=['#65dfc3','#9876df','#ff9a42'][j];a+='<circle cx="170" cy="110" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="2"/><circle cx="170" cy="110" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="6" stroke-dasharray="'+2*Math.PI*r*Math.min(1,Math.abs(z.c[j])/H[j])+' '+2*Math.PI*r+'" transform="rotate(-90 170 110)"/>'}for(let j=0;j<8;j++){let v=z.fresh[j];a+='<rect x="'+(24+j*37)+'" y="230" width="30" height="26" stroke="'+(j>=5?'white':'none')+'" fill="'+(v===undefined?'#435466':v>=200?'#ff9a42':v<=-200?'#9876df':'#65dfc3')+'"/>'}e('v').innerHTML=a+'<circle cx="170" cy="110" r="32" fill="#245c68"/><text x="170" y="106" text-anchor="middle" fill="white">{{i}}</text><text x="170" y="125" font-size="10" fill="white" text-anchor="middle">'+(z.o===null?'UNKNOWN':z.o)+'</text>';e('o').textContent='Slot '+z.n+' | stored '+z.s+' | output '+(z.o===null?'unknown':z.o)}e('mode').onchange=reset;reset()</script>
