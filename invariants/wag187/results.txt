@@ -1,0 +1,11 @@
+batch 186 policy origin_pct floor_pct avg_min_floor_pct blocked mean_tolerance_pct
+0 56.9183 8.0906 0.8813 982 0.0
+5 56.3187 6.4206 0.9307 175 0.5
+adaptive 55.0404 5.5538 0.9395 59 1.2072
+directional 55.322 5.5416 0.9395 61 1.2057
+batch 187 policy origin_pct floor_pct avg_min_floor_pct blocked mean_tolerance_pct
+0 52.6351 9.4156 0.685 1167 0.0
+5 50.6737 8.3606 0.6595 189 0.5
+adaptive 52.2493 6.5415 0.6595 45 1.301
+directional 52.8985 6.4815 0.6595 51 1.29
+PASS 17952 exact updates and candidate floor checks, 96 amplitude rewinds

@@ -1,0 +1,2 @@
+# WAG-187 — Directional elasticity
+Actual container execution: Random(186) and Random(187), 12 fixtures each, four policies, 187 steps. Tolerance in thousandths is floor(25*clip(1-B-deltaB,0,1)); first delta zero. Directional policy slightly improves mean origin versus level-only in both batches, slightly reduces mean floor. Rigid leads floor. 17952 exact norm/inverse and candidate-floor checks, 96 amplitude rewinds. No temporal floor guarantee. Gain and cap designed, global state access and stored signs retained. Next: hysteresis and oscillatory switching. .dlw
