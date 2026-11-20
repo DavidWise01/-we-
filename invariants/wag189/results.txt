@@ -1,0 +1,9 @@
+batch 188 policy origin_pct floor_pct reversals transitions blocked mean_engage_pp
+level 55.1125 5.9367 0 0 62 1.0762
+fixed 55.5496 5.9791 55 144 67 2.0
+adaptive 55.5496 5.9791 76 463 67 1.0811
+batch 189 policy origin_pct floor_pct reversals transitions blocked mean_engage_pp
+level 47.6301 7.2827 0 0 38 1.0901
+fixed 47.7235 7.1925 69 139 40 2.0
+adaptive 47.6596 7.2413 96 435 38 1.092
+PASS 13608 exact updates and candidate floor checks, 72 amplitude rewinds
