@@ -1,0 +1,5 @@
+echo 0.604043 0.419413 0.550295 0
+local 0.563459 0.409629 0.409983 0
+confidence 0.557327 0.400947 0.400947 529
+calibrated 0.563092 0.41025 0.41058 34
+PASS: 8688 updates and 48 full amplitude rewinds
