@@ -1,0 +1,3 @@
+# WAG-206 — Elastic phase synchronization
+.dlw
+Executed mirrored experiment with 2304 sequences of 384 observations and 2304 missing resets. One-to-one matching of rising transition events, tolerance 0,1,2. This changes the event representation from WAG-205; compare tolerances within WAG-206. Expanded tolerance detects all jittered fixtures, but smaller-lag tie-breaking biases exact clean periods downward and 2 irregular sequences transiently lock. Jittered correct period counts 2,54,121. Designed synthetic fixtures and threshold; no physical claim. Next: residual-aware tie breaking and harmonic disambiguation.
