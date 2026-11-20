@@ -1,0 +1,5 @@
+policy mean_origin avg_min_origin mean_floor avg_min_floor flips blocked
+echo 0.563663 0.345174 0.0318 0.001329 0 0
+individual 0.608929 0.478209 0.047317 0.007382 6355 0
+balanced 0.519944 0.36117 0.096728 0.009109 3437 1342
+PASS 6624 exact updates, 36 amplitude rewinds, 2208 balanced floor checks
