@@ -1,0 +1,54 @@
+{
+  "mirroredSamples": 147456,
+  "rows": [
+    {
+      "kind": "periodic",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "pair": 0
+    },
+    {
+      "kind": "jittered",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "pair": 0
+    },
+    {
+      "kind": "skipped",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "pair": 0
+    },
+    {
+      "kind": "mixed",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "pair": 64
+    },
+    {
+      "kind": "shuffled",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "pair": 0
+    },
+    {
+      "kind": "drift",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "pair": 0
+    }
+  ],
+  "examples": []
+}

@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-211 — Multi-frequency decomposition</title><style>:root{color-scheme:dark}body{background:#0b1727;color:#e9f5ff;max-width:850px;margin:auto;padding:24px;font:16px system-ui}h1{color:#65dfc3}p{color:#a9c4d4}svg{width:100%}select,button{color:white;background:#243d50;border:1px solid #65dfc3;padding:11px;margin:4px;border-radius:4px}.data{padding:18px;background:#172a3b;border:1px solid #334b5c;line-height:1.9}.note{font-size:13px}</style><h1>WAG-211 · Multi-frequency decomposition</h1><p>One observer. Two inferred periods. One source ancestry.</p><svg id="viz" viewBox="0 0 660 370"></svg><label>Environment <select id="kind"><option>mixed</option><option>periodic</option><option>jittered</option><option>skipped</option><option>shuffled</option><option>drift</option></select></label><label>Base period <select id="p"><option>9</option><option>13</option><option>17</option><option>23</option></select></label><label>Seed <select id="seed"><option>211</option><option>215</option><option>219</option><option>223</option></select></label><button onclick="draw()">Observe & qualify</button><div id="out" class="data"></div><p class="note">Two rhythms do not constitute two independent witnesses. Inference is from one 384-slot binary stream. .dlw</p><script>// WAG-211 — multi-frequency decomposition, .dlw
+// Source ancestry: all components are hypotheses about ONE observed stream.
+const PERIODS=[9,13,17,23];
+function fixture(p,kind,seed){let x=seed>>>0;const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x};const g=Array(384).fill(0);
+ if(kind==='mixed'){for(let i=3;i<384;i+=p)g[i]=1;for(let i=7;i<384;i+=p+4)g[i]=1}
+ else if(kind==='jittered'){for(let i=3;i<384;i+=p){const j=i+((rand()>>>16)%3)-1;g[j]=1}}
+ else if(kind==='periodic'){for(let i=3;i<384;i+=p)g[i]=1}
+ else if(kind==='skipped'){let n=0;for(let i=3;i<384;i+=p)if(n++%5!==4)g[i]=1}
+ else if(kind==='drift'){for(let i=3;i<190;i+=p)g[i]=1;for(let i=195;i<384;i+=p+4)g[i]=1}
+ else if(kind==='shuffled'){for(let i=3;i<384;i+=p)g[i]=1;for(let i=g.length-1;i>0;i--){let j=rand()%(i+1);[g[i],g[j]]=[g[j],g[i]]}}
+ return g;
+}
+function observed(g,start,end){const a=[];for(let i=start;i<end;i++)if(g[i])a.push(i);return a}
+function predicted(p,phase,start,end){const a=[];for(let i=start;i<end;i++)if(i%p===phase)a.push(i);return a}
+function match(obs,pred,tol=1){let m=0;const used=Array(obs.length).fill(false);
+ for(const x of pred){let best=-1,d=tol+1;for(let i=0;i<obs.length;i++)if(!used[i]&&Math.abs(obs[i]-x)<d){d=Math.abs(obs[i]-x);best=i}
+ if(best>=0&&d<=tol){m++;used[best]=true}}
+ const precision=pred.length?m/pred.length:0,recall=obs.length?m/obs.length:0;
+ return {f1:precision+recall?2*precision*recall/(precision+recall):0,precision,recall,matched:m};
+}
+function evaluate(obs,components,start,end){const union=[...new Set(components.flatMap(c=>predicted(c.p,c.phase,start,end)))].sort((a,b)=>a-b);return match(obs,union)}
+function infer(g){
+ const train=observed(g,0,192),hold=observed(g,192,384),cs=[];
+ for(let p=7;p<=30;p++){let top=null;for(let phase=0;phase<p;phase++){let score=evaluate(train,[{p,phase}],0,192);if(!top||score.f1>top.train.f1)top={p,phase,train:score}}cs.push(top)}
+ cs.sort((a,b)=>b.train.f1-a.train.f1);
+ const single={...cs[0],hold:evaluate(hold,[cs[0]],192,384)};
+ let pair=null;
+ for(let i=0;i<cs.length;i++)for(let j=i+1;j<cs.length;j++){const a=cs[i],b=cs[j],tr=evaluate(train,[a,b],0,192);if(!pair||tr.f1>pair.train.f1)pair={a,b,train:tr,hold:evaluate(hold,[a,b],192,384)}}
+ if(pair&&pair.train.f1>=single.train.f1+.1&&pair.hold.f1>=single.hold.f1+.1&&pair.hold.precision>=.8&&pair.hold.recall>=.8)return {kind:'pair',periods:[pair.a.p,pair.b.p].sort((a,b)=>a-b),train:pair.train.f1,hold:pair.hold.f1};
+ if(single.train.f1>=.85&&single.hold.f1>=.85)return {kind:'single',periods:[single.p],train:single.train.f1,hold:single.hold.f1};
+ return {kind:'unknown',periods:[],train:single.train.f1,hold:single.hold.f1};
+}
+function experiment(){
+ const rows=[],examples=[];let mirroredSamples=0;
+ for(const kind of ['periodic','jittered','skipped','mixed','shuffled','drift']){let correct=0,wrong=0,unknown=0,pair=0;
+ for(const p of PERIODS)for(let seed=211;seed<227;seed++){const g=fixture(p,kind,seed),r=infer(g);
+ // Inverting observation polarity must not alter event-position inference.
+ const mirrored=infer(g.map(x=>Number(x!==0)));if(r.kind!==mirrored.kind||JSON.stringify(r.periods)!==JSON.stringify(mirrored.periods))throw Error('symmetry');
+ mirroredSamples+=g.length;
+ const target=kind==='mixed'?[p,p+4].sort((a,b)=>a-b):['periodic','jittered','skipped'].includes(kind)?[p]:[];
+ if(r.kind==='unknown')unknown++;else if(JSON.stringify(r.periods)===JSON.stringify(target))correct++;else{wrong++;if(examples.length<20)examples.push({kind,p,seed,r,target})}
+ if(r.kind==='pair')pair++;
+ }
+ rows.push({kind,runs:64,correct,wrong,unknown,pair});
+ }
+ return {mirroredSamples,rows,examples};
+}
+if(typeof module!=='undefined')module.exports={fixture,infer,experiment};
+if(typeof require!=='undefined'&&typeof module!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment(),null,2));
+
+const el=id=>document.getElementById(id);
+function draw(){const p=+el('p').value,seed=+el('seed').value,kind=el('kind').value,g=fixture(p,kind,seed),r=infer(g);
+el('out').innerHTML='<strong>Qualified explanation:</strong> '+r.kind.toUpperCase()+' · '+(r.periods.join(' and ')||'none')+'<div>Discovery F1 '+r.train.toFixed(3)+' · holdout F1 '+r.hold.toFixed(3)+'</div>';
+let svg='<rect width="660" height="370" fill="#0b1727"/>';
+for(let j=-17;j<=17;j++){let d='';for(let i=0;i<=180;i++){const t=i*Math.PI/90,u=(j-17)*1.45,R=100+u*Math.cos(t/2);d+=(i?'L':'M')+(152+R*Math.cos(t))+' '+(146+.83*R*Math.sin(t)-u*Math.sin(t/2))}svg+='<path d="'+d+'" stroke="'+(j<17?'#9876df':'#ff9a42')+'" fill="none" opacity=".35"/>'}
+svg+='<circle cx="152" cy="146" r="44" fill="#245c68" stroke="#65dfc3" stroke-width="3"/><text x="152" y="140" text-anchor="middle" font-size="29" fill="white">{{i}}</text><text x="152" y="162" text-anchor="middle" font-size="11" fill="white">'+r.kind.toUpperCase()+'</text>';
+for(let i=0;i<384;i++)if(g[i])svg+='<rect x="'+(322+i*320/384)+'" y="'+(i<192?85:148)+'" width="3" height="28" fill="'+(i<192?'#9876df':'#65dfc3')+'"/>';
+svg+='<text x="322" y="67" font-size="13" fill="#baaafa">DISCOVERY · PAST</text><text x="322" y="131" font-size="13" fill="#65dfc3">VALIDATION · PRESENT</text><text x="322" y="243" font-size="12" fill="#e0eff5">INFERRED COMPONENTS</text>';
+for(let j=0;j<r.periods.length;j++)svg+='<text x="'+(335+j*125)+'" y="305" font-size="38" fill="'+(j?'#ff9a42':'#9876df')+'">'+r.periods[j]+'</text>';
+svg+='<text x="322" y="353" font-size="12" fill="#a9c4d4">Same stream · distinct frequencies · .dlw</text>';el('viz').innerHTML=svg}
+draw();</script></html>
