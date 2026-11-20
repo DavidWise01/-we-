@@ -1,0 +1,3 @@
+# WAG-211 verification clarification — .dlw
+
+The experimental script reports "mirroredSamples": 147456, but the corresponding check maps g to Number(x!==0), which is identical to the original binary event marker. Therefore these are deterministic replay-consistency comparisons, **not independent polarity-mirrored checks**. No signed input polarity is represented by this WAG-211 fixture. The 384 case classification results are unchanged. This correction is append-only; the original experiment and result ledger remain intact for provenance. Future tests should introduce a genuine signed observation model when evaluating polarity symmetry.
