@@ -1,0 +1,17 @@
+hold,pattern,runs,initial,unbroken,releases,recommits,median_release_delay
+1,gap32,32,32,32,0,0,NA
+1,gap128,32,32,32,0,0,NA
+1,gap256,32,32,0,128,128,178.5
+1,quiet,32,32,0,32,0,178.5
+1,reverse,32,32,0,32,32,39.0
+8,gap32,32,32,32,0,0,NA
+8,gap128,32,32,32,0,0,NA
+8,gap256,32,32,0,128,128,185.5
+8,quiet,32,32,0,32,0,185.5
+8,reverse,32,32,0,32,32,46.0
+32,gap32,32,32,32,0,0,NA
+32,gap128,32,32,32,0,0,NA
+32,gap256,32,32,0,128,128,209.5
+32,quiet,32,32,0,32,0,209.5
+32,reverse,32,32,0,32,32,70.0
+PASS 414720 integer state updates
