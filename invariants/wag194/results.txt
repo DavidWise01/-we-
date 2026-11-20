@@ -1,0 +1,5 @@
+mode,white_events,correlated_events,pulse_found,pulse_median,trend_found,trend_median,drift_found,drift_median
+any,1,0,64,5.0,64,9.0,64,62.0
+coherent,1,0,64,5.0,64,9.0,64,62.0
+strict,1,0,20,5.0,64,9.0,64,62.0
+PASS 895680 estimator updates
