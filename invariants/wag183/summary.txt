@@ -1,0 +1,4 @@
+echo 0.618546 0.431082 0.489419 0 0 wins 0
+parallel 0.634771 0.419643 0.455504 6548 1863 wins 6
+staggered 0.619744 0.465707 0.468703 6206 956 wins 6
+PASS: 6588 exact updates and 36 amplitude rewinds
