@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-209</title><style>body{background:#0b1727;color:#e6f4fb;font:16px system-ui;max-width:860px;margin:auto;padding:24px}h1{color:#65dfc3}h2{color:#e7f5fb;font-size:18px}svg{width:100%}select,button{border:1px solid #65dfc3;background:#22384f;color:white;padding:11px;margin:4px;border-radius:4px}.panel{background:#172b3d;padding:15px;margin:12px 0;border-radius:5px}.status{color:#65dfc3}small{color:#adbfcc}code{color:#fba364}</style><h1>WAG-209 · Counterexample-guided qualification</h1><p>Preserve the failure. Compare the proposal. Abstain on conflict.</p><svg id="view" viewBox="0 0 650 355"></svg><label>Case <select id="case"><option value="0">17 · seed 243</option><option value="1">23 · seed 218</option><option value="2">23 · seed 243</option><option value="3">23 · seed 254</option></select></label><button onclick="draw()">Reproduce</button><div id="results" class="panel"></div><p><small>Two windows and the pooled estimate share the same source ancestry. No independent corroboration implied. .dlw</small></p><script>// WAG-208, extended WAG-209 — cross-window harmonic ancestry, .dlw
+const PERIODS=[9,13,17,23], MODES=['spacing','confirmed','dual'];
+function events(g){const e=[];for(let i=1;i<g.length;i++)if(g[i]!==g[i-1]&&(e.length===0||i!==e[e.length-1]+1))e.push(i);return e}
+function intervals(e){const a=[];for(let i=1;i<e.length;i++){const d=e[i]-e[i-1];if(d>=4&&d<=32)a.push(d)}return a}
+function median(a){if(!a.length)return null;const b=a.slice().sort((x,y)=>x-y);return b[Math.floor(b.length/2)]}
+function support(a,p,t){return a.length?a.filter(d=>Math.abs(d-p)<=t).length/a.length:0}
+function propose(e,t){const a=intervals(e),p=median(a);return p!==null&&a.length>=5&&support(a,p,t)>=.8?p:null}
+function recurrence(e,p,t){let hits=0;for(let i=0;i<e.length-1;i++){for(let j=i+1;j<e.length;j++){const d=e[j]-e[i];if(d>p+t)break;if(Math.abs(d-p)<=t){hits++;break}}}return e.length>1?hits/(e.length-1):0}
+function infer(g,t,mode){
+ const e=events(g);
+ if(mode==='spacing'||mode==='confirmed'){const p=propose(e,t),v=p===null?0:mode==='spacing'?support(intervals(e),p,t):recurrence(e,p,t);return {period:v>=(mode==='spacing'?.8:.55)?p:null,score:v}}
+ const early=e.filter(x=>x<192),later=e.filter(x=>x>=192),p=propose(early,t);
+ if(p===null)return {period:null,score:0,reason:'insufficient'};
+ const a=intervals(later),score=support(a,p,t);
+ if(a.length<5||score<.8)return {period:null,score,reason:'holdout'};
+ const aliases=Array.from({length:p-4},(_,i)=>i+4).filter(q=>p%q===0&&q<p&&support(a,q,t)>=score-.05);
+ if(aliases.length)return {period:null,score,reason:'harmonic'};
+ return {period:p,score,reason:'confirmed'};
+}
+function fixture(p,kind,seed){let x=seed>>>0;const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x};const g=Array.from({length:384},(_,i)=>i%p===3?1:0);
+ if(kind==='shuffled')for(let i=g.length-1;i>0;i--){const j=rand()%(i+1);[g[i],g[j]]=[g[j],g[i]]}
+ if(kind==='jittered')for(let i=3;i<383;i+=p){const j=i+((rand()>>>16)%3)-1;g[i]=0;g[j]=1}
+ return g}
+function experiment(){let checks=0;const rows=[];
+ for(const tolerance of [0,1,2])for(const kind of ['periodic','jittered','shuffled'])for(const mode of MODES){
+ let locked=0,correct=0,wrong=0,abstain=0,harmonic=0;
+ for(const p of PERIODS)for(let seed=208;seed<272;seed++){const g=fixture(p,kind,seed),r=infer(g,tolerance,mode),m=infer(g.map(x=>1-x),tolerance,mode);
+ if(r.period!==m.period||r.score!==m.score||r.reason!==m.reason)throw Error('polarity asymmetry');checks+=384;
+ if(r.period===null){abstain++;harmonic+=Number(r.reason==='harmonic')}else{locked++;correct+=Number(r.period===p);wrong+=Number(r.period!==p)}}
+ rows.push({tolerance,kind,mode,runs:256,locked,correct,wrong,abstain,harmonic});
+ }
+ return {observationChecks:checks,mirroredChecks:checks,rows};
+}
+if(typeof module!=='undefined')module.exports={events,intervals,median,support,propose,recurrence,infer,fixture,experiment};
+if(typeof require!=='undefined'&&typeof module!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment(),null,2));
+
+
+function infer209(g,t,policy='cross'){
+ const base=infer(g,t,'dual');
+ const pooled=propose(events(g),t);
+ if(policy==='prior')return base;
+ if(policy==='pooled')return {period:pooled,score:pooled===null?0:support(intervals(events(g)),pooled,t),reason:'pooled'};
+ if(base.period===null)return base;
+ return base.period===pooled?base:{period:null,score:base.score,reason:'conflicting_periods',provisional:base.period,pooled};
+}
+function counterexamples(){
+ const items=[];
+ for(const p of [9,13,17,23])for(let seed=208;seed<272;seed++){
+ const g=fixture(p,'jittered',seed),r=infer209(g,2,'prior');
+ if(r.period===null||r.period===p)continue;
+ let minPrefix=g.length;
+ for(let n=193;n<=g.length;n++)if(infer209(g.slice(0,n),2,'prior').period===r.period){minPrefix=n;break}
+ const shrunk=g.slice(0,minPrefix);
+ if(infer209(shrunk,2,'prior').period!==r.period)throw Error('bad reproducer');
+ items.push({truePeriod:p,seed,wrongPeriod:r.period,minimalByPrefixOnly:minPrefix,observedBinaryPrefix:shrunk.join(''),observedEventPositions:events(shrunk),fullEventPositions:events(g),correctedEstimate:infer209(g,2,'cross')});
+ }
+ return items;
+}
+function experiment209(){
+ let checks=0;
+ const rows=[],kinds=['periodic','jittered','shuffled'];
+ for(const tol of [0,1,2])for(const kind of kinds)for(const mode of ['prior','pooled','cross']){
+ let correct=0,wrong=0,unknown=0,conflicted=0;
+ for(const p of [9,13,17,23])for(let seed=208;seed<272;seed++){
+ const g=fixture(p,kind,seed),r=infer209(g,tol,mode),m=infer209(g.map(v=>1-v),tol,mode);
+ if(r.period!==m.period||r.reason!==m.reason||r.score!==m.score)throw Error('mirror failed');
+ checks+=g.length;
+ if(r.period===null){unknown++;conflicted+=Number(r.reason==='conflicting_periods')}
+ else if(r.period===p)correct++;else wrong++;
+ }
+ rows.push({tol,kind,mode,correct,wrong,unknown,conflicted});
+ }
+ const errors=counterexamples();
+ if(errors.length!==4)throw Error('expected exactly four preserved failures');
+ const t=rows.filter(r=>r.tol===2&&r.kind==='jittered'&&r.mode==='cross')[0];
+ if(t.correct!==248||t.wrong!==0||t.unknown!==8)throw Error('regression mismatch');
+ return {mirroredSlotChecks:checks,cases:errors.length,rows};
+}
+if(typeof module!=='undefined')module.exports={infer209,counterexamples,experiment209,fixture};
+
+function draw(){const cs=counterexamples(),c=cs[+document.getElementById('case').value],g=fixture(c.truePeriod,'jittered',c.seed),prior=infer209(g,2,'prior'),pool=infer209(g,2,'pooled'),cross=infer209(g,2,'cross');
+let e=document.getElementById('results');e.innerHTML='<h2>Preserved failing case</h2><div>True period: <b>'+c.truePeriod+'</b> · deterministic seed '+c.seed+'</div><div>Old early-window lock: <code>'+prior.period+'</code> (incorrect)</div><div>Pooled history: <b>'+pool.period+'</b></div><div>Qualified decision: <strong class="status">'+(cross.period??'UNKNOWN / ABSTAIN')+'</strong></div><div>Shortest failing prefix: '+c.minimalByPrefixOnly+' slots</div><div>Event positions: '+c.observedEventPositions.join(', ')+'</div>';
+let svg='<rect width="650" height="355" fill="#0b1727"/>';for(let j=-13;j<=13;j++){let path='';for(let k=0;k<=140;k++){let a=k*Math.PI/70,u=j*1.5,r=106+u*Math.cos(a/2);path+=(k?'L':'M')+(160+r*Math.cos(a))+' '+(148+.85*r*Math.sin(a)-u*Math.sin(a/2))}svg+='<path d="'+path+'" fill="none" stroke="'+(j<0?'#9876df':'#ff9a42')+'" opacity=".4"/>'}svg+='<circle cx="160" cy="148" r="44" fill="#245c68" stroke="#65dfc3" stroke-width="3"/><text x="160" y="143" text-anchor="middle" font-size="27" fill="white">{{i}}</text><text x="160" y="167" text-anchor="middle" font-size="11" fill="white">UNKNOWN</text>';for(let i=0;i<384;i++){const x=322+i*305/384,y=i<192?76:150;if(g[i])svg+='<rect x="'+x+'" y="'+y+'" width="3" height="22" fill="'+(i<192?'#9876df':'#65dfc3')+'"/>'}svg+='<text x="326" y="58" font-size="13" fill="#9876df">PAST / PROPOSE</text><text x="326" y="135" font-size="13" fill="#65dfc3">PRESENT / CONTRADICT</text><text x="320" y="258" font-size="15" fill="#ef9b54">OLD: '+prior.period+'</text><text x="320" y="290" font-size="15" fill="#65dfc3">NEW: '+(cross.period??'ABSTAIN')+'</text><text x="160" y="344" font-size="12" fill="#d0e0ef" text-anchor="middle">One source · contradictory period estimates · .dlw</text>';document.getElementById('view').innerHTML=svg}
+draw();</script></html>

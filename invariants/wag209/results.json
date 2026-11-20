@@ -1,0 +1,249 @@
+{
+  "mirroredSlotChecks": 2654208,
+  "cases": 4,
+  "rows": [
+    {
+      "tol": 0,
+      "kind": "periodic",
+      "mode": "prior",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "periodic",
+      "mode": "pooled",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "periodic",
+      "mode": "cross",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "jittered",
+      "mode": "prior",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "jittered",
+      "mode": "pooled",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "jittered",
+      "mode": "cross",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "shuffled",
+      "mode": "prior",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "shuffled",
+      "mode": "pooled",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 0,
+      "kind": "shuffled",
+      "mode": "cross",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "periodic",
+      "mode": "prior",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "periodic",
+      "mode": "pooled",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "periodic",
+      "mode": "cross",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "jittered",
+      "mode": "prior",
+      "correct": 48,
+      "wrong": 0,
+      "unknown": 208,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "jittered",
+      "mode": "pooled",
+      "correct": 95,
+      "wrong": 0,
+      "unknown": 161,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "jittered",
+      "mode": "cross",
+      "correct": 46,
+      "wrong": 0,
+      "unknown": 210,
+      "conflicted": 2
+    },
+    {
+      "tol": 1,
+      "kind": "shuffled",
+      "mode": "prior",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "shuffled",
+      "mode": "pooled",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 1,
+      "kind": "shuffled",
+      "mode": "cross",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "periodic",
+      "mode": "prior",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "periodic",
+      "mode": "pooled",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "periodic",
+      "mode": "cross",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "jittered",
+      "mode": "prior",
+      "correct": 248,
+      "wrong": 4,
+      "unknown": 4,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "jittered",
+      "mode": "pooled",
+      "correct": 256,
+      "wrong": 0,
+      "unknown": 0,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "jittered",
+      "mode": "cross",
+      "correct": 248,
+      "wrong": 0,
+      "unknown": 8,
+      "conflicted": 4
+    },
+    {
+      "tol": 2,
+      "kind": "shuffled",
+      "mode": "prior",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "shuffled",
+      "mode": "pooled",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    },
+    {
+      "tol": 2,
+      "kind": "shuffled",
+      "mode": "cross",
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 256,
+      "conflicted": 0
+    }
+  ]
+}
