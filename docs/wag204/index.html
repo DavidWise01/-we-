@@ -1,0 +1,61 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-204</title><style>body{background:#101827;color:#e7f5ff;font:16px system-ui;max-width:720px;margin:auto;padding:24px}h1{color:#65dfc3}button,select{padding:12px;margin:4px;background:#233b50;color:white;border:1px solid #65dfc3}svg{width:100%}output{display:block;padding:16px}</style><h1>WAG-204 · Second-order adaptation</h1><svg id="v" viewBox="0 0 340 320"></svg><select id="mode"><option>second</option><option>adaptive</option><option>weighted</option></select><div><button onclick="go(900,128)">Stable +</button><button onclick="burst()">Burst ×64</button><button onclick="go(-900,128)">Reverse</button><button onclick="go(0,256)">Quiet</button><button onclick="go(null,8)">Missing</button><button onclick="reset()">Reset</button></div><output id="o"></output><p>Fast−slow trend proxy · .dlw</p><script>// WAG-204 — continuous observational homeostasis .dlw
+const Q=[8,32,128], H=[5000,15000,30000];
+function initial(){return {c:[0,0,0],s:0,p:0,age:0,quiet:0,fresh:[],reacq:false,o:null,n:0,noise:0,fast:0,gate:'weighted',prev:null}}
+function step(old,d,mode='continuous'){
+ const z={...old,c:[...old.c],fresh:[...old.fresh],n:old.n+1};
+ if(d===null){z.reacq=true;z.fresh=[];z.o=null;z.prev=null;return z}
+ const cls=v=>v===null?null:v>=200?1:v<=-200?-1:0;
+ const a=cls(old.prev),b=cls(d);
+ // Estimate change frequency, independently of committed state; use the prior estimate for selection.
+ z.noise=a===null?old.noise:Math.floor((63*old.noise+(a!==b?1024:0))/64);
+ z.fast=a===null?old.fast:Math.floor((7*old.fast+(a!==b?1024:0))/8);
+ z.prev=d;
+ z.c=z.c.map((v,j)=>Math.trunc(v*(Q[j]-1)/Q[j])+d);
+ if(z.s){
+  z.quiet=z.c.every((v,j)=>2*z.s*v<H[j])?z.quiet+1:0;
+  if(z.quiet>=8)z.s=z.quiet=0;
+ }
+ if(!z.s){
+  if(!z.p){let j=z.c.findIndex((v,j)=>Math.abs(v)>=H[j]);if(j>=0){z.p=Math.sign(z.c[j]);z.age=0}}
+  if(z.p){
+   if(z.age>=3&&z.c.filter((v,j)=>z.p*v>=H[j]).length>=2){z.s=z.p;z.p=z.age=z.quiet=0}
+   else if(z.age>=64||z.p*z.c[0]<0)z.p=z.age=0;
+   else z.age++;
+  }
+ }
+ z.fresh=[...z.fresh,d].slice(-8);
+ const qualified=z.fresh.length===8&&(z.s?z.fresh.filter(v=>z.s*v>=200).length>=6:z.fresh.every(v=>Math.abs(v)<200));
+ if(mode==='outage'){if(z.reacq&&qualified)z.reacq=false;z.o=z.reacq?null:z.s}
+ else if(mode==='continuous'||mode==='weighted'||mode==='latest'||mode==='robust'||mode==='adaptive'||mode==='second'){let q=qualified;if(mode==='weighted'){const score=z.fresh.reduce((a,v,j)=>a+(z.s?z.s*v>=200:Math.abs(v)<200)*(j+1),0);q=z.fresh.length===8&&score>=30;}if(mode==='robust'){const support=z.fresh.map(v=>z.s?z.s*v>=200:Math.abs(v)<200);q=support.length===8&&support.filter(Boolean).length>=6&&support.slice(-3).filter(Boolean).length>=2;}if(mode==='adaptive'||mode==='second'){const support=z.fresh.map(v=>z.s?z.s*v>=200:Math.abs(v)<200);const noisy=mode==='second'?(old.noise>=64||old.fast-old.noise>=128):old.noise>=64;z.gate=noisy?'robust':'weighted';q=support.length===8&&(noisy?support.filter(Boolean).length>=6&&support.slice(-3).filter(Boolean).length>=2:support.reduce((a,v,j)=>a+(v?j+1:0),0)>=30);}if(mode==='latest')q=qualified&&(z.s?z.s*d>=200:Math.abs(d)<200);z.o=q?z.s:null;z.reacq=!q}
+ else z.o=z.s;
+ if(![-1,0,1].includes(z.s)||z.age>64||z.quiet>=8)throw Error('state bounds');
+ return z;
+}
+function experiment(){
+ const rows=[];let count=0;
+ for(const mode of ['weighted','adaptive','second']){
+ let stats={};let onset=[];
+ for(let seed=204;seed<268;seed++){
+ let x=seed,sign=seed%2?1:-1;
+ const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x};
+ let z=initial(),m=initial();
+ function obs(d,target,phase){z=step(z,d,mode);m=step(m,d===null?null:-d,mode);count++;if(z.s!==-m.s||z.o!==(m.o===null?null:-m.o)||z.noise!==m.noise||z.fast!==m.fast||z.c.some((v,j)=>v!==-m.c[j]))throw Error('symmetry');if(d===null&&z.o!==null)throw Error('missing');if(!phase)return;let r=stats[phase]??={correct:0,wrong:0,unknown:0,robust:0};r[z.o===null?'unknown':z.o===target?'correct':'wrong']++;r.robust+=z.gate==='robust'&&d!==null?1:0}
+ const sig=s=>s*(700+rand()%401);
+ for(let i=0;i<128;i++)obs(sig(sign),sign,null);
+ let first=null;
+ for(let i=0;i<64;i++){obs(sig(i%9===0?-sign:sign),sign,'onset');if(first===null&&z.gate==='robust')first=i+1}
+ onset.push(first);
+ for(let i=0;i<192;i++)obs(sig(i%17===8?-sign:sign),sign,'intermittent');
+ for(let i=0;i<192;i++)obs(sig(sign),sign,'clean');
+ for(let i=0;i<128;i++)obs(sig(-sign),-sign,'reversal');
+ for(let i=0;i<256;i++)obs(i%17===8?sig(sign):0,0,'quiet');
+ for(let i=0;i<64;i++)obs(null,null,'missing');
+ }
+ rows.push({mode,firstRobust:onset[0],onsetConsistent:onset.every(v=>v===onset[0]),stats});
+ }
+ return {count,mirroredChecks:count,rows};
+}
+if(typeof module!=='undefined')module.exports={initial,step,experiment};
+if(typeof require!=='undefined'&&typeof module!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment(),null,2));
+
+let z=initial(),hist=[];const e=id=>document.getElementById(id);function tick(d){z=step(z,d,e('mode').value);hist.push([z.fast,z.noise]);hist=hist.slice(-256)}function go(d,k){for(let i=0;i<k;i++)tick(d);draw()}function burst(){for(let i=0;i<64;i++)tick(i%9===0?-900:900);draw()}function reset(){z=initial();hist=[];draw()}function draw(){let a='';for(let j=-12;j<=12;j++){let p='';for(let k=0;k<=180;k++){let t=k*Math.PI/90,u=j*1.7,r=90+u*Math.cos(t/2);p+=(k?'L':'M')+(170+r*Math.cos(t))+' '+(115+.8*r*Math.sin(t)-u*Math.sin(t/2))}a+='<path d="'+p+'" stroke="'+(j<0?'#9876df':'#ff9a42')+'" fill="none" opacity=".4"/>'}for(let j=0;j<2;j++){let r=45+j*36,col=['#65dfc3','#ff9a42'][j],v=[z.fast,z.noise][j];a+='<circle cx="170" cy="115" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="2"/><circle cx="170" cy="115" r="'+r+'" fill="none" stroke="'+col+'" stroke-width="7" stroke-dasharray="'+2*Math.PI*r*v/1024+' '+2*Math.PI*r+'" transform="rotate(-90 170 115)"/><polyline points="'+hist.map((v,i)=>(20+i*300/255)+','+(300-v[j]*90/1024)).join(' ')+'" stroke="'+col+'" stroke-width="2" fill="none"/>'}e('v').innerHTML=a+'<circle cx="170" cy="115" r="32" fill="#245c68"/><text x="170" y="110" text-anchor="middle" fill="white">{{i}}</text><text x="170" y="130" font-size="10" fill="white" text-anchor="middle">'+(z.o===null?'UNKNOWN':z.o)+'</text>';e('o').textContent='Slot '+z.n+' | fast '+z.fast+' | slow '+z.noise+' | difference '+(z.fast-z.noise)+' | gate '+z.gate}e('mode').onchange=reset;reset()</script>

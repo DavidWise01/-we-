@@ -1,0 +1,135 @@
+{
+  "count": 196608,
+  "mirroredChecks": 196608,
+  "rows": [
+    {
+      "mode": "weighted",
+      "firstRobust": null,
+      "onsetConsistent": true,
+      "stats": {
+        "onset": {
+          "correct": 3136,
+          "wrong": 0,
+          "unknown": 960,
+          "robust": 0
+        },
+        "intermittent": {
+          "correct": 10816,
+          "wrong": 0,
+          "unknown": 1472,
+          "robust": 0
+        },
+        "clean": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "robust": 0
+        },
+        "reversal": {
+          "correct": 3080,
+          "wrong": 0,
+          "unknown": 5112,
+          "robust": 0
+        },
+        "quiet": {
+          "correct": 9860,
+          "wrong": 0,
+          "unknown": 6524,
+          "robust": 0
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096,
+          "robust": 0
+        }
+      }
+    },
+    {
+      "mode": "adaptive",
+      "firstRobust": 21,
+      "onsetConsistent": true,
+      "stats": {
+        "onset": {
+          "correct": 3648,
+          "wrong": 0,
+          "unknown": 448,
+          "robust": 2752
+        },
+        "intermittent": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "robust": 12288
+        },
+        "clean": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "robust": 896
+        },
+        "reversal": {
+          "correct": 3080,
+          "wrong": 0,
+          "unknown": 5112,
+          "robust": 0
+        },
+        "quiet": {
+          "correct": 10502,
+          "wrong": 0,
+          "unknown": 5882,
+          "robust": 10816
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096,
+          "robust": 0
+        }
+      }
+    },
+    {
+      "mode": "second",
+      "firstRobust": 3,
+      "onsetConsistent": true,
+      "stats": {
+        "onset": {
+          "correct": 3776,
+          "wrong": 0,
+          "unknown": 320,
+          "robust": 3456
+        },
+        "intermittent": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "robust": 12288
+        },
+        "clean": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "robust": 896
+        },
+        "reversal": {
+          "correct": 3080,
+          "wrong": 0,
+          "unknown": 5112,
+          "robust": 0
+        },
+        "quiet": {
+          "correct": 10502,
+          "wrong": 0,
+          "unknown": 5882,
+          "robust": 11328
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096,
+          "robust": 0
+        }
+      }
+    }
+  ]
+}
