@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-208 — harmonic ancestry</title><style>body{background:#0b1726;color:#e6f3ff;max-width:850px;margin:auto;padding:24px;font:16px system-ui}h1{color:#65dfc3}svg{width:100%;max-height:360px}select,button{background:#263e51;color:white;border:1px solid #65dfc3;padding:10px;margin:5px;border-radius:5px}.data{background:#17293a;padding:15px;border-radius:5px;line-height:1.8}.note{color:#adc8d4}</style><h1>WAG-208 · Fundamental and harmonic ancestry</h1><p>Past proposes. Present compares. Future reserves judgment.</p><svg id="view" viewBox="0 0 660 355"></svg><div><label>Period <select id="p"><option>9</option><option selected>13</option><option>17</option><option>23</option></select></label><label>Environment <select id="k"><option>periodic</option><option selected>jittered</option><option>shuffled</option></select></label><label>Elasticity <select id="t"><option>0</option><option>1</option><option selected>2</option></select></label><label>Seed <select id="s"><option>208</option><option>209</option><option>210</option><option>211</option></select></label><button onclick="render()">Observe</button></div><div id="result" class="data"></div><p class="note">The two windows come from one observation stream. They are not independent witnesses. No predictions replace observations. .dlw</p><script>// WAG-208 — cross-window harmonic ancestry, .dlw
+const PERIODS=[9,13,17,23], MODES=['spacing','confirmed','dual'];
+function events(g){const e=[];for(let i=1;i<g.length;i++)if(g[i]!==g[i-1]&&(e.length===0||i!==e[e.length-1]+1))e.push(i);return e}
+function intervals(e){const a=[];for(let i=1;i<e.length;i++){const d=e[i]-e[i-1];if(d>=4&&d<=32)a.push(d)}return a}
+function median(a){if(!a.length)return null;const b=a.slice().sort((x,y)=>x-y);return b[Math.floor(b.length/2)]}
+function support(a,p,t){return a.length?a.filter(d=>Math.abs(d-p)<=t).length/a.length:0}
+function propose(e,t){const a=intervals(e),p=median(a);return p!==null&&a.length>=5&&support(a,p,t)>=.8?p:null}
+function recurrence(e,p,t){let hits=0;for(let i=0;i<e.length-1;i++){for(let j=i+1;j<e.length;j++){const d=e[j]-e[i];if(d>p+t)break;if(Math.abs(d-p)<=t){hits++;break}}}return e.length>1?hits/(e.length-1):0}
+function infer(g,t,mode){
+ const e=events(g);
+ if(mode==='spacing'||mode==='confirmed'){const p=propose(e,t),v=p===null?0:mode==='spacing'?support(intervals(e),p,t):recurrence(e,p,t);return {period:v>=(mode==='spacing'?.8:.55)?p:null,score:v}}
+ const early=e.filter(x=>x<192),later=e.filter(x=>x>=192),p=propose(early,t);
+ if(p===null)return {period:null,score:0,reason:'insufficient'};
+ const a=intervals(later),score=support(a,p,t);
+ if(a.length<5||score<.8)return {period:null,score,reason:'holdout'};
+ const aliases=Array.from({length:p-4},(_,i)=>i+4).filter(q=>p%q===0&&q<p&&support(a,q,t)>=score-.05);
+ if(aliases.length)return {period:null,score,reason:'harmonic'};
+ return {period:p,score,reason:'confirmed'};
+}
+function fixture(p,kind,seed){let x=seed>>>0;const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x};const g=Array.from({length:384},(_,i)=>i%p===3?1:0);
+ if(kind==='shuffled')for(let i=g.length-1;i>0;i--){const j=rand()%(i+1);[g[i],g[j]]=[g[j],g[i]]}
+ if(kind==='jittered')for(let i=3;i<383;i+=p){const j=i+((rand()>>>16)%3)-1;g[i]=0;g[j]=1}
+ return g}
+function experiment(){let checks=0;const rows=[];
+ for(const tolerance of [0,1,2])for(const kind of ['periodic','jittered','shuffled'])for(const mode of MODES){
+ let locked=0,correct=0,wrong=0,abstain=0,harmonic=0;
+ for(const p of PERIODS)for(let seed=208;seed<272;seed++){const g=fixture(p,kind,seed),r=infer(g,tolerance,mode),m=infer(g.map(x=>1-x),tolerance,mode);
+ if(r.period!==m.period||r.score!==m.score||r.reason!==m.reason)throw Error('polarity asymmetry');checks+=384;
+ if(r.period===null){abstain++;harmonic+=Number(r.reason==='harmonic')}else{locked++;correct+=Number(r.period===p);wrong+=Number(r.period!==p)}}
+ rows.push({tolerance,kind,mode,runs:256,locked,correct,wrong,abstain,harmonic});
+ }
+ return {observationChecks:checks,mirroredChecks:checks,rows};
+}
+if(typeof module!=='undefined')module.exports={events,intervals,median,support,propose,recurrence,infer,fixture,experiment};
+if(typeof require!=='undefined'&&typeof module!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment(),null,2));
+
+const el=id=>document.getElementById(id);
+function render(){let p=+el('p').value,k=el('k').value,t=+el('t').value,seed=+el('s').value,g=fixture(p,k,seed),ev=events(g),r=infer(g,t,'dual');const vals=['spacing','confirmed','dual'].map(m=>({m,...infer(g,t,m)}));el('result').innerHTML='<b>Observed period '+p+'</b>'+vals.map(x=>'<div>'+x.m+': '+(x.period??'UNKNOWN')+' · agreement '+(x.score*100).toFixed(1)+'%'+(x.period===p?' ✓':'')+'</div>').join('');
+let svg='<rect width="660" height="355" fill="#0b1726"/>';for(let j=-9;j<=9;j++){let q='';for(let i=0;i<=120;i++){const a=i*Math.PI/60,u=j*1.5,r=94+u*Math.cos(a/2);q+=(i?'L':'M')+(155+r*Math.cos(a))+' '+(137+r*.84*Math.sin(a)-u*Math.sin(a/2))}svg+='<path d="'+q+'" fill="none" stroke="'+(j<0?'#9876df':'#ff9a42')+'" opacity=".35"/>'}
+svg+='<circle cx="155" cy="137" r="46" fill="#245c68" stroke="#65dfc3" stroke-width="2"/><text x="155" y="132" fill="white" text-anchor="middle" font-size="27">{{i}}</text><text x="155" y="156" fill="white" text-anchor="middle" font-size="11">'+(r.period??'UNKNOWN')+'</text>';
+for(let i=0;i<384;i++){let x=315+i*320/384;svg+='<rect x="'+x+'" y="'+(g[i]?(i<192?52:120):i<192?68:136)+'" width="1" height="'+(g[i]?22:4)+'" fill="'+(i<192?'#9876df':'#65dfc3')+'"/>'}
+svg+='<text x="317" y="38" fill="#9876df" font-size="12">DISCOVERY · 0–191</text><text x="317" y="105" fill="#65dfc3" font-size="12">CONFIRMATION · 192–383</text>';
+for(let j=0;j<3;j++){const a=vals[j];svg+='<text x="315" y="'+(189+j*48)+'" fill="#dbeaf5" font-size="12">'+a.m+'</text><text x="550" y="'+(189+j*48)+'" fill="'+(a.period===p?'#65dfc3':'#ff9a42')+'" font-size="21">'+(a.period??'⊥')+'</text>'}
+svg+='<text x="315" y="346" fill="#adc8d4" font-size="12">One source, two temporal windows · .dlw</text>';el('view').innerHTML=svg}
+render();
+</script>

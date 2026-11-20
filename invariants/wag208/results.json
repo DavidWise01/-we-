@@ -1,0 +1,303 @@
+{
+  "observationChecks": 2654208,
+  "mirroredChecks": 2654208,
+  "rows": [
+    {
+      "tolerance": 0,
+      "kind": "periodic",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "periodic",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "periodic",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "jittered",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "jittered",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "jittered",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "shuffled",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "shuffled",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 0,
+      "kind": "shuffled",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "periodic",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "periodic",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "periodic",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "jittered",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 95,
+      "correct": 95,
+      "wrong": 0,
+      "abstain": 161,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "jittered",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 95,
+      "correct": 95,
+      "wrong": 0,
+      "abstain": 161,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "jittered",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 48,
+      "correct": 48,
+      "wrong": 0,
+      "abstain": 208,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "shuffled",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "shuffled",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 1,
+      "kind": "shuffled",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "periodic",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "periodic",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "periodic",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "jittered",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "jittered",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 256,
+      "correct": 256,
+      "wrong": 0,
+      "abstain": 0,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "jittered",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 252,
+      "correct": 248,
+      "wrong": 4,
+      "abstain": 4,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "shuffled",
+      "mode": "spacing",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "shuffled",
+      "mode": "confirmed",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    },
+    {
+      "tolerance": 2,
+      "kind": "shuffled",
+      "mode": "dual",
+      "runs": 256,
+      "locked": 0,
+      "correct": 0,
+      "wrong": 0,
+      "abstain": 256,
+      "harmonic": 0
+    }
+  ]
+}
