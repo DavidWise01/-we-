@@ -1,0 +1,11 @@
+mode,pattern,retained_at_gap_end,unknown_samples,release_runs,median_release_after_resume
+zero,missing_same,0,0,32,NA
+zero,missing_reverse,0,0,32,NA
+zero,measured_zero,0,0,32,NA
+freeze,missing_same,32,0,0,NA
+freeze,missing_reverse,32,0,32,46.0
+freeze,measured_zero,0,0,32,NA
+qualified,missing_same,32,8192,0,NA
+qualified,missing_reverse,32,8192,32,46.0
+qualified,measured_zero,0,0,32,NA
+PASS 175104 processed slots (including missing)
