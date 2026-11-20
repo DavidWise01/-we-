@@ -1,0 +1,129 @@
+{
+  "count": 245760,
+  "mirroredChecks": 245760,
+  "rows": [
+    {
+      "mode": "weighted",
+      "stats": {
+        "isolated": {
+          "correct": 14464,
+          "wrong": 0,
+          "unknown": 1920,
+          "noisy": 10432
+        },
+        "paired": {
+          "correct": 12160,
+          "wrong": 0,
+          "unknown": 4224,
+          "noisy": 7872
+        },
+        "clean": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "noisy": 0
+        },
+        "reversal": {
+          "correct": 3084,
+          "wrong": 0,
+          "unknown": 5108,
+          "noisy": 0
+        },
+        "quiet": {
+          "correct": 9874,
+          "wrong": 0,
+          "unknown": 6510,
+          "noisy": 10880
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096,
+          "noisy": 4096
+        }
+      }
+    },
+    {
+      "mode": "robust",
+      "stats": {
+        "isolated": {
+          "correct": 16384,
+          "wrong": 0,
+          "unknown": 0,
+          "noisy": 10432
+        },
+        "paired": {
+          "correct": 14976,
+          "wrong": 0,
+          "unknown": 1408,
+          "noisy": 7872
+        },
+        "clean": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "noisy": 0
+        },
+        "reversal": {
+          "correct": 3084,
+          "wrong": 64,
+          "unknown": 5044,
+          "noisy": 0
+        },
+        "quiet": {
+          "correct": 11164,
+          "wrong": 64,
+          "unknown": 5156,
+          "noisy": 10880
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096,
+          "noisy": 4096
+        }
+      }
+    },
+    {
+      "mode": "adaptive",
+      "stats": {
+        "isolated": {
+          "correct": 15168,
+          "wrong": 0,
+          "unknown": 1216,
+          "noisy": 10432
+        },
+        "paired": {
+          "correct": 14272,
+          "wrong": 0,
+          "unknown": 2112,
+          "noisy": 7872
+        },
+        "clean": {
+          "correct": 12288,
+          "wrong": 0,
+          "unknown": 0,
+          "noisy": 0
+        },
+        "reversal": {
+          "correct": 3084,
+          "wrong": 0,
+          "unknown": 5108,
+          "noisy": 0
+        },
+        "quiet": {
+          "correct": 10520,
+          "wrong": 0,
+          "unknown": 5864,
+          "noisy": 10880
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 4096,
+          "noisy": 4096
+        }
+      }
+    }
+  ]
+}
