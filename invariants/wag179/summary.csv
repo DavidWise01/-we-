@@ -1,0 +1,8 @@
+policy,mean_pct,average_min_pct,average_final_pct,fixtures_beating_echo
+echo,77.4413,55.9850,57.4436,0
+-1,46.8261,6.5664,24.2454,0
+-0.5,72.0899,50.2693,50.4013,3
+0,77.7754,56.5591,56.5854,3
+0.5,77.8915,56.2077,56.2077,3
+1,76.9528,55.3824,55.3824,2
+PASS: 10740 exact norm/inverse checks; 60 full amplitude rewinds
