@@ -1,0 +1,11 @@
+batch 187 policy origin_pct floor_pct reversals transitions blocked
+rigid 52.5626 9.4367 849 861 1175
+directional 52.8285 6.4918 800 812 51
+deadband 52.8303 6.4566 70 135 49
+hysteresis 52.8303 6.4566 70 130 49
+batch 188 policy origin_pct floor_pct reversals transitions blocked
+rigid 57.772 7.6649 740 752 914
+directional 55.6154 5.9729 904 916 67
+deadband 55.6154 5.9729 55 147 67
+hysteresis 55.6154 5.9729 55 144 67
+PASS 18048 exact updates and candidate floor checks, 96 amplitude rewinds
