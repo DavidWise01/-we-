@@ -1,0 +1,6 @@
+policy,noise_events,pulse_detected,pulse_median,trend_detected,trend_median,drift_detected,drift_median
+fast,1,32,5.0,32,9.0,32,79.5
+medium,0,0,NA,32,24.0,32,76.5
+slow,0,0,NA,32,39.0,32,80.5
+nested,1,32,5.0,32,9.0,32,74.0
+PASS 597120 integer estimator updates
