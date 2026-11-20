@@ -1,0 +1,13 @@
+batch 189 policy origin_pct floor_pct reversals transitions blocked mean_engage_pp
+fixed 47.668 7.1977 69 139 40 2.0
+symmetric 47.6033 7.2468 97 440 38 1.0885
+asymmetric 47.6033 7.2468 31 84 38 2.9038
+batch 190 policy origin_pct floor_pct reversals transitions blocked mean_engage_pp
+fixed 57.585 6.4342 57 132 59 2.0
+symmetric 57.585 6.4342 71 444 59 1.0463
+asymmetric 57.585 6.4342 32 100 59 2.8739
+PASS 13680 exact updates, candidate floor checks and 72 amplitude rewinds
+SHOCK: initial scale 1 pp; one 8 pp observation then zero observations; post-update engagement pp
+fixed 2.0 2.0 2.0 2.0 2.0
+symmetric 3.75 3.2812 1.2882 0.1 0.1
+asymmetric 5.0 5.0 5.0 3.2564 1.1772
