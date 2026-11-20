@@ -1,0 +1,1807 @@
+{
+  "observationUpdates": 884736,
+  "mirroredChecks": 884736,
+  "missingResets": 2304,
+  "rows": [
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 2,
+      "finalExact": 2,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 2,
+      "finalExact": 2,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 2,
+      "finalExact": 2,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 2,
+      "finalExact": 2,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 2,
+      "finalExact": 2,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 0,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 34,
+      "finalExact": 16,
+      "finalWrong": 18
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 34,
+      "finalExact": 10,
+      "finalWrong": 24
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 34,
+      "finalExact": 16,
+      "finalWrong": 18
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 31,
+      "finalExact": 31,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 31,
+      "finalExact": 31,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 30,
+      "finalExact": 17,
+      "finalWrong": 13
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 30,
+      "finalExact": 18,
+      "finalWrong": 12
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 30,
+      "finalExact": 19,
+      "finalWrong": 11
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 25,
+      "finalExact": 25,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 25,
+      "finalExact": 25,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 13,
+      "finalExact": 11,
+      "finalWrong": 2
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 13,
+      "finalExact": 11,
+      "finalWrong": 2
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 13,
+      "finalExact": 11,
+      "finalWrong": 2
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 28,
+      "finalExact": 28,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 28,
+      "finalExact": 28,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 15,
+      "finalExact": 10,
+      "finalWrong": 5
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 15,
+      "finalExact": 13,
+      "finalWrong": 2
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 15,
+      "finalExact": 15,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 45,
+      "finalExact": 40,
+      "finalWrong": 5
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 25,
+      "finalExact": 21,
+      "finalWrong": 4
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 1,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 34,
+      "finalWrong": 30
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 22,
+      "finalWrong": 42
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 47,
+      "finalWrong": 17
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 63,
+      "finalExact": 63,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 63,
+      "finalExact": 63,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 1,
+      "finalExact": 0,
+      "finalWrong": 1
+    },
+    {
+      "tolerance": 2,
+      "period": 9,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 46,
+      "finalWrong": 18
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 32,
+      "finalWrong": 32
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 63,
+      "finalWrong": 1
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 58,
+      "finalExact": 56,
+      "finalWrong": 2
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 58,
+      "finalExact": 56,
+      "finalWrong": 2
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 2,
+      "finalExact": 0,
+      "finalWrong": 2
+    },
+    {
+      "tolerance": 2,
+      "period": 13,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 41,
+      "finalWrong": 23
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 56,
+      "finalWrong": 8
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 57,
+      "finalWrong": 7
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 61,
+      "finalExact": 56,
+      "finalWrong": 5
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 61,
+      "finalExact": 56,
+      "finalWrong": 5
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 1,
+      "finalExact": 0,
+      "finalWrong": 1
+    },
+    {
+      "tolerance": 2,
+      "period": 17,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 1,
+      "finalExact": 0,
+      "finalWrong": 1
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 0,
+      "finalWrong": 64
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 64,
+      "finalExact": 64,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "periodic",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 14,
+      "finalExact": 0,
+      "finalWrong": 14
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 14,
+      "finalExact": 0,
+      "finalWrong": 14
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 14,
+      "finalExact": 0,
+      "finalWrong": 14
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 63,
+      "finalExact": 55,
+      "finalWrong": 8
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "jittered",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 6,
+      "finalExact": 0,
+      "finalWrong": 6
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "baseline",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "residual",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "interval",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "spacing",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    },
+    {
+      "tolerance": 2,
+      "period": 23,
+      "kind": "shuffled",
+      "policy": "confirmed",
+      "runs": 64,
+      "finalLocks": 0,
+      "finalExact": 0,
+      "finalWrong": 0
+    }
+  ]
+}

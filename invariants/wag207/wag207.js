@@ -1,0 +1,96 @@
+// WAG-207 — continuous observational homeostasis .dlw
+const Q=[8,32,128], H=[5000,15000,30000];
+function initial(){return {c:[0,0,0],s:0,p:0,age:0,quiet:0,fresh:[],reacq:false,o:null,n:0,noise:0,fast:0,gate:'weighted',prev:null}}
+function step(old,d,mode='continuous'){
+ const z={...old,c:[...old.c],fresh:[...old.fresh],n:old.n+1};
+ if(d===null){z.reacq=true;z.fresh=[];z.o=null;z.prev=null;return z}
+ const cls=v=>v===null?null:v>=200?1:v<=-200?-1:0;
+ const a=cls(old.prev),b=cls(d);
+ // Estimate change frequency, independently of committed state; use the prior estimate for selection.
+ z.noise=a===null?old.noise:Math.floor((63*old.noise+(a!==b?1024:0))/64);
+ z.fast=a===null?old.fast:Math.floor((7*old.fast+(a!==b?1024:0))/8);
+ z.prev=d;
+ z.c=z.c.map((v,j)=>Math.trunc(v*(Q[j]-1)/Q[j])+d);
+ if(z.s){
+  z.quiet=z.c.every((v,j)=>2*z.s*v<H[j])?z.quiet+1:0;
+  if(z.quiet>=8)z.s=z.quiet=0;
+ }
+ if(!z.s){
+  if(!z.p){let j=z.c.findIndex((v,j)=>Math.abs(v)>=H[j]);if(j>=0){z.p=Math.sign(z.c[j]);z.age=0}}
+  if(z.p){
+   if(z.age>=3&&z.c.filter((v,j)=>z.p*v>=H[j]).length>=2){z.s=z.p;z.p=z.age=z.quiet=0}
+   else if(z.age>=64||z.p*z.c[0]<0)z.p=z.age=0;
+   else z.age++;
+  }
+ }
+ z.fresh=[...z.fresh,d].slice(-8);
+ const qualified=z.fresh.length===8&&(z.s?z.fresh.filter(v=>z.s*v>=200).length>=6:z.fresh.every(v=>Math.abs(v)<200));
+ if(mode==='outage'){if(z.reacq&&qualified)z.reacq=false;z.o=z.reacq?null:z.s}
+ else if(mode==='continuous'||mode==='weighted'||mode==='latest'||mode==='robust'||mode==='adaptive'||mode==='second'){let q=qualified;if(mode==='weighted'){const score=z.fresh.reduce((a,v,j)=>a+(z.s?z.s*v>=200:Math.abs(v)<200)*(j+1),0);q=z.fresh.length===8&&score>=30;}if(mode==='robust'){const support=z.fresh.map(v=>z.s?z.s*v>=200:Math.abs(v)<200);q=support.length===8&&support.filter(Boolean).length>=6&&support.slice(-3).filter(Boolean).length>=2;}if(mode==='adaptive'||mode==='second'){const support=z.fresh.map(v=>z.s?z.s*v>=200:Math.abs(v)<200);const noisy=mode==='second'?(old.noise>=64||old.fast-old.noise>=128):old.noise>=64;z.gate=noisy?'robust':'weighted';q=support.length===8&&(noisy?support.filter(Boolean).length>=6&&support.slice(-3).filter(Boolean).length>=2:support.reduce((a,v,j)=>a+(v?j+1:0),0)>=30);}if(mode==='latest')q=qualified&&(z.s?z.s*d>=200:Math.abs(d)<200);z.o=q?z.s:null;z.reacq=!q}
+ else z.o=z.s;
+ if(![-1,0,1].includes(z.s)||z.age>64||z.quiet>=8)throw Error('state bounds');
+ return z;
+}
+
+
+
+function positions(bits){const out=[];for(let i=0;i<bits.length;i++)if(bits[i]&&(i===0||!bits[i-1]))out.push(i);return out}
+function candidate(bits,lag,tol){
+ const left=[],right=[];
+ for(let i=lag+tol;i<bits.length-tol;i++)if(bits[i]&&(i===0||!bits[i-1]))left.push(i);
+ for(let i=lag;i<bits.length;i++)if(bits[i-lag]&&(i-lag===0||!bits[i-lag-1]))right.push(i);
+ const rightTrim=right.filter(i=>i>=lag+tol&&i<bits.length-tol);
+ let j=0,k=0,m=0,residual=0;
+ while(j<left.length&&k<rightTrim.length){const delta=left[j]-rightTrim[k];if(Math.abs(delta)<=tol){m++;residual+=Math.abs(delta);j++;k++}else if(delta<0)j++;else k++}
+ const union=left.length+rightTrim.length-m;
+ return {lag,score:union>=5?m/union:0,m,residual,meanResidual:m?residual/m:Infinity};
+}
+function select(bits,tol,policy){
+ if(bits.length<128)return {period:null,score:0,residual:null};
+ const cs=[];for(let lag=4;lag<=32;lag++)cs.push(candidate(bits,lag,tol));
+ let best=cs.reduce((a,b)=>b.score>a.score?b:a,cs[0]);
+ if(policy==='residual'){
+   const eligible=cs.filter(c=>c.score>=.8&&c.score>=best.score-.05);
+   eligible.sort((a,b)=>a.meanResidual-b.meanResidual||b.score-a.score||a.lag-b.lag);
+   if(eligible.length)best=eligible[0];
+ }
+ if(policy==='confirmed'){
+   const spacing=select(bits,tol,'spacing');
+   if(spacing.period===null)return spacing;
+   const cross=candidate(bits,spacing.period,tol);
+   return cross.score>=0.55?spacing:{period:null,score:cross.score,residual:null};
+ }
+ if(policy==='spacing'){
+   const ev=positions(bits),dist=[];for(let i=1;i<ev.length;i++){const d=ev[i]-ev[i-1];if(d>=4&&d<=32)dist.push(d)}
+   const sorted=dist.slice().sort((a,b)=>a-b),med=sorted.length?sorted[Math.floor(sorted.length/2)]:null;
+   if(med!==null&&dist.length>=5){const matches=dist.filter(d=>Math.abs(d-med)<=tol).length;const score=matches/dist.length;return score>=.8?{period:med,score,residual:dist.reduce((a,d)=>a+Math.abs(d-med),0)/dist.length}:{period:null,score,residual:null}}
+   return {period:null,score:0,residual:null};
+ }
+ if(policy==='interval'){
+   const ev=positions(bits),dist=[];for(let i=1;i<ev.length;i++){const d=ev[i]-ev[i-1];if(d>=4&&d<=32)dist.push(d)}
+   const central=dist.slice().sort((a,b)=>a-b),med=central.length?central[Math.floor(central.length/2)]:null;
+   if(med!==null){const eligible=cs.filter(c=>c.score>=.8&&c.score>=best.score-.05);eligible.sort((a,b)=>Math.abs(a.lag-med)-Math.abs(b.lag-med)||a.meanResidual-b.meanResidual||b.score-a.score);if(eligible.length)best=eligible[0]}
+ }
+ return best.score>=.8?{period:best.lag,score:best.score,residual:best.meanResidual}:{period:null,score:best.score,residual:null};
+}
+function fixture(period,kind,seed){let x=seed>>>0;const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x};const glitch=Array.from({length:384},(_,i)=>i%period===3?1:0);
+ if(kind==='shuffled')for(let i=glitch.length-1;i>0;i--){let j=rand()%(i+1);[glitch[i],glitch[j]]=[glitch[j],glitch[i]]}
+ if(kind==='jittered')for(let i=3;i<383;i+=period){let j=i+((rand()>>>16)%3)-1;glitch[i]=0;glitch[j]=1}
+ return glitch;
+}
+function observe(bits,value){return [...bits,value].slice(-128)}
+function experiment(){const rows=[];let obs=0,mirrored=0,missing=0;const policies=['baseline','residual','interval','spacing','confirmed'];
+ for(const tolerance of [0,1,2])for(const period of [9,13,17,23])for(const kind of ['periodic','jittered','shuffled']){
+ const metrics=Object.fromEntries(policies.map(p=>[p,{finalLocks:0,finalExact:0,finalWrong:0}]));
+ for(let seed=206;seed<270;seed++){const pattern=fixture(period,kind,seed);let bits=[],prev=null,mirrorBits=[],mirrorPrev=null;
+ for(let i=0;i<pattern.length;i++){const cls=pattern[i]?-1:1,neg=-cls;const change=prev===null?null:Number(cls!==prev),changeMirror=mirrorPrev===null?null:Number(neg!==mirrorPrev);prev=cls;mirrorPrev=neg;
+ if(change!==null){bits=observe(bits,change);mirrorBits=observe(mirrorBits,changeMirror)}obs++;if(change!==changeMirror||bits.length!==mirrorBits.length||bits.some((x,j)=>x!==mirrorBits[j]))throw Error('mirror');mirrored++}
+ for(const policy of policies){const r=select(bits,tolerance,policy),m=metrics[policy];m.finalLocks+=Number(r.period!==null);m.finalExact+=Number(r.period===period);m.finalWrong+=Number(r.period!==null&&r.period!==period);const opposite=select(mirrorBits,tolerance,policy);if(r.period!==opposite.period||r.score!==opposite.score)throw Error('selection mirror')}
+ bits=[];mirrorBits=[];prev=mirrorPrev=null;missing++;if(bits.length||mirrorBits.length||prev!==null)throw Error('missing reset');
+ }
+ for(const policy of policies)rows.push({tolerance,period,kind,policy,runs:64,...metrics[policy]});
+ }
+ return {observationUpdates:obs,mirroredChecks:mirrored,missingResets:missing,rows};
+}
+if(typeof module!=='undefined')module.exports={select,fixture,observe,experiment};
+if(typeof require!=='undefined'&&typeof module!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment(),null,2));
