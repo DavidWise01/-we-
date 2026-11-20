@@ -1,0 +1,8 @@
+mode,pattern,runs,qualified_correct,median_correct_latency,wrong_slots,unknown_slots
+immediate,same,32,32,1.0,0,0
+immediate,reverse,32,32,49.0,1545,0
+immediate,quiet,32,32,186.5,5951,0
+fresh,same,32,32,8.0,0,224
+fresh,reverse,32,32,49.0,0,1545
+fresh,quiet,32,32,186.5,0,5951
+PASS 116736 slots
