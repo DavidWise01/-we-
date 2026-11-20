@@ -1,0 +1,5 @@
+mode,drift_detected,median_latency,alternating_false_events,quiet_false_events
+fixed,0,NA,0,0
+asymmetric,0,NA,0,0
+dual,12,9.0,0,0
+PASS: 7020 integer estimator updates and bounds checks
