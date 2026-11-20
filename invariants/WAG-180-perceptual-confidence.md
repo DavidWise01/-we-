@@ -1,0 +1,3 @@
+# WAG-180 — Perceptual confidence
+Executed local Python integer experiment, 12 seeded disturbed fixtures (Random(180)), 4 policies, 180 iterations each. Confidence gate requires positive dot product, cosine at least 1/2, and magnitude ratio between 1/2 and 2. Accepted 544 of 10800 rank decisions (10680 eligible). Mean retention below fixed echo, average minimum best among tested policies, five of twelve fixtures beat echo on mean. Norm and per-step inverse exact; all 48 amplitude rewinds passed. Reversal requires stored signs, not autonomous controller reversal. Thresholds chosen for this experiment; no generalized optimality or physical claim. Next: closed-loop confidence calibration using local prediction error, evaluated on fresh fixtures.
+.dlw
