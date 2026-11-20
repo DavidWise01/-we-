@@ -1,0 +1,2 @@
+# WAG-206 correction — .dlw
+The executed output for tolerance 2, period 23, jittered was locks=14, exact=0, near=9, ever=64. The initial published transcription mistakenly recorded locks=64. Corrected final jittered lock count is 206/256 (80.47%), not 256/256; ever-lock count is 256/256. Exact identification remains 121/256. Original commit 942a5a43131ba46a68ab43c00099d1e7f072d632 preserved in history. Use results-corrected.json for analysis.

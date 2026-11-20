@@ -1,0 +1,366 @@
+{
+  "count": 884736,
+  "missing": 2304,
+  "rows": [
+    {
+      "tol": 0,
+      "period": 9,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 0,
+      "period": 9,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 0,
+      "period": 9,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 0,
+      "period": 13,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 0,
+      "period": 13,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 0,
+      "period": 13,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 0,
+      "period": 17,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 0,
+      "period": 17,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 0,
+      "period": 17,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 2
+    },
+    {
+      "tol": 0,
+      "period": 23,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 0,
+      "period": 23,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 0,
+      "period": 23,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 2,
+      "exact": 2,
+      "near": 2,
+      "ever": 5
+    },
+    {
+      "tol": 1,
+      "period": 9,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 1,
+      "period": 9,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 1,
+      "period": 9,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 34,
+      "exact": 16,
+      "near": 16,
+      "ever": 63
+    },
+    {
+      "tol": 1,
+      "period": 13,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 1,
+      "period": 13,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 1,
+      "period": 13,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 30,
+      "exact": 17,
+      "near": 19,
+      "ever": 63
+    },
+    {
+      "tol": 1,
+      "period": 17,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 1,
+      "period": 17,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 1,
+      "period": 17,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 13,
+      "exact": 11,
+      "near": 13,
+      "ever": 52
+    },
+    {
+      "tol": 1,
+      "period": 23,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 1,
+      "period": 23,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 1,
+      "period": 23,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 15,
+      "exact": 10,
+      "near": 15,
+      "ever": 62
+    },
+    {
+      "tol": 2,
+      "period": 9,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 0,
+      "ever": 64
+    },
+    {
+      "tol": 2,
+      "period": 9,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 1
+    },
+    {
+      "tol": 2,
+      "period": 9,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 64,
+      "exact": 34,
+      "near": 50,
+      "ever": 64
+    },
+    {
+      "tol": 2,
+      "period": 13,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 0,
+      "ever": 64
+    },
+    {
+      "tol": 2,
+      "period": 13,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 1
+    },
+    {
+      "tol": 2,
+      "period": 13,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 64,
+      "exact": 46,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 2,
+      "period": 17,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 0,
+      "ever": 64
+    },
+    {
+      "tol": 2,
+      "period": 17,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 2,
+      "period": 17,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 64,
+      "exact": 41,
+      "near": 64,
+      "ever": 64
+    },
+    {
+      "tol": 2,
+      "period": 23,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 0,
+      "near": 0,
+      "ever": 64
+    },
+    {
+      "tol": 2,
+      "period": 23,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "near": 0,
+      "ever": 0
+    },
+    {
+      "tol": 2,
+      "period": 23,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 14,
+      "exact": 0,
+      "near": 9,
+      "ever": 64
+    }
+  ]
+}
