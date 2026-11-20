@@ -1,0 +1,87 @@
+<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>WAG-205</title><style>body{background:#101827;color:#e7f5ff;font:16px system-ui;max-width:720px;margin:auto;padding:24px}h1{color:#65dfc3}button,select{padding:12px;margin:4px;background:#233b50;color:white;border:1px solid #65dfc3}svg{width:100%}output{display:block;padding:16px}</style><h1>WAG-205 · Adaptive resonance</h1><svg id="v" viewBox="0 0 340 300"></svg><label>Period <select id="p"><option>9</option><option>13</option><option>17</option><option>23</option></select></label><button onclick="go('periodic',384)">Periodic</button><button onclick="go('random',384)">Irregular</button><button onclick="go('periodic',1)">Observe +1</button><button onclick="o=observe(o,null);draw()">Missing</button><button onclick="reset()">Reset</button><output id="out"></output><p>Recurrence observer only; no predicted inputs substituted. .dlw</p><script>// WAG-205 — continuous observational homeostasis .dlw
+const Q=[8,32,128], H=[5000,15000,30000];
+function initial(){return {c:[0,0,0],s:0,p:0,age:0,quiet:0,fresh:[],reacq:false,o:null,n:0,noise:0,fast:0,gate:'weighted',prev:null}}
+function step(old,d,mode='continuous'){
+ const z={...old,c:[...old.c],fresh:[...old.fresh],n:old.n+1};
+ if(d===null){z.reacq=true;z.fresh=[];z.o=null;z.prev=null;return z}
+ const cls=v=>v===null?null:v>=200?1:v<=-200?-1:0;
+ const a=cls(old.prev),b=cls(d);
+ // Estimate change frequency, independently of committed state; use the prior estimate for selection.
+ z.noise=a===null?old.noise:Math.floor((63*old.noise+(a!==b?1024:0))/64);
+ z.fast=a===null?old.fast:Math.floor((7*old.fast+(a!==b?1024:0))/8);
+ z.prev=d;
+ z.c=z.c.map((v,j)=>Math.trunc(v*(Q[j]-1)/Q[j])+d);
+ if(z.s){
+  z.quiet=z.c.every((v,j)=>2*z.s*v<H[j])?z.quiet+1:0;
+  if(z.quiet>=8)z.s=z.quiet=0;
+ }
+ if(!z.s){
+  if(!z.p){let j=z.c.findIndex((v,j)=>Math.abs(v)>=H[j]);if(j>=0){z.p=Math.sign(z.c[j]);z.age=0}}
+  if(z.p){
+   if(z.age>=3&&z.c.filter((v,j)=>z.p*v>=H[j]).length>=2){z.s=z.p;z.p=z.age=z.quiet=0}
+   else if(z.age>=64||z.p*z.c[0]<0)z.p=z.age=0;
+   else z.age++;
+  }
+ }
+ z.fresh=[...z.fresh,d].slice(-8);
+ const qualified=z.fresh.length===8&&(z.s?z.fresh.filter(v=>z.s*v>=200).length>=6:z.fresh.every(v=>Math.abs(v)<200));
+ if(mode==='outage'){if(z.reacq&&qualified)z.reacq=false;z.o=z.reacq?null:z.s}
+ else if(mode==='continuous'||mode==='weighted'||mode==='latest'||mode==='robust'||mode==='adaptive'||mode==='second'){let q=qualified;if(mode==='weighted'){const score=z.fresh.reduce((a,v,j)=>a+(z.s?z.s*v>=200:Math.abs(v)<200)*(j+1),0);q=z.fresh.length===8&&score>=30;}if(mode==='robust'){const support=z.fresh.map(v=>z.s?z.s*v>=200:Math.abs(v)<200);q=support.length===8&&support.filter(Boolean).length>=6&&support.slice(-3).filter(Boolean).length>=2;}if(mode==='adaptive'||mode==='second'){const support=z.fresh.map(v=>z.s?z.s*v>=200:Math.abs(v)<200);const noisy=mode==='second'?(old.noise>=64||old.fast-old.noise>=128):old.noise>=64;z.gate=noisy?'robust':'weighted';q=support.length===8&&(noisy?support.filter(Boolean).length>=6&&support.slice(-3).filter(Boolean).length>=2:support.reduce((a,v,j)=>a+(v?j+1:0),0)>=30);}if(mode==='latest')q=qualified&&(z.s?z.s*d>=200:Math.abs(d)<200);z.o=q?z.s:null;z.reacq=!q}
+ else z.o=z.s;
+ if(![-1,0,1].includes(z.s)||z.age>64||z.quiet>=8)throw Error('state bounds');
+ return z;
+}
+
+ // Recurrence uses transition events, not agreement of mostly-zero samples.
+function resonance(bits){
+ if(bits.length<128)return {period:null,score:0};
+ let best={period:null,score:0};
+ for(let lag=4;lag<=32;lag++){
+ let union=0,both=0;
+ for(let i=lag;i<bits.length;i++){union+=bits[i]||bits[i-lag]?1:0;both+=bits[i]&&bits[i-lag]?1:0}
+ if(union<8)continue;
+ const score=both/union;
+ if(score>best.score)best={period:lag,score};
+ }
+ return best.score>=0.8?best:{period:null,score:best.score};
+}
+function observer(){return {kernel:initial(),bits:[],prev:null,lock:null,score:0}}
+function observe(o,d){
+ const k=step(o.kernel,d,'second');
+ if(d===null)return {kernel:k,bits:[],prev:null,lock:null,score:0};
+ const cls=d>=200?1:d<=-200?-1:0;
+ const bits=o.prev===null?[]:[...o.bits,Number(cls!==o.prev)].slice(-128);
+ const r=resonance(bits);
+ return {kernel:k,bits,prev:cls,lock:r.period,score:r.score};
+}
+function experiment(){
+ const rows=[];let count=0,missing=0,predicted=0,actual=0,tp=0;
+ for(const period of [9,13,17,23]){
+ for(const kind of ['periodic','shuffled','jittered']){
+ let locks=0,exact=0,latencies=[],finalScores=[];
+ for(let seed=205;seed<269;seed++){
+ let x=seed,sign=seed%2?1:-1;const rand=()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x};
+ const glitch=Array.from({length:384},(_,i)=>i%period===3?1:0);
+ if(kind==='shuffled'){for(let i=glitch.length-1;i>0;i--){let j=rand()%(i+1);[glitch[i],glitch[j]]=[glitch[j],glitch[i]]}}
+ if(kind==='jittered'){for(let i=3;i<383;i+=period){let j=i+(rand()%3)-1;glitch[i]=0;glitch[j]=1}}
+ let o=observer(),m=observer(),first=null;
+ for(let i=0;i<glitch.length;i++){
+ const d=sign*(glitch[i]?-900:900);
+ const pred=o.lock!==null&&o.bits.length>=o.lock?o.bits[o.bits.length-o.lock]:0;
+ const bit=o.prev!==null?Number((d>0?1:-1)!==o.prev):0;
+ if(kind==='periodic'&&i>=256){predicted+=pred;actual+=bit;tp+=pred&&bit?1:0}
+ o=observe(o,d);m=observe(m,-d);count++;
+ if(o.lock!==m.lock||o.score!==m.score||o.kernel.s!==-m.kernel.s||o.kernel.o!==(m.kernel.o===null?null:-m.kernel.o))throw Error('mirror');
+ if(first===null&&o.lock!==null)first=i+1;
+ }
+ locks+=o.lock!==null;exact+=o.lock===period;finalScores.push(o.score);if(first!==null)latencies.push(first);
+ o=observe(o,null);count++;missing++;if(o.lock!==null||o.bits.length||o.kernel.o!==null)throw Error('missing reset');
+ }
+ rows.push({period,kind,runs:64,locks,exact,meanScore:finalScores.reduce((a,b)=>a+b,0)/64,firstLockMedian:latencies.length?latencies.sort((a,b)=>a-b)[Math.floor(latencies.length/2)]:null});
+ }}
+ return {count,missing,mirroredChecks:count-missing,prediction:{predicted,actual,tp},rows};
+}
+if(typeof module!=='undefined')module.exports={observer,observe,resonance,experiment};
+if(typeof require!=='undefined'&&typeof module!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment(),null,2));
+
+let o=observer(),n=0,x=205;const e=id=>document.getElementById(id);function go(kind,k){let p=+e('p').value;for(let i=0;i<k;i++){x=(Math.imul(x,1664525)+1013904223)>>>0;o=observe(o,(kind==='periodic'?n%p===3:x%p===3)?-900:900);n++}draw()}function reset(){o=observer();n=0;x=205;draw()}function draw(){let a='';for(let j=-14;j<=14;j++){let p='';for(let k=0;k<=180;k++){let t=k*Math.PI/90,u=j*1.7,r=90+u*Math.cos(t/2);p+=(k?'L':'M')+(170+r*Math.cos(t))+' '+(115+.8*r*Math.sin(t)-u*Math.sin(t/2))}a+='<path d="'+p+'" stroke="'+(j<0?'#9876df':'#ff9a42')+'" fill="none" opacity=".5"/>'}for(let j=0;j<o.bits.length;j++){let t=j*2*Math.PI/128;let r=o.bits[j]?109:98;a+='<circle cx="'+(170+r*Math.cos(t))+'" cy="'+(115+r*Math.sin(t))+'" r="'+(o.bits[j]?3:1)+'" fill="#65dfc3"/>';a+='<rect x="'+(20+j*300/128)+'" y="'+(o.bits[j]?245:263)+'" width="2" height="'+(o.bits[j]?20:2)+'" fill="#65dfc3"/>'}e('v').innerHTML=a+'<circle cx="170" cy="115" r="38" fill="#245c68" stroke="#65dfc3"/><text x="170" y="110" text-anchor="middle" fill="white">{{i}}</text><text x="170" y="132" font-size="11" fill="white" text-anchor="middle">'+(o.lock===null?'UNLOCKED':'LAG '+o.lock)+'</text>';e('out').textContent='Slots '+o.kernel.n+' | lock '+(o.lock??'none')+' | Jaccard '+o.score.toFixed(3)+' | observed transitions '+o.bits.length}e('p').onchange=reset;reset()</script>

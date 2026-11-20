@@ -1,0 +1,120 @@
+{
+  "count": 295680,
+  "missing": 768,
+  "mirroredChecks": 294912,
+  "prediction": {
+    "predicted": 4928,
+    "actual": 4928,
+    "tp": 4928
+  },
+  "rows": [
+    {
+      "period": 9,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "meanScore": 1,
+      "firstLockMedian": 129
+    },
+    {
+      "period": 9,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "meanScore": 0.2309154328079591,
+      "firstLockMedian": null
+    },
+    {
+      "period": 9,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "meanScore": 0.47707189559342994,
+      "firstLockMedian": null
+    },
+    {
+      "period": 13,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "meanScore": 1,
+      "firstLockMedian": 129
+    },
+    {
+      "period": 13,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "meanScore": 0.20124767832998597,
+      "firstLockMedian": null
+    },
+    {
+      "period": 13,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "meanScore": 0.44409897549056576,
+      "firstLockMedian": 145
+    },
+    {
+      "period": 17,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "meanScore": 1,
+      "firstLockMedian": 129
+    },
+    {
+      "period": 17,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "meanScore": 0.1878656723006108,
+      "firstLockMedian": null
+    },
+    {
+      "period": 17,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "meanScore": 0.4308961253959316,
+      "firstLockMedian": 284
+    },
+    {
+      "period": 23,
+      "kind": "periodic",
+      "runs": 64,
+      "locks": 64,
+      "exact": 64,
+      "meanScore": 1,
+      "firstLockMedian": 129
+    },
+    {
+      "period": 23,
+      "kind": "shuffled",
+      "runs": 64,
+      "locks": 0,
+      "exact": 0,
+      "meanScore": 0.17025474181861092,
+      "firstLockMedian": null
+    },
+    {
+      "period": 23,
+      "kind": "jittered",
+      "runs": 64,
+      "locks": 2,
+      "exact": 2,
+      "meanScore": 0.44247159090909083,
+      "firstLockMedian": 279
+    }
+  ]
+}
