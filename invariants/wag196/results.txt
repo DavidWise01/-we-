@@ -1,0 +1,8 @@
+mode,pattern,runs,initial_commit,released,reversed,median_release_after_change,median_reverse_after_change
+latched,quiet,32,32,0,0,NA,NA
+latched,reverse,32,32,0,0,NA,NA
+latched,sustain,32,32,0,0,NA,NA
+recoverable,quiet,32,32,32,0,189.5,NA
+recoverable,reverse,32,32,32,32,46.5,49.5
+recoverable,sustain,32,32,0,0,NA,NA
+PASS 67584 integer state updates
