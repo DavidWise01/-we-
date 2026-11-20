@@ -1,0 +1,199 @@
+{
+  "count": 98304,
+  "symmetry": 98304,
+  "missingChecks": 6144,
+  "rows": [
+    {
+      "mode": "immediate",
+      "phase": "initial",
+      "slots": 3072,
+      "correct": 2336,
+      "wrong": 736,
+      "unknown": 0
+    },
+    {
+      "mode": "immediate",
+      "phase": "quiet",
+      "slots": 8192,
+      "correct": 2325,
+      "wrong": 5867,
+      "unknown": 0
+    },
+    {
+      "mode": "immediate",
+      "phase": "restart",
+      "slots": 3072,
+      "correct": 2339,
+      "wrong": 733,
+      "unknown": 0
+    },
+    {
+      "mode": "immediate",
+      "phase": "missing",
+      "slots": 2048,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 2048
+    },
+    {
+      "mode": "immediate",
+      "phase": "reverse_after_gap",
+      "slots": 3072,
+      "correct": 1620,
+      "wrong": 1452,
+      "unknown": 0
+    },
+    {
+      "mode": "immediate",
+      "phase": "alternating",
+      "slots": 2048,
+      "correct": 0,
+      "wrong": 2048,
+      "unknown": 0
+    },
+    {
+      "mode": "immediate",
+      "phase": "reverse_live",
+      "slots": 3072,
+      "correct": 2232,
+      "wrong": 840,
+      "unknown": 0
+    },
+    {
+      "mode": "immediate",
+      "phase": "final_quiet",
+      "slots": 8192,
+      "correct": 2938,
+      "wrong": 5254,
+      "unknown": 0
+    },
+    {
+      "mode": "outage",
+      "phase": "initial",
+      "slots": 3072,
+      "correct": 2336,
+      "wrong": 736,
+      "unknown": 0
+    },
+    {
+      "mode": "outage",
+      "phase": "quiet",
+      "slots": 8192,
+      "correct": 2325,
+      "wrong": 5867,
+      "unknown": 0
+    },
+    {
+      "mode": "outage",
+      "phase": "restart",
+      "slots": 3072,
+      "correct": 2339,
+      "wrong": 733,
+      "unknown": 0
+    },
+    {
+      "mode": "outage",
+      "phase": "missing",
+      "slots": 2048,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 2048
+    },
+    {
+      "mode": "outage",
+      "phase": "reverse_after_gap",
+      "slots": 3072,
+      "correct": 1620,
+      "wrong": 0,
+      "unknown": 1452
+    },
+    {
+      "mode": "outage",
+      "phase": "alternating",
+      "slots": 2048,
+      "correct": 0,
+      "wrong": 2048,
+      "unknown": 0
+    },
+    {
+      "mode": "outage",
+      "phase": "reverse_live",
+      "slots": 3072,
+      "correct": 2232,
+      "wrong": 840,
+      "unknown": 0
+    },
+    {
+      "mode": "outage",
+      "phase": "final_quiet",
+      "slots": 8192,
+      "correct": 2938,
+      "wrong": 5254,
+      "unknown": 0
+    },
+    {
+      "mode": "continuous",
+      "phase": "initial",
+      "slots": 3072,
+      "correct": 2336,
+      "wrong": 0,
+      "unknown": 736
+    },
+    {
+      "mode": "continuous",
+      "phase": "quiet",
+      "slots": 8192,
+      "correct": 2325,
+      "wrong": 64,
+      "unknown": 5803
+    },
+    {
+      "mode": "continuous",
+      "phase": "restart",
+      "slots": 3072,
+      "correct": 2339,
+      "wrong": 0,
+      "unknown": 733
+    },
+    {
+      "mode": "continuous",
+      "phase": "missing",
+      "slots": 2048,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 2048
+    },
+    {
+      "mode": "continuous",
+      "phase": "reverse_after_gap",
+      "slots": 3072,
+      "correct": 1620,
+      "wrong": 0,
+      "unknown": 1452
+    },
+    {
+      "mode": "continuous",
+      "phase": "alternating",
+      "slots": 2048,
+      "correct": 0,
+      "wrong": 144,
+      "unknown": 1904
+    },
+    {
+      "mode": "continuous",
+      "phase": "reverse_live",
+      "slots": 3072,
+      "correct": 2232,
+      "wrong": 0,
+      "unknown": 840
+    },
+    {
+      "mode": "continuous",
+      "phase": "final_quiet",
+      "slots": 8192,
+      "correct": 2938,
+      "wrong": 64,
+      "unknown": 5190
+    }
+  ]
+}
