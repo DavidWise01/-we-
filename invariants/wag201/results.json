@@ -1,0 +1,300 @@
+{
+  "count": 196608,
+  "checks": 196608,
+  "rows": [
+    {
+      "batch": 200,
+      "mode": "continuous",
+      "correct": 13790,
+      "wrong": 272,
+      "unknown": 18706,
+      "phases": {
+        "initial": {
+          "correct": 2336,
+          "wrong": 0,
+          "unknown": 736
+        },
+        "quiet": {
+          "correct": 2325,
+          "wrong": 64,
+          "unknown": 5803
+        },
+        "restart": {
+          "correct": 2339,
+          "wrong": 0,
+          "unknown": 733
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 2048
+        },
+        "reverse_after_gap": {
+          "correct": 1620,
+          "wrong": 0,
+          "unknown": 1452
+        },
+        "alternating": {
+          "correct": 0,
+          "wrong": 144,
+          "unknown": 1904
+        },
+        "reverse_live": {
+          "correct": 2232,
+          "wrong": 0,
+          "unknown": 840
+        },
+        "final_quiet": {
+          "correct": 2938,
+          "wrong": 64,
+          "unknown": 5190
+        }
+      }
+    },
+    {
+      "batch": 200,
+      "mode": "weighted",
+      "correct": 13790,
+      "wrong": 16,
+      "unknown": 18962,
+      "phases": {
+        "initial": {
+          "correct": 2336,
+          "wrong": 0,
+          "unknown": 736
+        },
+        "quiet": {
+          "correct": 2325,
+          "wrong": 0,
+          "unknown": 5867
+        },
+        "restart": {
+          "correct": 2339,
+          "wrong": 0,
+          "unknown": 733
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 2048
+        },
+        "reverse_after_gap": {
+          "correct": 1620,
+          "wrong": 0,
+          "unknown": 1452
+        },
+        "alternating": {
+          "correct": 0,
+          "wrong": 16,
+          "unknown": 2032
+        },
+        "reverse_live": {
+          "correct": 2232,
+          "wrong": 0,
+          "unknown": 840
+        },
+        "final_quiet": {
+          "correct": 2938,
+          "wrong": 0,
+          "unknown": 5254
+        }
+      }
+    },
+    {
+      "batch": 200,
+      "mode": "latest",
+      "correct": 13790,
+      "wrong": 80,
+      "unknown": 18898,
+      "phases": {
+        "initial": {
+          "correct": 2336,
+          "wrong": 0,
+          "unknown": 736
+        },
+        "quiet": {
+          "correct": 2325,
+          "wrong": 0,
+          "unknown": 5867
+        },
+        "restart": {
+          "correct": 2339,
+          "wrong": 0,
+          "unknown": 733
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 2048
+        },
+        "reverse_after_gap": {
+          "correct": 1620,
+          "wrong": 0,
+          "unknown": 1452
+        },
+        "alternating": {
+          "correct": 0,
+          "wrong": 80,
+          "unknown": 1968
+        },
+        "reverse_live": {
+          "correct": 2232,
+          "wrong": 0,
+          "unknown": 840
+        },
+        "final_quiet": {
+          "correct": 2938,
+          "wrong": 0,
+          "unknown": 5254
+        }
+      }
+    },
+    {
+      "batch": 2010,
+      "mode": "continuous",
+      "correct": 13756,
+      "wrong": 272,
+      "unknown": 18740,
+      "phases": {
+        "initial": {
+          "correct": 2344,
+          "wrong": 0,
+          "unknown": 728
+        },
+        "quiet": {
+          "correct": 2257,
+          "wrong": 64,
+          "unknown": 5871
+        },
+        "restart": {
+          "correct": 2346,
+          "wrong": 0,
+          "unknown": 726
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 2048
+        },
+        "reverse_after_gap": {
+          "correct": 1619,
+          "wrong": 0,
+          "unknown": 1453
+        },
+        "alternating": {
+          "correct": 0,
+          "wrong": 144,
+          "unknown": 1904
+        },
+        "reverse_live": {
+          "correct": 2230,
+          "wrong": 0,
+          "unknown": 842
+        },
+        "final_quiet": {
+          "correct": 2960,
+          "wrong": 64,
+          "unknown": 5168
+        }
+      }
+    },
+    {
+      "batch": 2010,
+      "mode": "weighted",
+      "correct": 13756,
+      "wrong": 16,
+      "unknown": 18996,
+      "phases": {
+        "initial": {
+          "correct": 2344,
+          "wrong": 0,
+          "unknown": 728
+        },
+        "quiet": {
+          "correct": 2257,
+          "wrong": 0,
+          "unknown": 5935
+        },
+        "restart": {
+          "correct": 2346,
+          "wrong": 0,
+          "unknown": 726
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 2048
+        },
+        "reverse_after_gap": {
+          "correct": 1619,
+          "wrong": 0,
+          "unknown": 1453
+        },
+        "alternating": {
+          "correct": 0,
+          "wrong": 16,
+          "unknown": 2032
+        },
+        "reverse_live": {
+          "correct": 2230,
+          "wrong": 0,
+          "unknown": 842
+        },
+        "final_quiet": {
+          "correct": 2960,
+          "wrong": 0,
+          "unknown": 5232
+        }
+      }
+    },
+    {
+      "batch": 2010,
+      "mode": "latest",
+      "correct": 13756,
+      "wrong": 80,
+      "unknown": 18932,
+      "phases": {
+        "initial": {
+          "correct": 2344,
+          "wrong": 0,
+          "unknown": 728
+        },
+        "quiet": {
+          "correct": 2257,
+          "wrong": 0,
+          "unknown": 5935
+        },
+        "restart": {
+          "correct": 2346,
+          "wrong": 0,
+          "unknown": 726
+        },
+        "missing": {
+          "correct": 0,
+          "wrong": 0,
+          "unknown": 2048
+        },
+        "reverse_after_gap": {
+          "correct": 1619,
+          "wrong": 0,
+          "unknown": 1453
+        },
+        "alternating": {
+          "correct": 0,
+          "wrong": 80,
+          "unknown": 1968
+        },
+        "reverse_live": {
+          "correct": 2230,
+          "wrong": 0,
+          "unknown": 842
+        },
+        "final_quiet": {
+          "correct": 2960,
+          "wrong": 0,
+          "unknown": 5232
+        }
+      }
+    }
+  ]
+}
