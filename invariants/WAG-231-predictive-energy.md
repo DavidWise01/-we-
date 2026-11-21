@@ -1,0 +1,8 @@
+# WAG-231 · Predictive energy homeostasis
+.dlw · {24/[2]/[4]/(3)/(3)/(1)/(1)}
+
+WAG-231 adds a **12-tick energy forecast** using only the trailing eight *realized* energy changes and current energy. It modifies protection intensity downward only when the forecast indicates a reserve shortfall and measured urgency is not high. The existing emergency override remains. Predictions are not consulted until issued; their future errors are recorded only after 12 ticks have passed. The predictor forecasts realized energy under subsequent controller actions; this is an observational forecast, **not** a counterfactual estimate or a guarantee of causal benefit.
+
+Fixed environmental families from WAG-228 and physics from WAG-230 remain unchanged. Seeds 701–708 are distinct from previous experiments. Four capacities 5/8/13/21 and four policies (forecast, graded WAG-230, REST WAG-229, reserve WAG-228). 640 runs, 153600 ticks, 36480 matured predictions. Forecast-vs-graded mean-integrity comparisons: 11 wins / 53 regressions / 96 ties. Forecast RMSE 0.07017, signed bias 0.00766, fraction within ±0.10 energy units 0.87791. This is an **in-sample synthetic calibration diagnostic across held-out seeds**, not validated uncertainty coverage for new environment families. No hyperparameter selection on test seeds was performed in this run.
+
+Critical limitations: forecasting a current-policy trajectory is not enough to establish the forecast's value for intervention. Low forecast error alone does not show improved homeostasis. Compare integrity, reserve ticks, surviving ticks, and counterexamples. The simulator is synthetic; no independent field measurements or physical/biological claims. Publication of GitHub Pages is not implied by repository commits.
