@@ -29,7 +29,7 @@ const FAMTRAIN235=['chirp','scar','famine','friction','combined'],FAMTEST235=['p
 function choice235(s,c,cap,a){if(c.emergency&&a!=='boost')return c.baseline;if(a==='conserve')return c.alternative;if(a==='hold')return s.protection;if(a==='boost')return Math.min(shield234(cap),c.baseline+.095);return c.baseline}
 function step235(s,f,t,cap,family,a='baseline'){
 const {pressure,observed}=f[t],c=choices234(s,observed,cap),p=choice235(s,c,cap,a),scarcity=family==='famine'||family==='combined',friction=family==='friction'||family==='combined',fee=(friction?.003+(.020*(1-s.energy))**2:.003)+(s.integrity<.55?.007:0),cost=.0015+.029*Math.pow(p/.64,1.7),mod=fee*Math.abs(p-s.protection)/.64,raw=pressure*(1-p),gen=(.016+.0005*Math.min(cap,13)-.012*pressure)*(scarcity?(t>=62?.24:.75):1),damage=Math.max(0,raw-.31)*.034+(s.energy<.14?.012:0),rbase=cap>=21?.02:cap>=13?.015:cap>=8?.012:.009,repair=Math.min(Math.max(0,s.ceiling-s.integrity),rbase*Math.max(.22,s.energy)*(scarcity?.42:1)),scar=(family==='scar'||family==='combined')?.26:0;
-s.ceiling=clamp234(s.ceiling-damage*scar);s.energy=clamp234(s.energy+gen-cost-.011*raw-repair*.35-mod);s.integrity=Math.min(s.ceiling,clamp234(s.integrity-damage+repair));s.protection=p;s.history=c.history;s.stress=c.stress;s.lastObserved=observed;s.area+=s.integrity;const alive=s.integrity>.15&&s.energy>.08;if(alive)s.alive++;if(s.energy>.25&&s.integrity>.30)s.reserve++;const band=p<.12?'REST':p<.4?'GUARD':'DEFEND';if(band!==s.lastBand)s.transitions++;s.lastBand=band;s.trace.push({t,pressure:+pressure.toFixed(5),energy:+s.energy.toFixed(5),integrity:+s.integrity.toFixed(5),protection:+p.toFixed(5),action:a,alive});if(s.energy<0||s.energy>1||s.integrity<0||s.integrity>s.ceiling+1e-10||p>shield234(cap)+1e-10)throw Error('bounds')}
+s.ceiling=clamp234(s.ceiling-damage*scar);s.energy=clamp234(s.energy+gen-cost-.011*raw-repair*.35-mod);s.integrity=Math.min(s.ceiling,clamp234(s.integrity-damage+repair));s.protection=p;s.history=c.history;s.stress=c.stress;s.lastObserved=observed;s.area+=s.integrity;const alive=s.integrity>.15&&s.energy>.08;if(alive)s.alive++;if(s.energy>.25&&s.integrity>.30)s.reserve++;const band=p<.12?'REST':p<.4?'GUARD':'DEFEND';if(band!==s.lastBand)s.transitions++;s.lastBand=band;s.trace.push({t,pressure:+pressure.toFixed(5),energy:+s.energy.toFixed(5),integrity:+s.integrity.toFixed(5),protection:+p.toFixed(5),action:a,alive});if(s.energy<0||s.energy>1||s.integrity<0||s.integrity>s.ceiling+1e-10||p>shield234(cap)+1e-10)throw Error('bounds');return cost+.011*raw+repair*.35+mod}
 function branch235(s,f,t,cap,family,a){const x=clone234(s),y=clone234(s),end=Math.min(240,t+12);for(let k=t;k<end;k++){step235(x,f,k,cap,family);step235(y,f,k,cap,family,k===t?a:'baseline')}return (y.area-x.area)/(end-t)+.08*(y.energy-x.energy)+.006*(y.alive-x.alive)}
 function train235(){const cells=Array.from({length:4},()=>Array.from({length:9},()=>Object.fromEntries(ACT235.map(a=>[a,{n:0,mean:0,m2:0}]))));let pairs=0;
 for(let ci=0;ci<4;ci++)for(const family of FAMTRAIN235)for(const seed of TRAIN235){const cap=CAP234[ci],f=forcing234(family,seed),s=init234();for(let t=0;t<240;t++){if(t>=20&&t<=228&&t%5===0){const d=choices234(s,f[t].observed,cap),bin=bin234(s,f[t].observed);for(const a of ACT235){if(d.emergency&&a!=='boost')continue;if(Math.abs(choice235(s,d,cap,a)-d.baseline)<.004)continue;const v=branch235(s,f,t,cap,family,a),c=cells[ci][bin][a];c.n++;const diff=v-c.mean;c.mean+=diff/c.n;c.m2+=diff*(v-c.mean);pairs++}}step235(s,f,t,cap,family)}}
@@ -92,18 +92,11 @@ function simulate238(cap,family,seed,mode,model){
   }
   // Keep emergency defense from graded WAG-230. The controller does not assume
   // a negative budget can be repaired without additional resource generation.
-  const actualProtection=choice235(s,decision,cap,action);
-  const raw=current.pressure*(1-actualProtection);
-  const runCost=.0015+.029*Math.pow(actualProtection/.64,1.7);
-  const friction=family==='friction'||family==='combined';
-  const fee=(friction?.003+(.020*(1-s.energy))**2:.003)+(s.integrity<.55?.007:0);
-  const modulation=fee*Math.abs(actualProtection-s.protection)/.64;
-  const scarcity=family==='famine'||family==='combined';
-  const repairBase=cap>=21?.02:cap>=13?.015:cap>=8?.012:.009;
-  const repair=Math.min(Math.max(0,s.ceiling-s.integrity),repairBase*Math.max(.22,s.energy)*(scarcity?.42:1));
-  const cost=runCost+.011*raw+repair*.35+modulation;
   const energyBefore=s.energy;
-  choices[action]++;step235(s,f,t,cap,family,action);
+  choices[action]++;
+  // Instrumented actuator reports its completed, realized operating outlay.
+  // The controller does not inspect the hidden environment family.
+  const cost=step235(s,f,t,cap,family,action);
   const delta=s.energy-energyBefore;
   const valid=energyBefore>.02&&s.energy>.02&&energyBefore<.98&&s.energy<.98;
   const reconstructed=valid?delta+cost:null;
