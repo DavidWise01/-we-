@@ -1,0 +1,63 @@
+{
+  "pairedSlotComparisons": 36864,
+  "independentAgreements": 32,
+  "sharedRejected": 128,
+  "disagreements": 32,
+  "forgeriesExposed": 32,
+  "rows": [
+    {
+      "kind": "independent_clean",
+      "runs": 32,
+      "independent": 32,
+      "shared": 0,
+      "disagree": 0,
+      "wrong": 0,
+      "selfReportedQualified": 32
+    },
+    {
+      "kind": "shared_copy",
+      "runs": 32,
+      "independent": 0,
+      "shared": 32,
+      "disagree": 0,
+      "wrong": 0,
+      "selfReportedQualified": 0
+    },
+    {
+      "kind": "shared_corruption",
+      "runs": 32,
+      "independent": 0,
+      "shared": 32,
+      "disagree": 0,
+      "wrong": 0,
+      "selfReportedQualified": 0
+    },
+    {
+      "kind": "independent_disagree",
+      "runs": 32,
+      "independent": 0,
+      "shared": 0,
+      "disagree": 32,
+      "wrong": 0,
+      "selfReportedQualified": 0
+    },
+    {
+      "kind": "shared_upstream",
+      "runs": 32,
+      "independent": 0,
+      "shared": 32,
+      "disagree": 0,
+      "wrong": 0,
+      "selfReportedQualified": 0
+    },
+    {
+      "kind": "forged_distinct",
+      "runs": 32,
+      "independent": 0,
+      "shared": 32,
+      "disagree": 0,
+      "wrong": 0,
+      "selfReportedQualified": 32
+    }
+  ]
+}
