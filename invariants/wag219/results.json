@@ -1,0 +1,223 @@
+{
+  "fixtureCases": 192,
+  "observationSlots": 184320,
+  "biasedSuspensions": 216,
+  "rows": [
+    {
+      "kind": "stable",
+      "mask": "visible",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 0
+    },
+    {
+      "kind": "stable",
+      "mask": "random_half",
+      "runs": 8,
+      "blindMismatch": 6,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 3
+    },
+    {
+      "kind": "stable",
+      "mask": "burst",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 2
+    },
+    {
+      "kind": "stable",
+      "mask": "event_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 0,
+      "suspended": 16
+    },
+    {
+      "kind": "stable",
+      "mask": "phase_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 0,
+      "suspended": 16
+    },
+    {
+      "kind": "stable",
+      "mask": "anti_event",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 16
+    },
+    {
+      "kind": "jitterB",
+      "mask": "visible",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 0
+    },
+    {
+      "kind": "jitterB",
+      "mask": "random_half",
+      "runs": 8,
+      "blindMismatch": 5,
+      "coverageMismatch": 1,
+      "provenanceMismatch": 1,
+      "suspended": 3
+    },
+    {
+      "kind": "jitterB",
+      "mask": "burst",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 2,
+      "provenanceMismatch": 2,
+      "suspended": 2
+    },
+    {
+      "kind": "jitterB",
+      "mask": "event_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 2,
+      "suspended": 16
+    },
+    {
+      "kind": "jitterB",
+      "mask": "phase_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 2,
+      "suspended": 16
+    },
+    {
+      "kind": "jitterB",
+      "mask": "anti_event",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 2,
+      "provenanceMismatch": 2,
+      "suspended": 16
+    },
+    {
+      "kind": "dropB",
+      "mask": "visible",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 0
+    },
+    {
+      "kind": "dropB",
+      "mask": "random_half",
+      "runs": 8,
+      "blindMismatch": 6,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 4
+    },
+    {
+      "kind": "dropB",
+      "mask": "burst",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 2
+    },
+    {
+      "kind": "dropB",
+      "mask": "event_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 0,
+      "suspended": 16
+    },
+    {
+      "kind": "dropB",
+      "mask": "phase_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 0,
+      "suspended": 16
+    },
+    {
+      "kind": "dropB",
+      "mask": "anti_event",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 16
+    },
+    {
+      "kind": "flash_return",
+      "mask": "visible",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 0
+    },
+    {
+      "kind": "flash_return",
+      "mask": "random_half",
+      "runs": 8,
+      "blindMismatch": 6,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 5
+    },
+    {
+      "kind": "flash_return",
+      "mask": "burst",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 4
+    },
+    {
+      "kind": "flash_return",
+      "mask": "event_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 0,
+      "suspended": 24
+    },
+    {
+      "kind": "flash_return",
+      "mask": "phase_targeted",
+      "runs": 8,
+      "blindMismatch": 8,
+      "coverageMismatch": 8,
+      "provenanceMismatch": 0,
+      "suspended": 24
+    },
+    {
+      "kind": "flash_return",
+      "mask": "anti_event",
+      "runs": 8,
+      "blindMismatch": 0,
+      "coverageMismatch": 0,
+      "provenanceMismatch": 0,
+      "suspended": 24
+    }
+  ]
+}
