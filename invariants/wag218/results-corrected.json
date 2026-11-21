@@ -1,0 +1,249 @@
+{
+  "observationSlots": 1474560,
+  "ledgerReplayChecks": 1536,
+  "censoredComponentDecisions": 923,
+  "stableFullMissingBlindLosses": 128,
+  "stableFullMissingGuardLosses": 0,
+  "rows": [
+    {
+      "kind": "stable",
+      "mask": "visible",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 0,
+      "blindWrong": 0
+    },
+    {
+      "kind": "stable",
+      "mask": "missing",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 128,
+      "blindWrong": 64
+    },
+    {
+      "kind": "stable",
+      "mask": "first_half",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 16,
+      "blindWrong": 64
+    },
+    {
+      "kind": "stable",
+      "mask": "alternate",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 0,
+      "blindWrong": 32
+    },
+    {
+      "kind": "jitterB",
+      "mask": "visible",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 0,
+      "blindWrong": 0
+    },
+    {
+      "kind": "jitterB",
+      "mask": "missing",
+      "runs": 64,
+      "correct": 62,
+      "wrong": 2,
+      "unknown": 0,
+      "unverified": 128,
+      "blindWrong": 64
+    },
+    {
+      "kind": "jitterB",
+      "mask": "first_half",
+      "runs": 64,
+      "correct": 62,
+      "wrong": 2,
+      "unknown": 0,
+      "unverified": 16,
+      "blindWrong": 64
+    },
+    {
+      "kind": "jitterB",
+      "mask": "alternate",
+      "runs": 64,
+      "correct": 50,
+      "wrong": 14,
+      "unknown": 0,
+      "unverified": 11,
+      "blindWrong": 45
+    },
+    {
+      "kind": "dropB",
+      "mask": "visible",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 0,
+      "blindWrong": 0
+    },
+    {
+      "kind": "dropB",
+      "mask": "missing",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 128,
+      "blindWrong": 64
+    },
+    {
+      "kind": "dropB",
+      "mask": "first_half",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 16,
+      "blindWrong": 64
+    },
+    {
+      "kind": "dropB",
+      "mask": "alternate",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 0,
+      "blindWrong": 64
+    },
+    {
+      "kind": "ephemeral",
+      "mask": "visible",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 0,
+      "blindWrong": 0
+    },
+    {
+      "kind": "ephemeral",
+      "mask": "missing",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 192,
+      "blindWrong": 64
+    },
+    {
+      "kind": "ephemeral",
+      "mask": "first_half",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 32,
+      "blindWrong": 64
+    },
+    {
+      "kind": "ephemeral",
+      "mask": "alternate",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 16,
+      "blindWrong": 64
+    },
+    {
+      "kind": "flash_return",
+      "mask": "visible",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 0,
+      "blindWrong": 0
+    },
+    {
+      "kind": "flash_return",
+      "mask": "missing",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 192,
+      "blindWrong": 64
+    },
+    {
+      "kind": "flash_return",
+      "mask": "first_half",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 32,
+      "blindWrong": 64
+    },
+    {
+      "kind": "flash_return",
+      "mask": "alternate",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "unverified": 16,
+      "blindWrong": 64
+    },
+    {
+      "kind": "harmonic",
+      "mask": "visible",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "unverified": 0,
+      "blindWrong": 64
+    },
+    {
+      "kind": "harmonic",
+      "mask": "missing",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "unverified": 0,
+      "blindWrong": 64
+    },
+    {
+      "kind": "harmonic",
+      "mask": "first_half",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "unverified": 0,
+      "blindWrong": 64
+    },
+    {
+      "kind": "harmonic",
+      "mask": "alternate",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "unverified": 0,
+      "blindWrong": 64
+    }
+  ]
+}
