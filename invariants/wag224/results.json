@@ -1,0 +1,116 @@
+{
+  "cases": 384,
+  "naiveFalse": 192,
+  "collusionFalse": 64,
+  "invalidPackets": 96,
+  "rows": [
+    {
+      "kind": "three_independent",
+      "runs": 32,
+      "quorum": 32,
+      "abstain": 0,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "copied_pair_dissent",
+      "runs": 32,
+      "quorum": 0,
+      "abstain": 32,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "triple_copy",
+      "runs": 32,
+      "quorum": 0,
+      "abstain": 32,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "independent_dissent",
+      "runs": 32,
+      "quorum": 32,
+      "abstain": 0,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "missing_third",
+      "runs": 32,
+      "quorum": 32,
+      "abstain": 0,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "invalid_third",
+      "runs": 32,
+      "quorum": 32,
+      "abstain": 0,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "alias_pair_dissent",
+      "runs": 32,
+      "quorum": 0,
+      "abstain": 32,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "two_copy_one_agree",
+      "runs": 32,
+      "quorum": 32,
+      "abstain": 0,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "authorized_collusion",
+      "runs": 32,
+      "quorum": 32,
+      "abstain": 0,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 32
+    },
+    {
+      "kind": "all_disagree",
+      "runs": 32,
+      "quorum": 0,
+      "abstain": 32,
+      "naiveQuorum": 0,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "one_shared_bad",
+      "runs": 32,
+      "quorum": 0,
+      "abstain": 32,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 0
+    },
+    {
+      "kind": "false_distinct_root",
+      "runs": 32,
+      "quorum": 32,
+      "abstain": 0,
+      "naiveQuorum": 32,
+      "wrong": 0,
+      "falseIndependent": 32
+    }
+  ]
+}

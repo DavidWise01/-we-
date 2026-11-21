@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-224 · Three witness quorum</title><style>:root{color-scheme:dark}body{background:#0b1727;color:#eaf5ff;font:16px system-ui;max-width:960px;margin:auto;padding:24px}h1{color:#65dfc3}p{color:#b9ceda}select,button{background:#274158;border:1px solid #65dfc3;color:white;padding:10px;margin:5px;border-radius:6px}svg{width:100%;border:1px solid #2d4f63;border-radius:12px;background:#102438}.panel{background:#162c42;border:1px solid #3a576a;border-radius:8px;padding:16px;line-height:1.8}.muted{font-size:13px;color:#a8c2d0}.warn{color:#ff9a42}.good{color:#65dfc3}</style><h1>WAG-224 · One source is not three witnesses</h1><p>Three authenticated channels. Two independently acquired matching observations required for quorum.</p><label>Scenario <select id="kind"><option value="three_independent">Three independent agree</option><option value="copied_pair_dissent">Two copies, one dissent</option><option value="triple_copy">Three copied streams</option><option value="independent_dissent">One independent dissent</option><option value="missing_third">Missing third witness</option><option value="invalid_third">Invalid third signature</option><option value="alias_pair_dissent">Alias hides copied pair</option><option value="two_copy_one_agree">Two copies and independent agreement</option><option value="authorized_collusion" selected>Three authorized signers collude</option><option value="all_disagree">All disagree</option><option value="one_shared_bad">Two copies and third missing</option><option value="false_distinct_root">False acquisition roots</option></select></label><label>Period <select id="p"><option>9</option><option>13</option><option>17</option><option>23</option></select></label><button onclick="draw()">Calculate quorum</button><svg id="scene" viewBox="0 0 760 330"></svg><div id="out" class="panel"></div><p class="muted">Acquisition-root truth is a simulator annotation; no real sensor independence is authenticated. .dlw</p><script>// WAG-224 inherits WAG-223: packet integrity, signer authorization, acquisition lineage (.dlw)
+// Demo keys are PUBLIC. HMAC in this fixture does not authenticate real sensors.
+function sha256(s){
+ const ro=(x,n)=>(x>>>n)|(x<<(32-n)),K=[0x428a2f98,0x71374491,0xb5c0fbcf,0xe9b5dba5,0x3956c25b,0x59f111f1,0x923f82a4,0xab1c5ed5,0xd807aa98,0x12835b01,0x243185be,0x550c7dc3,0x72be5d74,0x80deb1fe,0x9bdc06a7,0xc19bf174,0xe49b69c1,0xefbe4786,0x0fc19dc6,0x240ca1cc,0x2de92c6f,0x4a7484aa,0x5cb0a9dc,0x76f988da,0x983e5152,0xa831c66d,0xb00327c8,0xbf597fc7,0xc6e00bf3,0xd5a79147,0x06ca6351,0x14292967,0x27b70a85,0x2e1b2138,0x4d2c6dfc,0x53380d13,0x650a7354,0x766a0abb,0x81c2c92e,0x92722c85,0xa2bfe8a1,0xa81a664b,0xc24b8b70,0xc76c51a3,0xd192e819,0xd6990624,0xf40e3585,0x106aa070,0x19a4c116,0x1e376c08,0x2748774c,0x34b0bcb5,0x391c0cb3,0x4ed8aa4a,0x5b9cca4f,0x682e6ff3,0x748f82ee,0x78a5636f,0x84c87814,0x8cc70208,0x90befffa,0xa4506ceb,0xbef9a3f7,0xc67178f2];
+ const b=Array.from(s,c=>c.charCodeAt(0));if(b.some(x=>x>255))throw Error('binary chars only');
+ const bits=b.length*8;b.push(128);while(b.length%64!==56)b.push(0);
+ for(const word of [Math.floor(bits/4294967296),bits>>>0])for(let j=3;j>=0;j--)b.push((word>>>(8*j))&255);
+ let H=[0x6a09e667,0xbb67ae85,0x3c6ef372,0xa54ff53a,0x510e527f,0x9b05688c,0x1f83d9ab,0x5be0cd19];
+ for(let offset=0;offset<b.length;offset+=64){let W=Array(64);
+  for(let i=0;i<16;i++)W[i]=(b[offset+4*i]<<24)|(b[offset+4*i+1]<<16)|(b[offset+4*i+2]<<8)|b[offset+4*i+3];
+  for(let i=16;i<64;i++){let a=W[i-15],z=W[i-2];W[i]=(W[i-16]+(ro(a,7)^ro(a,18)^(a>>>3))+W[i-7]+(ro(z,17)^ro(z,19)^(z>>>10)))|0}
+  let [a,z,c,d,e,f,g,h]=H;
+  for(let i=0;i<64;i++){const x=(h+(ro(e,6)^ro(e,11)^ro(e,25))+((e&f)^(~e&g))+K[i]+W[i])|0,y=((ro(a,2)^ro(a,13)^ro(a,22))+((a&z)^(a&c)^(z&c)))|0;h=g;g=f;f=e;e=(d+x)|0;d=c;c=z;z=a;a=(x+y)|0}
+  H=H.map((v,i)=>(v+[a,z,c,d,e,f,g,h][i])|0);
+ }
+ return H.map(x=>(x>>>0).toString(16).padStart(8,'0')).join('');
+}
+function hmac256(key,msg){const bytes=s=>Array.from(s,c=>c.charCodeAt(0)),str=a=>String.fromCharCode(...a);let k=bytes(key);
+ if(k.length>64){let z=sha256(key);k=Array.from({length:32},(_,i)=>parseInt(z.slice(i*2,i*2+2),16))}
+ while(k.length<64)k.push(0);
+ const inner=sha256(str(k.map(x=>x^54))+msg),raw=Array.from({length:32},(_,i)=>parseInt(inner.slice(i*2,i*2+2),16));
+ return sha256(str(k.map(x=>x^92))+str(raw));
+}
+const TRUST223={a:'fixture-key-a',b:'fixture-key-b'},CASES223=['independent','shared','payload_tamper','ancestry_tamper','unknown_signer','bad_mac','old_epoch','missing_packet','unknown_root','authorized_collusion'];
+function packet223(signer,channel,root,p,epoch=5){const payload={channel,root,epoch,events:Array.from({length:64},(_,i)=>Number(i%p===3))},digest=sha256(JSON.stringify(payload));return {signer,payload,digest,mac:hmac256(TRUST223[signer]||'rogue',digest)}}
+function fixture223(kind,p,seed){
+ const A=packet223('a','A','rootA',p);let B=packet223('b','B','rootB',p);
+ let trueRoots=['rootA','rootB'];
+ if(kind==='shared'){B=packet223('b','B','rootA',p);trueRoots[1]='rootA'}
+ if(kind==='payload_tamper')B.payload.events[8]^=1;
+ if(kind==='ancestry_tamper')B.payload.root='rootA';
+ if(kind==='unknown_signer')B=packet223('rogue','B','rootB',p);
+ if(kind==='bad_mac')B.mac='0'.repeat(64);
+ if(kind==='old_epoch')B=packet223('b','B','rootB',p,4);
+ if(kind==='missing_packet')B=null;
+ if(kind==='unknown_root')B=packet223('b','B','UNKNOWN',p);
+ if(kind==='authorized_collusion')trueRoots[1]='rootA';
+ return {kind,p,seed,A,B,trueRoots};
+}
+function check223(packet){if(!packet)return {ok:false,errors:['MISSING_PACKET']};
+ const e=[],key=TRUST223[packet.signer];if(!key)e.push('UNAUTHORIZED_SIGNER');
+ if(sha256(JSON.stringify(packet.payload))!==packet.digest)e.push('DIGEST_CHANGED');
+ if(key&&hmac256(key,packet.digest)!==packet.mac)e.push('MAC_INVALID');
+ if(packet.payload.epoch!==5)e.push('STALE_EPOCH');
+ if(!packet.payload.root||packet.payload.root==='UNKNOWN')e.push('ROOT_UNKNOWN');
+ return {ok:e.length===0,errors:e};
+}
+function assess223(f){const a=check223(f.A),b=check223(f.B);if(!a.ok||!b.ok)return {status:'QUARANTINE',A:a,B:b};
+ if(f.A.payload.root===f.B.payload.root)return {status:'SHARED_ROOT',A:a,B:b};
+ return {status:f.A.payload.events.every((v,i)=>v===f.B.payload.events[i])?'INDEPENDENT_AGREEMENT':'DISAGREEMENT',A:a,B:b};
+}
+
+
+TRUST223.c='fixture-key-c'; // public demo key
+const KINDS224=['three_independent','copied_pair_dissent','triple_copy','independent_dissent','missing_third','invalid_third','alias_pair_dissent','two_copy_one_agree','authorized_collusion','all_disagree','one_shared_bad','false_distinct_root'];
+const ROOT_ALIASES224={'relay-A':'rootA','relay-B':'rootB'};
+function normalize224(root){const seen=new Set();while(ROOT_ALIASES224[root]){if(seen.has(root))return null;seen.add(root);root=ROOT_ALIASES224[root]}return root&&root!=='UNKNOWN'?root:null}
+function sample224(p,kind,seed){
+ const claimed=['rootA','rootB','rootC'],actual=claimed.slice(),signers=['a','b','c'];
+ const packets=claimed.map((root,i)=>packet223(signers[i],String.fromCharCode(65+i),root,p));
+ const altered=pkt=>{const data={...pkt.payload,events:pkt.payload.events.map((v,i)=>i%3===0?1-v:v)},digest=sha256(JSON.stringify(data));return {...pkt,payload:data,digest,mac:hmac256(TRUST223[pkt.signer],digest)}};
+ if(['copied_pair_dissent','triple_copy','two_copy_one_agree','one_shared_bad'].includes(kind)){packets[1]=packet223('b','B','rootA',p);actual[1]='rootA'}
+ if(['copied_pair_dissent','alias_pair_dissent'].includes(kind))packets[2]=altered(packets[2]);
+ if(kind==='triple_copy'){packets[2]=packet223('c','C','rootA',p);actual[2]='rootA'}
+ if(kind==='independent_dissent')packets[2]=altered(packets[2]);
+ if(kind==='missing_third'||kind==='one_shared_bad')packets[2]=null;
+ if(kind==='invalid_third')packets[2].mac='0'.repeat(64);
+ if(kind==='alias_pair_dissent'){packets[1]=packet223('b','B','relay-A',p);actual[1]='rootA'}
+ if(['authorized_collusion','false_distinct_root'].includes(kind))actual.fill('rootA');
+ if(kind==='false_distinct_root')packets[2]=altered(packets[2]);
+ if(kind==='all_disagree'){
+  packets[1]=altered(packets[1]);
+  const data={...packets[2].payload,events:packets[2].payload.events.map((v,i)=>i%4===0?1-v:v)},digest=sha256(JSON.stringify(data));
+  packets[2]={...packets[2],payload:data,digest,mac:hmac256(TRUST223.c,digest)};
+ }
+ return {kind,p,seed,packets,actual};
+}
+function quorum224(f,policy='lineage'){
+ const accepted=[],invalid=[];
+ for(let i=0;i<f.packets.length;i++){
+  const packet=f.packets[i],v=check223(packet);
+  if(!v.ok){invalid.push({channel:i,errors:v.errors});continue}
+  const root=normalize224(packet.payload.root);
+  if(!root){invalid.push({channel:i,errors:['UNRESOLVED_ALIAS']});continue}
+  accepted.push({channel:i,signer:packet.signer,root,pattern:sha256(JSON.stringify(packet.payload.events))});
+ }
+ const groups=new Map();
+ for(const v of accepted){if(!groups.has(v.pattern))groups.set(v.pattern,[]);groups.get(v.pattern).push(v)}
+ let winner=null,support=0;
+ for(const members of groups.values()){
+  const n=new Set(members.map(v=>policy==='naive'?v.signer:v.root)).size;
+  if(n>support){support=n;winner=members}
+ }
+ const channels=winner?.map(v=>v.channel)??[];
+ return {status:support>=2?'QUORUM':'ABSTAIN',support,authenticated:accepted.length,invalid,
+  channels,realDistinctAcquisitions:new Set(channels.map(i=>f.actual[i])).size,policy};
+}
+function experiment224(){
+ const rows=[],examples=[],counterexamples=[];let cases=0,naiveFalse=0,collusionFalse=0,invalidPackets=0;
+ for(const kind of KINDS224){
+  let quorum=0,abstain=0,naiveQuorum=0,wrong=0,falseIndependent=0;
+  for(const p of [9,13,17,23])for(let seed=224;seed<232;seed++){
+   const f=sample224(p,kind,seed),v=quorum224(f),naive=quorum224(f,'naive');
+   const expected=!['copied_pair_dissent','triple_copy','alias_pair_dissent','all_disagree','one_shared_bad'].includes(kind);
+   cases++;quorum+=Number(v.status==='QUORUM');abstain+=Number(v.status==='ABSTAIN');naiveQuorum+=Number(naive.status==='QUORUM');
+   wrong+=Number((v.status==='QUORUM')!==expected);
+   if(naive.status==='QUORUM'&&naive.realDistinctAcquisitions<2)naiveFalse++;
+   if(v.status==='QUORUM'&&v.realDistinctAcquisitions<2){collusionFalse++;falseIndependent++}
+   invalidPackets+=v.invalid.length;
+   if(p===9&&seed===224)examples.push({kind,p,seed,expected,withLineage:v,bySignerCount:naive,actualRoots:f.actual,packets:f.packets});
+   if((v.status==='QUORUM')!==expected&&counterexamples.length<20)counterexamples.push({kind,p,seed,expected,v,naive,packets:f.packets,roots:f.actual});
+  }
+  rows.push({kind,runs:32,quorum,abstain,naiveQuorum,wrong,falseIndependent});
+ }
+ return {cases,naiveFalse,collusionFalse,invalidPackets,rows,examples,counterexamples};
+}
+if(typeof module!=='undefined')module.exports={sample224,quorum224,experiment224};
+if(typeof require!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment224(),null,2));
+
+const el=id=>document.getElementById(id);
+function draw(){const f=sample224(+el('p').value,el('kind').value,224),v=quorum224(f),naive=quorum224(f,'naive');
+el('out').innerHTML='<b class="'+(v.status==='QUORUM'?'good':'warn')+'">Lineage-aware: '+v.status+'</b> · '+v.support+' distinct claimed roots<div>Signer-count policy: '+naive.status+'</div><div>Valid signed channels: '+v.authenticated+' / 3</div><div>Claimed independent acquisitions in winning group: '+v.support+'</div><div>Fixture actual distinct acquisitions: '+v.realDistinctAcquisitions+'</div><div>Invalid packets: '+v.invalid.map(x=>x.channel+1+':'+x.errors.join('/')).join(', ')+'</div>';
+let s='<rect width="760" height="330" fill="#102438"/>';let colors=['#9b74ed','#f8a354','#6ce7c7'];
+for(let i=0;i<3;i++){let x=150+i*230,p=f.packets[i],root=p?.payload.root||'MISSING';s+='<path d="M'+x+' 112 L380 239" stroke="'+colors[i]+'" stroke-width="3" opacity=".65"/><circle cx="'+x+'" cy="90" r="59" fill="#22374e" stroke="'+colors[i]+'" stroke-width="3"/><text x="'+x+'" y="83" text-anchor="middle" fill="white" font-size="21">'+['A','B','C'][i]+'</text><text x="'+x+'" y="101" text-anchor="middle" fill="white" font-size="11">'+root+'</text><text x="'+x+'" y="166" text-anchor="middle" fill="'+colors[i]+'" font-size="11">ACTUAL '+f.actual[i]+'</text>'}
+const color=v.status==='QUORUM'?'#65dfc3':'#ff9a42';s+='<circle cx="380" cy="252" r="45" fill="#254953" stroke="'+color+'" stroke-width="3"/><text x="380" y="260" text-anchor="middle" fill="white" font-size="27">{{i}}</text><text x="380" y="326" text-anchor="middle" fill="'+color+'" font-size="15">'+v.status+'</text>';el('scene').innerHTML=s}
+draw()</script></html>
