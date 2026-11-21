@@ -1,0 +1,185 @@
+{
+  "observationSlots": 737280,
+  "rows": [
+    {
+      "kind": "stable",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "stable",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "jitterB",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "jitterB",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 62,
+      "wrong": 2,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "shiftB",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "shiftB",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "replace",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 64
+    },
+    {
+      "kind": "replace",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 64
+    },
+    {
+      "kind": "ephemeral",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 64,
+      "unknown": 0,
+      "proposalBirth": 64
+    },
+    {
+      "kind": "ephemeral",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 64
+    },
+    {
+      "kind": "dropA",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "dropA",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "dropB",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "dropB",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "bothDrop",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "bothDrop",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "mixedTransient",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "mixedTransient",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "harmonic",
+      "policy": "provisional",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "proposalBirth": 0
+    },
+    {
+      "kind": "harmonic",
+      "policy": "verified",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "proposalBirth": 0
+    }
+  ]
+}
