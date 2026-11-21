@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-225 · Living homeostasis lab</title><style>:root{color-scheme:dark}body{background:#0a1420;color:#eef7fb;font:16px system-ui;margin:0}main{max-width:1200px;margin:auto;padding:22px}h1{font-size:25px;color:#67f3d2;margin:0}p{color:#b8cbd9}select,button{background:#183143;color:#fff;border:1px solid #68dac3;border-radius:5px;padding:10px;margin:5px}.stage{display:grid;grid-template-columns:minmax(380px,1.6fr) minmax(240px,1fr);gap:12px}.pane{background:#0f2538;border:1px solid #35546b;border-radius:12px;padding:15px}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.metric{padding:12px;background:#19354b;border-radius:8px}.big{font-size:23px;font-weight:bold;color:#68dac3}.small{font-size:12px;color:#afc6d3}.trace{height:240px;overflow:auto;white-space:pre-wrap;font:12px ui-monospace,monospace;color:#b8cada}canvas{width:100%;height:auto;display:block;border-radius:8px;background:#071525}svg{width:100%;height:180px} @media(max-width:780px){.stage{grid-template-columns:1fr}} </style><main><h1>WAG-225 · Autonomous homeostatic emergence</h1><p>Five maintain · eight shelter · thirteen choose · twenty-one repair. Adaptive memory keeps the full evidence trace.</p><div><label>Capacity <select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label><label>Environment <select id="scenario"><option value="default">Stepped stress</option><option value="stable">Stable</option><option value="shock">Sudden shock</option><option selected value="oscillating">Oscillating pressure</option><option value="drift">Gradual drift</option><option value="recovery">Recovery</option></select></label><label>Memory <select id="mode"><option value="adaptive">Adaptive</option><option value="fixed">Fixed eight</option></select></label><button onclick="render()">Run 240 ticks</button></div><div class="stage"><section class="pane"><canvas id="scene" width="780" height="445"></canvas><svg id="chart" viewBox="0 0 780 180"></svg></section><section class="pane"><div class="metrics"><div class="metric"><div class="small">Energy</div><div class="big" id="energy"></div></div><div class="metric"><div class="small">Integrity</div><div class="big" id="integrity"></div></div><div class="metric"><div class="small">Alive ticks</div><div class="big" id="alive"></div></div><div class="metric"><div class="small">Average integrity</div><div class="big" id="average"></div></div><div class="metric"><div class="small">Memory window</div><div class="big" id="memory"></div></div><div class="metric"><div class="small">Regulation mode</div><div class="big" id="action"></div></div></div><h3>Action allocation</h3><div id="allocation"></div><h3>Decision trace</h3><div id="trace" class="trace"></div><p class="small">Same-root synthetic observations; no witness proof, no biological claim. .dlw</p></section></div></main><script>// WAG-225 · autonomous homeostatic emergence · .dlw
+// Synthetic controller and observations; not a biological emergence claim.
+// {24/[2]/[4]/(3)/(3)/(1)/(1)}
+const W225_CAPACITIES=[5,8,13,21],W225_ACTIONS=['HOLD','HIDE','FIGHT','FLIGHT'];
+function rng225(seed){let n=seed>>>0;return ()=>((n=(Math.imul(n,1664525)+1013904223)>>>0)/4294967296)}
+function clamp225(x,lo=0,hi=1){return Math.max(lo,Math.min(hi,x))}
+function ambient225(t,scenario){
+ const segment=Math.floor(t/40)%6,regimes=[.14,.24,.79,.33,.9,.2];let pressure=regimes[segment];
+ if(scenario==='stable')pressure=.25;
+ if(scenario==='shock')pressure=t>=80&&t<120?.96:.21;
+ if(scenario==='oscillating')pressure=.22+.65*(.5+.5*Math.sin(t*.21));
+ if(scenario==='drift')pressure=.17+.7*t/240;
+ if(scenario==='recovery')pressure=t<80?.25:t<160?.82:.16;
+ return clamp225(pressure);
+}
+function simulate225(capacity,scenario,seed,adaptive=true){
+ const rnd=rng225(seed),s={energy:.78,integrity:.91,stress:0,memory:8,history:[],actions:{HOLD:0,HIDE:0,FIGHT:0,FLIGHT:0},repaired:0,trajectory:[],survived:0,transitions:0};
+ let previous='HOLD';
+ for(let t=0;t<240;t++){
+  const external=ambient225(t,scenario),noise=(rnd()-.5)*.09,perceived=clamp225(external+noise);s.history.push(perceived);
+  if(adaptive){
+   const prev=s.history.slice(-8),mean=prev.reduce((a,b)=>a+b,0)/prev.length,variance=prev.reduce((a,b)=>a+(b-mean)**2,0)/prev.length;
+   const jump=Math.abs(perceived-(s.history[s.history.length-2]??perceived));
+   s.memory=jump>.16||variance>.035?3:variance<.006?Math.min(21,capacity):8;
+  }else s.memory=8;
+  const h=s.history.slice(-s.memory),smoothed=h.reduce((a,b)=>a+b,0)/h.length;s.stress=clamp225(.75*s.stress+.25*smoothed);
+  let action='HOLD';
+  if(capacity>=13){
+   if(s.stress>.62&&s.energy>.49&&s.integrity>.35)action='FIGHT';
+   else if(s.stress>.48&&s.energy<.49)action='FLIGHT';
+   else if(s.stress>.38)action='HIDE';
+  }else if(capacity>=8){if(s.stress>.42)action='HIDE'}
+  const shield=action==='HIDE'?.46:action==='FLIGHT'?.58:action==='FIGHT'?.64:0;
+  const raw=external*(1-shield),cost=action==='FIGHT'?.032:action==='FLIGHT'?.023:action==='HIDE'?.011:.004;
+  const generation=.016+.0005*Math.min(capacity,13)-.012*external,damage=Math.max(0,raw-.31)*.034+(s.energy<.14?.012:0);
+  const repairBase=capacity>=21?.020:capacity>=13?.015:capacity>=8?.012:.009;
+  const repair=Math.min((1-s.integrity),repairBase*Math.max(.22,s.energy));
+  s.energy=clamp225(s.energy+generation-cost-.011*raw-repair*.35);s.integrity=clamp225(s.integrity-damage+repair);s.repaired+=repair;
+  if(action!==previous)s.transitions++;previous=action;s.actions[action]++;
+  const alive=s.integrity>.15&&s.energy>.08;if(alive)s.survived++;
+  s.trajectory.push({t,pressure:+external.toFixed(4),observed:+perceived.toFixed(4),energy:+s.energy.toFixed(4),integrity:+s.integrity.toFixed(4),stress:+s.stress.toFixed(4),memory:s.memory,action,alive});
+ }
+ return {capacity,scenario,seed,adaptive,aliveTicks:s.survived,finalEnergy:+s.energy.toFixed(4),finalIntegrity:+s.integrity.toFixed(4),meanIntegrity:+(s.trajectory.reduce((a,x)=>a+x.integrity,0)/240).toFixed(4),actions:s.actions,transitions:s.transitions,repaired:+s.repaired.toFixed(3),trajectory:s.trajectory};
+}
+function experiment225(){
+ let runs=0,slots=0,adaptiveWins=0,fixedWins=0,ties=0,modeChanges=0;const cases=[],examples=[],counterexamples=[];
+ const scenarios=['stable','shock','oscillating','drift','recovery','default'];
+ for(const capacity of W225_CAPACITIES)for(const scenario of scenarios){
+  let adaptiveSum=0,fixedSum=0,improvements=0,regressions=0,differentActions=0;
+  for(let seed=225;seed<233;seed++){
+   const a=simulate225(capacity,scenario,seed,true),b=simulate225(capacity,scenario,seed,false);
+   runs+=2;slots+=480;adaptiveSum+=a.meanIntegrity;fixedSum+=b.meanIntegrity;
+   if(a.meanIntegrity>b.meanIntegrity+1e-6){adaptiveWins++;improvements++}
+   else if(b.meanIntegrity>a.meanIntegrity+1e-6){fixedWins++;regressions++}else ties++;
+   if(JSON.stringify(a.actions)!==JSON.stringify(b.actions))differentActions++;
+   modeChanges+=a.trajectory.filter((v,i)=>i>0&&v.memory!==a.trajectory[i-1].memory).length;
+   if(seed===225)examples.push({capacity,scenario,adaptive:a,fixed:{...b,trajectory:undefined}});
+   if(b.meanIntegrity>a.meanIntegrity+.015&&counterexamples.length<18)counterexamples.push({capacity,scenario,seed,adaptiveMeanIntegrity:a.meanIntegrity,fixedMeanIntegrity:b.meanIntegrity,adaptiveActions:a.actions,fixedActions:b.actions});
+   if(a.trajectory.some(x=>x.energy<0||x.energy>1||x.integrity<0||x.integrity>1))throw Error('bounds');
+   if(capacity<13&&(a.actions.FIGHT||a.actions.FLIGHT))throw Error('premature agency');
+  }
+  cases.push({capacity,scenario,runs:8,adaptiveMeanIntegrity:+(adaptiveSum/8).toFixed(4),fixedMeanIntegrity:+(fixedSum/8).toFixed(4),improvements,regressions,differentActions});
+ }
+ return {runs,slots,adaptiveWins,fixedWins,ties,modeChanges,cases,examples,counterexamples};
+}
+if(typeof module!=='undefined')module.exports={simulate225,experiment225};
+if(typeof require!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment225(),null,2));
+
+const el=x=>document.getElementById(x);
+function render(){const cap=+el('cap').value,scenario=el('scenario').value,adaptive=el('mode').value==='adaptive',r=simulate225(cap,scenario,225,adaptive),last=r.trajectory.at(-1);el('energy').textContent=last.energy.toFixed(2);el('integrity').textContent=last.integrity.toFixed(2);el('alive').textContent=r.aliveTicks+'/240';el('average').textContent=r.meanIntegrity.toFixed(3);el('memory').textContent=last.memory;el('action').textContent=last.action;el('allocation').textContent=Object.entries(r.actions).map(([a,n])=>a+' '+n).join(' · ');
+el('trace').textContent=r.trajectory.filter((x,i)=>i%12===0||i===239).map(x=>'t='+String(x.t).padStart(3,'0')+' | '+x.action.padEnd(6)+' | E='+x.energy.toFixed(2)+' I='+x.integrity.toFixed(2)+' | m='+x.memory).join('\n');
+const cv=el('scene'),ctx=cv.getContext('2d'),w=cv.width,h=cv.height;ctx.clearRect(0,0);
+const grd=ctx.createRadialGradient(w*.5,h*.5,20,w*.5,h*.5,360);grd.addColorStop(0,'#183957');grd.addColorStop(1,'#071423');ctx.fillStyle=grd;ctx.fillRect(0,0,w,h);
+ctx.save();ctx.translate(w/2,h/2);ctx.rotate(.26);
+for(let k=0;k<20;k++){ctx.beginPath();ctx.ellipse(0,0,90+k*7,38+k*2.7,k*.06,0,Math.PI*2);ctx.strokeStyle=k%2?'rgba(180,96,255,.17)':'rgba(76,238,222,.17)';ctx.lineWidth=2;ctx.stroke()}
+for(let j=0;j<cap;j++){let a=2*Math.PI*j/cap,rad=148+(j%3)*17,x=Math.cos(a)*rad,y=Math.sin(a)*rad*.59;ctx.beginPath();ctx.arc(x,y,5+last.integrity*3,0,7);ctx.shadowBlur=18;ctx.shadowColor=j%2?'#ffa44b':'#4df3e1';ctx.fillStyle=j%2?'#ffa44b':'#4df3e1';ctx.fill()}ctx.shadowBlur=0;ctx.restore();
+ctx.textAlign='center';ctx.fillStyle='#fff';ctx.font='bold 40px system-ui';ctx.fillText('{{i}}',w/2,h/2+14);ctx.font='15px system-ui';ctx.fillStyle='#77eeda';ctx.fillText('HOMEOSTASIS · '+cap+' UNITS',w/2,50);ctx.font='14px system-ui';ctx.fillStyle='#f6a04f';ctx.fillText(last.action+' / '+scenario.toUpperCase(),w/2,h-35);
+const line=(key,color)=>{const pts=r.trajectory.map((x,i)=>(i?'L':'M')+(i*780/239).toFixed(1)+' '+(160-x[key]*132).toFixed(1)).join(' ');return '<path d="'+pts+'" stroke="'+color+'" fill="none" stroke-width="2.5"/>'};
+el('chart').innerHTML='<rect width="780" height="180" fill="#0b2131"/>'+line('pressure','#ff9a42')+line('energy','#a783ff')+line('integrity','#66ead0')+'<text x="10" y="18" fill="#ff9a42" font-size="13">pressure</text><text x="94" y="18" fill="#a783ff" font-size="13">energy</text><text x="163" y="18" fill="#66ead0" font-size="13">integrity</text>'}render()</script></html>

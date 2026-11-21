@@ -1,0 +1,250 @@
+{
+  "runs": 384,
+  "observationSlots": 92160,
+  "adaptiveWins": 72,
+  "fixedWins": 32,
+  "ties": 88,
+  "memoryWindowChanges": 1377,
+  "cases": [
+    {
+      "capacity": 5,
+      "scenario": "stable",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9978,
+      "fixedMeanIntegrity": 0.9978,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 5,
+      "scenario": "shock",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.8417,
+      "fixedMeanIntegrity": 0.8417,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 5,
+      "scenario": "oscillating",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.6199,
+      "fixedMeanIntegrity": 0.6199,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 5,
+      "scenario": "drift",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.8968,
+      "fixedMeanIntegrity": 0.8968,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 5,
+      "scenario": "recovery",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.6546,
+      "fixedMeanIntegrity": 0.6546,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 5,
+      "scenario": "default",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.7966,
+      "fixedMeanIntegrity": 0.7966,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 8,
+      "scenario": "stable",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9984,
+      "fixedMeanIntegrity": 0.9984,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 8,
+      "scenario": "shock",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9968,
+      "fixedMeanIntegrity": 0.9957,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "oscillating",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9908,
+      "fixedMeanIntegrity": 0.9908,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 8,
+      "scenario": "drift",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9969,
+      "fixedMeanIntegrity": 0.9969,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 8,
+      "scenario": "recovery",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9967,
+      "fixedMeanIntegrity": 0.9964,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "default",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9964,
+      "fixedMeanIntegrity": 0.9959,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "stable",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9988,
+      "fixedMeanIntegrity": 0.9988,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 13,
+      "scenario": "shock",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9982,
+      "fixedMeanIntegrity": 0.9978,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "oscillating",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.6319,
+      "fixedMeanIntegrity": 0.6749,
+      "improvements": 0,
+      "regressions": 8,
+      "differentActions": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "drift",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9851,
+      "fixedMeanIntegrity": 0.9825,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "recovery",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.8973,
+      "fixedMeanIntegrity": 0.8943,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "default",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9592,
+      "fixedMeanIntegrity": 0.9607,
+      "improvements": 0,
+      "regressions": 8,
+      "differentActions": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "stable",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9991,
+      "fixedMeanIntegrity": 0.9991,
+      "improvements": 0,
+      "regressions": 0,
+      "differentActions": 0
+    },
+    {
+      "capacity": 21,
+      "scenario": "shock",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9985,
+      "fixedMeanIntegrity": 0.9984,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "oscillating",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.6454,
+      "fixedMeanIntegrity": 0.6996,
+      "improvements": 0,
+      "regressions": 8,
+      "differentActions": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "drift",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9895,
+      "fixedMeanIntegrity": 0.9845,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "recovery",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9255,
+      "fixedMeanIntegrity": 0.9176,
+      "improvements": 8,
+      "regressions": 0,
+      "differentActions": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "default",
+      "runs": 8,
+      "adaptiveMeanIntegrity": 0.9531,
+      "fixedMeanIntegrity": 0.9662,
+      "improvements": 0,
+      "regressions": 8,
+      "differentActions": 8
+    }
+  ]
+}
