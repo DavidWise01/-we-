@@ -1,0 +1,329 @@
+{
+  "note": "Append-only event lineage examples; same source ancestry, deterministic synthetic observations. Harmonic unknowns remain unresolved.",
+  "samples": [
+    {
+      "kind": "jitterB",
+      "p": 23,
+      "seed": 215,
+      "expected": [
+        23,
+        27
+      ],
+      "reported": [
+        23,
+        27
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:23:2",
+          "window": 0,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:27:7",
+          "window": 0,
+          "details": {
+            "p": 27,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:23:2",
+          "window": 1,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:27:7",
+          "window": 1,
+          "details": {
+            "p": 27,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:23:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "EXPIRED",
+          "id": "o:27:7",
+          "window": 2,
+          "details": {
+            "precision": 0.5,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "CONTINUED",
+          "id": "o:23:2",
+          "window": 3,
+          "details": {
+            "precision": 1
+          }
+        },
+        {
+          "seq": 7,
+          "type": "REOPENED",
+          "id": "o:27:7",
+          "window": 3,
+          "details": {
+            "previous": "expired",
+            "precision": 1,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 8,
+          "type": "REQUALIFIED",
+          "id": "o:27:7",
+          "window": 3,
+          "details": {
+            "precision": 1,
+            "phase": 7
+          }
+        }
+      ]
+    },
+    {
+      "kind": "jitterB",
+      "p": 23,
+      "seed": 221,
+      "expected": [
+        23,
+        27
+      ],
+      "reported": [
+        23,
+        27
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:23:2",
+          "window": 0,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:27:7",
+          "window": 0,
+          "details": {
+            "p": 27,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:23:2",
+          "window": 1,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:27:7",
+          "window": 1,
+          "details": {
+            "p": 27,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:23:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "EXPIRED",
+          "id": "o:27:7",
+          "window": 2,
+          "details": {
+            "precision": 0.625,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "CONTINUED",
+          "id": "o:23:2",
+          "window": 3,
+          "details": {
+            "precision": 1
+          }
+        },
+        {
+          "seq": 7,
+          "type": "REOPENED",
+          "id": "o:27:7",
+          "window": 3,
+          "details": {
+            "previous": "expired",
+            "precision": 1,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 8,
+          "type": "REQUALIFIED",
+          "id": "o:27:7",
+          "window": 3,
+          "details": {
+            "precision": 1,
+            "phase": 7
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ephemeral",
+      "p": 9,
+      "seed": 215,
+      "expected": [
+        9
+      ],
+      "reported": [
+        9
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:9:3",
+          "window": 0,
+          "details": {
+            "p": 9,
+            "phase": 3
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:13:6",
+          "window": 0,
+          "details": {
+            "p": 13,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:9:3",
+          "window": 1,
+          "details": {
+            "p": 9,
+            "phase": 3
+          }
+        },
+        {
+          "seq": 3,
+          "type": "RESERVED",
+          "id": "c:15:6",
+          "window": 1,
+          "details": {
+            "p": 15,
+            "phase": 6,
+            "replaces": "o:13:6"
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:9:3",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "EXPIRED",
+          "id": "c:15:6",
+          "window": 2,
+          "details": {
+            "precision": 0.3333333333333333,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "RELEASED",
+          "id": "o:13:6",
+          "window": 2,
+          "details": {
+            "precision": 0.35714285714285715,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 7,
+          "type": "CONTINUED",
+          "id": "o:9:3",
+          "window": 3,
+          "details": {
+            "precision": 1
+          }
+        },
+        {
+          "seq": 8,
+          "type": "RECHECK_FAILED",
+          "id": "o:13:6",
+          "window": 3,
+          "details": {
+            "state": "released",
+            "precision": 0.4
+          }
+        },
+        {
+          "seq": 9,
+          "type": "RECHECK_FAILED",
+          "id": "c:15:6",
+          "window": 3,
+          "details": {
+            "state": "expired",
+            "precision": 0.38461538461538464
+          }
+        }
+      ]
+    }
+  ],
+  "failures": []
+}

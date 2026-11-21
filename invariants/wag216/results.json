@@ -1,0 +1,89 @@
+{
+  "observationSlots": 491520,
+  "ledgerEvents": 4674,
+  "reopened": 2,
+  "failedRechecks": 512,
+  "replayChecks": 640,
+  "rows": [
+    {
+      "kind": "stable",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "jitterB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 2
+    },
+    {
+      "kind": "shiftB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "replace",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "ephemeral",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "dropA",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "dropB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "bothDrop",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "mixedTransient",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reopened": 0
+    },
+    {
+      "kind": "harmonic",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "reopened": 0
+    }
+  ]
+}
