@@ -260,7 +260,7 @@ function simulate243(cap,family,seed,duration,mode,model){
   const valid=before>.02&&before<.98&&s.energy>.02&&s.energy<.98&&!request&&arrival===0;
   history.push({valid,generated:valid?s.energy-before+spent+extraCost:null,delta:s.energy-before});
   const last=s.trace.at(-1);last.energy=+s.energy.toFixed(5);last.cache=+cache.toFixed(5);last.resourceState=status;last.sourceFlux=+flux.toFixed(5);last.arrival=+arrival.toFixed(5);last.demand=demand;last.ceiling=+s.ceiling.toFixed(5);last.integrity=+s.integrity.toFixed(5);last.material=+material.toFixed(5);last.prevent=preventive;last.rebuild=rebuild;
-  previousCeiling=s.ceiling;last.affordability=mode==='selective'?affordability:null;last.scarEstimate=+observedScar.toFixed(7);
+  previousCeiling=s.ceiling;last.affordability=mode==='priority'?canSpend:null;last.scarEstimate=+observedScar.toFixed(7);
   minEnergy=Math.min(minEnergy,s.energy);if(s.energy<.27)belowSafety++;
  }
  const pending=queue.filter(x=>x.due>=duration).reduce((a,b)=>a+b.quantity,0);
