@@ -1,0 +1,104 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-222 — Provenance graph</title><style>:root{color-scheme:dark}body{margin:0;background:#0b1727;color:#eaf6ff;font:16px system-ui}main{max-width:980px;margin:auto;padding:24px}h1{color:#68e9c7;margin-bottom:0}p{color:#bad0de}button,select{padding:11px;background:#213d52;border:1px solid #62d9c0;color:white;border-radius:6px;margin:5px}svg{display:block;width:100%;background:radial-gradient(ellipse at 50% 30%,#19354b,#0c1727);border:1px solid #2a4b5b;border-radius:13px}.panel{border:1px solid #3a5668;background:#172a40;padding:14px;border-radius:9px;margin-top:12px;line-height:1.8}.ok{color:#68e9c7}.warn{color:#ff9e58}.muted{font-size:13px;color:#a0bac9}.row{display:flex;flex-wrap:wrap;gap:8px}</style><main><h1>WAG-222 · Trace the roots</h1><p>Agreement is necessary. Verified acquisition ancestry determines whether it counts twice.</p><div class="row"><label>Challenge <select id="kind"><option value="distinct_verified">Distinct roots</option><option value="shared_direct">Direct shared ancestor</option><option value="shared_deep">Deep shared root</option><option value="alias_shared" selected>Alias conceals shared root</option><option value="unverified_root">Unverified root</option><option value="broken_link">Broken parent link</option><option value="cycle">Lineage cycle</option><option value="independent_disagree">Distinct but disagree</option><option value="forged_alias">Forged alias label</option><option value="unverified_distinct">Unverified intermediate</option></select></label><label>Period <select id="period"><option>9</option><option>13</option><option>17</option><option>23</option></select></label><button onclick="draw()">Trace provenance</button></div><svg id="graph" viewBox="0 0 800 380" role="img" aria-label="Two observation channels connected to provenance ancestry nodes"></svg><div id="out" class="panel"></div><p class="muted">Verified markers are supplied by the synthetic test fixture, not cryptographic signatures. One latent target; acquisition ancestry is under test. .dlw</p></main><script>// WAG-222 inherits WAG-221 — independent acquisition and shared-root auditing .dlw
+const PERIODS221=[9,13,17,23],KINDS221=['independent_clean','shared_copy','shared_corruption','independent_disagree','shared_upstream','forged_distinct'];
+function random221(seed){let x=seed>>>0;return ()=>{x=(Math.imul(x,1664525)+1013904223)>>>0;return x}}
+function source221(p){const a=Array(192).fill(0);for(let i=3;i<192;i+=p)a[i]=1;return a}
+function fixture221(p,kind,seed){
+ const original=source221(p),A=original.slice(),B=original.slice(),randA=random221(seed+401),randB=random221(seed+809);
+ // The latent stimulus is shared; independence concerns acquisition roots, not the observed target.
+ const rootA=['sensor-A:'+seed],rootB=['independent_clean','independent_disagree'].includes(kind)?['sensor-B:'+seed]:['sensor-A:'+seed,'relay-B:'+seed];
+ if(kind==='shared_corruption'||kind==='shared_upstream')for(let i=0;i<192;i++)if(i%19===0){A[i]=1-A[i];B[i]=A[i]}
+ if(kind==='independent_disagree')for(let i=0;i<192;i++)if(i%3===0)B[i]=1-B[i];
+ if(kind==='independent_clean')for(let i=0;i<192;i++){if(randA()%97===0)A[i]=1-A[i];if(randB()%97===0)B[i]=1-B[i]}
+ const claimedB=kind==='forged_distinct'?['sensor-B:'+seed]:rootB.slice();
+ return {A,B,rootA,rootB,claimedB,kind,p,seed};
+}
+function agree221(A,B){let equal=0;for(let i=0;i<A.length;i++)equal+=Number(A[i]===B[i]);return equal/A.length}
+function assess221(f,policy='anchored'){
+ const checkedB=policy==='self_reported'?f.claimedB:f.rootB;
+ const shared=f.rootA.some(x=>checkedB.includes(x)),agreement=agree221(f.A,f.B);
+ const outcome=shared?'SHARED_ROOT':agreement>=.96?'INDEPENDENT_AGREEMENT':'DISAGREEMENT';
+ return {outcome,agreement,shared,qualified:outcome==='INDEPENDENT_AGREEMENT',
+  rootsChecked:policy==='anchored'?'fixture-root-registry':'self-reported',
+  note:'Synthetic acquisition lineage. A fixture registry is NOT real authenticated sensor provenance.'};
+}
+
+
+const KINDS222=['distinct_verified','shared_direct','shared_deep','alias_shared','unverified_root','broken_link','cycle','independent_disagree','forged_alias','unverified_distinct'];
+function fixture222(p,kind,seed){
+ const base=fixture221(p,kind==='independent_disagree'?'independent_disagree':'independent_clean',seed);
+ const graph={
+  A:{parents:['a0'],verified:true},a0:{parents:['a1'],verified:true},a1:{parents:[],verified:true,root:true},
+  B:{parents:['b0'],verified:true},b0:{parents:['b1'],verified:true},b1:{parents:[],verified:true,root:true}
+ };
+ if(kind==='shared_direct')graph.b0.parents=['a1'];
+ if(['shared_deep','alias_shared','forged_alias'].includes(kind)){
+  graph.b1.parents=['common'];graph.b1.root=false;graph.a1.parents=['common'];graph.a1.root=false;
+  graph.common={parents:[],verified:true,root:true};
+ }
+ if(['alias_shared','forged_alias'].includes(kind)){graph.b1.parents=['aliasOfCommon'];graph.aliasOfCommon={parents:[],verified:true,aliasOf:'common'}}
+ if(kind==='unverified_root')graph.b1.verified=false;
+ if(kind==='unverified_distinct')graph.b0.verified=false;
+ if(kind==='broken_link')graph.b1.parents=['not_found'];
+ if(kind==='cycle')graph.b1.parents=['b0'];
+ if(kind==='forged_alias')graph.aliasOfCommon.claimedRoot='fake-distinct';
+ return {A:base.A,B:base.B,graph,kind,p,seed};
+}
+function ancestry222(graph,id){
+ const visiting=new Set(),visited=new Set(),roots=new Set(),issues=[];
+ function walk(node){
+  if(visiting.has(node)){issues.push('CYCLE:'+node);return}
+  if(visited.has(node))return;
+  const entry=graph[node];if(!entry){issues.push('MISSING:'+node);return}
+  visiting.add(node);
+  if(entry.verified!==true)issues.push('UNVERIFIED:'+node);
+  if(entry.aliasOf)walk(entry.aliasOf);
+  else if(entry.parents?.length)for(const p of entry.parents)walk(p);
+  else if(entry.root===true)roots.add(node);
+  else issues.push('NO_ROOT:'+node);
+  visiting.delete(node);visited.add(node);
+ }
+ walk(id);return {roots:[...roots].sort(),issues:[...new Set(issues)].sort(),visited:[...visited].sort()};
+}
+function assess222(f,mode='graph'){
+ const a=ancestry222(f.graph,'A'),b=ancestry222(f.graph,'B'),agreement=agree221(f.A,f.B),shared=a.roots.some(root=>b.roots.includes(root));
+ let status;
+ if(mode==='labels')status=agreement>=.96?'INDEPENDENT_AGREEMENT':'DISAGREEMENT';
+ else if(a.issues.length||b.issues.length||!a.roots.length||!b.roots.length)status='UNKNOWN_PROVENANCE';
+ else if(shared)status='SHARED_ROOT';
+ else if(agreement<.96)status='DISAGREEMENT';
+ else status='INDEPENDENT_AGREEMENT';
+ return {status,agreement,rootsA:a.roots,rootsB:b.roots,issuesA:a.issues,issuesB:b.issues,shared,independentWitnesses:status==='INDEPENDENT_AGREEMENT'?2:status==='SHARED_ROOT'?1:0};
+}
+function experiment222(){
+ const rows=[],examples=[],counterexamples=[];let cases=0,pairedSlots=0,unsafeNaiveAgreements=0;
+ for(const kind of KINDS222){
+  let passed=0,failed=0,unknown=0,shared=0,independent=0,disagree=0,naiveFalse=0;
+  for(const p of [9,13,17,23])for(let seed=222;seed<230;seed++){
+   const f=fixture222(p,kind,seed),r=assess222(f),naive=assess222(f,'labels');
+   const expected=kind==='distinct_verified'?'INDEPENDENT_AGREEMENT':kind==='independent_disagree'?'DISAGREEMENT':
+    ['shared_direct','shared_deep','alias_shared','forged_alias'].includes(kind)?'SHARED_ROOT':'UNKNOWN_PROVENANCE';
+   cases++;pairedSlots+=f.A.length;
+   if(r.status===expected)passed++;else{failed++;if(counterexamples.length<16)counterexamples.push({kind,p,seed,expected,assessment:r,graph:f.graph,A:f.A,B:f.B})}
+   unknown+=Number(r.status==='UNKNOWN_PROVENANCE');shared+=Number(r.status==='SHARED_ROOT');
+   independent+=Number(r.status==='INDEPENDENT_AGREEMENT');disagree+=Number(r.status==='DISAGREEMENT');
+   if(naive.status==='INDEPENDENT_AGREEMENT'&&r.status!=='INDEPENDENT_AGREEMENT'){naiveFalse++;unsafeNaiveAgreements++}
+   if(seed===222&&p===9)examples.push({kind,p,seed,expected,assessment:r,naive:naive.status,graph:f.graph,observationsA:f.A,observationsB:f.B});
+  }
+  rows.push({kind,runs:32,passed,failed,unknown,shared,independent,disagree,naiveFalse});
+ }
+ return {cases,pairedSlots,unsafeNaiveAgreements,rows,examples,counterexamples};
+}
+if(typeof module!=='undefined')module.exports={fixture222,ancestry222,assess222,experiment222};
+if(typeof require!=='undefined'&&require.main===module)console.log(JSON.stringify(experiment222(),null,2));
+
+const el=id=>document.getElementById(id);function esc(x){return String(x).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function draw(){const kind=el('kind').value,p=+el('period').value,f=fixture222(p,kind,222),r=assess222(f),naive=assess222(f,'labels');
+ const color=r.status==='INDEPENDENT_AGREEMENT'?'#68e9c7':r.status==='SHARED_ROOT'?'#ff9e58':'#bd89ff';
+ el('out').innerHTML='<strong style="color:'+color+'">'+esc(r.status)+'</strong> · observed agreement '+(100*r.agreement).toFixed(2)+'%<div>Root A: '+esc(r.rootsA.join(', ')||'unknown')+' · Root B: '+esc(r.rootsB.join(', ')||'unknown')+'</div><div>Issues A: '+esc(r.issuesA.join(', ')||'none')+' · Issues B: '+esc(r.issuesB.join(', ')||'none')+'</div><div>Naive label-only result: '+esc(naive.status)+'</div>';
+ const loc={A:[100,75],a0:[100,160],a1:[100,245],B:[700,75],b0:[700,160],b1:[700,245],common:[400,310],aliasOfCommon:[580,310],not_found:[700,310]};
+ let s='<rect width="800" height="380" fill="#0c1929"/>';
+ for(const [id,n]of Object.entries(f.graph)){const v=loc[id];if(!v)continue;for(const parent of [...(n.parents||[]),...(n.aliasOf?[n.aliasOf]:[])]){const end=loc[parent];if(end)s+='<path d="M'+v.join(' ')+' L'+end.join(' ')+'" stroke="'+(n.aliasOf?'#ff9e58':'#6892a9')+'" stroke-width="2" fill="none" stroke-dasharray="'+(n.aliasOf?'7 5':'0')+'"/>'}}
+ for(const [id,n]of Object.entries(f.graph)){const v=loc[id];if(!v)continue;const fill=n.verified===false?'#682b55':n.root?'#234d44':'#25334f';s+='<circle cx="'+v[0]+'" cy="'+v[1]+'" r="28" fill="'+fill+'" stroke="'+(n.verified===false?'#fa6c9a':'#65d9c6')+'" stroke-width="2"/><text x="'+v[0]+'" y="'+(v[1]+4)+'" font-size="12" text-anchor="middle" fill="white">'+esc(id==='aliasOfCommon'?'alias':id)+'</text>'}
+ s+='<text x="400" y="45" fill="'+color+'" text-anchor="middle" font-size="17">'+esc(r.status)+'</text>';
+ for(let w=0;w<2;w++){const a=w?f.B:f.A,y=345;for(let i=0;i<a.length;i++)if(a[i])s+='<rect x="'+(35+i*730/192)+'" y="'+(w?360:340)+'" width="3" height="11" fill="'+(w?'#ff9e58':'#68e9c7')+'"/>'}
+ el('graph').innerHTML=s}draw()</script></html>
