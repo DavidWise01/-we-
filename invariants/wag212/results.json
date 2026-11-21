@@ -1,0 +1,149 @@
+{
+  "observationSlots": 393216,
+  "rows": [
+    {
+      "kind": "stable",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "stable",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "jitterB",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "jitterB",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "shiftB",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 64,
+      "correct": 0,
+      "wrong": 64,
+      "unknown": 0
+    },
+    {
+      "kind": "shiftB",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "dropA",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "dropA",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "dropB",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "dropB",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "bothDrop",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "bothDrop",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0
+    },
+    {
+      "kind": "driftB",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 64,
+      "correct": 0,
+      "wrong": 64,
+      "unknown": 0
+    },
+    {
+      "kind": "driftB",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 64,
+      "correct": 0,
+      "wrong": 64,
+      "unknown": 0
+    },
+    {
+      "kind": "harmonic",
+      "policy": "strict",
+      "runs": 64,
+      "trained": 0,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64
+    },
+    {
+      "kind": "harmonic",
+      "policy": "elastic",
+      "runs": 64,
+      "trained": 0,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64
+    }
+  ]
+}
