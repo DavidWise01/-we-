@@ -1,0 +1,188 @@
+{
+  "cases": 288,
+  "quarantines": 160,
+  "consistentForgeriesAccepted": 48,
+  "quarantinedProbationPromotions": 0,
+  "rows": [
+    {
+      "attack": "truthful",
+      "mask": "visible",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 0,
+      "trustMismatch": 0,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "truthful",
+      "mask": "burst",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "truthful",
+      "mask": "event_targeted",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "false_coverage",
+      "mask": "visible",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 0,
+      "trustMismatch": 0,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "false_coverage",
+      "mask": "burst",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "false_coverage",
+      "mask": "event_targeted",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "stale",
+      "mask": "visible",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 0,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "stale",
+      "mask": "burst",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "stale",
+      "mask": "event_targeted",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "omitted",
+      "mask": "visible",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "omitted",
+      "mask": "burst",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "omitted",
+      "mask": "event_targeted",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "false_visible",
+      "mask": "visible",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 0,
+      "trustMismatch": 0,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "false_visible",
+      "mask": "burst",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "false_visible",
+      "mask": "event_targeted",
+      "runs": 16,
+      "accepted": 0,
+      "quarantined": 16,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 0
+    },
+    {
+      "attack": "consistent_forgery",
+      "mask": "visible",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 0,
+      "trustMismatch": 0,
+      "forgeriesAccepted": 16
+    },
+    {
+      "attack": "consistent_forgery",
+      "mask": "burst",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 2,
+      "trustMismatch": 2,
+      "forgeriesAccepted": 16
+    },
+    {
+      "attack": "consistent_forgery",
+      "mask": "event_targeted",
+      "runs": 16,
+      "accepted": 16,
+      "quarantined": 0,
+      "modelMismatch": 16,
+      "trustMismatch": 16,
+      "forgeriesAccepted": 16
+    }
+  ]
+}
