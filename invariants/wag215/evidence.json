@@ -1,0 +1,884 @@
+{
+  "scope": "Nine representative examples plus two wrong continuation cases; sequence numbers are within the individual synthetic observation stream.",
+  "samples": [
+    {
+      "kind": "jitterB",
+      "p": 9,
+      "seed": 215,
+      "expected": [
+        9,
+        13
+      ],
+      "reported": [
+        9,
+        13
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:9:2",
+          "window": 0,
+          "details": {
+            "p": 9,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:13:7",
+          "window": 0,
+          "details": {
+            "p": 13,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:9:2",
+          "window": 1,
+          "details": {
+            "p": 9,
+            "phase": 3
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:13:7",
+          "window": 1,
+          "details": {
+            "p": 13,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:9:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "QUALIFIED",
+          "id": "o:13:7",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "jitterB",
+      "p": 13,
+      "seed": 215,
+      "expected": [
+        13,
+        17
+      ],
+      "reported": [
+        13,
+        17
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:13:2",
+          "window": 0,
+          "details": {
+            "p": 13,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:17:7",
+          "window": 0,
+          "details": {
+            "p": 17,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:13:2",
+          "window": 1,
+          "details": {
+            "p": 13,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:17:7",
+          "window": 1,
+          "details": {
+            "p": 17,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:13:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "QUALIFIED",
+          "id": "o:17:7",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "jitterB",
+      "p": 17,
+      "seed": 215,
+      "expected": [
+        17,
+        21
+      ],
+      "reported": [
+        17,
+        21
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:17:2",
+          "window": 0,
+          "details": {
+            "p": 17,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:21:7",
+          "window": 0,
+          "details": {
+            "p": 21,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:17:2",
+          "window": 1,
+          "details": {
+            "p": 17,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:21:7",
+          "window": 1,
+          "details": {
+            "p": 21,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:17:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "QUALIFIED",
+          "id": "o:21:7",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "jitterB",
+      "p": 23,
+      "seed": 215,
+      "expected": [
+        23,
+        27
+      ],
+      "reported": [
+        23
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:23:2",
+          "window": 0,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:27:7",
+          "window": 0,
+          "details": {
+            "p": 27,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:23:2",
+          "window": 1,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:27:7",
+          "window": 1,
+          "details": {
+            "p": 27,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:23:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "EXPIRED",
+          "id": "o:27:7",
+          "window": 2,
+          "details": {
+            "precision": 0.5,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "replace",
+      "p": 9,
+      "seed": 215,
+      "expected": [
+        9,
+        15
+      ],
+      "reported": [
+        9,
+        15
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:9:3",
+          "window": 0,
+          "details": {
+            "p": 9,
+            "phase": 3
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:13:6",
+          "window": 0,
+          "details": {
+            "p": 13,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:9:3",
+          "window": 1,
+          "details": {
+            "p": 9,
+            "phase": 3
+          }
+        },
+        {
+          "seq": 3,
+          "type": "RESERVED",
+          "id": "c:15:6",
+          "window": 1,
+          "details": {
+            "p": 15,
+            "phase": 6,
+            "replaces": "o:13:6"
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:9:3",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "QUALIFIED",
+          "id": "c:15:6",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "RELEASED",
+          "id": "o:13:6",
+          "window": 2,
+          "details": {
+            "precision": 0.5,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "replace",
+      "p": 13,
+      "seed": 215,
+      "expected": [
+        13,
+        19
+      ],
+      "reported": [
+        13,
+        19
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:13:2",
+          "window": 0,
+          "details": {
+            "p": 13,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:17:6",
+          "window": 0,
+          "details": {
+            "p": 17,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:13:2",
+          "window": 1,
+          "details": {
+            "p": 13,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "RESERVED",
+          "id": "c:19:6",
+          "window": 1,
+          "details": {
+            "p": 19,
+            "phase": 6,
+            "replaces": "o:17:6"
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:13:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "QUALIFIED",
+          "id": "c:19:6",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "RELEASED",
+          "id": "o:17:6",
+          "window": 2,
+          "details": {
+            "precision": 0.2727272727272727,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "replace",
+      "p": 17,
+      "seed": 215,
+      "expected": [
+        17,
+        23
+      ],
+      "reported": [
+        17,
+        23
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:17:2",
+          "window": 0,
+          "details": {
+            "p": 17,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:21:6",
+          "window": 0,
+          "details": {
+            "p": 21,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:17:2",
+          "window": 1,
+          "details": {
+            "p": 17,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "RESERVED",
+          "id": "c:23:6",
+          "window": 1,
+          "details": {
+            "p": 23,
+            "phase": 6,
+            "replaces": "o:21:6"
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:17:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "QUALIFIED",
+          "id": "c:23:6",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "RELEASED",
+          "id": "o:21:6",
+          "window": 2,
+          "details": {
+            "precision": 0.3,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "replace",
+      "p": 23,
+      "seed": 215,
+      "expected": [
+        23,
+        29
+      ],
+      "reported": [
+        23,
+        29
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:23:2",
+          "window": 0,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:27:6",
+          "window": 0,
+          "details": {
+            "p": 27,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:23:2",
+          "window": 1,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "RESERVED",
+          "id": "c:29:7",
+          "window": 1,
+          "details": {
+            "p": 29,
+            "phase": 7,
+            "replaces": "o:27:6"
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:23:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "QUALIFIED",
+          "id": "c:29:7",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "RELEASED",
+          "id": "o:27:6",
+          "window": 2,
+          "details": {
+            "precision": 0.125,
+            "threshold": 0.65
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ephemeral",
+      "p": 9,
+      "seed": 215,
+      "expected": [
+        9
+      ],
+      "reported": [
+        9
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:9:3",
+          "window": 0,
+          "details": {
+            "p": 9,
+            "phase": 3
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:13:6",
+          "window": 0,
+          "details": {
+            "p": 13,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:9:3",
+          "window": 1,
+          "details": {
+            "p": 9,
+            "phase": 3
+          }
+        },
+        {
+          "seq": 3,
+          "type": "RESERVED",
+          "id": "c:15:6",
+          "window": 1,
+          "details": {
+            "p": 15,
+            "phase": 6,
+            "replaces": "o:13:6"
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:9:3",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "EXPIRED",
+          "id": "c:15:6",
+          "window": 2,
+          "details": {
+            "precision": 0.3333333333333333,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 6,
+          "type": "RELEASED",
+          "id": "o:13:6",
+          "window": 2,
+          "details": {
+            "precision": 0.35714285714285715,
+            "threshold": 0.65
+          }
+        }
+      ]
+    }
+  ],
+  "failures": [
+    {
+      "kind": "jitterB",
+      "p": 23,
+      "seed": 215,
+      "expected": [
+        23,
+        27
+      ],
+      "reported": [
+        23
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:23:2",
+          "window": 0,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:27:7",
+          "window": 0,
+          "details": {
+            "p": 27,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:23:2",
+          "window": 1,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:27:7",
+          "window": 1,
+          "details": {
+            "p": 27,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:23:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "EXPIRED",
+          "id": "o:27:7",
+          "window": 2,
+          "details": {
+            "precision": 0.5,
+            "threshold": 0.65
+          }
+        }
+      ],
+      "observedBinary": "000100100000000000000000001000000010000000000000010000000000001000000000100000000000000010000001000000000000000000001010000000000000000000000110000000000000000000001000010000000000000000010000000010000000000000100000000000010000000001000000000000000010000010000000000000000000010100000000000000000000001010000000000000000000010000100000000000000000100000000010000000000001000000000000001000000010000000000000000001000100000000000000000000101000000000000000000000010010000000000000000000100000100000000000000001000000000001000000000010000000000000010000000100000000000000000001"
+    },
+    {
+      "kind": "jitterB",
+      "p": 23,
+      "seed": 221,
+      "expected": [
+        23,
+        27
+      ],
+      "reported": [
+        23
+      ],
+      "events": [
+        {
+          "seq": 0,
+          "type": "ESTABLISHED",
+          "id": "o:23:2",
+          "window": 0,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 1,
+          "type": "ESTABLISHED",
+          "id": "o:27:7",
+          "window": 0,
+          "details": {
+            "p": 27,
+            "phase": 7
+          }
+        },
+        {
+          "seq": 2,
+          "type": "REOBSERVED",
+          "id": "o:23:2",
+          "window": 1,
+          "details": {
+            "p": 23,
+            "phase": 2
+          }
+        },
+        {
+          "seq": 3,
+          "type": "REOBSERVED",
+          "id": "o:27:7",
+          "window": 1,
+          "details": {
+            "p": 27,
+            "phase": 6
+          }
+        },
+        {
+          "seq": 4,
+          "type": "QUALIFIED",
+          "id": "o:23:2",
+          "window": 2,
+          "details": {
+            "precision": 1,
+            "threshold": 0.65
+          }
+        },
+        {
+          "seq": 5,
+          "type": "EXPIRED",
+          "id": "o:27:7",
+          "window": 2,
+          "details": {
+            "precision": 0.625,
+            "threshold": 0.65
+          }
+        }
+      ],
+      "observedBinary": "000100100000000000000000001000000100000000000000010000000000001000000000100000000000000010000001000000000000000000010010000000000000000000000100000000000000000000001000001000000000000000010000000010000000000000100000000000010000000001000000000000000100000010000000000000000000100100000000000000000000001001000000000000000000010000100000000000000000100000000100000000000001000000000000010000000010000000000000000001000100000000000000000000101000000000000000000000010001000000000000000000100000010000000000000001000000000010000000000010000000000000100000000100000000000000000001"
+    }
+  ]
+}

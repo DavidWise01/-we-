@@ -1,0 +1,108 @@
+{
+  "observationSlots": 368640,
+  "ledgerEvents": 3392,
+  "replayChecks": 640,
+  "illegalTransitionsRejected": 448,
+  "rows": [
+    {
+      "kind": "stable",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 0,
+      "expired": 0,
+      "qualified": 128
+    },
+    {
+      "kind": "jitterB",
+      "runs": 64,
+      "correct": 62,
+      "wrong": 2,
+      "unknown": 0,
+      "reserved": 0,
+      "expired": 2,
+      "qualified": 126
+    },
+    {
+      "kind": "shiftB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 0,
+      "expired": 0,
+      "qualified": 128
+    },
+    {
+      "kind": "replace",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 64,
+      "expired": 0,
+      "qualified": 128
+    },
+    {
+      "kind": "ephemeral",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 64,
+      "expired": 64,
+      "qualified": 64
+    },
+    {
+      "kind": "dropA",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 0,
+      "expired": 0,
+      "qualified": 64
+    },
+    {
+      "kind": "dropB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 0,
+      "expired": 0,
+      "qualified": 64
+    },
+    {
+      "kind": "bothDrop",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 0,
+      "expired": 0,
+      "qualified": 0
+    },
+    {
+      "kind": "mixedTransient",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "reserved": 0,
+      "expired": 0,
+      "qualified": 0
+    },
+    {
+      "kind": "harmonic",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "reserved": 0,
+      "expired": 0,
+      "qualified": 0
+    }
+  ]
+}
