@@ -154,7 +154,7 @@ function experiment229(){
   const sums=Object.fromEntries(modes.map(m=>[m,{integrity:0,finalEnergy:0,aliveTicks:0,reserveTicks:0,transitions:0}]));
   for(const seed of seeds){
    const runs=Object.fromEntries(modes.map(m=>[m,simulate229(capacity,scenario,seed,m)]));
-   for(const mode of modes){const r=runs[mode];runCount++;for(const key of Object.keys(sums[mode]))sums[mode][key]+=r[key]??0}
+   for(const mode of modes){const r=runs[mode];runCount++;for(const key of Object.keys(sums[mode]))sums[mode][key]+=(key==='integrity'?r.meanIntegrity:(r[key]??0))}
    const a=runs.rest,b=runs.conditional,delta=a.meanIntegrity-b.meanIntegrity;
    if(delta>1e-6)wins++;else if(delta< -1e-6)losses++;else ties++;
    if(delta< -1e-6||a.aliveTicks<b.aliveTicks){counterexamples.push({capacity,scenario,seed,rest:{meanIntegrity:a.meanIntegrity,aliveTicks:a.aliveTicks,finalEnergy:a.finalEnergy},conditional:{meanIntegrity:b.meanIntegrity,aliveTicks:b.aliveTicks,finalEnergy:b.finalEnergy}})}
