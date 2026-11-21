@@ -329,7 +329,7 @@ function train245(){
  return {table:orig.table,table245,trainSeeds:TRAIN245,families:FAMILIES_TRAIN244,horizons:HORIZONS245,snapshots,pairs,selected:table245.flat().reduce((z,r)=>(z[r.action]=(z[r.action]||0)+1,z),{})};
 }
 function experiment245(){
- const model=train245(),groups=[{name:'familiar',families:FAMILIES_TRAIN244},{name:'withheld',families:FAMILIES_HOLD244}],modes=['long','trained','hybrid','abstain'],rows=[],counterexamples=[],examples=[],comparison={};
+ const model=train245(),oldPolicy=train244(),groups=[{name:'familiar',families:FAMILIES_TRAIN244},{name:'withheld',families:FAMILIES_HOLD244}],modes=['long','trained','hybrid','abstain'],rows=[],counterexamples=[],examples=[],comparison={};
  let runs=0,ticks=0,appliedPrevent=0,appliedRebuild=0,maxLedgerError=0;
  for(const duration of DUR245){
   comparison[duration]={familiar:{},withheld:{}};
@@ -338,7 +338,7 @@ function experiment245(){
    for(const cap of CAP234)for(const family of group.families){
     const sums=Object.fromEntries(modes.map(m=>[m,{meanIntegrity:0,finalEnergy:0,finalIntegrity:0,aliveTicks:0,reserveTicks:0,materialUsed:0}]));
     for(const seed of TEST245){
-     const p={long:simulate245(cap,family,seed,duration,'long',model),trained:simulate245(cap,family,seed,duration,'trained',model),hybrid:simulate245(cap,family,seed,duration,'hybrid',model),abstain:simulate245(cap,family,seed,duration,'abstain',model)};
+     const p={long:simulate245(cap,family,seed,duration,'long',model),trained:simulate244(cap,family,seed,duration,'trained',oldPolicy),hybrid:simulate245(cap,family,seed,duration,'hybrid',model),abstain:simulate245(cap,family,seed,duration,'abstain',model)};
      runs+=4;ticks+=4*duration;const a=p.long;
      appliedPrevent+=a.maintenance.prevent;appliedRebuild+=a.maintenance.rebuild;maxLedgerError=Math.max(maxLedgerError,a.energyError,a.materialError);
      for(const m of modes)for(const k of Object.keys(sums[m]))sums[m][k]+=p[m][k];
