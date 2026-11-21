@@ -1,0 +1,97 @@
+{
+  "cases": 320,
+  "knownAnswerTests": 2,
+  "collusionAccepted": 32,
+  "rows": [
+    {
+      "kind": "independent",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 0,
+      "shared": 0,
+      "independent": 32
+    },
+    {
+      "kind": "shared",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 0,
+      "shared": 32,
+      "independent": 0
+    },
+    {
+      "kind": "payload_tamper",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 32,
+      "shared": 0,
+      "independent": 0
+    },
+    {
+      "kind": "ancestry_tamper",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 32,
+      "shared": 0,
+      "independent": 0
+    },
+    {
+      "kind": "unknown_signer",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 32,
+      "shared": 0,
+      "independent": 0
+    },
+    {
+      "kind": "bad_mac",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 32,
+      "shared": 0,
+      "independent": 0
+    },
+    {
+      "kind": "old_epoch",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 32,
+      "shared": 0,
+      "independent": 0
+    },
+    {
+      "kind": "missing_packet",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 32,
+      "shared": 0,
+      "independent": 0
+    },
+    {
+      "kind": "unknown_root",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 32,
+      "shared": 0,
+      "independent": 0
+    },
+    {
+      "kind": "authorized_collusion",
+      "runs": 32,
+      "pass": 32,
+      "incorrect": 0,
+      "quarantine": 0,
+      "shared": 0,
+      "independent": 32
+    }
+  ]
+}
