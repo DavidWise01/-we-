@@ -1,0 +1,15 @@
+# WAG-242 · Selective Maintenance and Repair Affordability
+
+.dlw · {24/[2]/[4]/(3)/(3)/(1)/(1)}
+
+WAG-242 is an additive extension of WAG-241. The renewable-energy budget, bounded external material stream, costed prevention and reconstruction operations, and frozen WAG-235 controller are unchanged. New SELECTIVE policy observes only completed structural loss (exponential moving estimate, 0.07 update), energy level, observed energy trend, reconstructed past resource-classification state and material stock. It rejects maintenance if reserve is low or forecast deterioration makes projected reserve <0.43, if classified resource state is insufficient, if material stock <0.035, or if damage evidence is insufficient. The repair gate is a heuristic engineering criterion, not an independently calibrated decision guarantee.
+
+Action predicates: maintenance permitted when energy >0.57 (or >0.67 when integrity <0.60), forecast energy+24*min(0,historical energy change) >0.43, material stock >0.035, and recent budget class is not INSUFFICIENT. Prevent is considered when observed pressure >0.55 and historic ceiling-loss estimate >0.00004; rebuild requires recoverable ceiling <0.985. Emergency baseline physics and resource transfers remain in effect. No scenario labels or future forcing are used to select maintenance.
+
+Four strategies are evaluated on disjoint seeds 2001–2004: SELECTIVE, unrestricted WAG-241 HYBRID, rebuild-only, and no-maintenance baseline. Four capacities, seven synthetic scenario families, horizons 240/480/960/1920. 1,792 runs and 1,612,800 ticks. Rejected maintenance decisions: 202,007; aggregate material consumed under selective policy: 43.302; 117 adverse cases recorded. Ledger conservation checks are executed for both energy and material.
+
+At 1,920 ticks, SELECTIVE versus HYBRID mean integrity: 88 improvements, 16 regressions, 8 ties; versus no maintenance 28 improvements, 4 regressions, 80 ties; versus rebuild-only 12 improvements, 20 regressions, 80 ties. Capacity 13, scar: SELECTIVE mean integrity 0.979356 vs HYBRID 0.995031 vs baseline 0.784122. Capacity 13, combined: SELECTIVE 0.128485 vs HYBRID 0.105848 vs baseline 0.127901; mean surviving ticks 256.75 vs 228 vs 257.75. Selective recovery remains unable to sustain severe combined disruption.
+
+Design limitations: all data are synthetic; source flux, repair efficiency, costs, and energy safety thresholds are assumed rather than empirically calibrated. The scar detector uses historical ceiling loss only, not true scenario identity. Depletion forecast has no guarantee under unforeseen dynamics. Representative traces are sampled in results.json; the full JS reproduces deterministic histories. No physical/biological safety or permanent homeostasis claim. GitHub Pages deployment remains independently unverified.
+
+Next natural bound: WAG-243 · Maintenance Prioritization Under Irrecoverable Deficits — compare protection of remaining functional structure against rebuilding a failed system, include a hard affordability and minimum-reserve constraint, and audit when abstention is the only sustainable action.
