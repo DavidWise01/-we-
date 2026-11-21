@@ -1,0 +1,7 @@
+# WAG-237 · Survival-constrained action selection
+
+.dlw · {24/[2]/[4]/(3)/(3)/(1)/(1)}
+
+The WAG-235 training table is frozen. At action time, WAG-237 projects a pessimistic 24-tick energy envelope using prior observed energy changes, pressure variability and extra BOOST upkeep. A BOOST is blocked when projected energy is below 0.27 (0.35 if integrity below 0.55), or current energy below 0.36. The envelope has a fixed uncertainty allowance; it is not a statistical guarantee or access to future forcing. Other action physics are unchanged.
+
+Seeds 1501–1508 are separate from WAG-235 training seeds 1201–1208. Familiar vs family-withheld tests are reported separately, with four policies (WAG-237, WAG-236, WAG-235 and WAG-230). Simulated runs: 896; ticks: 215040; applied BOOST: 11206; blocked BOOST: 2783; early blocks: 1816; late blocks: 967; measured ticks below 0.27 energy: 5368. Comparisons on mean integrity: {"known":{"graded":{"wins":110,"losses":34,"ties":16},"wag235":{"wins":23,"losses":87,"ties":50},"wag236":{"wins":47,"losses":63,"ties":50}},"withheld":{"graded":{"wins":64,"losses":0,"ties":0},"wag235":{"wins":0,"losses":45,"ties":19},"wag236":{"wins":0,"losses":45,"ties":19}}}. Evaluate integrity, surviving ticks, reserve ticks, and actual minimum energy independently. Counterexamples are retained. Synthetic experiment only; no biological or physical safety guarantee. GitHub Pages deployment unverified.
