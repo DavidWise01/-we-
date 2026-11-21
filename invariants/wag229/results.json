@@ -42,28 +42,28 @@
       "scenario": "chirp",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.963048,
           "finalEnergy": 0.98847,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.963048,
           "finalEnergy": 0.98847,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.963048,
           "finalEnergy": 0.98847,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.963048,
           "finalEnergy": 0.98847,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -76,28 +76,28 @@
       "scenario": "scar",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.678619,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.678619,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.678619,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.678619,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -110,28 +110,28 @@
       "scenario": "famine",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.760549,
           "finalEnergy": 0.08981,
           "aliveTicks": 240,
           "reserveTicks": 182,
           "transitions": 5
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.681914,
           "finalEnergy": 0,
           "aliveTicks": 200,
           "reserveTicks": 168,
           "transitions": 0
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.681914,
           "finalEnergy": 0,
           "aliveTicks": 200,
           "reserveTicks": 168,
           "transitions": 0
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.681914,
           "finalEnergy": 0,
           "aliveTicks": 200,
           "reserveTicks": 168,
@@ -144,28 +144,28 @@
       "scenario": "friction",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.986148,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.986148,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.986148,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 0
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.986148,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -178,28 +178,28 @@
       "scenario": "combined",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.411261,
           "finalEnergy": 0,
           "aliveTicks": 143,
           "reserveTicks": 125.125,
           "transitions": 0
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.411261,
           "finalEnergy": 0,
           "aliveTicks": 143,
           "reserveTicks": 125.125,
           "transitions": 0
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.411261,
           "finalEnergy": 0,
           "aliveTicks": 143,
           "reserveTicks": 125.125,
           "transitions": 0
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.411261,
           "finalEnergy": 0,
           "aliveTicks": 143,
           "reserveTicks": 125.125,
@@ -212,28 +212,28 @@
       "scenario": "chirp",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.99414,
           "finalEnergy": 0.984571,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 25
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.99414,
           "finalEnergy": 0.984571,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 25
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.99414,
           "finalEnergy": 0.984571,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 25
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.99414,
           "finalEnergy": 0.984571,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -246,28 +246,28 @@
       "scenario": "scar",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.925462,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 4
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.925462,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 4
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.925462,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 4
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.925462,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -280,28 +280,28 @@
       "scenario": "famine",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.882458,
           "finalEnergy": 0.008223,
           "aliveTicks": 214.75,
           "reserveTicks": 167.75,
           "transitions": 11.375
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.833251,
           "finalEnergy": 0,
           "aliveTicks": 169,
           "reserveTicks": 137.75,
           "transitions": 10
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.833251,
           "finalEnergy": 0,
           "aliveTicks": 169,
           "reserveTicks": 137.75,
           "transitions": 10
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.833251,
           "finalEnergy": 0,
           "aliveTicks": 169,
           "reserveTicks": 137.75,
@@ -314,28 +314,28 @@
       "scenario": "friction",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.995801,
           "finalEnergy": 0.989667,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 13
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.995801,
           "finalEnergy": 0.989667,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 13
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.995801,
           "finalEnergy": 0.989667,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 13
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.995801,
           "finalEnergy": 0.989667,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -348,28 +348,28 @@
       "scenario": "combined",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.577869,
           "finalEnergy": 0,
           "aliveTicks": 126,
           "reserveTicks": 111.25,
           "transitions": 23
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.592272,
           "finalEnergy": 0,
           "aliveTicks": 124.75,
           "reserveTicks": 111.25,
           "transitions": 20.5
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.592272,
           "finalEnergy": 0,
           "aliveTicks": 124.75,
           "reserveTicks": 111.25,
           "transitions": 20.5
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.592272,
           "finalEnergy": 0,
           "aliveTicks": 124.75,
           "reserveTicks": 111.25,
@@ -382,28 +382,28 @@
       "scenario": "chirp",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.995542,
           "finalEnergy": 0.426549,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 45.25
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.995545,
           "finalEnergy": 0.61415,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 46.25
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.99552,
           "finalEnergy": 0.525816,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 42.375
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.995481,
           "finalEnergy": 0.246895,
           "aliveTicks": 240,
           "reserveTicks": 231.875,
@@ -416,28 +416,28 @@
       "scenario": "scar",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.951014,
           "finalEnergy": 0.917908,
           "aliveTicks": 239,
           "reserveTicks": 215,
           "transitions": 10
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.936488,
           "finalEnergy": 0.742277,
           "aliveTicks": 235.125,
           "reserveTicks": 203.625,
           "transitions": 10
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.936488,
           "finalEnergy": 0.742277,
           "aliveTicks": 235.125,
           "reserveTicks": 203.625,
           "transitions": 10
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.93162,
           "finalEnergy": 0.701615,
           "aliveTicks": 235,
           "reserveTicks": 196.25,
@@ -450,28 +450,28 @@
       "scenario": "famine",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.961102,
           "finalEnergy": 0.007651,
           "aliveTicks": 217.625,
           "reserveTicks": 173.125,
           "transitions": 13.75
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.811176,
           "finalEnergy": 0,
           "aliveTicks": 167.375,
           "reserveTicks": 139.5,
           "transitions": 16.5
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.876939,
           "finalEnergy": 0,
           "aliveTicks": 179,
           "reserveTicks": 160,
           "transitions": 10.5
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.766283,
           "finalEnergy": 0,
           "aliveTicks": 158.375,
           "reserveTicks": 136.875,
@@ -484,28 +484,28 @@
       "scenario": "friction",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.996733,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 13.5
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.996733,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 13.5
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.996733,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 13.5
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.996733,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -518,28 +518,28 @@
       "scenario": "combined",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.567297,
           "finalEnergy": 0,
           "aliveTicks": 108,
           "reserveTicks": 101.125,
           "transitions": 38.375
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.571432,
           "finalEnergy": 0,
           "aliveTicks": 106.25,
           "reserveTicks": 99.25,
           "transitions": 41
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.589206,
           "finalEnergy": 0,
           "aliveTicks": 119.375,
           "reserveTicks": 104.5,
           "transitions": 23.75
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.565817,
           "finalEnergy": 0,
           "aliveTicks": 104,
           "reserveTicks": 95.25,
@@ -552,28 +552,28 @@
       "scenario": "chirp",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.996337,
           "finalEnergy": 0.476033,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 55.125
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.996288,
           "finalEnergy": 0.6834,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 46.25
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.996322,
           "finalEnergy": 0.523862,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 53.625
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.996337,
           "finalEnergy": 0.476033,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -586,28 +586,28 @@
       "scenario": "scar",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.950349,
           "finalEnergy": 0.822654,
           "aliveTicks": 239,
           "reserveTicks": 215,
           "transitions": 15.5
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.930528,
           "finalEnergy": 0.768426,
           "aliveTicks": 235.125,
           "reserveTicks": 199,
           "transitions": 16.25
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.933141,
           "finalEnergy": 0.830117,
           "aliveTicks": 235.125,
           "reserveTicks": 205.75,
           "transitions": 11.875
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.887906,
           "finalEnergy": 0.456931,
           "aliveTicks": 220.5,
           "reserveTicks": 155.875,
@@ -620,28 +620,28 @@
       "scenario": "famine",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.960679,
           "finalEnergy": 0.071446,
           "aliveTicks": 226.625,
           "reserveTicks": 174.625,
           "transitions": 13.125
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.776005,
           "finalEnergy": 0,
           "aliveTicks": 158.625,
           "reserveTicks": 139.375,
           "transitions": 15.5
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.84526,
           "finalEnergy": 0,
           "aliveTicks": 173.375,
           "reserveTicks": 145.25,
           "transitions": 9.5
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.76406,
           "finalEnergy": 0,
           "aliveTicks": 152,
           "reserveTicks": 137.875,
@@ -654,28 +654,28 @@
       "scenario": "friction",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.997407,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 21.25
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.997407,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 13.5
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.997407,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
           "transitions": 21.25
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.997407,
           "finalEnergy": 1,
           "aliveTicks": 240,
           "reserveTicks": 240,
@@ -688,28 +688,28 @@
       "scenario": "combined",
       "average": {
         "rest": {
-          "integrity": 0,
+          "integrity": 0.587548,
           "finalEnergy": 0,
           "aliveTicks": 112.5,
           "reserveTicks": 105,
           "transitions": 39.125
         },
         "conditional": {
-          "integrity": 0,
+          "integrity": 0.616448,
           "finalEnergy": 0,
           "aliveTicks": 114.125,
           "reserveTicks": 106.5,
           "transitions": 38.375
         },
         "reserve": {
-          "integrity": 0,
+          "integrity": 0.635281,
           "finalEnergy": 0,
           "aliveTicks": 126.375,
           "reserveTicks": 113.125,
           "transitions": 22.25
         },
         "adaptive": {
-          "integrity": 0,
+          "integrity": 0.608999,
           "finalEnergy": 0,
           "aliveTicks": 112.25,
           "reserveTicks": 104.75,
