@@ -1,0 +1,502 @@
+{
+  "holdoutSeeds": [
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236
+  ],
+  "policyRuns": 768,
+  "ticks": 184320,
+  "conditionalWins": 22,
+  "conditionalLosses": 0,
+  "ties": 170,
+  "transitionReduction": 8,
+  "transitionIncrease": 0,
+  "oscillationTicks": 11828,
+  "rows": [
+    {
+      "capacity": 5,
+      "scenario": "stable",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9978,
+        "adaptive": 0.9978,
+        "damped": 0.9978,
+        "fixed": 0.9978
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 5,
+      "scenario": "shock",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.8417,
+        "adaptive": 0.8417,
+        "damped": 0.8417,
+        "fixed": 0.8417
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 5,
+      "scenario": "oscillating",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.6199,
+        "adaptive": 0.6199,
+        "damped": 0.6199,
+        "fixed": 0.6199
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 5,
+      "scenario": "drift",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.8968,
+        "adaptive": 0.8968,
+        "damped": 0.8968,
+        "fixed": 0.8968
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 5,
+      "scenario": "recovery",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.6546,
+        "adaptive": 0.6546,
+        "damped": 0.6546,
+        "fixed": 0.6546
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 5,
+      "scenario": "default",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.7966,
+        "adaptive": 0.7966,
+        "damped": 0.7966,
+        "fixed": 0.7966
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "stable",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9984,
+        "adaptive": 0.9984,
+        "damped": 0.9984,
+        "fixed": 0.9984
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "shock",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9968,
+        "adaptive": 0.9968,
+        "damped": 0.9959,
+        "fixed": 0.9957
+      },
+      "transitions": {
+        "conditional": 16,
+        "adaptive": 16,
+        "damped": 16,
+        "fixed": 16
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "oscillating",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.991,
+        "adaptive": 0.991,
+        "damped": 0.9905,
+        "fixed": 0.9905
+      },
+      "transitions": {
+        "conditional": 128,
+        "adaptive": 128,
+        "damped": 128,
+        "fixed": 128
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "drift",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9969,
+        "adaptive": 0.9969,
+        "damped": 0.9969,
+        "fixed": 0.9969
+      },
+      "transitions": {
+        "conditional": 8,
+        "adaptive": 8,
+        "damped": 8,
+        "fixed": 8
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "recovery",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9967,
+        "adaptive": 0.9967,
+        "damped": 0.9964,
+        "fixed": 0.9964
+      },
+      "transitions": {
+        "conditional": 16,
+        "adaptive": 16,
+        "damped": 16,
+        "fixed": 16
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 8,
+      "scenario": "default",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9964,
+        "adaptive": 0.9964,
+        "damped": 0.996,
+        "fixed": 0.9958
+      },
+      "transitions": {
+        "conditional": 32,
+        "adaptive": 32,
+        "damped": 32,
+        "fixed": 32
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "stable",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9988,
+        "adaptive": 0.9988,
+        "damped": 0.9988,
+        "fixed": 0.9988
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "shock",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9982,
+        "adaptive": 0.9982,
+        "damped": 0.9978,
+        "fixed": 0.9978
+      },
+      "transitions": {
+        "conditional": 40,
+        "adaptive": 40,
+        "damped": 40,
+        "fixed": 40
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "oscillating",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.7119,
+        "adaptive": 0.6997,
+        "damped": 0.6313,
+        "fixed": 0.6168
+      },
+      "transitions": {
+        "conditional": 266,
+        "adaptive": 266,
+        "damped": 264,
+        "fixed": 272
+      },
+      "wins": 7,
+      "losses": 0,
+      "ties": 1
+    },
+    {
+      "capacity": 13,
+      "scenario": "drift",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9847,
+        "adaptive": 0.9847,
+        "damped": 0.9847,
+        "fixed": 0.983
+      },
+      "transitions": {
+        "conditional": 24,
+        "adaptive": 24,
+        "damped": 24,
+        "fixed": 24
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "recovery",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.8909,
+        "adaptive": 0.8909,
+        "damped": 0.8872,
+        "fixed": 0.8916
+      },
+      "transitions": {
+        "conditional": 40,
+        "adaptive": 40,
+        "damped": 40,
+        "fixed": 40
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 13,
+      "scenario": "default",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9597,
+        "adaptive": 0.9597,
+        "damped": 0.9546,
+        "fixed": 0.9581
+      },
+      "transitions": {
+        "conditional": 80,
+        "adaptive": 80,
+        "damped": 80,
+        "fixed": 80
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "stable",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9991,
+        "adaptive": 0.9991,
+        "damped": 0.9991,
+        "fixed": 0.9991
+      },
+      "transitions": {
+        "conditional": 0,
+        "adaptive": 0,
+        "damped": 0,
+        "fixed": 0
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "shock",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9986,
+        "adaptive": 0.9986,
+        "damped": 0.9984,
+        "fixed": 0.9984
+      },
+      "transitions": {
+        "conditional": 54,
+        "adaptive": 54,
+        "damped": 40,
+        "fixed": 40
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "oscillating",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.7517,
+        "adaptive": 0.7365,
+        "damped": 0.6574,
+        "fixed": 0.6421
+      },
+      "transitions": {
+        "conditional": 270,
+        "adaptive": 299,
+        "damped": 243,
+        "fixed": 272
+      },
+      "wins": 7,
+      "losses": 0,
+      "ties": 1
+    },
+    {
+      "capacity": 21,
+      "scenario": "drift",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9889,
+        "adaptive": 0.9889,
+        "damped": 0.9889,
+        "fixed": 0.985
+      },
+      "transitions": {
+        "conditional": 24,
+        "adaptive": 24,
+        "damped": 24,
+        "fixed": 24
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "recovery",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9154,
+        "adaptive": 0.9154,
+        "damped": 0.9102,
+        "fixed": 0.9161
+      },
+      "transitions": {
+        "conditional": 40,
+        "adaptive": 40,
+        "damped": 40,
+        "fixed": 40
+      },
+      "wins": 0,
+      "losses": 0,
+      "ties": 8
+    },
+    {
+      "capacity": 21,
+      "scenario": "default",
+      "holdoutPairs": 8,
+      "meanIntegrity": {
+        "conditional": 0.9631,
+        "adaptive": 0.9599,
+        "damped": 0.9527,
+        "fixed": 0.9637
+      },
+      "transitions": {
+        "conditional": 96,
+        "adaptive": 98,
+        "damped": 80,
+        "fixed": 80
+      },
+      "wins": 8,
+      "losses": 0,
+      "ties": 0
+    }
+  ]
+}
