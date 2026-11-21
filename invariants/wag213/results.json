@@ -1,0 +1,221 @@
+{
+  "observationSlots": 589824,
+  "rows": [
+    {
+      "policy": "prior",
+      "kind": "stable",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "prior",
+      "kind": "jitterB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "prior",
+      "kind": "shiftB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "prior",
+      "kind": "dropA",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "prior",
+      "kind": "dropB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "prior",
+      "kind": "bothDrop",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "prior",
+      "kind": "driftB",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 64,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "prior",
+      "kind": "harmonic",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "replacements": 0
+    },
+    {
+      "policy": "retrain",
+      "kind": "stable",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "retrain",
+      "kind": "jitterB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "retrain",
+      "kind": "shiftB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "retrain",
+      "kind": "dropA",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "retrain",
+      "kind": "dropB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "retrain",
+      "kind": "bothDrop",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "retrain",
+      "kind": "driftB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 64
+    },
+    {
+      "policy": "retrain",
+      "kind": "harmonic",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "replacements": 0
+    },
+    {
+      "policy": "guard",
+      "kind": "stable",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "guard",
+      "kind": "jitterB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "guard",
+      "kind": "shiftB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "guard",
+      "kind": "dropA",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "guard",
+      "kind": "dropB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "guard",
+      "kind": "bothDrop",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 0
+    },
+    {
+      "policy": "guard",
+      "kind": "driftB",
+      "runs": 64,
+      "correct": 64,
+      "wrong": 0,
+      "unknown": 0,
+      "replacements": 64
+    },
+    {
+      "policy": "guard",
+      "kind": "harmonic",
+      "runs": 64,
+      "correct": 0,
+      "wrong": 0,
+      "unknown": 64,
+      "replacements": 0
+    }
+  ]
+}
