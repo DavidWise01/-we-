@@ -1,0 +1,207 @@
+{
+  "bound": "WAG-264",
+  "phase": "II",
+  "turn": 8,
+  "precommitFreezeCommit": "a0dd14168220b8ee6de506d0e0c68af74f82cfd4",
+  "source": "docs/wag264/frozen-policy.json",
+  "scope": "256 post-freeze synthetic holdouts: 4 capacities × 4 families × 4 drift schedules × 4 held-out seeds",
+  "trainingSeeds": [
+    5301,
+    5302,
+    5303
+  ],
+  "holdoutSeeds": [
+    5401,
+    5402,
+    5403,
+    5404
+  ],
+  "frozenPolicy": {
+    "5": "baseline",
+    "8": "baseline",
+    "13": "baseline",
+    "21": "baseline"
+  },
+  "summary": {
+    "n": 256,
+    "frozenIntegrityRegressions": 0,
+    "frozenIntegrityImprovements": 0,
+    "frozenBaselineTies": 256,
+    "rejectedAdaptiveIntegrityRegressions": 88,
+    "rejectedAdaptiveIntegrityImprovements": 20,
+    "rejectedAdaptiveIntegrityTies": 148,
+    "rejectedAdaptiveMeanIntegrityDelta": -0.0012241338858837289,
+    "rejectedAdaptiveMeanAliveDelta": 0.0625,
+    "rejectedAdaptiveMeanReserveDelta": 0.53125,
+    "maximumStateContinuityResidual": 0
+  },
+  "byCapacityDrift": [
+    {
+      "cap": 5,
+      "drift": "none",
+      "n": 16,
+      "adaptiveRegressions": 1,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.0000018221342862820289,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0
+    },
+    {
+      "cap": 5,
+      "drift": "drain",
+      "n": 16,
+      "adaptiveRegressions": 4,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.0003880673359602446,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": -0.0625
+    },
+    {
+      "cap": 5,
+      "drift": "pulse",
+      "n": 16,
+      "adaptiveRegressions": 4,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.00016598181572373416,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 2.875
+    },
+    {
+      "cap": 5,
+      "drift": "recovery",
+      "n": 16,
+      "adaptiveRegressions": 8,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.0007237533316353587,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0.125
+    },
+    {
+      "cap": 8,
+      "drift": "none",
+      "n": 16,
+      "adaptiveRegressions": 8,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.0012145803982321693,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0
+    },
+    {
+      "cap": 8,
+      "drift": "drain",
+      "n": 16,
+      "adaptiveRegressions": 4,
+      "adaptiveImprovements": 4,
+      "meanIntegrityDelta": -0.0018185604341656378,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 2.5625
+    },
+    {
+      "cap": 8,
+      "drift": "pulse",
+      "n": 16,
+      "adaptiveRegressions": 4,
+      "adaptiveImprovements": 4,
+      "meanIntegrityDelta": -0.0021948613040371004,
+      "meanAliveDelta": 0.625,
+      "meanReserveDelta": 1.125
+    },
+    {
+      "cap": 8,
+      "drift": "recovery",
+      "n": 16,
+      "adaptiveRegressions": 5,
+      "adaptiveImprovements": 3,
+      "meanIntegrityDelta": -0.001646044880106036,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0
+    },
+    {
+      "cap": 13,
+      "drift": "none",
+      "n": 16,
+      "adaptiveRegressions": 8,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.001502402326107516,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0
+    },
+    {
+      "cap": 13,
+      "drift": "drain",
+      "n": 16,
+      "adaptiveRegressions": 4,
+      "adaptiveImprovements": 1,
+      "meanIntegrityDelta": -0.0009390974924248091,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0.1875
+    },
+    {
+      "cap": 13,
+      "drift": "pulse",
+      "n": 16,
+      "adaptiveRegressions": 6,
+      "adaptiveImprovements": 2,
+      "meanIntegrityDelta": -0.0007166572704993407,
+      "meanAliveDelta": 0.0625,
+      "meanReserveDelta": 0
+    },
+    {
+      "cap": 13,
+      "drift": "recovery",
+      "n": 16,
+      "adaptiveRegressions": 6,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.0009965798319879066,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0.3125
+    },
+    {
+      "cap": 21,
+      "drift": "none",
+      "n": 16,
+      "adaptiveRegressions": 8,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.0030203170380323496,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0
+    },
+    {
+      "cap": 21,
+      "drift": "drain",
+      "n": 16,
+      "adaptiveRegressions": 6,
+      "adaptiveImprovements": 2,
+      "meanIntegrityDelta": -0.0018174649101364918,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0.625
+    },
+    {
+      "cap": 21,
+      "drift": "pulse",
+      "n": 16,
+      "adaptiveRegressions": 4,
+      "adaptiveImprovements": 4,
+      "meanIntegrityDelta": -0.00017903497550492142,
+      "meanAliveDelta": 0.3125,
+      "meanReserveDelta": 0.25
+    },
+    {
+      "cap": 21,
+      "drift": "recovery",
+      "n": 16,
+      "adaptiveRegressions": 8,
+      "adaptiveImprovements": 0,
+      "meanIntegrityDelta": -0.002260916695299764,
+      "meanAliveDelta": 0,
+      "meanReserveDelta": 0.5
+    }
+  ],
+  "limits": [
+    "Frozen WAG-261 selected before evaluation; it ties itself by construction and thus does not demonstrate improved performance",
+    "Rejected downgrade can improve survival/reserve in some cases but fails predeclared integrity tolerance on training",
+    "Per-case outcomes aggregated by capacity × drift; each row averages 16 paired environments/seeds",
+    "All tests share one synthetic simulation ancestry; no independent external physics validation",
+    "No threshold changes based on holdout results"
+  ]
+}
