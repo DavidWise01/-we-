@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-264 · Frozen Policy Lab</title><style>
+:root{font:15px/1.45 system-ui;background:#fbfaf7;color:#362542}*{box-sizing:border-box}body{margin:0}main{max-width:1280px;margin:auto;padding:25px}
+h1{font-size:clamp(30px,4vw,45px);margin:0;color:#702bac;letter-spacing:-.05em}h2{font-size:19px;color:#67329c;margin:0 0 12px}.sub{color:#746985;padding-bottom:17px;border-bottom:2px solid #eadcef}
+.controls{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:20px 0}
+label{font-size:13px;color:#776c85}select,button{display:block;font:inherit;background:#fff;color:#342044;border:1px solid #c4addb;border-radius:9px;padding:10px;margin-top:5px}button{background:#7028a9;color:#fff;cursor:pointer;font-weight:700;box-shadow:0 0 16px #ad79e48a}
+.layout{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}.panel{background:#fff;border-radius:14px;border:1px solid #e9ddeb;padding:18px;box-shadow:0 8px 20px #683c8215}
+canvas{display:block;width:100%;height:auto;background:#180f2a;border-radius:10px}.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.metric{border-left:4px solid #ffa03b;padding:11px;background:#fcf6ff}.metric b{font-size:22px;color:#722dac;display:block}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:7px 5px;border-bottom:1px solid #ecdfed}pre{white-space:pre-wrap;max-height:310px;overflow:auto;font:12px/1.55 monospace}.small{font-size:12px;color:#776b83}a{color:#702aa6}@media(max-width:850px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-264 · Freeze Before Testing</h1><p class="sub">Phase II · Turn 8 of 12 · One precommitted policy · No holdout tuning · Diodic evidence · .dlw</p>
+<div class="controls"><label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option>combined</option><option>phaseflip</option><option>famine</option></select></label>
+<label>Unseen drift<select id="drift"><option>none</option><option>drain</option><option>pulse</option><option>recovery</option></select></label>
+<label>Held-out seed<select id="seed"><option>5401</option><option>5402</option><option>5403</option><option>5404</option></select></label>
+<button id="run">Run frozen evaluation</button></div>
+<div class="layout"><section class="panel"><h2>Held-out structural integrity</h2><canvas id="chart" width="1000" height="450"></canvas>
+<p class="small">Neon teal = frozen policy; orange dashed = rejected WAG-263 adaptation. Both see the same synthetic conditions.</p>
+<h2 style="margin-top:24px">Frozen decisions by capacity</h2><table id="frozen"></table><h2 style="margin-top:24px">Failure analysis from matched receipts</h2><table id="comparison"></table></section>
+<aside class="panel"><h2>Policy contract</h2><div class="metrics"><div class="metric">Frozen action policy<b id="policy">—</b></div><div class="metric">Integrity delta<b id="delta">—</b></div><div class="metric">Survival delta<b id="survival">—</b></div><div class="metric">Reserve delta<b id="reserve">—</b></div></div><h2 style="margin-top:24px">Freeze provenance</h2><pre id="audit">Loading frozen artifact.</pre>
+<p class="small">The selected controller may simply equal the trusted baseline. Equality is a valid conservative result, not proof of improvement. Testing does not change the frozen JSON policy.</p><p><a href="./frozen-policy.json">Precommitted frozen policy</a> · <a href="./receipt-5401-5404.json">256-case receipt</a> · <a href="../wag257/">Phase dashboard</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="../wag254/wag254.js"></script><script src="../wag255/wag255.js"></script><script src="../wag256/wag256.js"></script><script src="../wag257/wag257.js"></script><script src="../wag258/wag258.js"></script><script src="../wag259/wag259.js"></script><script src="../wag260/wag260.js"></script><script src="../wag261/wag261.js"></script><script src="../wag262/wag262.js"></script><script src="../wag263/wag263.js"></script><script src="./wag264.js"></script>
+<script>
+const E=id=>document.getElementById(id);let ctx,freeze,selected,baseline,adaptive;
+function draw(){
+ const c=E('chart'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#180f2a';g.fillRect(0,0,W,H);
+ for(let j=0;j<=10;j++){g.strokeStyle='#46345b';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+ for(const [series,color,dashed]of [[selected,'#4ce5d7',false],[adaptive,'#ffa039',true]]){
+  g.beginPath();g.strokeStyle=color;g.lineWidth=2.8;g.shadowColor=color;g.shadowBlur=11;
+  g.setLineDash(dashed?[7,5]:[]);series.trace.forEach((v,i)=>i?g.lineTo(i*W/(series.trace.length-1),(1-v.integrity)*H):g.moveTo(0,(1-v.integrity)*H));g.stroke();g.setLineDash([]);g.shadowBlur=0;}
+ g.fillStyle='#fff';g.font='bold 20px system-ui';g.fillText('WAG-264 · FROZEN '+selected.frozenDecision.toUpperCase(),20,30);
+}
+function render(){draw();E('policy').textContent=selected.frozenDecision;
+ E('delta').textContent=(selected.meanIntegrity-baseline.meanIntegrity).toFixed(7);
+ E('survival').textContent=String(selected.aliveTicks-baseline.aliveTicks);
+ E('reserve').textContent=String(selected.reserveTicks-baseline.reserveTicks);
+ E('frozen').innerHTML='<tr><th>Capacity</th><th>Training-only policy</th></tr>'+
+ Object.entries(freeze.policy).map(([cap,value])=>'<tr><td>'+cap+'</td><td>'+value+'</td></tr>').join('');
+ E('comparison').innerHTML='<tr><th>Controller</th><th>Mean integrity</th><th>Alive</th><th>Reserve</th></tr>'+
+ [['Frozen',selected],['WAG-261 reference',baseline],['Rejected WAG-263',adaptive]]
+ .map(([name,r])=>'<tr><td>'+name+'</td><td>'+r.meanIntegrity.toFixed(6)+'</td><td>'+r.aliveTicks+'</td><td>'+r.reserveTicks+'</td></tr>').join('');
+ E('audit').textContent='Freeze selection: '+selected.frozenDecision+'\nTraining seeds: '+freeze.trainingSeeds.join(', ')+
+ '\nHoldout seed: '+selected.seed+'\nTraining/evaluation overlap: '+selected.evaluationWasInTraining+
+ '\nTolerance: '+freeze.integrityTolerance.toFixed(5)+
+ '\nReference identity: frozen baseline when rejected\nSelected-vs-reference Δ: '+(selected.meanIntegrity-baseline.meanIntegrity).toFixed(8)+
+ '\nRejected adaptive Δ: '+(adaptive.meanIntegrity-baseline.meanIntegrity).toFixed(8)+
+ '\nEnergy continuity residual: '+selected.resources.continuityMax.toExponential(2)+
+ '\nWAG244 cache ledger: '+selected.ledger.energy.toExponential(2)+
+ '\nMaterial ledger: '+selected.ledger.material.toExponential(2)+
+ '\n\nThe policy artifact is loaded from frozen-policy.json. No browser-side policy training takes place.'}
+async function start(){E('audit').textContent='Loading precommitted frozen policy…';
+ try{const response=await fetch('./frozen-policy.json',{cache:'no-store'});
+ if(!response.ok)throw Error('Frozen artifact unavailable');
+ freeze=await response.json();wag264VerifyFreeze(freeze);run();
+ }catch(err){E('audit').textContent='ERROR: '+err.message}}
+function run(){try{if(!freeze)throw Error('Frozen policy not loaded');
+ if(!ctx){const models=wag251Models(),horizon=wag261Train(models);ctx={models,horizon}}
+ const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,drift=E('drift').value;
+ selected=wag264Run(cap,family,seed,240,drift,freeze,ctx.models,ctx.horizon);
+ baseline=wag263Run(cap,family,seed,240,drift,'baseline',ctx.models,ctx.horizon);
+ adaptive=wag263Run(cap,family,seed,240,drift,'adaptive',ctx.models,ctx.horizon);
+ render()}catch(err){E('audit').textContent='ERROR: '+err.stack;throw err}}
+E('run').onclick=run;start();
+</script></body></html>
