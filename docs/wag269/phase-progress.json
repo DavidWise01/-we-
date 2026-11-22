@@ -6,9 +6,9 @@
   "firstBound": 269,
   "lastBound": 280,
   "plannedTurns": 12,
-  "completedTurns": 7,
-  "progressPercent": 58.3,
-  "nextBound": 276,
+  "completedTurns": 8,
+  "progressPercent": 66.7,
+  "nextBound": 277,
   "policyPromotion": "NONE",
   "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
   "milestones": [
@@ -57,7 +57,7 @@
     {
       "bound": 276,
       "name": "Freeze candidate controller",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 66.7
     },
     {
@@ -86,22 +86,32 @@
     }
   ],
   "lastAccepted": {
-    "bound": 275,
-    "primitive": "{a{b}}",
-    "engine": "docs/wag275/wag275.js",
-    "lab": "docs/wag275/index.html",
-    "receipt": "docs/wag275/receipt-6201-6203.json",
-    "policyRuns": 192,
+    "bound": 276,
+    "primitive": "{\\a{b/}}",
+    "engine": "docs/wag276/wag276.js",
+    "lab": "docs/wag276/controller.html",
+    "topology": "docs/wag276/crystalline-mesh.js",
+    "receipt": "docs/wag276/receipt-6301-6303.json",
+    "frozenCandidate": "docs/wag276/frozen-crystalline-candidate.json",
+    "policyRuns": 288,
     "matchedConditions": 96,
-    "missedRepairEpisodes": 2392,
-    "meanSignedIntegrityDeficit240": 0.0060561510416666684,
-    "meanSignedIntegrityDeficit480": 0.011448407552083336,
-    "meanMaterialSaved240": 0.016488020833333363,
-    "meanMaterialSaved480": 0.026663222656250016,
-    "meshIntegrityRegressions": 84,
-    "meshAliveRegressions": 6,
+    "survival240": {
+      "crystal": 34,
+      "mesh": 34,
+      "frozen": 29,
+      "cases": 48
+    },
+    "survival480": {
+      "crystal": 23,
+      "mesh": 23,
+      "frozen": 23,
+      "cases": 48
+    },
+    "crystalIntegrityRegressions": 65,
+    "crystalAliveRegressions": 0,
+    "sourceImmutableForNextHoldout": true,
     "policyPromoted": false,
-    "summary": "Matched-policy regret ledger establishes a growing 480-tick structural deficit despite resource savings and small mean alive-tick gains. Missed repair episode follow-ups overlap and are observational, not independent causal effects. Source, receipt and neon page verified; no weights changed. Live Pages unverified."
+    "summary": "Versioned crystalline neural controller frozen ahead of WAG277 withheld tests. Eight opposed rail pairs alter the single repair action through a deterministic gate. No double material spending, conservation near numerical precision. Candidate structurally worse than frozen in 65/96; no promotion. GitHub Pages live deployment unverified."
   },
   "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
 }
