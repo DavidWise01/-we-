@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-259 · Return Escrow</title><style>
+:root{font:15px/1.46 system-ui;background:#faf9f4;color:#332542}*{box-sizing:border-box}body{margin:0}main{max-width:1290px;margin:auto;padding:24px}
+h1{font-size:clamp(29px,4vw,45px);letter-spacing:-.05em;color:#6b2ca6;margin:0}
+.subtitle{border-bottom:2px solid #e7d6ec;color:#756b80;padding-bottom:15px}
+h2{font-size:19px;color:#642b9a;margin:0 0 12px}
+.toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:19px 0}
+label{font-size:13px;color:#776981}select,button{font:inherit;display:block;margin-top:5px;padding:10px;border-radius:9px;border:1px solid #c5abda;background:#fff;color:#38244d}
+button{background:#6c2aaa;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 0 18px #b376f18a}
+.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:14px}
+.panel{border:1px solid #eadbee;border-radius:14px;background:white;padding:18px;box-shadow:0 8px 25px #60358613}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.stat{background:#faf4ff;border-left:4px solid #ffa039;padding:10px}.stat b{font-size:24px;color:#702cac;display:block}
+canvas{display:block;width:100%;height:auto;border-radius:10px;background:#170e2a}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{text-align:left;border-bottom:1px solid #e8dcee;padding:7px 5px}
+pre{font:12px/1.55 ui-monospace,monospace;white-space:pre-wrap;max-height:260px;overflow:auto}.small{font-size:12px;color:#776b83}a{color:#742ca9}
+@media(max-width:850px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-259 · Reserve the Return</h1>
+<p class="subtitle">Phase II · Turn 3 of 12 · One best permissible action · Full entry-and-return escrow · .dlw</p>
+<div class="toolbar">
+<label>Cost environment<select id="regime"><option>stable</option><option>surcharge</option><option>nonlinear</option><option>shock</option></select></label>
+<label>Family<select id="family"><option>scar</option><option>combined</option><option>phaseflip</option><option>famine</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Unseen seed<select id="seed"><option>4701</option><option>4702</option><option>4703</option><option>4704</option></select></label>
+<label>Controller<select id="policy"><option value="gated">WAG-258 + escrow</option><option value="diagnostic">Escrow diagnostic probe</option><option value="wag256">WAG-256 earlier probe</option><option value="noProbe">No probing</option></select></label>
+<button id="run">Test two-leg return safety</button></div>
+<div class="layout"><section class="panel">
+<h2>Reserve commitments and actual charges</h2><canvas id="escrow" width="1000" height="350"></canvas>
+<p class="small">Tall purple bars: declared worst-case reserve per leg. Orange markers: actual switching fee. A diagnostic probe bypasses the information-value gate *only to test safety*.</p>
+<h2 style="margin-top:23px">Entry and return transactions</h2><table id="transactions"></table>
+<h2 style="margin-top:23px">Controller comparison</h2><table id="comparison"></table></section>
+<aside class="panel"><h2>Return safety</h2><div class="stats">
+<div class="stat">Probe entries<b id="entries">—</b></div><div class="stat">Returns<b id="returns">—</b></div>
+<div class="stat">Escrow breaches<b id="breaches">—</b></div><div class="stat">Stranded probes<b id="trapped">—</b></div></div>
+<h2 style="margin-top:24px">Budget receipt</h2><pre id="audit">Run the simulator.</pre>
+<p class="small">The guarantee is limited to the declared synthetic cost envelope (at most 8× the maximum contextual nominal fee) and uses a shadow expense ledger. Unknown unbounded costs cannot be guaranteed. The operational cadence model is simplified in this safety isolation test.</p>
+<p><a href="../wag257/">Phase progress dashboard</a> · <a href="../wag257/PHASE_CHARTER.md">Frozen charter</a></p>
+</aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="../wag254/wag254.js"></script><script src="../wag255/wag255.js"></script><script src="../wag256/wag256.js"></script><script src="../wag257/wag257.js"></script><script src="../wag258/wag258.js"></script><script src="./wag259.js"></script>
+<script>
+const E=id=>document.getElementById(id);let ctx,results;
+function draw(r){const c=E('escrow'),g=c.getContext('2d'),W=c.width,H=c.height;
+g.fillStyle='#170e2a';g.fillRect(0,0,W,H);g.fillStyle='#f6ecff';g.font='16px system-ui';g.fillText('Worst-case reserved vs paid fee by transaction',20,29);
+const rows=r.history??r.transactions??[],max=Math.max(.0001,...rows.map(z=>Math.max(z.reserved??z.predicted??0,z.charged??0))),w=(W-55)/Math.max(rows.length,1);
+if(!rows.length){g.fillText('No paid probe transactions in this policy.',25,100);return}
+rows.forEach((z,i)=>{const x=28+i*w,hi=(z.reserved??z.predicted??0)/max*(H-100),paid=(z.charged??0)/max*(H-100);
+g.fillStyle='#ab78ff';g.shadowColor='#ab78ff';g.shadowBlur=10;g.fillRect(x,H-35-hi,Math.max(5,w-14),hi);g.shadowBlur=0;
+g.fillStyle='#ff9d3c';g.fillRect(x,H-35-paid,Math.max(5,w-14),4);
+g.fillStyle='#f7edff';g.font='12px monospace';g.fillText(z.tick,x,H-10)})}
+function display(){const r=results[E('policy').value];draw(r);
+E('entries').textContent=r.probesStarted??r.probeCount??0;E('returns').textContent=r.probesReturned??'—';
+E('breaches').textContent=r.breaches??'—';E('trapped').textContent=r.trapped??(r.probeStage==='trapped'?1:0);
+const rows=r.history??r.transactions??[];
+E('transactions').innerHTML='<tr><th>Tick</th><th>Phase</th><th>Reserved</th><th>Paid</th><th>Contract</th></tr>'+
+rows.map(z=>'<tr><td>'+z.tick+'</td><td>'+z.phase+'</td><td>'+(z.reserved??NaN).toFixed(6)+'</td><td>'+(z.charged??NaN).toFixed(6)+'</td><td>'+(z.breach?'BREACH':'OK')+'</td></tr>').join('');
+E('comparison').innerHTML='<tr><th>Policy</th><th>Entries</th><th>Returns</th><th>Alive</th></tr>'+Object.entries(results).map(([k,v])=>'<tr><td>'+k+'</td><td>'+(v.probesStarted??v.probeCount??0)+'</td><td>'+(v.probesReturned??'—')+'</td><td>'+v.aliveTicks+'</td></tr>').join('');
+E('audit').textContent='Selected policy: '+r.mode+'\nVOI decision: '+(r.decision??'inherited')+
+'\nEntries: '+(r.probesStarted??r.probeCount??0)+'\nSuccessful returns: '+(r.probesReturned??'N/A')+
+'\nReserve ceiling / leg: 8× contextual max\nTotal probe budget: 0.012\nReserve floor: 0.54\nSpent: '+(r.budgetSpent??r.probeDebits??0).toFixed(6)+
+'\nDenied entry: '+(r.denied??'N/A')+'\nCost-envelope breaches: '+(r.breaches??'N/A')+
+'\nEnergy ledger residual: '+(r.ledger?.energy??NaN).toExponential(2)+
+'\nMaterial ledger residual: '+(r.ledger?.material??NaN).toExponential(2);
+}
+function run(){try{E('audit').textContent='Training inherited frozen models…';if(!ctx){
+ const m=wag251Models(),c=wag252Train(m),k=wag254Train(m),v=wag258Train(m,c,k);ctx={m,c,k,v}}
+ const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,regime=E('regime').value;results={};
+ for(const variant of ['gated','diagnostic','wag256','noProbe'])results[variant]=wag259Run(cap,family,seed,240,regime,variant,ctx.m,ctx.c,ctx.k,ctx.v);
+ display()}catch(e){E('audit').textContent='ERROR '+e.stack;throw e}}
+E('run').onclick=run;E('policy').onchange=()=>{if(results)display()};run();
+</script></body></html>
