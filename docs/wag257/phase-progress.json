@@ -3,11 +3,11 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 10,
-  "progressPercent": 83.3,
+  "completedTurns": 11,
+  "progressPercent": 91.7,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 267,
+  "nextBound": 268,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -63,7 +63,7 @@
     },
     {
       "bound": 267,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 91.7
     },
     {
@@ -73,15 +73,23 @@
     }
   ],
   "lastAccepted": {
-    "bound": 266,
-    "engine": "docs/wag266/wag266.js",
-    "lab": "docs/wag266/index.html",
-    "receipt": "docs/wag266/receipt-5501-5504.json",
-    "originalCases": 256,
-    "originalFailures": 43,
-    "minimizedRepresentatives": 4,
-    "minimizedReproduced": 4,
-    "totalMinimizationReevaluations": 574,
-    "summary": "Preserved all 43 failing input IDs from WAG265. Four local coarse-to-fine reduced stress schedules replayed with frozen WAG264 controller, all still fail. No claim of global minimum or independent simulation; Pages deployment unverified."
+    "bound": 267,
+    "engine": "docs/wag267/wag267.js",
+    "lab": "docs/wag267/index.html",
+    "receipt": "docs/wag267/receipt-5501-5504.json",
+    "matchedScenarios": 256,
+    "policyRuns": 768,
+    "ranking": [
+      "noRepair",
+      "rejectedAdaptive",
+      "frozen"
+    ],
+    "fullSurvival": [
+      218,
+      214,
+      213
+    ],
+    "frozenIntegrityLead": true,
+    "summary": "Predeclared survival-first ranking places no-repair diagnostic first, frozen WAG261 third. Frozen retains highest integrity but 43/256 survival failures. Ranking diagnostic; policy unchanged. All evidence synthetic. Pages deployment unverified."
   }
 }
