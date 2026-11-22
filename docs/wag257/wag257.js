@@ -9,15 +9,15 @@ const WAG257_FAMILIES=['scar','combined','phaseflip','famine'];
 function wag257Utility(r){
  const n=r.duration,trace=r.trace||[];
  const final=trace.at(-1)||{};
- // Switch fees are already debited from terminal energy. Never subtract twice.
+ // The inherited simulator may recompute terminal energy from internal cache;\n // therefore external switch fees must be charged in a separate expense ledger.\n // This is an explicit accounting adjustment, not a claim that the physical state\n // persisted the debit. The energy component is left as the simulator reports it.
  const material=Number.isFinite(final.material)?final.material:NaN;
  const energy=r.finalEnergy,integrity=r.meanIntegrity;
  const alive=r.aliveTicks/n,reserve=r.reserveTicks/n;
- const utility=integrity+.5*alive+.25*reserve+.18*energy+
+ const feeExpense=.18*r.fees;\n const utility=integrity+.5*alive+.25*reserve+.18*energy-feeExpense+
   (Number.isFinite(material)?.04*material:0);
  return {utility,integrity,alive,reserve,energy,material,
   materialComponentIncluded:Number.isFinite(material),
-  feeAlreadyInternalized:true};
+  feeExpense,feeAlreadyInternalized:false,feeAccounting:'external charges expensed separately; underlying energy persistence unverified'};
 }
 function wag257ActionDeltas(a,b){
  const n=Math.min(a.trace.length,b.trace.length);
