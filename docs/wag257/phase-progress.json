@@ -3,11 +3,11 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 3,
-  "progressPercent": 25,
+  "completedTurns": 4,
+  "progressPercent": 33.3,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 260,
+  "nextBound": 261,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -28,7 +28,7 @@
     },
     {
       "bound": 260,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 33.3
     },
     {
@@ -73,16 +73,15 @@
     }
   ],
   "lastAccepted": {
-    "bound": 259,
-    "engine": "docs/wag259/wag259.js",
-    "lab": "docs/wag259/index.html",
-    "receipt": "docs/wag259/receipt-4701-4704.json",
-    "testCases": 32,
-    "diagnosticProbeEntries": 20,
-    "completedReturns": 20,
-    "escrowBreaches": 0,
-    "strandedProbes": 0,
-    "productionProbeEntries": 0,
-    "summary": "Bounded two-leg probe escrow passes 32 synthetic holds; energy fees shadow-accounted; Pages deployment unverified."
+    "bound": 260,
+    "engine": "docs/wag260/wag260.js",
+    "lab": "docs/wag260/index.html",
+    "receipt": "docs/wag260/receipt-4801-4804.json",
+    "matchedCases": 32,
+    "integrityRegressions": 32,
+    "meanIntegrityDelta": -0.006055992259930865,
+    "survivalReserveNonInferiorCases": 24,
+    "probes": 0,
+    "summary": "A deterministic one-action policy was implemented and syntactically verified, but it underperforms WAG-250 in every matched structural-integrity holdout. WAG-261 must address the regression; live Pages deployment unverified."
   }
 }
