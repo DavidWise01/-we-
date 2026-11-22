@@ -9,11 +9,15 @@ const WAG257_FAMILIES=['scar','combined','phaseflip','famine'];
 function wag257Utility(r){
  const n=r.duration,trace=r.trace||[];
  const final=trace.at(-1)||{};
- // The inherited simulator may recompute terminal energy from internal cache;\n // therefore external switch fees must be charged in a separate expense ledger.\n // This is an explicit accounting adjustment, not a claim that the physical state\n // persisted the debit. The energy component is left as the simulator reports it.
+ // The inherited simulator may recompute terminal energy from internal cache;
+ // therefore external switch fees must be charged in a separate expense ledger.
+ // This is an explicit accounting adjustment, not a claim that the physical state
+ // persisted the debit. The energy component is left as the simulator reports it.
  const material=Number.isFinite(final.material)?final.material:NaN;
  const energy=r.finalEnergy,integrity=r.meanIntegrity;
  const alive=r.aliveTicks/n,reserve=r.reserveTicks/n;
- const feeExpense=.18*r.fees;\n const utility=integrity+.5*alive+.25*reserve+.18*energy-feeExpense+
+ const feeExpense=.18*r.fees;
+ const utility=integrity+.5*alive+.25*reserve+.18*energy-feeExpense+
   (Number.isFinite(material)?.04*material:0);
  return {utility,integrity,alive,reserve,energy,material,
   materialComponentIncluded:Number.isFinite(material),
