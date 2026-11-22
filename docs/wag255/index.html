@@ -1,0 +1,86 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WAG-255 · Hidden Switching Costs</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#32243f}*{box-sizing:border-box}
+body{margin:0}main{max-width:1340px;margin:auto;padding:24px}
+h1{font-size:clamp(29px,4vw,45px);letter-spacing:-.04em;color:#702aa8;margin:0}
+.sub{color:#7f7089;padding-bottom:16px;border-bottom:2px solid #e8d6f0}
+h2{font-size:19px;color:#672b97;margin:0 0 12px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:20px 0}
+label{font-size:13px;color:#756982}select,button{display:block;margin-top:5px;font:inherit;padding:10px;border:1px solid #c8add9;border-radius:9px;background:white;color:#3a2850}
+button{cursor:pointer;background:#722eaa;color:#fff;font-weight:700;box-shadow:0 0 19px #b378ec79}
+.layout{display:grid;grid-template-columns:1.75fr 1fr;gap:14px}
+.panel{background:#fff;border:1px solid #e7d9ee;border-radius:14px;padding:17px;box-shadow:0 7px 24px #67298615}
+canvas{display:block;width:100%;height:auto;background:#180e2a;border-radius:10px}
+.legend{font-size:12px;display:flex;gap:13px;flex-wrap:wrap;color:#756b7e}.legend span:before{content:'● ';color:var(--c)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{background:#fbf4ff;border-left:4px solid #ff9a3e;padding:11px}
+.metric b{display:block;font-size:24px;color:#692fa9}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{border-bottom:1px solid #ebe1f0;padding:7px 5px;text-align:left}
+pre{white-space:pre-wrap;overflow:auto;max-height:260px;font:12px/1.5 monospace}
+.note{color:#7c7084;font-size:12px}@media(max-width:880px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-255 · When the Price Changes</h1>
+<p class="sub">Hidden surcharge · Nonlinear cost · Temporary shock · After-the-fact evidence · .dlw</p>
+<div class="controls">
+<label>Cost environment<select id="regime"><option>stable</option><option>surcharge</option><option>nonlinear</option><option>shock</option></select></label>
+<label>Environmental family<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>friction</option><option>chirp</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Unseen seed<select id="seed"><option>4201</option><option>4202</option><option>4203</option><option>4204</option></select></label>
+<label>Duration<select id="duration"><option selected>240</option><option>480</option></select></label>
+<label>Controller<select id="policy"><option value="detect">Residual detector</option><option value="frozen">Frozen estimates</option><option value="cautious">High cost buffer</option><option value="confirm4">Four confirmations</option></select></label>
+<button id="run">Run hidden-cost test</button>
+</div>
+<div class="layout"><section class="panel">
+<h2>Recovery field · intact synthetic dynamics</h2><canvas id="field" width="1000" height="430"></canvas>
+<p class="legend"><span style="--c:#4af0dd">Integrity</span><span style="--c:#b580ff">Energy</span><span style="--c:#ffa23b">Pressure</span><span style="--c:#eadcff">Ceiling</span><span style="--c:#f1d67e">Material</span></p>
+<h2 style="margin-top:22px">Switch cost surprise</h2><canvas id="costs" width="1000" height="250"></canvas>
+<p class="note">Purple = fee predicted before switching. Orange = cost imposed afterward. No bar means no transaction and therefore no observation of the hidden regime.</p>
+<h2 style="margin-top:23px">Append-only cost receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Model-mismatch evidence</h2><div class="grid">
+<div class="metric">Switches<b id="switches">—</b></div>
+<div class="metric">Cost exceedances<b id="overruns">—</b></div>
+<div class="metric">Observed mismatches<b id="mismatches">—</b></div>
+<div class="metric">Survival ticks<b id="alive">—</b></div></div>
+<h2 style="margin-top:22px">Matched controllers</h2><table id="comparison"></table>
+<h2 style="margin-top:22px">Audit log</h2><pre id="audit">Run the laboratory.</pre>
+<p class="note">The hidden cost schedule is deliberately synthetic. Detection requires actual transitions; abstention can preserve resources but cannot certify the absence of a shock. Switching debits are tracked outside the inherited WAG-244 transfer ledger.</p></aside></div>
+</main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="../wag254/wag254.js"></script><script src="./wag255.js"></script>
+<script>
+const E=id=>document.getElementById(id);let models,cadence,cost,results;
+function field(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#180e2a';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#49335c';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [k,col]of [['integrity','#4af0dd'],['energy','#b580ff'],['pressure','#ffa23b'],['ceiling','#eadcff'],['material','#f1d67e']]){
+g.beginPath();g.lineWidth=2.6;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=10;
+r.trace.forEach((v,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-v[k])*H):g.moveTo(0,(1-v[k])*H));
+g.stroke();g.shadowBlur=0}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='rebuild'?'#b580ff':'#ffa23b';g.fillRect(i*W/r.trace.length,H-13,3,13)}});
+g.fillStyle='#fff';g.font='bold 20px system-ui';g.fillText('WAG-255 · '+r.regime.toUpperCase(),19,29)}
+function costBars(r){const c=E('costs'),g=c.getContext('2d'),W=c.width,H=c.height,rows=r.transitions;
+g.fillStyle='#180e2a';g.fillRect(0,0,W,H);g.fillStyle='#f6e8ff';g.font='14px system-ui';g.fillText('Observed switch transactions',20,25);
+if(!rows.length){g.fillStyle='#d8badf';g.fillText('No switches: cost regime remains unobserved.',20,90);return}
+const max=Math.max(...rows.map(z=>Math.max(z.actual,z.predicted)),.0001),w=(W-60)/rows.length;
+rows.forEach((z,i)=>{const x=30+i*w,ha=z.actual/max*(H-90),hp=z.predicted/max*(H-90);
+g.fillStyle='#ff9e3e';g.shadowColor=g.fillStyle;g.shadowBlur=12;g.fillRect(x,H-35-ha,Math.max(5,w-9),ha);g.shadowBlur=0;
+g.fillStyle='#b782ff';g.fillRect(x,H-35-hp,Math.max(5,w-9),4);g.font='11px monospace';g.fillStyle='#f1eaff';g.fillText(z.tick,x,H-15)})}
+function display(){const r=results[E('policy').value];field(r);costBars(r);
+E('switches').textContent=r.switches;E('overruns').textContent=r.exceededBounds;
+E('mismatches').textContent=r.mismatchReceipts;E('alive').textContent=r.aliveTicks+'/'+r.duration;
+E('comparison').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Switch fees</th></tr>'+
+Object.entries(results).map(([k,v])=>'<tr><td>'+k+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+v.switchFees.toFixed(5)+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>From → To</th><th>Expected</th><th>Actual</th><th>Ratio</th></tr>'+
+r.transitions.map(z=>'<tr><td>'+z.tick+'</td><td>'+z.from+' → '+z.to+'</td><td>'+z.predicted.toFixed(6)+'</td><td>'+z.actual.toFixed(6)+'</td><td>'+z.ratio.toFixed(2)+'×</td></tr>').join('');
+E('audit').textContent='Regime: '+r.regime+'\nTransitions observed: '+r.switches+
+'\nRatio alarm threshold: 1.55×\nCost overruns: '+r.exceededBounds+
+'\nMismatch receipts: '+r.mismatchReceipts+'\nSubsequent gating events: '+r.blockedByMismatch+
+'\nTotal extra switching fee: '+r.switchFees.toFixed(6)+
+'\nMissed positive repairs: '+r.missed+'/'+r.opportunities+
+'\nSource energy ledger residual: '+r.ledger.energy.toExponential(2)+
+'\nMaterial ledger residual: '+r.ledger.material.toExponential(2)+
+'\n\nZero mismatches with zero post-shock switches ≠ verified unchanged costs.'}
+function run(){try{E('audit').textContent='Loading frozen models and executing hidden-cost episodes…';
+if(!models){models=wag251Models();cadence=wag252Train(models);cost=wag254Train(models)}
+const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,duration=+E('duration').value,regime=E('regime').value;
+results={};for(const mode of ['detect','frozen','cautious','confirm4'])results[mode]=wag255Run(cap,family,seed,duration,regime,mode,models,cadence,cost);
+display()}catch(e){E('audit').textContent='Experiment failed: '+e.stack;throw e}}
+E('run').onclick=run;E('policy').onchange=()=>{if(results)display()};run();
+</script></body></html>
