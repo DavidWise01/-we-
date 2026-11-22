@@ -6,9 +6,9 @@
   "firstBound": 269,
   "lastBound": 280,
   "plannedTurns": 12,
-  "completedTurns": 8,
-  "progressPercent": 66.7,
-  "nextBound": 277,
+  "completedTurns": 9,
+  "progressPercent": 75,
+  "nextBound": 278,
   "policyPromotion": "NONE",
   "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
   "milestones": [
@@ -63,7 +63,7 @@
     {
       "bound": 277,
       "name": "Withheld 480/720-tick trial",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 75
     },
     {
@@ -86,32 +86,45 @@
     }
   ],
   "lastAccepted": {
-    "bound": 276,
-    "primitive": "{\\a{b/}}",
-    "engine": "docs/wag276/wag276.js",
-    "lab": "docs/wag276/controller.html",
-    "topology": "docs/wag276/crystalline-mesh.js",
-    "receipt": "docs/wag276/receipt-6301-6303.json",
+    "bound": 277,
+    "primitive": "---@---@---@---@---{}",
+    "frozenPrimitive": "{\\a{b/}}",
+    "engine": "docs/wag277/wag277.js",
+    "lab": "docs/wag277/controller.html",
+    "signalLab": "docs/wag277/lattice-chain.html",
+    "receipt": "docs/wag277/receipt-6401-6404.json",
     "frozenCandidate": "docs/wag276/frozen-crystalline-candidate.json",
-    "policyRuns": 288,
-    "matchedConditions": 96,
-    "survival240": {
-      "crystal": 34,
-      "mesh": 34,
-      "frozen": 29,
-      "cases": 48
+    "policyRuns": 384,
+    "matchedConditions": 128,
+    "holdoutSeeds": [
+      6401,
+      6402,
+      6403,
+      6404
+    ],
+    "durations": [
+      480,
+      720
+    ],
+    "fullSurvival": {
+      "480": {
+        "frozen": 29,
+        "crystal": 29,
+        "chain": 29,
+        "total": 64
+      },
+      "720": {
+        "frozen": 29,
+        "crystal": 28,
+        "chain": 28,
+        "total": 64
+      }
     },
-    "survival480": {
-      "crystal": 23,
-      "mesh": 23,
-      "frozen": 23,
-      "cases": 48
-    },
-    "crystalIntegrityRegressions": 65,
-    "crystalAliveRegressions": 0,
-    "sourceImmutableForNextHoldout": true,
+    "crystalIntegrityRegressions": 82,
+    "crystalAliveRegressions": 2,
+    "chainExploratory": true,
     "policyPromoted": false,
-    "summary": "Versioned crystalline neural controller frozen ahead of WAG277 withheld tests. Eight opposed rail pairs alter the single repair action through a deterministic gate. No double material spending, conservation near numerical precision. Candidate structurally worse than frozen in 65/96; no promotion. GitHub Pages live deployment unverified."
+    "summary": "Precommitted frozen crystal tested on withheld 480/720, no survival advantage and one fewer 720 full-survival compared with WAG261. Separate exploratory 4-junction lattice chain altered 507 decisions, modestly changed mean integrity but remains below frozen reference. Deterministic replay, resource ledger and rail conservation passed; no tuning or policy promotion. Pages live unverified."
   },
   "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
 }
