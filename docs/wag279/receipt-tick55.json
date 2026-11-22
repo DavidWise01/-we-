@@ -1,0 +1,611 @@
+{
+  "bound": "WAG-279",
+  "phase": "WAG-III",
+  "turn": 11,
+  "primitive": "---@---@---@---@---{} → {\\a{b/}}",
+  "intervention": {
+    "tick": 55,
+    "type": "single action from frozen matched WAG261 arm",
+    "allLaterDecisions": "original crystalline decision law, evolving state",
+    "noTuning": true
+  },
+  "ranked": [
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "shrinking-cycle",
+        "cap": 13,
+        "seed": 6403
+      },
+      "kind": "integrity-gap",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": 0,
+      "integrityDelta": 0.000340711952782069,
+      "atFailureIntegrityGain": -0.0012699999999999934,
+      "survivedOriginalFailure": true,
+      "delayedIntegrityGain": {
+        "24": -0.0012699999999999934,
+        "48": -0.0012699999999999934,
+        "96": -0.0012699999999999934
+      },
+      "original": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9396405185570321
+      },
+      "intervention": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9399812305098142
+      },
+      "maxResidual": 2.7977620220553945e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9754133509883396,
+          "material": 0.23130000000000078,
+          "integrity": 0.98659,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9766133509883396,
+          "material": 0.23280000000000078,
+          "integrity": 0.98659,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 151,
+          "energy": 0.9543422610955582,
+          "material": 0.2875000000000021,
+          "integrity": 0.95991,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 151,
+          "energy": 0.9546963501374367,
+          "material": 0.2875000000000021,
+          "integrity": 0.95864,
+          "action": "abstain"
+        }
+      },
+      "rank": 1
+    },
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "surge-crash",
+        "cap": 13,
+        "seed": 6404
+      },
+      "kind": "survival-loss",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": 1,
+      "integrityDelta": 0.00013369137784491336,
+      "atFailureIntegrityGain": 0.0007599999999999829,
+      "survivedOriginalFailure": false,
+      "delayedIntegrityGain": {
+        "24": -0.0011099999999999444,
+        "48": -0.0010900000000000354,
+        "96": -0.0011100000000000554
+      },
+      "original": {
+        "aliveTicks": 719,
+        "fullSurvival": false,
+        "meanIntegrity": 0.9315862206896071
+      },
+      "intervention": {
+        "aliveTicks": 719,
+        "fullSurvival": false,
+        "meanIntegrity": 0.931719912067452
+      },
+      "maxResidual": 2.7533531010703882e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9694133509883396,
+          "material": 0.24765000000000068,
+          "integrity": 0.98659,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9706133509883396,
+          "material": 0.24915000000000068,
+          "integrity": 0.98659,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 579,
+          "energy": 0.07451182832799885,
+          "material": 0.4350000000000089,
+          "integrity": 0.8548,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 579,
+          "energy": 0.07717258807410772,
+          "material": 0.4335000000000089,
+          "integrity": 0.85556,
+          "action": "abstain"
+        }
+      },
+      "rank": 2
+    },
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "shrinking-cycle",
+        "cap": 13,
+        "seed": 6402
+      },
+      "kind": "integrity-gap",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": -1,
+      "integrityDelta": 0.00009977962306007004,
+      "atFailureIntegrityGain": -0.0011400000000000299,
+      "survivedOriginalFailure": true,
+      "delayedIntegrityGain": {
+        "24": -0.0011500000000000954,
+        "48": -0.0011400000000000299,
+        "96": -0.0011400000000000299
+      },
+      "original": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9411149612709341
+      },
+      "intervention": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9412147408939942
+      },
+      "maxResidual": 2.731148640577885e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9751034080164899,
+          "material": 0.23130000000000078,
+          "integrity": 0.98691,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9763034080164898,
+          "material": 0.23280000000000078,
+          "integrity": 0.98691,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 145,
+          "energy": 0.9265628473594834,
+          "material": 0.280500000000002,
+          "integrity": 0.96001,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 145,
+          "energy": 0.9268956019824064,
+          "material": 0.280500000000002,
+          "integrity": 0.95887,
+          "action": "abstain"
+        }
+      },
+      "rank": 3
+    },
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "surge-crash",
+        "cap": 13,
+        "seed": 6403
+      },
+      "kind": "survival-loss",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": 0,
+      "integrityDelta": -0.0005066195493277359,
+      "atFailureIntegrityGain": -0.0007800000000000029,
+      "survivedOriginalFailure": false,
+      "delayedIntegrityGain": {
+        "24": -0.0012800000000000589,
+        "48": -0.0012499999999999734,
+        "96": -0.0012600000000000389
+      },
+      "original": {
+        "aliveTicks": 717,
+        "fullSurvival": false,
+        "meanIntegrity": 0.9284965630248465
+      },
+      "intervention": {
+        "aliveTicks": 717,
+        "fullSurvival": false,
+        "meanIntegrity": 0.9279899434755188
+      },
+      "maxResidual": 2.842170943040401e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9694133509883396,
+          "material": 0.24890000000000068,
+          "integrity": 0.98659,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9706133509883396,
+          "material": 0.2504000000000007,
+          "integrity": 0.98659,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 578,
+          "energy": 0.0799771786301533,
+          "material": 0.42760000000000886,
+          "integrity": 0.85277,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 578,
+          "energy": 0.0796879941357092,
+          "material": 0.42360000000000886,
+          "integrity": 0.85199,
+          "action": "abstain"
+        }
+      },
+      "rank": 4
+    },
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "shrinking-cycle",
+        "cap": 13,
+        "seed": 6401
+      },
+      "kind": "integrity-gap",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": 0,
+      "integrityDelta": -0.0008371111872580439,
+      "atFailureIntegrityGain": -0.0010300000000000864,
+      "survivedOriginalFailure": true,
+      "delayedIntegrityGain": {
+        "24": -0.001040000000000041,
+        "48": -0.0010300000000000864,
+        "96": -0.0010300000000000864
+      },
+      "original": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9398315596306795
+      },
+      "intervention": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9389944484434215
+      },
+      "maxResidual": 3.086420008457935e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9754133509883396,
+          "material": 0.23130000000000078,
+          "integrity": 0.98659,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9766133509883396,
+          "material": 0.23280000000000078,
+          "integrity": 0.98659,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 145,
+          "energy": 0.9287205558910238,
+          "material": 0.27890000000000204,
+          "integrity": 0.95935,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 145,
+          "energy": 0.9290079677166754,
+          "material": 0.27890000000000204,
+          "integrity": 0.95832,
+          "action": "abstain"
+        }
+      },
+      "rank": 5
+    },
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "seed": 6404
+      },
+      "kind": "integrity-gap",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": 0,
+      "integrityDelta": -0.0008842304540525037,
+      "atFailureIntegrityGain": -0.0011200000000000099,
+      "survivedOriginalFailure": true,
+      "delayedIntegrityGain": {
+        "24": -0.0011099999999999444,
+        "48": -0.0011200000000000099,
+        "96": -0.0011200000000000099
+      },
+      "original": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9393544786523441
+      },
+      "intervention": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9384702481982916
+      },
+      "maxResidual": 2.886579864025407e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9814133509883397,
+          "material": 0.21110000000000076,
+          "integrity": 0.98659,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9826133509883397,
+          "material": 0.21260000000000076,
+          "integrity": 0.98659,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 145,
+          "energy": 0.9337611055802848,
+          "material": 0.23690000000000194,
+          "integrity": 0.95928,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 145,
+          "energy": 0.9340656603127799,
+          "material": 0.23690000000000194,
+          "integrity": 0.95816,
+          "action": "abstain"
+        }
+      },
+      "rank": 6
+    },
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "seed": 6402
+      },
+      "kind": "integrity-gap",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": 0,
+      "integrityDelta": -0.0009421935822226946,
+      "atFailureIntegrityGain": -0.0011400000000000299,
+      "survivedOriginalFailure": true,
+      "delayedIntegrityGain": {
+        "24": -0.0011500000000000954,
+        "48": -0.0011400000000000299,
+        "96": -0.0011400000000000299
+      },
+      "original": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9337491019868136
+      },
+      "intervention": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9328069084045909
+      },
+      "maxResidual": 2.6978419498391304e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9337732431735033,
+          "material": 0.21390000000000065,
+          "integrity": 0.98691,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9349732431735033,
+          "material": 0.21540000000000065,
+          "integrity": 0.98691,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 151,
+          "energy": 0.7861526958682425,
+          "material": 0.2133000000000017,
+          "integrity": 0.96001,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 151,
+          "energy": 0.7864728890492796,
+          "material": 0.2133000000000017,
+          "integrity": 0.95887,
+          "action": "abstain"
+        }
+      },
+      "rank": 7
+    },
+    {
+      "id": {
+        "duration": 720,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "seed": 6403
+      },
+      "kind": "integrity-gap",
+      "interventionTick": 55,
+      "requestedReferenceAction": "abstain",
+      "originalCrystalAction": "prevent",
+      "actualOverrideAction": "abstain",
+      "didApply": true,
+      "identicalPrefix": true,
+      "firstAltered": 55,
+      "aliveDelta": 0,
+      "reserveDelta": 0,
+      "integrityDelta": -0.0010488198357254674,
+      "atFailureIntegrityGain": -0.0012699999999999934,
+      "survivedOriginalFailure": true,
+      "delayedIntegrityGain": {
+        "24": -0.0012699999999999934,
+        "48": -0.0012699999999999934,
+        "96": -0.0012699999999999934
+      },
+      "original": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9400811212351516
+      },
+      "intervention": {
+        "aliveTicks": 720,
+        "fullSurvival": true,
+        "meanIntegrity": 0.9390323013994262
+      },
+      "maxResidual": 2.842170943040401e-14,
+      "replayDeterministic": true,
+      "traceAtIntervention": {
+        "original": {
+          "tick": 55,
+          "energy": 0.9814133509883397,
+          "material": 0.21110000000000076,
+          "integrity": 0.98659,
+          "action": "prevent"
+        },
+        "counterfactual": {
+          "tick": 55,
+          "energy": 0.9826133509883397,
+          "material": 0.21260000000000076,
+          "integrity": 0.98659,
+          "action": "abstain"
+        }
+      },
+      "traceAtFailure": {
+        "original": {
+          "tick": 145,
+          "energy": 0.9317311549533416,
+          "material": 0.23870000000000194,
+          "integrity": 0.95991,
+          "action": "abstain"
+        },
+        "counterfactual": {
+          "tick": 145,
+          "energy": 0.9320878200130861,
+          "material": 0.23870000000000194,
+          "integrity": 0.95864,
+          "action": "abstain"
+        }
+      },
+      "rank": 8
+    }
+  ],
+  "summary": {
+    "cases": 8,
+    "applicableOverrides": 8,
+    "survivalImprovements": 0,
+    "survivalRegressions": 0,
+    "integrityImprovements": 3,
+    "integrityRegressions": 5,
+    "restoredSurvivalAtOriginalFailure": 0,
+    "maxResidual": 3.086420008457935e-14,
+    "deterministic": true
+  },
+  "cautions": [
+    "Results are within-model causal interventions conditional on this synthetic simulator",
+    "One action at tick 55 is not proof of a generalizable repair policy",
+    "The selected cases reuse WAG277 withheld evidence; no new holdout",
+    "Frozen candidate and WAG261 reference left unchanged"
+  ],
+  "sourceCommit": "5a1cfbb2b73e64f748f32408410dba5c75f89b29",
+  "sourceWag278": "docs/wag278/receipt-6401-6404.json",
+  "frozenCandidate": "docs/wag276/frozen-crystalline-candidate.json",
+  "interpretation": "The single tick-55 override failed to restore the two observed survival losses. Integrity effects were mixed. No promotion."
+}
