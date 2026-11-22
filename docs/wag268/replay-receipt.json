@@ -1,0 +1,218 @@
+{
+  "bound": "WAG-268",
+  "phase": "WAG-II",
+  "policyFrozen": true,
+  "deterministicSamples": [
+    {
+      "case": {
+        "cap": 13,
+        "family": "combined",
+        "seed": 5501,
+        "stress": "late-collapse"
+      },
+      "pass": true,
+      "digest": "0e0f2702",
+      "runs": [
+        {
+          "mode": "frozen",
+          "alive": 204,
+          "reserve": 164,
+          "meanIntegrity": 0.865415163,
+          "finalEnergy": 0.003024,
+          "finalMaterial": 0.36,
+          "traceDigest": "450e783d"
+        },
+        {
+          "mode": "rejectedAdaptive",
+          "alive": 204,
+          "reserve": 164,
+          "meanIntegrity": 0.864608026523,
+          "finalEnergy": 0.003024,
+          "finalMaterial": 0.3635,
+          "traceDigest": "09a50721"
+        },
+        {
+          "mode": "noRepair",
+          "alive": 204,
+          "reserve": 163,
+          "meanIntegrity": 0.838173799825,
+          "finalEnergy": 0.003024,
+          "finalMaterial": 0.416,
+          "traceDigest": "888eab7d"
+        }
+      ]
+    },
+    {
+      "case": {
+        "cap": 13,
+        "family": "combined",
+        "seed": 5501,
+        "stress": "double-shock"
+      },
+      "pass": true,
+      "digest": "f21b0502",
+      "runs": [
+        {
+          "mode": "frozen",
+          "alive": 145,
+          "reserve": 134,
+          "meanIntegrity": 0.706117597087,
+          "finalEnergy": 0.003024,
+          "finalMaterial": 0.3705,
+          "traceDigest": "9ca84cf9"
+        },
+        {
+          "mode": "rejectedAdaptive",
+          "alive": 145,
+          "reserve": 136,
+          "meanIntegrity": 0.705096247454,
+          "finalEnergy": 0.003024,
+          "finalMaterial": 0.3775,
+          "traceDigest": "fcd7dd3b"
+        },
+        {
+          "mode": "noRepair",
+          "alive": 159,
+          "reserve": 144,
+          "meanIntegrity": 0.694842830777,
+          "finalEnergy": 0.003024,
+          "finalMaterial": 0.416,
+          "traceDigest": "e355595e"
+        }
+      ]
+    },
+    {
+      "case": {
+        "cap": 5,
+        "family": "combined",
+        "seed": 5502,
+        "stress": "intermittent"
+      },
+      "pass": true,
+      "digest": "4cb20f59",
+      "runs": [
+        {
+          "mode": "frozen",
+          "alive": 240,
+          "reserve": 218,
+          "meanIntegrity": 0.635220065393,
+          "finalEnergy": 0.254160058676,
+          "finalMaterial": 0.3145,
+          "traceDigest": "e6d07905"
+        },
+        {
+          "mode": "rejectedAdaptive",
+          "alive": 240,
+          "reserve": 218,
+          "meanIntegrity": 0.633785680247,
+          "finalEnergy": 0.288412231944,
+          "finalMaterial": 0.3495,
+          "traceDigest": "409bd095"
+        },
+        {
+          "mode": "noRepair",
+          "alive": 240,
+          "reserve": 217,
+          "meanIntegrity": 0.626223978347,
+          "finalEnergy": 0.293464054528,
+          "finalMaterial": 0.416,
+          "traceDigest": "941320c8"
+        }
+      ]
+    },
+    {
+      "case": {
+        "cap": 21,
+        "family": "scar",
+        "seed": 5504,
+        "stress": "resource-squeeze"
+      },
+      "pass": true,
+      "digest": "5a619e4b",
+      "runs": [
+        {
+          "mode": "frozen",
+          "alive": 240,
+          "reserve": 240,
+          "meanIntegrity": 0.98646586951,
+          "finalEnergy": 1,
+          "finalMaterial": 0.1585,
+          "traceDigest": "8dea4c3c"
+        },
+        {
+          "mode": "rejectedAdaptive",
+          "alive": 240,
+          "reserve": 240,
+          "meanIntegrity": 0.978800036177,
+          "finalEnergy": 1,
+          "finalMaterial": 0.1725,
+          "traceDigest": "7f342f50"
+        },
+        {
+          "mode": "noRepair",
+          "alive": 240,
+          "reserve": 240,
+          "meanIntegrity": 0.961003679158,
+          "finalEnergy": 1,
+          "finalMaterial": 0.246,
+          "traceDigest": "7d8165b4"
+        }
+      ]
+    }
+  ],
+  "originalFailureCount": 43,
+  "minimizedReplays": [
+    {
+      "stress": "late-collapse",
+      "cap": 5,
+      "family": "combined",
+      "seed": 5501,
+      "pass": true,
+      "alive": 239,
+      "originalAlive": 230,
+      "events": 68,
+      "traceDigest": "df9aedff"
+    },
+    {
+      "stress": "double-shock",
+      "cap": 5,
+      "family": "combined",
+      "seed": 5501,
+      "pass": true,
+      "alive": 239,
+      "originalAlive": 230,
+      "events": 5,
+      "traceDigest": "98253656"
+    },
+    {
+      "stress": "intermittent",
+      "cap": 13,
+      "family": "combined",
+      "seed": 5502,
+      "pass": true,
+      "alive": 239,
+      "originalAlive": 239,
+      "events": 60,
+      "traceDigest": "5828cbd8"
+    },
+    {
+      "stress": "resource-squeeze",
+      "cap": 13,
+      "family": "combined",
+      "seed": 5502,
+      "pass": true,
+      "alive": 239,
+      "originalAlive": 239,
+      "events": 109,
+      "traceDigest": "c8e70f16"
+    }
+  ],
+  "passed": true,
+  "totalReplayRuns": 28,
+  "warning": "Determinism sampled on four fixed cases; no proof of all possible runs. One synthetic model ancestry.",
+  "source": "docs/wag268/wag268.js",
+  "sourceCommit": "3aff1c337da1e6aacba8d13bffd560d0d596be03",
+  "frozenPolicy": "docs/wag264/frozen-policy.json",
+  "counterexamples": "docs/wag266/receipt-5501-5504.json",
+  "scorecard": "docs/wag267/receipt-5501-5504.json"
+}
