@@ -32,12 +32,13 @@ function wag256ProbeDecision(x,st,trainedCost,variant){
  const safe=x.s.energy-roundTrip>.54&&x.material>.055&&x.s.integrity>.30;
  const budget=st.probeBudget-st.probeDebits>=roundTrip;
  const gap=x.t-st.lastProbe>=WAG256_PROBE_GAP;
- const highInformation=risk.n===0||risk.stale>=48||risk.mismatch;
+ const highInformation=risk.n===0||risk.stale>=48;
+ // A fresh alarm is already information; do not repeatedly pay to rediscover it.
  const policyWants=variant==='periodicProbe'?true:highInformation;
  const window=WAG256_PROBE_TICKS.includes(x.t);
  // Paired fast intervals are allowed only if underlying economics can afford a
  // switch AND a return. No future regime price is available here.
- return {permit:window&&safe&&budget&&gap&&policyWants,
+ return {permit:window&&x.t+6<x.duration&&safe&&budget&&gap&&policyWants,
    safe,budget,gap,window,policyWants,from:current,to:target,
    estimate,expectedRoundTrip:roundTrip,risk,features};
 }
