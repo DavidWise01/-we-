@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-275 · Neural Regret Ledger</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#372742}*{box-sizing:border-box}body{margin:0}main{max-width:1390px;margin:auto;padding:25px}
+h1{font-size:clamp(30px,4vw,49px);letter-spacing:-.05em;color:#7128ae;margin:0}h2{font-size:19px;color:#7133aa;margin:0 0 12px}.sub{color:#796d85;padding-bottom:16px;border-bottom:2px solid #e9d9f0}
+.controls{display:flex;align-items:end;flex-wrap:wrap;gap:10px;margin:20px 0}label{font-size:13px;color:#736783}select,button{display:block;margin-top:5px;font:inherit;background:white;color:#362844;border:1px solid #c6a9d9;border-radius:9px;padding:10px}button{background:#6d2caf;color:white;box-shadow:0 0 18px #a96ce78b;cursor:pointer;font-weight:700}
+.layout{display:grid;grid-template-columns:1.63fr 1fr;gap:15px}.panel{background:white;padding:18px;border-radius:15px;border:1px solid #eaddf1;box-shadow:0 9px 23px #60368a15}canvas{display:block;width:100%;height:auto;background:#190d2c;border-radius:11px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#fcf5ff;border-left:4px solid #ff9f3b;padding:11px}.stat b{color:#7530b3;font-size:23px;display:block}table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:8px 5px;text-align:left;border-bottom:1px solid #eaddef}pre{white-space:pre-wrap;max-height:280px;overflow:auto;font:12px/1.53 monospace}.note{font-size:12px;color:#7b6e84}a{color:#732faf}@media(max-width:870px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-275 · The Price of Abstention</h1>
+<p class="sub">Phase III · Turn 7/12 · <strong>{a{b}}</strong> · Save resources, track structural debt · Fixed mesh weights · .dlw</p>
+<div class="controls">
+<label>Duration<select id="duration"><option value="240">240 ticks</option><option value="480" selected>480 ticks</option></select></label>
+<label>Unfamiliar stress<select id="force"><option>antiphase</option><option selected>surge-crash</option><option>shrinking-cycle</option><option>dual-burst</option></select></label>
+<label>Family<select id="family"><option>scar</option><option selected>combined</option></select></label>
+<label>Capacity<select id="cap"><option>8</option><option value="13" selected>13</option></select></label>
+<label>Seed<select id="seed"><option selected>6201</option><option>6202</option><option>6203</option></select></label>
+<button id="run">Replay paired regret</button></div>
+<div class="layout"><section class="panel">
+<h2>Accumulated structural regret / resource reserve</h2><canvas id="traces" width="1050" height="390"></canvas>
+<p class="note">Orange = normalized accumulated integrity loss of mesh vs frozen · Purple = mesh integrity advantage · Teal = material advantage. These are observational matched-policy differences, not isolated causal repair effects.</p>
+<h2 style="margin-top:25px">Two braced cubits · recurrent mesh</h2><canvas id="mesh" width="1050" height="330"></canvas>
+<p class="note">Outer cubit a regulates survival and reserve. Nested b emits repair valuation. One action leaves the mesh and is charged by the original physical engine.</p>
+<h2 style="margin-top:25px">Long-horizon cohort comparison</h2><table id="aggregate"></table></section>
+<aside class="panel"><h2>Regret receipt</h2>
+<div class="stats">
+<div class="stat">Matched cases<b>96</b></div>
+<div class="stat">Policy runs<b>192</b></div>
+<div class="stat">Missed repair episodes<b>2,392</b></div>
+<div class="stat">Phase III progress<b>58.3%</b></div></div>
+<h2 style="margin-top:24px">Current case</h2><pre id="audit">Loading frozen experiment…</pre>
+<h2 style="margin-top:24px">Lagged missed-window ledger</h2><table id="lags"></table>
+<p class="note">Follow-up integrity differences at +24 and +48 ticks measure full-trajectory divergence. The overlapping episode windows are dependent and must not be interpreted as distinct causal effects.</p>
+<p><a href="./receipt-6201-6203.json">Regret evidence receipt</a> · <a href="../wag274/receipt-6101-6103.json">Prior unfamiliar forcing</a> · <a href="../wag269/phase-progress.json">Phase III progress</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="../wag272/wag272.js"></script><script src="../wag274/wag274.js"></script><script src="./wag275.js"></script>
+<script>
+const E=id=>document.getElementById(id);let frozen,receipt,context,comp,angle=0;
+function plot(){if(!comp)return;const g=E('traces').getContext('2d'),W=1050,H=390;g.fillStyle='#190d2c';g.fillRect(0,0,W,H);for(let j=0;j<=5;j++){g.strokeStyle='#463257';g.beginPath();g.moveTo(0,j*H/5);g.lineTo(W,j*H/5);g.stroke()}
+const max=Math.max(.001,...comp.series.map(v=>Math.max(v.cumRegret,v.cumAdvantage,Math.abs(v.materialDelta))));
+for(const [key,color,absolute]of [['cumRegret','#ffa338',false],['cumAdvantage','#b684ff',false],['materialDelta','#4aeadc',true]]){g.beginPath();g.strokeStyle=color;g.shadowColor=color;g.shadowBlur=11;g.lineWidth=2.7;
+comp.series.forEach((p,i)=>{const value=absolute?Math.max(0,p[key]):p[key],x=i*W/(comp.series.length-1),y=H-35-value/max*(H-80);
+if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.shadowBlur=0}
+g.fillStyle='#fff';g.font='bold 18px system-ui';g.fillText('PAIRED REGRET · '+E('force').value.toUpperCase(),17,28)}
+function spin(){const c=E('mesh'),g=c.getContext('2d'),W=1050,H=330;g.fillStyle='#190d2c';g.fillRect(0,0,W,H);
+function draw(scale,col,ang,label){const V=Array.from({length:8},(_,i)=>{const x=i%2?1:-1,y=Math.floor(i/2)%2?1:-1,z=i<4?-1:1,cs=Math.cos(ang),sn=Math.sin(ang),X=x*cs-z*sn,Z=x*sn+z*cs;return [525+X*scale,161+(y*.82+Z*.16)*scale]});
+const edges=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+g.strokeStyle=col;g.lineWidth=2.6;g.shadowColor=col;g.shadowBlur=13;edges.forEach(([a,b])=>{g.beginPath();g.moveTo(...V[a]);g.lineTo(...V[b]);g.stroke()});g.shadowBlur=0;g.font='bold 17px system-ui';g.fillStyle=col;g.fillText(label,V[0][0],V[0][1]-13);return V}
+const a=draw(130,'#ffa03b',angle,'{a} reserve'),b=draw(65,'#b58aff',-angle*1.4,'{b} repair');
+for(let i=0;i<8;i++){g.beginPath();g.moveTo(...a[i]);g.lineTo(...b[(i+3)%8]);g.strokeStyle='#47e5d9';g.lineWidth=1.5;g.setLineDash([5,6]);g.stroke();g.setLineDash([])}
+g.fillStyle='#fff';g.font='17px monospace';g.fillText('{a{b}} · fixed-weight neural mesh',18,30);angle+=.004;requestAnimationFrame(spin)}
+function show(){plot();const group=receipt.byHorizon[E('duration').value];E('aggregate').innerHTML='<tr><th>Metric</th><th>240 ticks</th><th>480 ticks</th></tr>'+
+[['Mean positive integrity regret','positiveIntegrityRegret'],['Mean mesh integrity advantage','meshIntegrityAdvantage'],['Mean material saved (state-area)','meanMaterialSaved'],['Mean viable tick delta','meanAliveDelta']].map(([label,key])=>'<tr><td>'+label+'</td><td>'+receipt.byHorizon['240'][key].toFixed(6)+'</td><td>'+receipt.byHorizon['480'][key].toFixed(6)+'</td></tr>').join('');
+E('lags').innerHTML='<tr><th>Follow-up</th><th>Eligible episodes</th><th>Positive frozen integrity gap</th></tr>'+
+Object.entries(receipt.lagLedger).map(([key,r])=>'<tr><td>'+key+' ticks</td><td>'+r.n+'</td><td>'+r.positiveIntegrityGap+'</td></tr>').join('');
+E('audit').textContent='Matched case: '+E('family').value+' · '+E('force').value+'\nCapacity '+E('cap').value+', Seed '+E('seed').value+', duration '+E('duration').value+
+'\n\nMean positive integrity deficit: '+comp.positiveIntegrityRegret.toFixed(7)+
+'\nMean mesh integrity advantage: '+comp.meshIntegrityAdvantage.toFixed(7)+
+'\nSigned integrity gap: '+comp.signedIntegrityDelta.toFixed(7)+
+'\nMaterial saved state-area: '+comp.materialSavedArea.toFixed(7)+
+'\nEnergy saved state-area: '+comp.energySavedArea.toFixed(7)+
+'\nMissed repair opportunities: '+comp.missedRepairEpisodes+
+'\nMesh viability gains (ticks): '+comp.pairedAliveGained+
+'\nMesh viability losses (ticks): '+comp.pairedAliveLost+
+'\n\nNo neural weights changed. No causal claim about individual missed repairs.';
+}
+function run(){try{if(!receipt||!frozen)throw Error('Frozen receipts absent');
+if(!context){const models=wag251Models(),horizon=wag261Train(models);context={models,horizon}}
+const args=[+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('force').value];
+const a=wag274Run(...args,'frozen',frozen,context.models,context.horizon),b=wag274Run(...args,'mesh',frozen,context.models,context.horizon);
+comp=wag275Compare(a,b);show()}catch(e){E('audit').textContent='ERROR '+e.stack;throw e}}
+async function init(){try{const rs=await Promise.all([fetch('./receipt-6201-6203.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(rs.some(r=>!r.ok))throw Error('Missing evidence');receipt=await rs[0].json();frozen=await rs[1].json();wag264VerifyFreeze(frozen);run()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('run').onclick=run;requestAnimationFrame(spin);init();
+</script></body></html>
