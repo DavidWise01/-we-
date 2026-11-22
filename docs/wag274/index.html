@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-274 · Unfamiliar Forcing Mesh</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#33243f}*{box-sizing:border-box}body{margin:0}main{max-width:1370px;margin:auto;padding:24px}
+h1{font-size:clamp(30px,4vw,48px);letter-spacing:-.055em;color:#762ab3;margin:0}h2{font-size:19px;color:#682ba7;margin:0 0 12px}
+.sub{padding-bottom:16px;border-bottom:2px solid #e7d9ec;color:#756882}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:18px 0}
+label{font-size:13px;color:#746781}select,button{font:inherit;display:block;background:white;border:1px solid #c9aedb;color:#372849;border-radius:9px;margin-top:5px;padding:10px}button{background:#7130a7;color:white;font-weight:700;box-shadow:0 0 16px #ae79e991;cursor:pointer}
+.layout{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}.panel{background:white;border:1px solid #e9dbee;border-radius:14px;padding:18px;box-shadow:0 8px 20px #65388816}
+canvas{display:block;width:100%;height:auto;border-radius:11px;background:#1a0e2b}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{border-left:4px solid #ffa13b;background:#fcf5ff;padding:11px}.metric b{display:block;color:#7131ae;font-size:23px}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{text-align:left;border-bottom:1px solid #eadbed;padding:8px 5px}
+pre{white-space:pre-wrap;font:12px/1.55 monospace;overflow:auto;max-height:340px}.small{font-size:12px;color:#776a83}a{color:#7733af}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-274 · A World It Hasn't Seen</h1>
+<p class="sub">Phase III · Turn 6/12 · Two recurrent braced cubits <strong>{a{b}}</strong> · Paired unfamiliar energy/material forcing · .dlw</p>
+<div class="controls">
+<label>Novel stress<select id="force"><option>antiphase</option><option selected>surge-crash</option><option>shrinking-cycle</option><option>dual-burst</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option selected>combined</option></select></label>
+<label>Duration<select id="duration"><option value="240">240 ticks</option><option selected value="480">480 ticks</option></select></label>
+<label>Capacity<select id="cap"><option>8</option><option selected>13</option></select></label>
+<label>Unseen seed<select id="seed"><option selected>6101</option><option>6102</option><option>6103</option></select></label>
+<button id="run">Run matched controllers</button></div>
+<div class="layout"><section class="panel">
+<h2>Paired structural trajectories</h2><canvas id="trajectories" width="1050" height="370"></canvas>
+<p class="small">Orange = frozen WAG-261 structural integrity · Purple = fixed-weight {a{b}} mesh · Teal = mesh energy. All physical stress events are identical within a paired case.</p>
+<h2 style="margin-top:24px">Nested 3D signaling lattice</h2><canvas id="mesh" width="1050" height="370"></canvas><p class="small">Outer brace a regulates risk and resources; inner brace b estimates repair urgency. Dashed teal lines represent cross-cubit connections. The model does not know future forcing.</p>
+<h2 style="margin-top:24px">Risk reliability on unfamiliar stress</h2><canvas id="reliability" width="1050" height="265"></canvas>
+<h2 style="margin-top:24px">Cohort results by horizon</h2><table id="aggregate"></table></section>
+<aside class="panel"><h2>Falsification scorecard</h2><div class="metrics">
+<div class="metric">Matched cases<b>96</b></div><div class="metric">Policy runs<b>192</b></div>
+<div class="metric">Risk predictions<b id="preds">1,344</b></div><div class="metric">Risk ECE<b id="ece">—</b></div></div>
+<h2 style="margin-top:24px">Current paired test</h2><table id="case"></table>
+<h2 style="margin-top:24px">Unchanged neural weights</h2><pre id="audit">Loading paired evidence…</pre>
+<p class="small">Scores are raw activations, not calibrated probabilities. Calibration windows from one trajectory are dependent. This test introduces new forcing patterns but still shares the synthetic simulator ancestry.</p>
+<p><a href="./receipt-6101-6103.json">Full paired evidence receipt</a> · <a href="../wag273/receipt-6001-6003.json">Previous calibration</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="../wag272/wag272.js"></script><script src="./wag274.js"></script><script>
+const E=id=>document.getElementById(id);let receipt,frozen,ctx,runs,angle=0;
+function trace(){if(!runs)return;const c=E('trajectories'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#1a0e2b';g.fillRect(0,0,W,H);
+for(let i=0;i<=10;i++){g.strokeStyle='#493461';g.beginPath();g.moveTo(0,i*H/10);g.lineTo(W,i*H/10);g.stroke()}
+for(const [r,key,color]of [[runs.frozen,'integrity','#ffa03c'],[runs.mesh,'integrity','#ae7aff'],[runs.mesh,'energy','#44dfd3']]){g.beginPath();g.lineWidth=2.6;g.strokeStyle=color;g.shadowColor=color;g.shadowBlur=11;r.trace.forEach((z,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-z[key])*H):g.moveTo(0,(1-z[key])*H));g.stroke();g.shadowBlur=0}
+g.fillStyle='#fff';g.font='bold 20px system-ui';g.fillText('UNFAMILIAR FORCE · '+E('force').value.toUpperCase(),18,29)}
+function project(x,y,z,s,ang){const c=Math.cos(ang),v=Math.sin(ang),X=x*c-z*v,Z=x*v+z*c,d=4.7/(4.7+.45*Z);return [525+X*s*d,181+(y*.82+Z*.17)*s*d]}
+function spin(){const c=E('mesh'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#1a0e2b';g.fillRect(0,0,W,H);
+const e=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+function cubit(scale,ang,color,label){const p=Array.from({length:8},(_,i)=>project(i%2?1:-1,Math.floor(i/2)%2?1:-1,i<4?-1:1,scale,ang));g.strokeStyle=color;g.lineWidth=2.7;g.shadowColor=color;g.shadowBlur=17;e.forEach(([a,b])=>{g.beginPath();g.moveTo(...p[a]);g.lineTo(...p[b]);g.stroke()});g.shadowBlur=0;g.fillStyle=color;g.font='bold 18px system-ui';g.fillText(label,p[0][0]-5,p[0][1]-16);return p}
+const a=cubit(138,angle,'#ffa13e','a · REGULATE'),b=cubit(67,-angle*1.45,'#b987ff','b · REPAIR');
+for(let i=0;i<8;i++){g.strokeStyle='#4be5d9';g.lineWidth=1.5;g.setLineDash([5,6]);g.beginPath();g.moveTo(...a[i]);g.lineTo(...b[(i+3)%8]);g.stroke();g.setLineDash([])}
+g.fillStyle='#fff';g.font='bold 19px monospace';g.fillText('{a{b}} · untrained weights unchanged',17,31);angle+=.005;requestAnimationFrame(spin)}
+function reliability(){if(!receipt)return;const g=E('reliability').getContext('2d'),W=1050,H=265;g.fillStyle='#1a0e2b';g.fillRect(0,0,W,H);const x=p=>60+p*(W-110),y=p=>H-35-p*(H-70);g.strokeStyle='#fff';g.lineWidth=1.5;g.setLineDash([7,7]);g.beginPath();g.moveTo(x(0),y(0));g.lineTo(x(1),y(1));g.stroke();g.setLineDash([]);
+let prev=null;for(const b of receipt.calibration.bins){if(!b.n)continue;const now=[x(b.meanScore),y(b.eventRate)];g.strokeStyle='#ffa33c';g.lineWidth=2.5;if(prev){g.beginPath();g.moveTo(...prev);g.lineTo(...now);g.stroke()}g.beginPath();g.arc(...now,6,0,Math.PI*2);g.fillStyle='#ffa33c';g.shadowColor='#ffa33c';g.shadowBlur=15;g.fill();g.shadowBlur=0;prev=now}
+g.fillStyle='#fff';g.font='14px system-ui';g.fillText('Observed rate ↑',30,22);g.fillText('Predicted risk activation →',W-258,H-12)}
+function render(){if(!runs)return;trace();reliability();E('ece').textContent=receipt.calibration.ece.toFixed(3);
+const ag=receipt.aggregates[E('duration').value];E('aggregate').innerHTML='<tr><th>Controller</th><th>Full survival</th><th>Mean integrity</th><th>Mean repairs</th></tr>'+
+Object.entries(ag).map(([name,r])=>'<tr><td>'+name+'</td><td>'+r.fullSurvival+'/'+r.n+'</td><td>'+r.meanIntegrity.toFixed(6)+'</td><td>'+r.meanRepairs.toFixed(2)+'</td></tr>').join('');
+E('case').innerHTML='<tr><th>Controller</th><th>Alive ticks</th><th>Integrity</th><th>Repairs</th></tr>'+
+Object.entries(runs).map(([name,r])=>'<tr><td>'+name+'</td><td>'+r.aliveTicks+'/'+r.duration+'</td><td>'+r.meanIntegrity.toFixed(5)+'</td><td>'+r.repairs+'</td></tr>').join('');
+E('audit').textContent='Stress: '+E('force').value+'\nEnvironment: '+E('family').value+
+'\nSeed: '+E('seed').value+'\nDuration: '+E('duration').value+
+'\nMesh risk predictions: '+runs.mesh.predictions.length+
+'\nMesh internal physical repair charges: authoritative WAG-244 only'+
+'\nMax accounting residual: '+runs.mesh.residual.toExponential(2)+
+'\nContinuation discontinuity: '+runs.mesh.ledger.continuity.toExponential(2)+
+'\nMesh full survival: '+runs.mesh.fullSurvival+
+'\nRisk ECE on 1344 held-out forecasts: '+receipt.calibration.ece.toFixed(5)+
+'\n\nFrozen WAG-261 and mesh coefficients remain unchanged. No policy promoted.'}
+function run(){try{if(!receipt||!frozen)throw Error('Missing evidence');
+if(!ctx){const models=wag251Models(),horizon=wag261Train(models);ctx={models,horizon}}
+runs=Object.fromEntries(['frozen','mesh'].map(mode=>[mode,wag274Run(+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('force').value,mode,frozen,ctx.models,ctx.horizon)]));render()}catch(e){E('audit').textContent='ERROR '+e.stack;throw e}}
+async function init(){try{const r=await Promise.all([fetch('./receipt-6101-6103.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(r.some(x=>!x.ok))throw Error('Missing artifact');receipt=await r[0].json();frozen=await r[1].json();wag264VerifyFreeze(frozen);run()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('run').onclick=run;requestAnimationFrame(spin);init();
+</script></body></html>
