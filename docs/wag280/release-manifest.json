@@ -1,0 +1,123 @@
+{
+  "release": "WAG-III-v1.0",
+  "bound": "WAG-280",
+  "phase": "WAG-III",
+  "status": "RESEARCH_RELEASE",
+  "primitive": "---@---@---@---@---{} → {\\a{b/}} → one action",
+  "scope": "Long-horizon synthetic survival–integrity crystalline neural control",
+  "completedBounds": [
+    269,
+    270,
+    271,
+    272,
+    273,
+    274,
+    275,
+    276,
+    277,
+    278,
+    279,
+    280
+  ],
+  "turns": 12,
+  "decision": {
+    "referenceController": "WAG-261",
+    "policyFreeze": "docs/wag264/frozen-policy.json",
+    "candidate": "WAG-276 fixed crystalline neural controller",
+    "candidateContract": "docs/wag276/frozen-crystalline-candidate.json",
+    "candidatePromoted": false,
+    "experimentalChain": "WAG-277 four-junction signal lattice",
+    "neuralWeightsTrained": false
+  },
+  "ancestry": "All simulations, counterfactuals and replay traces depend on one shared synthetic physics family; mirrors, runs and repeated windows are not independent observational roots.",
+  "artifacts": {
+    "phaseTracker": "docs/wag269/phase-progress.json",
+    "phaseII": "docs/wag268/release-manifest.json",
+    "geometry": "docs/wag276/crystalline-mesh.js",
+    "crystallineEngine": "docs/wag276/wag276.js",
+    "frozenCandidate": "docs/wag276/frozen-crystalline-candidate.json",
+    "crystallineReceipt": "docs/wag276/receipt-6301-6303.json",
+    "chainTopology": "docs/wag277/lattice-chain.js",
+    "chainController": "docs/wag277/wag277.js",
+    "withheldReceipt": "docs/wag277/receipt-6401-6404.json",
+    "counterexampleEngine": "docs/wag278/wag278.js",
+    "counterexampleReceipt": "docs/wag278/receipt-6401-6404.json",
+    "interventionEngine": "docs/wag279/wag279.js",
+    "interventionReceipt": "docs/wag279/receipt-tick55.json",
+    "releaseVerifier": "docs/wag280/wag280.js",
+    "releaseReceipt": "docs/wag280/release-receipt.json",
+    "releasePage": "docs/wag280/index.html",
+    "closeout": "docs/wag280/PHASE_CLOSEOUT.md"
+  },
+  "evidence": {
+    "WAG276": {
+      "policyRuns": 288,
+      "matchedCases": 96,
+      "crystalIntegrityRegressions": 65,
+      "crystalAliveRegressions": 0,
+      "fullSurvival240": {
+        "reference": 29,
+        "crystal": 34,
+        "total": 48
+      },
+      "fullSurvival480": {
+        "reference": 23,
+        "crystal": 23,
+        "total": 48
+      }
+    },
+    "WAG277": {
+      "policyRuns": 384,
+      "matchedCases": 128,
+      "crystalIntegrityRegressions": 82,
+      "crystalAliveRegressions": 2,
+      "fullSurvival480": {
+        "reference": 29,
+        "crystal": 29,
+        "total": 64
+      },
+      "fullSurvival720": {
+        "reference": 29,
+        "crystal": 28,
+        "total": 64
+      }
+    },
+    "WAG278": {
+      "reducedCases": 8,
+      "survivalCases": 2,
+      "integrityCases": 6,
+      "firstDifferingRepairTick": 55,
+      "causalityEstablished": false
+    },
+    "WAG279": {
+      "interventions": 8,
+      "survivalRescues": 0,
+      "integrityImprovements": 3,
+      "integrityRegressions": 5
+    }
+  },
+  "verdict": "Do not promote crystalline or chain candidate: 720-tick full survival regresses, structural integrity regresses in most matched cases, and calibration remains insufficient.",
+  "invariants": [
+    "One sovereign physical action per tick",
+    "No duplicated energy or material channels",
+    "Signal-rail total is not physical energy conservation",
+    "No witness/Byzantine/quorum machinery",
+    "Append-only research and original result preservation",
+    "No retuning on WAG277 withheld results",
+    "Falsifications remain first-class evidence"
+  ],
+  "limitations": [
+    "In-model synthetic results do not demonstrate external physical validity",
+    "Fixed neural-style activations are not trained probabilities",
+    "Shortened first-failure prefixes are not independently minimized causal inputs",
+    "Tick-55 surgical substitution did not restore survival loss",
+    "Live GitHub Pages serving has not yet been verified"
+  ],
+  "freeze": {
+    "sealed": true,
+    "closedPhase": true,
+    "subsequentChanges": "new phase only; do not overwrite prior phase receipts or frozen candidate",
+    "policyPromotion": "NONE",
+    "deploymentVerified": false
+  }
+}
