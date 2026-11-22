@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WAG-250 · Regret-Aware Repair</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#30243e}*{box-sizing:border-box}body{margin:0}
+main{max-width:1320px;margin:auto;padding:24px}h1{margin:0;color:#6928a4;font-size:clamp(30px,4vw,46px);letter-spacing:-.05em}
+.sub{color:#756b81;padding:0 0 16px;border-bottom:2px solid #e7d6f0}.bar{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0;align-items:end}
+label{font-size:13px;color:#766582}select,button{display:block;font:inherit;border-radius:9px;padding:10px 12px;margin-top:5px;background:white;color:#3a2849;border:1px solid #c7a9d7}
+button{background:#682aab;color:white;font-weight:700;cursor:pointer;box-shadow:0 0 19px #ae6ff17a}
+.grid{display:grid;grid-template-columns:1.72fr 1fr;gap:15px}
+.panel{background:white;border:1px solid #e7daee;border-radius:14px;padding:17px;box-shadow:0 8px 22px #62258512}
+h2{margin:0 0 12px;color:#612e92;font-size:19px}
+canvas{width:100%;height:auto;display:block;border-radius:11px;background:#150d29}
+.legend{display:flex;gap:13px;flex-wrap:wrap;font-size:12px;color:#766783}.legend span:before{content:'● ';color:var(--c)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.stat{background:#faf5ff;padding:11px;border-left:4px solid #fc9036}
+.stat b{display:block;color:#6d2aa4;font-size:24px}table{border-collapse:collapse;width:100%;font-size:12px}td,th{text-align:left;padding:7px 5px;border-bottom:1px solid #e9ddec}
+pre{max-height:285px;white-space:pre-wrap;overflow:auto;font:12px/1.5 monospace}.note{font-size:12px;color:#786a85}
+@media(max-width:850px){.grid{grid-template-columns:1fr}}
+</style></head><body><main><h1>WAG-250 · The Cost of Waiting</h1>
+<p class="sub">Repair value • resource cost • missed opportunity • bounded exploration &nbsp; <b>{24/[2]/[4]/(3)/(3)/(1)/(1)} · {{i}} · .dlw</b></p>
+<div class="bar">
+<label>Environment<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>chirp</option><option>friction</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Unseen seed<select id="seed"><option>3501</option><option>3502</option><option>3503</option><option>3504</option></select></label>
+<label>Duration<select id="duration"><option selected>240</option><option>480</option></select></label>
+<button id="run">Run matched policies</button></div>
+<div class="grid"><section class="panel">
+<h2>Living structural field</h2><canvas id="field" width="1000" height="440"></canvas>
+<div class="legend"><span style="--c:#50f0de">Integrity</span><span style="--c:#ab74ff">Energy</span><span style="--c:#ff9936">Pressure</span><span style="--c:#e7dbff">Ceiling</span><span style="--c:#f6cf73">Material</span></div>
+<h2 style="margin-top:24px">Opportunity regret • evaluation checkpoints</h2><canvas id="regret" width="1000" height="265"></canvas>
+<p class="note">The regret bars are computed after the action decision by comparing matched alternate futures. They are evaluative evidence, never online observations.</p>
+<h2 style="margin-top:24px">Evidence receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Outcomes</h2><div class="stats">
+<div class="stat">Mean integrity<b id="integrity">—</b></div>
+<div class="stat">Survival ticks<b id="alive">—</b></div>
+<div class="stat">Total regret<b id="regretValue">—</b></div>
+<div class="stat">Missed repairs<b id="missed">—</b></div></div>
+<h2 style="margin-top:24px">Paired controllers</h2><table id="compare"></table>
+<h2 style="margin-top:24px">Repair budget</h2><pre id="trace">Run the simulation.</pre>
+<p class="note">All results are from the inherited synthetic engine. Holdout seeds are distinct from action-training and calibration seeds. No physical repair claim is made.</p></aside></div>
+</main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="./wag250.js"></script><script>
+const E=id=>document.getElementById(id);let model,refs;
+function plot(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#150d29';g.fillRect(0,0,W,H);
+for(let i=0;i<=10;i++){g.strokeStyle='#453251';g.beginPath();g.moveTo(0,i*H/10);g.lineTo(W,i*H/10);g.stroke()}
+for(const [name,col]of [['integrity','#50f0de'],['energy','#ab74ff'],['pressure','#ff9936'],['ceiling','#e7dbff'],['material','#f6cf73']]){
+g.beginPath();g.lineWidth=2.8;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=11;
+r.trace.forEach((v,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-v[name])*H):g.moveTo(0,(1-v[name])*H));g.stroke();g.shadowBlur=0}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='rebuild'?'#a66fff':'#ff9537';g.fillRect(i*W/r.trace.length,H-14,4,14)}});
+g.fillStyle='#fff';g.font='bold 22px system-ui';g.fillText('WAG-250 · '+r.scenario.toUpperCase(),18,30)}
+function regret(r){const c=E('regret'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#150d29';g.fillRect(0,0,W,H);
+const z=r.receipts,n=z.length||1,max=Math.max(.00001,...z.map(v=>v.regret)),w=(W-60)/n;
+g.fillStyle='#eee7fb';g.font='13px system-ui';g.fillText('Opportunity loss per checkpoint',24,23);
+z.forEach((v,i)=>{const x=30+i*w,h=(v.regret/max)*(H-75);
+g.fillStyle=v.action==='abstain'?'#ff9940':'#ab77ff';g.shadowColor=g.fillStyle;g.shadowBlur=9;
+g.fillRect(x,H-30-h,Math.max(3,w-5),h);g.shadowBlur=0;
+if(i%3===0){g.fillStyle='#f1e6ff';g.font='11px monospace';g.fillText(String(v.tick),x,H-11)}})}
+function run(){try{E('trace').textContent='Training deterministic action-regret table…';
+if(!model){model=wag250Train();const ref248=wag248Train();refs={ref248,cal249:wag249Calibrate(ref248),ref247:wag247Train(),ref246:wag246Train(),ref244:train244(),ref245:train245()}}
+const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,duration=+E('duration').value;
+const results={};for(const m of ['wag250','conservative','wag249','wag248','wag244','wag245'])results[m]=wag250Run(cap,family,seed,duration,m,model,refs);
+const r=results.wag250;plot(r);regret(r);
+E('integrity').textContent=r.meanIntegrity.toFixed(4);E('alive').textContent=r.aliveTicks+'/'+duration;
+E('regretValue').textContent=r.regret.toFixed(5);E('missed').textContent=r.missed+'/'+r.opportunities;
+E('compare').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Reserve</th></tr>'+Object.entries(results).map(([m,v])=>'<tr><td>'+m+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+v.reserveTicks+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>Decision</th><th>Reason</th><th>Best available</th><th>Regret</th></tr>'+
+r.receipts.map(v=>'<tr><td>'+v.tick+'</td><td>'+v.action+'</td><td>'+v.reason+'</td><td>'+v.bestValue.toFixed(5)+'</td><td>'+v.regret.toFixed(5)+'</td></tr>').join('');
+E('trace').textContent='Training matched actions: '+model.samples+'\nFine cells: '+Object.keys(model.fine).length+
+'\nParent cells: '+Object.keys(model.parent).length+'\nRepair actions: '+r.applied+'\nBounded probes: '+r.probes+
+'\nFalse repairs at evaluation: '+r.wrong+'\nMissed opportunities: '+r.missed+
+'\nEnergy ledger error: '+r.ledger.energy.toExponential(2)+'\nMaterial ledger error: '+r.ledger.material.toExponential(2)+
+'\n\n'+r.receipts.map(v=>'tick '+v.tick+' '+v.action+' | '+v.reason).join('\n');
+}catch(err){E('trace').textContent='ERROR: '+err.stack;throw err}}
+E('run').onclick=run;run();
+</script></body></html>
