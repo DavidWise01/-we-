@@ -1,0 +1,110 @@
+{
+  "phase": "WAG-III",
+  "title": "Survival–Integrity Pareto Control",
+  "status": "OPEN",
+  "baseline": "WAG-II-v1.0 CLOSED (unchanged)",
+  "firstBound": 269,
+  "lastBound": 280,
+  "plannedTurns": 12,
+  "completedTurns": 1,
+  "progressPercent": 8.3,
+  "nextBound": 270,
+  "policyPromotion": "NONE",
+  "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
+  "milestones": [
+    {
+      "bound": 269,
+      "name": "Long-horizon Pareto baseline",
+      "accepted": true,
+      "cumulativePercent": 8.3
+    },
+    {
+      "bound": 270,
+      "name": "Case-level dominance and threshold robustness",
+      "accepted": false,
+      "cumulativePercent": 16.7
+    },
+    {
+      "bound": 271,
+      "name": "Repair timing and recovery lag",
+      "accepted": false,
+      "cumulativePercent": 25
+    },
+    {
+      "bound": 272,
+      "name": "Material-constrained rescue economy",
+      "accepted": false,
+      "cumulativePercent": 33.3
+    },
+    {
+      "bound": 273,
+      "name": "Survival risk calibration",
+      "accepted": false,
+      "cumulativePercent": 41.7
+    },
+    {
+      "bound": 274,
+      "name": "Paired unfamiliar forcing",
+      "accepted": false,
+      "cumulativePercent": 50
+    },
+    {
+      "bound": 275,
+      "name": "Long-horizon regret accounting",
+      "accepted": false,
+      "cumulativePercent": 58.3
+    },
+    {
+      "bound": 276,
+      "name": "Freeze candidate controller",
+      "accepted": false,
+      "cumulativePercent": 66.7
+    },
+    {
+      "bound": 277,
+      "name": "Withheld 480/720-tick trial",
+      "accepted": false,
+      "cumulativePercent": 75
+    },
+    {
+      "bound": 278,
+      "name": "Counterexample minimization",
+      "accepted": false,
+      "cumulativePercent": 83.3
+    },
+    {
+      "bound": 279,
+      "name": "Ranked falsification",
+      "accepted": false,
+      "cumulativePercent": 91.7
+    },
+    {
+      "bound": 280,
+      "name": "Final freeze and release",
+      "accepted": false,
+      "cumulativePercent": 100
+    }
+  ],
+  "lastAccepted": {
+    "bound": 269,
+    "engine": "docs/wag269/wag269.js",
+    "receipt": "docs/wag269/receipt-5601-5603.json",
+    "policyRuns": 768,
+    "matchedConditions": 192,
+    "selectedPolicyChanged": false,
+    "results": {
+      "short": {
+        "conditionalSurvival": 87,
+        "frozenSurvival": 84,
+        "total": 96
+      },
+      "long": {
+        "conditionalSurvival": 60,
+        "frozenSurvival": 60,
+        "total": 96
+      }
+    },
+    "finding": "240-tick conditional policy is non-dominated; 480-tick frozen controller dominates the candidate on survival/integrity. No promotion."
+  },
+  "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
+}
