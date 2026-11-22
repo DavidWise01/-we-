@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-251 · Adaptive Repair Frequency</title><style>
+:root{font:15px/1.5 system-ui;background:#faf9f4;color:#30233d}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:25px}
+h1{font-size:clamp(27px,4vw,44px);letter-spacing:-.045em;margin:0;color:#6929ab}h2{font-size:19px;color:#652a9d;margin:0 0 11px}
+.sub{color:#7a7184;padding:0 0 18px;border-bottom:2px solid #e4d6ed}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 23px;align-items:end}label{font-size:13px;color:#766582}
+select,button{display:block;font:inherit;margin-top:5px;padding:10px;border-radius:8px;border:1px solid #bea4d2;background:#fff;color:#38254a}button{background:#682aa6;color:white;font-weight:700;cursor:pointer;box-shadow:0 0 17px #af78f38a}
+.layout{display:grid;grid-template-columns:1.75fr 1fr;gap:14px}.panel{background:#fff;border:1px solid #e9dbea;border-radius:13px;padding:17px;box-shadow:0 8px 25px #45246e12}
+canvas{display:block;width:100%;height:auto;border-radius:9px;background:#140d27}.legend{font-size:12px;color:#766881;display:flex;gap:13px;flex-wrap:wrap}.legend span:before{content:'● ';color:var(--c)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{padding:11px;background:#faf4ff;border-left:4px solid #ff973f}.stat b{display:block;color:#6d2ca5;font-size:23px}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:7px;text-align:left;border-bottom:1px solid #e9dfed}pre{font:12px/1.5 ui-monospace,monospace;max-height:270px;overflow:auto;white-space:pre-wrap}
+.note{font-size:12px;color:#7d7385}@media(max-width:850px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-251 · The Repair Rhythm</h1><p class="sub">Damage decides urgency · Resources limit frequency · Regret judges the result · .dlw</p>
+<div class="toolbar"><label>Environment<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>friction</option><option>chirp</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Unseen seed<select id="seed"><option>3601</option><option>3602</option><option>3603</option><option>3604</option></select></label>
+<label>Trajectory<select id="duration"><option selected>240</option><option>480</option></select></label>
+<label>Display policy<select id="policy"><option value="adaptive">Adaptive 3–24</option><option value="fixed3">Fixed 3</option><option value="fixed6">Fixed 6</option><option value="fixed12">Fixed 12</option><option value="fixed24">Fixed 24</option><option value="wag250">WAG-250</option></select></label>
+<button id="run">Run matched comparison</button></div>
+<div class="layout"><section class="panel"><h2>Structural field · repair intervention marks</h2><canvas id="field" width="1000" height="460"></canvas>
+<div class="legend"><span style="--c:#4df2dc">Integrity</span><span style="--c:#aa71ff">Energy</span><span style="--c:#ff9b35">Pressure</span><span style="--c:#e5d4ff">Ceiling</span><span style="--c:#f5d879">Material</span></div>
+<h2 style="margin-top:24px">Adaptive cadence · resource economics</h2><canvas id="cadence" width="1000" height="260"></canvas>
+<p class="note">Cadence is chosen from currently observed integrity ceiling, energy, material, pressure, and recent energy trend. No future samples enter this decision.</p>
+<h2 style="margin-top:24px">Decision checkpoints</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Selected trajectory</h2><div class="stats">
+<div class="stat">Mean integrity<b id="integrity">—</b></div><div class="stat">Surviving ticks<b id="alive">—</b></div>
+<div class="stat">Repair actions<b id="repairs">—</b></div><div class="stat">Measured regret<b id="regret">—</b></div></div>
+<h2 style="margin-top:24px">Policy comparisons</h2><table id="comparison"></table>
+<h2 style="margin-top:24px">Economics ledger</h2><pre id="ledger">Run the living lab.</pre>
+<p class="note">Synthetic observations. Cadence flexibility is not presumed superior: the fixed-frequency baselines and WAG-250 remain visible to expose regressions.</p></aside></div>
+</main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script>
+<script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script>
+<script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script>
+<script src="./wag251.js"></script><script>
+const E=id=>document.getElementById(id);let models,results;
+function field(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#140d27';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#433155';g.beginPath();g.moveTo(0,H*j/10);g.lineTo(W,H*j/10);g.stroke()}
+for(const [k,col]of [['integrity','#4df2dc'],['energy','#aa71ff'],['pressure','#ff9b35'],['ceiling','#e5d4ff'],['material','#f5d879']]){
+g.beginPath();g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=12;g.lineWidth=2.7;
+r.trace.forEach((v,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-v[k])*H):g.moveTo(0,(1-v[k])*H));g.stroke();g.shadowBlur=0;}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='rebuild'?'#aa71ff':'#ff9b35';g.fillRect(i*W/r.trace.length,H-14,4,14)}});
+g.fillStyle='#fff';g.font='bold 21px system-ui';g.fillText('WAG-251 · '+r.scenario.toUpperCase(),20,28)}
+function cadence(r){const c=E('cadence'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#140d27';g.fillRect(0,0,W,H);
+const rows=r.receipts??[];g.fillStyle='#f7eaff';g.font='14px system-ui';g.fillText('Recovery cadence at evaluation checkpoints',22,22);
+const colors={3:'#ff9b35',6:'#c27aff',12:'#5bead9',24:'#e3d4ff'},w=(W-50)/Math.max(1,rows.length);
+rows.forEach((v,i)=>{const x=24+i*w,h=230-v.interval/24*170;g.fillStyle=colors[v.interval]||'#e8e2f0';g.fillRect(x,h,Math.max(3,w-4),235-h);
+if(i%3===0){g.fillStyle='#f6e9ff';g.font='10px monospace';g.fillText(v.tick,x,H-10)}});
+g.fillStyle='#f6e9ff';g.font='12px monospace';g.fillText('Orange=3   Purple=6   Teal=12   Silver=24 ticks',23,43)}
+function show(){const name=E('policy').value,r=results[name];field(r);cadence(r);
+E('integrity').textContent=r.meanIntegrity.toFixed(4);E('alive').textContent=r.aliveTicks+'/'+r.duration;
+E('repairs').textContent=r.maintenance.prevent+r.maintenance.rebuild;
+E('regret').textContent=r.regret===undefined?'N/A':r.regret.toFixed(5);
+E('comparison').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Reserve</th></tr>'+
+Object.entries(results).map(([name,v])=>'<tr><td>'+name+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+v.reserveTicks+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>Cadence</th><th>Action</th><th>Energy</th><th>Scar</th><th>Regret</th></tr>'+
+(r.receipts??[]).map(v=>'<tr><td>'+v.tick+'</td><td>'+v.interval+'</td><td>'+v.action+'</td><td>'+v.energy.toFixed(3)+'</td><td>'+v.scar.toFixed(3)+'</td><td>'+v.regret.toFixed(5)+'</td></tr>').join('');
+E('ledger').textContent='Controller: '+name+'\nMaterial used: '+(r.materialUsed??NaN).toFixed(6)+
+'\nMaterial left: '+(r.materialLeft??NaN).toFixed(6)+'\nReserve ticks: '+r.reserveTicks+
+'\nMissed opportunities: '+(r.missed??'N/A')+'\nFalse repairs: '+(r.wrong??'N/A')+
+'\nCadence choices: '+JSON.stringify(r.decisionsByInterval??{})+
+'\nEnergy ledger error: '+(r.ledger?.energy??NaN).toExponential(2)+
+'\nMaterial ledger error: '+(r.ledger?.material??NaN).toExponential(2);}
+function run(){try{E('ledger').textContent='Training and running paired controllers…';
+if(!models)models=wag251Models();const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,duration=+E('duration').value;
+results={};for(const mode of ['adaptive','fixed3','fixed6','fixed12','fixed24','wag250'])
+ results[mode]=wag251Run(cap,family,seed,duration,mode,models);
+show();}catch(err){E('ledger').textContent='Error: '+err.stack;throw err}}
+E('run').onclick=run;E('policy').onchange=()=>{if(results)show()};run();
+</script></body></html>
