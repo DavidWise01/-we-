@@ -30,19 +30,21 @@ function wag246Add(z,v){
 }
 function wag246Train(){
  const source=train235(),cells={},coverage={};
- for(const cap of CAP234)for(const family of FAMILIES_TRAIN244)for(const seed of WAG246_SEEDS)
- for(const resource of WAG246_RESOURCES){
-  const x=start244(cap,family,seed,480);x.modelTable=source.table;
-  x.s.energy=resource.energy; // explicit controlled initial-energy experiment; material ledger unchanged
-  while(x.t<240){
-   const p=WAG246_PHASES.find(z=>z.t===x.t);
-   if(p){const key=wag246Key(x);coverage[key]=(coverage[key]||0)+1;
+ for(const cap of CAP234)for(const family of FAMILIES_TRAIN244)for(const seed of WAG246_SEEDS){
+  const base=start244(cap,family,seed,480);base.modelTable=source.table;
+  while(base.t<240){
+   const p=WAG246_PHASES.find(z=>z.t===base.t);
+   if(p)for(const resource of WAG246_RESOURCES){
+    // Clone the SAME structurally aged state; intervene on energy only at observation.
+    // The resulting comparison is a controlled synthetic counterfactual, not a natural frequency estimate.
+    const x=clone244(base);x.s.energy=resource.energy;
+    const key=wag246Key(x);coverage[key]=(coverage[key]||0)+1;
     for(const a of WAG246_ACTIONS){if(!wag246Eligible(x,a))continue;
       const entry=cells[key]??=(Object.fromEntries(WAG246_ACTIONS.map(k=>[k,Object.fromEntries(HORIZONS245.map(h=>[h,wag246Stat()]))])));
       for(const h of HORIZONS245)wag246Add(entry[a][h],wag246Branches(x,a,h));
     }
    }
-   step244(x,'abstain');
+   step244(base,'abstain');
   }
  }
  const table={};let approved=0,covered=0,missedCells=0;
@@ -64,7 +66,7 @@ function wag246Train(){
   table[key]={choice,ranked};covered++;
  }
  return {table,source:source.table,coverage,approved,covered,missedCells,
-   trainSeeds:WAG246_SEEDS,phaseWindows:WAG246_PHASES,resourceStarts:WAG246_RESOURCES,
+   trainSeeds:WAG246_SEEDS,phaseWindows:WAG246_PHASES,controlledRecoveryEnergy:WAG246_RESOURCES,
    guarantee:'Only sampled synthetic conditions; no guarantee outside training'};
 }
 function wag246Run(cap,family,seed,duration,mode,model,reference244,reference245){
