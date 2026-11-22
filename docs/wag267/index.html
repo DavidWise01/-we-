@@ -1,0 +1,109 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-267 · Ranked Falsification</title><style>
+:root{font:15px/1.5 system-ui;background:#faf9f4;color:#392847}*{box-sizing:border-box}
+body{margin:0}main{max-width:1290px;margin:auto;padding:25px}
+h1{color:#722cab;font-size:clamp(30px,4vw,46px);letter-spacing:-.05em;margin:0}
+h2{color:#6b309e;font-size:19px;margin:0 0 13px}.sub{color:#776b83;border-bottom:2px solid #eadcf1;padding-bottom:17px}
+.panel{background:white;border:1px solid #ebdbef;border-radius:14px;padding:18px;box-shadow:0 8px 23px #68389118}
+.layout{display:grid;grid-template-columns:1.62fr 1fr;gap:15px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:18px 0}
+label{font-size:13px;color:#786b83}
+select,button{font:inherit;display:block;margin-top:5px;border-radius:9px;padding:10px 12px;border:1px solid #c9aed9;background:white;color:#372848}
+button{background:#6d2aaa;color:white;box-shadow:0 0 18px #a96ce78c;cursor:pointer;font-weight:700}
+canvas{display:block;width:100%;height:auto;background:#180d2a;border-radius:11px}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th,td{text-align:left;border-bottom:1px solid #ebdfea;padding:8px 5px}
+tr:nth-child(2){background:#faf3ff}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.metric{padding:11px;background:#fbf5ff;border-left:4px solid #ff9d3f}
+.metric b{display:block;font-size:23px;color:#732ca9}
+pre{font:12px/1.55 monospace;white-space:pre-wrap;max-height:280px;overflow:auto}
+.note{font-size:12px;color:#807087}a{color:#7430a7}
+@media(max-width:850px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-267 · All Evidence, One Ranking</h1>
+<p class="sub">Phase II · Turn 11/12 · Survival → reserve → integrity · Deterministic outcome order · .dlw</p>
+<section class="panel"><h2>Fixed rank: 256 unfamiliar stress cases</h2>
+<table id="rank"><tr><td>Loading 768-run evidence receipt…</td></tr></table>
+<p class="note">Priority order is full-survival count, then mean alive ticks, reserve ticks, and integrity. Ranking does not authorize updating the WAG-264 frozen controller.</p></section>
+<div class="row">
+<label>Hidden stress<select id="stress"><option>late-collapse</option><option>double-shock</option><option>intermittent</option><option>resource-squeeze</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option selected>combined</option><option>phaseflip</option><option>famine</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Test seed<select id="seed"><option>5501</option><option>5502</option><option>5503</option><option>5504</option></select></label>
+<button id="run">Replay three matched controllers</button>
+</div>
+<div class="layout"><section class="panel">
+<h2>Structural integrity through time</h2><canvas id="integrity" width="1000" height="430"></canvas>
+<p class="note">Orange = original frozen WAG-261 · Purple = rejected adaptive · Neon teal = no repair. All three face exactly the same simulated stress sequence.</p>
+<h2 style="margin-top:22px">Survival and reserve comparison</h2><canvas id="bars" width="1000" height="230"></canvas>
+<h2 style="margin-top:22px">The four stress-family scorecards</h2><table id="stressTable"></table></section>
+<aside class="panel"><h2>Falsification receipt</h2>
+<div class="metrics"><div class="metric">Top-ranked policy<b id="winner">—</b></div>
+<div class="metric">Frozen survival<b id="frozenAlive">—</b></div>
+<div class="metric">No-repair survival<b id="noAlive">—</b></div>
+<div class="metric">Resource residual<b id="residual">—</b></div></div>
+<h2 style="margin-top:24px">Decision and provenance</h2><pre id="audit">Loading frozen policy and experiment receipt…</pre>
+<p class="note">The no-repair comparator is a falsification tool, not a deployment recommendation. The ranking holds only for the specified synthetic simulator, 240 ticks, four stress families, and these seeds.</p>
+<p><a href="./receipt-5501-5504.json">768-run evidence receipt</a> · <a href="../wag264/frozen-policy.json">Unchanged frozen policy</a> · <a href="../wag257/">Phase progress</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="./wag267.js"></script>
+<script>
+const E=id=>document.getElementById(id);let receipt,frozen,context,runs;
+const color={frozen:'#ffa03d',rejectedAdaptive:'#b480ff',noRepair:'#42eadd'};
+const names={frozen:'Frozen WAG-261',rejectedAdaptive:'Rejected adaptive',noRepair:'No repair'};
+function draw(){
+ const c=E('integrity'),g=c.getContext('2d'),W=c.width,H=c.height;
+ g.fillStyle='#180d2a';g.fillRect(0,0,W,H);
+ for(let i=0;i<=10;i++){g.strokeStyle='#423457';g.beginPath();g.moveTo(0,i*H/10);g.lineTo(W,i*H/10);g.stroke()}
+ for(const [mode,run]of Object.entries(runs)){
+  g.beginPath();g.lineWidth=2.7;g.strokeStyle=color[mode];g.shadowBlur=10;g.shadowColor=color[mode];
+  run.trace.forEach((v,i)=>i?g.lineTo(i*W/(run.trace.length-1),(1-v.integrity)*H):g.moveTo(0,(1-v.integrity)*H));g.stroke();g.shadowBlur=0;
+ }
+ g.font='bold 20px system-ui';g.fillStyle='#fff';g.fillText('WAG-267 · Matched falsification',20,30);
+ const b=E('bars'),z=b.getContext('2d');z.fillStyle='#180d2a';z.fillRect(0,0,b.width,b.height);
+ const modes=['frozen','rejectedAdaptive','noRepair'];
+ modes.forEach((mode,i)=>{const a=runs[mode],x=35+i*325;
+  z.fillStyle=color[mode];z.shadowColor=color[mode];z.shadowBlur=10;
+  z.fillRect(x,60,a.aliveTicks/240*265,25);z.fillRect(x,112,a.reserveTicks/240*265,25);z.shadowBlur=0;
+  z.fillStyle='#fff';z.font='13px system-ui';z.fillText(names[mode],x,43);
+  z.font='12px monospace';z.fillText(a.aliveTicks+' alive',x,100);z.fillText(a.reserveTicks+' reserve',x,151);
+ });
+}
+function render(){
+ E('winner').textContent=names[receipt.ranking[0].mode];
+ E('frozenAlive').textContent=runs.frozen.aliveTicks+'/240';
+ E('noAlive').textContent=runs.noRepair.aliveTicks+'/240';
+ E('residual').textContent=receipt.summary.maxResourceResidual.toExponential(1);
+ draw();
+ E('audit').textContent='Precommitted rank order: '+receipt.rankingRule.join(' > ')+
+ '\nFrozen choice for cap '+runs.frozen.capacity+': '+frozen.policy[runs.frozen.capacity]+
+ '\nStress: '+runs.frozen.stress+'\nFamily: '+runs.frozen.family+'\nSeed: '+runs.frozen.seed+
+ '\n\nFrozen integrity: '+runs.frozen.meanIntegrity.toFixed(7)+
+ '\nRejected adaptive: '+runs.rejectedAdaptive.meanIntegrity.toFixed(7)+
+ '\nNo repair: '+runs.noRepair.meanIntegrity.toFixed(7)+
+ '\n\nNo repair - frozen alive Δ: '+(runs.noRepair.aliveTicks-runs.frozen.aliveTicks)+
+ '\nNo repair - frozen integrity Δ: '+(runs.noRepair.meanIntegrity-runs.frozen.meanIntegrity).toFixed(7)+
+ '\n\nPolicy selection NEVER updated using holdout results.';
+}
+function run(){
+ try{
+ if(!frozen||!receipt)throw Error('Frozen artifact or receipt unavailable');
+ if(!context){const models=wag251Models(),horizon=wag261Train(models);context={models,horizon}}
+ const params=[+E('cap').value,E('family').value,+E('seed').value,240,E('stress').value];
+ runs=Object.fromEntries(['frozen','rejectedAdaptive','noRepair'].map(mode=>[mode,wag267Run(...params,mode,frozen,context.models,context.horizon)]));
+ render();
+ }catch(e){E('audit').textContent='ERROR '+e.stack;throw e}
+}
+async function init(){try{
+ const responses=await Promise.all([fetch('./receipt-5501-5504.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);
+ if(responses.some(x=>!x.ok))throw Error('Cannot fetch immutable scorecard/frozen policy');
+ receipt=await responses[0].json();frozen=await responses[1].json();wag264VerifyFreeze(frozen);
+ E('rank').innerHTML='<tr><th>Rank</th><th>Controller</th><th>Full survival /256</th><th>Mean alive</th><th>Mean reserve</th><th>Mean integrity</th></tr>'+
+ receipt.ranking.map(x=>'<tr><td>'+x.rank+'</td><td>'+names[x.mode]+'</td><td>'+x.fullSurvival+'</td><td>'+x.meanAlive.toFixed(3)+'</td><td>'+x.meanReserve.toFixed(3)+'</td><td>'+x.meanIntegrity.toFixed(6)+'</td></tr>').join('');
+ const stress=receipt.stressTable;
+ E('stressTable').innerHTML='<tr><th>Stress</th><th>No-repair survival</th><th>Frozen survival</th></tr>'+
+ Object.entries(stress).map(([key,values])=>'<tr><td>'+key+'</td><td>'+values.find(v=>v.mode==='noRepair').fullSurvival+'/64</td><td>'+values.find(v=>v.mode==='frozen').fullSurvival+'/64</td></tr>').join('');
+ run();
+ }catch(e){E('audit').textContent='ERROR '+e.stack}
+}
+E('run').onclick=run;init();
+</script></body></html>
