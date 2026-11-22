@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-258 · Hindsight-Free Value Gate</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#362440}*{box-sizing:border-box}body{margin:0}main{max-width:1260px;margin:auto;padding:25px}
+h1{font-size:clamp(29px,4vw,44px);letter-spacing:-.05em;color:#6f29ab;margin:0}.sub{color:#7b6b85;border-bottom:2px solid #e4d4ee;padding-bottom:16px}
+h2{color:#692e98;font-size:19px;margin:0 0 12px}.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:20px 0}
+label{font-size:13px;color:#796b84}select,button{display:block;margin-top:5px;padding:10px;border-radius:9px;border:1px solid #c5a4da;background:#fff;color:#342346;font:inherit}
+button{background:#6f2aaa;color:white;font-weight:700;box-shadow:0 0 19px #a772e57f;cursor:pointer}.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px}
+.panel{background:white;border:1px solid #e9d9f1;border-radius:13px;padding:18px;box-shadow:0 8px 20px #64308a14}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stat{background:#faf4ff;border-left:4px solid #ff993b;padding:10px}.stat b{display:block;font-size:24px;color:#712caf}
+canvas{display:block;width:100%;height:auto;border-radius:9px;background:#180c2c}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:8px 5px;border-bottom:1px solid #e9dfec}
+pre{font:12px/1.55 monospace;white-space:pre-wrap;max-height:280px;overflow:auto}.note{font-size:12px;color:#7b6a83}a{color:#742eaa}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-258 · Is Knowing Worth Paying For?</h1>
+<p class="sub">Phase II · Turn 2 of 12 · Train without future information · One deterministic probe-or-abstain answer · .dlw</p>
+<div class="controls">
+<label>Hidden regime<select id="regime"><option>stable</option><option>surcharge</option><option>nonlinear</option><option>shock</option></select></label>
+<label>Family<select id="family"><option>scar</option><option>combined</option><option>phaseflip</option><option>famine</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Holdout seed<select id="seed"><option>4601</option><option>4602</option><option>4603</option><option>4604</option></select></label>
+<label>Duration<select id="duration"><option selected>240</option><option>480</option></select></label>
+<button id="run">Evaluate frozen decision</button>
+</div>
+<div class="layout"><section class="panel">
+<h2>Paired net-value outcomes</h2><canvas id="chart" width="1000" height="400"></canvas>
+<p class="note">Orange: negative value compared to never probing. Purple: zero. Teal: positive. The model is frozen before this evaluation seed and cannot observe the hidden regime when selecting its action.</p>
+<h2 style="margin-top:23px">Matched decision record</h2><table id="comparison"></table>
+<h2 style="margin-top:23px">Observed switching expenses</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Learned gate</h2><div class="stats">
+<div class="stat">Selected action<b id="decision">—</b></div><div class="stat">Net value<b id="net">—</b></div>
+<div class="stat">Training pairs<b id="pairs">—</b></div><div class="stat">Survival ticks<b id="alive">—</b></div>
+</div><h2 style="margin-top:23px">Provenance and audit</h2><pre id="audit">Run the paired experiment.</pre>
+<p class="note">The learned gate operates once at episode start; the next bounds address per-opportunity probing. Negative predictions and no-probe actions are legitimate outputs, not failed execution.</p>
+<p><a href="../wag257/">Phase progress dashboard</a> · <a href="../wag257/phase-progress.json">Acceptance tracker</a></p></aside>
+</div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="../wag254/wag254.js"></script><script src="../wag255/wag255.js"></script><script src="../wag256/wag256.js"></script><script src="../wag257/wag257.js"></script><script src="./wag258.js"></script>
+<script>
+const E=id=>document.getElementById(id);let context,pair;
+function chart(p){const c=E('chart'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#180c2c';g.fillRect(0,0,W,H);
+const bars=[{name:'Always probe',value:p.netAlways},{name:'Learned policy',value:p.netLearned},{name:'Best hindsight',value:Math.max(0,p.netAlways)}];
+const max=Math.max(.0001,...bars.map(a=>Math.abs(a.value))),zero=H*.44;
+g.strokeStyle='#bba3d5';g.beginPath();g.moveTo(30,zero);g.lineTo(W-25,zero);g.stroke();
+bars.forEach((b,i)=>{const width=(W-75)/bars.length,x=50+i*width+20,h=Math.abs(b.value)/max*(H*.34);
+const col=b.value>1e-10?'#45e9da':b.value< -1e-10?'#ff993d':'#ae81ec';
+g.fillStyle=col;g.shadowColor=col;g.shadowBlur=15;g.fillRect(x,b.value>0?zero-h:zero,width-50,Math.max(2,h));g.shadowBlur=0;
+g.font='14px system-ui';g.fillStyle='#fff';g.fillText(b.name,x,H-38);g.fillText(b.value.toFixed(6),x,b.value>0?zero-h-11:zero+h+20)});
+g.fillStyle='#fff';g.font='16px system-ui';g.fillText('Frozen information-value policy',25,29)}
+function display(){chart(pair);const chosen=pair.runs.learned,pred=pair.choice;
+E('decision').textContent=pred.action==='noProbe'?'Wait':'Probe';E('net').textContent=pair.netLearned.toFixed(6);
+E('pairs').textContent=context.trained.pairs;E('alive').textContent=chosen.aliveTicks+'/'+chosen.duration;
+E('comparison').innerHTML='<tr><th>Policy</th><th>Net vs no probe</th><th>Probes</th><th>Survival</th></tr>'+
+[['Learned',pair.runs.learned,pair.netLearned],['Always probe',pair.runs.always,pair.netAlways],['Never probe',pair.runs.no,0]]
+.map(([name,r,delta])=>'<tr><td>'+name+'</td><td>'+delta.toFixed(6)+'</td><td>'+r.probeCount+'</td><td>'+r.aliveTicks+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>Transition</th><th>Predicted cost</th><th>Charged</th></tr>'+
+chosen.transactions.map(z=>'<tr><td>'+z.tick+'</td><td>'+z.phase+'</td><td>'+z.predicted.toFixed(6)+'</td><td>'+z.charged.toFixed(6)+'</td></tr>').join('');
+E('audit').textContent='Phase II turn 2 / 12\nFrozen training seeds: '+context.trained.seeds.join(', ')+
+'\nEvaluation seed: '+pair.seed+'\nHidden regime not a feature: '+pair.regime+
+'\nDecision: '+pred.action+'\nReason: '+pred.reason+
+'\nTraining N for lookup: '+pred.n+
+'\nMean estimated net: '+(pred.mean??NaN).toFixed(7)+
+'\nConservative lower bound: '+(pred.lower??NaN).toFixed(7)+
+'\nRealized utility delta: '+pair.netLearned.toFixed(7)+
+'\nBest hindsight regret: '+pair.regretToBest.toFixed(7)+
+'\nEnergy ledger residual: '+chosen.ledger.energy.toExponential(2)+
+'\nMaterial ledger residual: '+chosen.ledger.material.toExponential(2)+
+'\n\nSingle synthetic simulator; no independent physical validation.'}
+function run(){try{E('audit').textContent='Training on separate seeds…';
+if(!context){const models=wag251Models(),cadence=wag252Train(models),cost=wag254Train(models),trained=wag258Train(models,cadence,cost);context={models,cadence,cost,trained}}
+pair=wag258Pair(+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('regime').value,context.models,context.cadence,context.cost,context.trained);display()
+}catch(e){E('audit').textContent='ERROR '+e.stack;throw e}}
+E('run').onclick=run;run();
+</script></body></html>
