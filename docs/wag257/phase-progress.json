@@ -3,11 +3,11 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 8,
-  "progressPercent": 66.7,
+  "completedTurns": 9,
+  "progressPercent": 75,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 265,
+  "nextBound": 266,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -53,7 +53,7 @@
     },
     {
       "bound": 265,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 75
     },
     {
@@ -73,18 +73,16 @@
     }
   ],
   "lastAccepted": {
-    "bound": 264,
-    "engine": "docs/wag264/wag264.js",
-    "lab": "docs/wag264/index.html",
+    "bound": 265,
+    "engine": "docs/wag265/wag265.js",
+    "lab": "docs/wag265/index.html",
+    "receipt": "docs/wag265/receipt-5501-5504.json",
     "frozenPolicy": "docs/wag264/frozen-policy.json",
-    "freezeCommit": "a0dd14168220b8ee6de506d0e0c68af74f82cfd4",
-    "receipt": "docs/wag264/receipt-5401-5404.json",
-    "trainingCases": 192,
-    "holdoutCases": 256,
-    "selectedPolicy": "WAG-261 baseline at capacities 5,8,13,21",
-    "frozenBaselineTies": 256,
-    "rejectedDowngradeIntegrityRegressions": 88,
-    "rejectedDowngradeIntegrityImprovements": 20,
-    "summary": "Capacity policies precommitted using training-only seeds. Holdouts confirmed no changes relative to the chosen baseline; WAG-263 downgrade exhibited structural regressions. Synthetic source ancestry only. Live Pages deployment not verified."
+    "testCases": 256,
+    "fullSurvivalCases": 213,
+    "survivalFailures": 43,
+    "rejectedAdaptiveIntegrityImprovements": 34,
+    "rejectedAdaptiveIntegrityRegressions": 80,
+    "summary": "Frozen WAG261 policy evaluated without retraining against four new synthetic energy/material disturbance schedules. 43 of 256 cases lost full survival; external resource ledgers reconciled. Live Pages deployment unverified."
   }
 }
