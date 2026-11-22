@@ -3,11 +3,11 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 6,
-  "progressPercent": 50,
+  "completedTurns": 7,
+  "progressPercent": 58.3,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 263,
+  "nextBound": 264,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -43,7 +43,7 @@
     },
     {
       "bound": 263,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 58.3
     },
     {
@@ -73,15 +73,16 @@
     }
   ],
   "lastAccepted": {
-    "bound": 262,
-    "engine": "docs/wag262/wag262.js",
-    "lab": "docs/wag262/index.html",
-    "receipt": "docs/wag262/receipt-5101-5104.json",
-    "testCases": 32,
-    "forcedFeeTransactions": 64,
-    "continuityPass": 32,
-    "productionIntegrityRegressions": 0,
-    "feeResidualMax": 0,
-    "summary": "External switching fees persisted in operational energy into subsequent ticks; native repair material/energy charged once. Forced accounting probes are diagnostic only. Production matched WAG261, live Pages deployment unverified."
+    "bound": 263,
+    "engine": "docs/wag263/wag263.js",
+    "lab": "docs/wag263/index.html",
+    "receipt": "docs/wag263/receipt-5201-5204.json",
+    "cases": 32,
+    "integrityImproved": 8,
+    "integrityRegressed": 24,
+    "meanIntegrityDelta": -0.00020053736007163633,
+    "survivalReserveNonInferior": 32,
+    "repairsSuppressed": 132,
+    "summary": "Observed-state drift downgrade preserved paired survival and reserve across 32 cases but regressed structural integrity in 24; not a performance win. Synthetic energy shock ledger continuous. Pages deployment unverified."
   }
 }
