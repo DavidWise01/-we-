@@ -13,7 +13,7 @@ function wag253Choose(x,model,state,variant){
  if(variant==='immediate'||variant==='no-fee-reference'){
   const prev=state.cadence;state.cadence=suggested;
   if(prev!==suggested){state.switches++;state.lastChange=x.t}
-  return {cadence:state.cadence,suggested,reason:prev===suggested?'stable':'immediate',selection};
+  return {cadence:state.cadence,suggested,reason:prev===suggested?'stable':'immediate',selection,transition:prev===suggested?null:{from:prev,to:suggested,cost:wag253Fee(prev,suggested)}};
  }
  if(suggested===state.cadence){state.candidate=null;state.streak=0;
    return {cadence:state.cadence,suggested,reason:'agree',selection}}
@@ -63,10 +63,9 @@ function wag253Run(cap,family,seed,duration,variant,models,trained){
   }
   step244(x,action);
   if(decision.transition){transitions.push({tick:x.t-1,...decision.transition})}
-  if(variant!=='no-fee-reference'&&decision.suggested===state.cadence&&
-     (decision.transition||decision.reason==='immediate')){
+  if(variant!=='no-fee-reference'&&decision.transition){
    // Charge fee on every actual cadence transition, once, after normal tick.
-   const fee=decision.transition?.cost??0;
+   const fee=decision.transition.cost;
    if(fee){x.s.energy=Math.max(0,x.s.energy-fee);state.fees+=fee;
      x.s.trace.at(-1).energy=+x.s.energy.toFixed(5)}
   }
