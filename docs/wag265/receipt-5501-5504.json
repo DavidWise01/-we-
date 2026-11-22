@@ -1,0 +1,95 @@
+{
+  "bound": "WAG-265",
+  "phase": "II",
+  "turn": 9,
+  "sourceFrozen": "docs/wag264/frozen-policy.json",
+  "frozenPolicyCommit": "a0dd14168220b8ee6de506d0e0c68af74f82cfd4",
+  "stressEngineCommit": "a59b3a764c828e31a0bd0c8155940522da3674f2",
+  "testSeeds": [
+    5501,
+    5502,
+    5503,
+    5504
+  ],
+  "families": [
+    "scar",
+    "combined",
+    "phaseflip",
+    "famine"
+  ],
+  "capacities": [
+    5,
+    8,
+    13,
+    21
+  ],
+  "newStressSchedules": [
+    "late-collapse",
+    "double-shock",
+    "intermittent",
+    "resource-squeeze"
+  ],
+  "duration": 240,
+  "summary": {
+    "cases": 256,
+    "fullSurvival": 213,
+    "meanAlive": 233.984375,
+    "meanReserve": 223.8515625,
+    "meanIntegrity": 0.920916858826814,
+    "adaptiveImproved": 34,
+    "adaptiveRegressed": 80,
+    "adaptiveMeanIntegrityDelta": -0.0010030780386980757,
+    "byStress": {
+      "late-collapse": {
+        "cases": 64,
+        "fullSurvival": 48,
+        "meanAlive": 233.25,
+        "meanReserve": 225.375,
+        "meanIntegrity": 0.9260813947472626,
+        "adaptiveImproved": 10,
+        "adaptiveRegressed": 18,
+        "adaptiveMeanIntegrityDelta": -0.0009605761355604547
+      },
+      "double-shock": {
+        "cases": 64,
+        "fullSurvival": 48,
+        "meanAlive": 223.9375,
+        "meanReserve": 215.640625,
+        "meanIntegrity": 0.8919665520348633,
+        "adaptiveImproved": 8,
+        "adaptiveRegressed": 24,
+        "adaptiveMeanIntegrityDelta": -0.0005294932541230601
+      },
+      "intermittent": {
+        "cases": 64,
+        "fullSurvival": 58,
+        "meanAlive": 239.234375,
+        "meanReserve": 227.375,
+        "meanIntegrity": 0.9325509805209495,
+        "adaptiveImproved": 8,
+        "adaptiveRegressed": 18,
+        "adaptiveMeanIntegrityDelta": -0.0014006941643920287
+      },
+      "resource-squeeze": {
+        "cases": 64,
+        "fullSurvival": 59,
+        "meanAlive": 239.515625,
+        "meanReserve": 227.015625,
+        "meanIntegrity": 0.9330685080041796,
+        "adaptiveImproved": 8,
+        "adaptiveRegressed": 20,
+        "adaptiveMeanIntegrityDelta": -0.0011215486007167593
+      }
+    },
+    "maxContinuity": 0,
+    "maxCacheResidual": 2.2325891135821507e-15,
+    "maxMaterialResidual": 1.8318679906315083e-15
+  },
+  "interpretation": "The selected frozen WAG261 baseline did not maintain full survival under all unfamiliar stresses. The previously rejected adaptive controller was not superior in mean integrity.",
+  "limitations": [
+    "One deterministic simulator genealogy, not a physically independent transfer evaluation",
+    "Policy remained fixed before new stress schedules and seed evaluation",
+    "External energy/material losses persist in operating state and their ledgers reconcile",
+    "Summary aggregate receipt; wag265Experiment reproduces per-case records without holdout tuning"
+  ]
+}
