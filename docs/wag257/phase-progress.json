@@ -1,13 +1,13 @@
 {
   "phase": "WAG-II",
   "name": "Hegemonic Diodic Control",
-  "status": "OPEN",
+  "status": "CLOSED",
   "plannedTurns": 12,
-  "completedTurns": 11,
-  "progressPercent": 91.7,
+  "completedTurns": 12,
+  "progressPercent": 100,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 268,
+  "nextBound": null,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -68,28 +68,25 @@
     },
     {
       "bound": 268,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 100
     }
   ],
   "lastAccepted": {
-    "bound": 267,
-    "engine": "docs/wag267/wag267.js",
-    "lab": "docs/wag267/index.html",
-    "receipt": "docs/wag267/receipt-5501-5504.json",
-    "matchedScenarios": 256,
-    "policyRuns": 768,
-    "ranking": [
-      "noRepair",
-      "rejectedAdaptive",
-      "frozen"
-    ],
-    "fullSurvival": [
-      218,
-      214,
-      213
-    ],
-    "frozenIntegrityLead": true,
-    "summary": "Predeclared survival-first ranking places no-repair diagnostic first, frozen WAG261 third. Frozen retains highest integrity but 43/256 survival failures. Ranking diagnostic; policy unchanged. All evidence synthetic. Pages deployment unverified."
-  }
+    "bound": 268,
+    "engine": "docs/wag268/wag268.js",
+    "lab": "docs/wag268/index.html",
+    "replayReceipt": "docs/wag268/replay-receipt.json",
+    "releaseManifest": "docs/wag268/release-manifest.json",
+    "closeout": "docs/wag268/PHASE_CLOSEOUT.md",
+    "referenceBlobCount": 14,
+    "replayRuns": 28,
+    "replayPassed": 28,
+    "unresolvedSurvivalFailures": 43,
+    "status": "CLOSED",
+    "summary": "Twelve of twelve Phase II research turns complete; deterministic replay checks passed and 14 source-evidence blob references preserved. Frozen WAG261 remains unchanged. No-repair leads 240-tick survival ranking; frozen leads structural integrity. Research progress is 100%, model robustness unresolved. GitHub Pages live-serving not verified."
+  },
+  "phaseCloseout": "docs/wag268/PHASE_CLOSEOUT.md",
+  "releaseManifest": "docs/wag268/release-manifest.json",
+  "livePagesVerified": false
 }
