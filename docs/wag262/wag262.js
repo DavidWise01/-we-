@@ -60,7 +60,7 @@ function wag262Run(cap,family,seed,duration,regime,variant,models,horizon,cost,v
    if(bid.allowed&&ledger.externalEnergySpent+bid.escrow<=WAG259_TOTAL_BUDGET){
     ticket={from:6,to:3,returnTick:tick+6,entryReserve:bid.entryReserve,
       returnReserve:bid.returnReserve};
-    stage='active';ledger.probes++;choices.probe++;
+    stage='active';ledger.probes++;
    }else ledger.denied++;
   }
   // Use WAG261's deterministic repair decision unless a probe transaction
@@ -71,7 +71,7 @@ function wag262Run(cap,family,seed,duration,regime,variant,models,horizon,cost,v
     wag261Select(x,models,horizon,lastRepair);
   const action=result.action;
   if(action!=='abstain')lastRepair=tick;
-  choices[action==='abstain'?'wait':action]++;
+  choices[entering?'probe':exiting?'return':action==='abstain'?'wait':action]++;
   const beforeEnergy=x.s.energy,beforeMaterial=x.material,beforeSpent=x.materialSpent;
   step244(x,action);
   const internalMaterialCost=x.materialSpent-beforeSpent;
@@ -79,12 +79,20 @@ function wag262Run(cap,family,seed,duration,regime,variant,models,horizon,cost,v
   ledger.repairEnergyAttributed+=internalEnergyCost;
   ledger.repairMaterialAttributed+=internalMaterialCost;
   ledger.materialSpent=x.materialSpent;
+  if(variant==='feeStress'&&(tick===90||tick===96)){
+   // Controlled accounting-only transaction, bypassing the decision gate.
+   // It tests persistent debits, NOT probe safety or policy value.
+   const forward=tick===90,from=forward?6:3,to=forward?3:6;
+   wag262Charge(x,ledger,tick,forward?'injection-entry':'injection-return',
+     from,to,cost,regime,.1,lastChange);
+   lastChange=tick;
+  }
   if(entering||exiting){
    const from=entering?ticket.from:ticket.to,to=entering?ticket.to:ticket.from;
    const reserved=entering?ticket.entryReserve:ticket.returnReserve;
    wag262Charge(x,ledger,tick,entering?'entry':'return',from,to,cost,regime,reserved,lastChange);
    lastChange=tick;
-   if(exiting){ledger.returns++;stage='idle';ticket=null;choices.return++;}
+   if(exiting){ledger.returns++;stage='idle';ticket=null;}
   }
   ledger.ticks.push({tick,beforeEnergy,beforeMaterial,
    postEngineEnergy:ledger.transactions.at(-1)?.tick===tick?ledger.transactions.at(-1).pre:x.s.energy,
