@@ -13,8 +13,11 @@ const WAG259_WINDOWS=[90,138,186,234,282,330,378,426];
 function wag259Escrow(x,from,to,lastChange,cost,spent){
  const age=x.t-lastChange,forward=wag254Estimate(x,age,from,to,cost);
  const back=wag254Estimate(x,0,to,from,cost);
- const budgetEntry=forward.upper*WAG259_ENVELOPE;
- const budgetReturn=back.upper*WAG259_ENVELOPE;
+ // Reserve against the maximum contextual nominal multiplier (2.55),
+ // not merely the entry-state prediction. The environment's stress
+ // schedule must remain within the declared 8x nominal envelope.
+ const budgetEntry=Math.max(forward.upper,2.55*wag253Fee(from,to))*WAG259_ENVELOPE;
+ const budgetReturn=Math.max(back.upper,2.55*wag253Fee(to,from))*WAG259_ENVELOPE;
  const escrow=budgetEntry+budgetReturn;
  const spendable=Math.max(0,x.s.energy-spent);
  return {from,to,escrow,entryReserve:budgetEntry,returnReserve:budgetReturn,
