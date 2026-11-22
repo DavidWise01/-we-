@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-273 · Calibrating {a{b}}</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#342641}*{box-sizing:border-box}body{margin:0}main{max-width:1360px;margin:auto;padding:25px}h1{font-size:clamp(30px,4.2vw,49px);letter-spacing:-.052em;color:#7029ae;margin:0}h2{font-size:19px;color:#6e2caa;margin:0 0 12px}.sub{color:#776a85;border-bottom:2px solid #e6d6ee;padding-bottom:16px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:17px 0}label{font-size:13px;color:#776783}select,button{font:inherit;display:block;margin-top:5px;background:#fff;border:1px solid #c8abdc;border-radius:9px;color:#362648;padding:10px}button{background:#6c2baa;color:white;font-weight:700;box-shadow:0 0 16px #b576f38b;cursor:pointer}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px}.panel{background:white;border:1px solid #e7d9ed;border-radius:14px;padding:18px;box-shadow:0 8px 22px #63358317}
+canvas{width:100%;height:auto;display:block;background:#1a0e2c;border-radius:11px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{background:#faf3ff;border-left:4px solid #ffa13c;padding:11px}.stat b{font-size:23px;color:#7132af;display:block}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{padding:8px 6px;border-bottom:1px solid #eaddeb;text-align:left}
+.small{font-size:12px;color:#7d7088}pre{font:12px/1.55 ui-monospace,monospace;white-space:pre-wrap;max-height:320px;overflow:auto}a{color:#7835ad}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-273 · Two Cubits, Measured</h1>
+<p class="sub">Phase III · Turn 5 / 12 · Nested recurrent neural mesh <strong>{a{b}}</strong> · Observation-only predictions · Offline counterfactual labels · .dlw</p>
+<div class="controls"><label>Signal to inspect<select id="signal"><option value="risk">a · Survival risk</option><option value="value">b · Repair worth</option></select></label>
+<label>Horizon<select id="duration"><option value="240">240 ticks</option><option selected value="480">480 ticks</option></select></label>
+<label>Family<select id="family"><option>scar</option><option selected>combined</option></select></label>
+<label>Stress<select id="stress"><option>late-collapse</option><option selected>double-shock</option><option>intermittent</option><option>resource-squeeze</option></select></label>
+<label>Capacity<select id="cap"><option>8</option><option selected>13</option></select></label>
+<label>Fresh seed<select id="seed"><option>6001</option><option>6002</option><option>6003</option></select></label>
+<button id="run">Replay neural calibration</button></div>
+<div class="layout"><section class="panel">
+<h2>Reliability · predicted score vs observed event frequency</h2><canvas id="reliability" width="1040" height="390"></canvas>
+<p class="small">Dashed white = perfect calibration; orange = outer survival-risk cubit; purple = inner repair-value cubit. Empty score bins are not estimates.</p>
+<h2 style="margin-top:23px">Nested cubits · temporal signal flow</h2><canvas id="mesh" width="1040" height="360"></canvas>
+<p class="small">Neon brace a regulates the physical reserve. Nested brace b evaluates repair requests. Their temporal feedback does not confer automatic predictive validity.</p>
+<h2 style="margin-top:23px">Observed calibration bins</h2><table id="bins"></table></section>
+<aside class="panel"><h2>Calibration scorecard</h2>
+<div class="stats"><div class="stat">Risk forecasts<b id="riskN">—</b></div><div class="stat">Repair-value labels<b id="valueN">—</b></div>
+<div class="stat">Risk ECE<b id="riskEce">—</b></div><div class="stat">Repair ECE<b id="valueEce">—</b></div>
+</div><h2 style="margin-top:23px">Current experiment</h2><pre id="audit">Loading the WAG-273 evidence receipt…</pre>
+<p class="small">ECE is expected calibration error over five probability bins; it is descriptive for these synthetic cases. The scores are fixed neural activations, not probabilities fitted on training data. Risk labels look forward 24 ticks in the completed trace; repair-value labels compare 12-tick counterfactual branches offline.</p>
+<p><a href="./receipt-6001-6003.json">Full 96-run calibration receipt</a> · <a href="../wag272/wag272.js">Two-cubit engine</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="../wag272/wag272.js"></script><script src="./wag273.js"></script><script>
+const E=id=>document.getElementById(id);let evidence,frozen,ctx,individual,angle=0;
+function drawReliability(){if(!evidence)return;const g=E('reliability').getContext('2d'),W=1040,H=390;
+g.fillStyle='#1a0e2c';g.fillRect(0,0,W,H);
+for(let k=0;k<=5;k++){g.strokeStyle='#49365f';g.lineWidth=1;g.beginPath();g.moveTo(66+k*175,30);g.lineTo(66+k*175,H-55);g.stroke();g.beginPath();g.moveTo(66,30+k*61);g.lineTo(W-70,30+k*61);g.stroke()}
+const x=p=>66+p*(W-136),y=p=>H-55-p*(H-90);
+g.strokeStyle='#fff';g.setLineDash([8,7]);g.beginPath();g.moveTo(x(0),y(0));g.lineTo(x(1),y(1));g.stroke();g.setLineDash([]);
+for(const [data,color]of [[evidence.riskCalibration,'#ffa13a'],[evidence.valueCalibration,'#ba86ff']]){
+ let last=null;for(const bin of data.bins){if(!bin.n)continue;const px=x(bin.meanPred),py=y(bin.eventRate);
+ if(last){g.strokeStyle=color;g.lineWidth=2.5;g.beginPath();g.moveTo(...last);g.lineTo(px,py);g.stroke()}
+ g.beginPath();g.arc(px,py,5+Math.min(8,Math.sqrt(bin.n)/8),0,2*Math.PI);g.fillStyle=color;g.shadowColor=color;g.shadowBlur=13;g.fill();g.shadowBlur=0;last=[px,py]}}
+g.font='16px system-ui';g.fillStyle='#fff';g.fillText('Observed event rate ↑',70,23);g.fillText('Predicted activation →',W-272,H-18);
+}
+function drawMesh(){const g=E('mesh').getContext('2d'),W=1040,H=360;g.fillStyle='#1a0e2c';g.fillRect(0,0,W,H);let spin=angle;
+function poly(scale,stroke,phase,label){const pts=Array.from({length:8},(_,i)=>{const p=i%4,q=i<4?-1:1,xx=(p===0||p===2?-1:1),yy=(p<2?-1:1),cs=Math.cos(phase),sn=Math.sin(phase);const X=xx*cs-q*sn,Z=xx*sn+q*cs,d=4/(4+.4*Z);return [520+X*scale*d,170+(yy*.8+Z*.12)*scale*d]});
+const edges=[[0,1],[0,2],[1,3],[2,3],[4,5],[4,6],[5,7],[6,7],[0,4],[1,5],[2,6],[3,7]];
+g.strokeStyle=stroke;g.lineWidth=2.5;g.shadowBlur=13;g.shadowColor=stroke;
+edges.forEach(([u,v])=>{g.beginPath();g.moveTo(...pts[u]);g.lineTo(...pts[v]);g.stroke()});g.shadowBlur=0;g.fillStyle=stroke;g.font='bold 16px system-ui';g.fillText(label,pts[0][0],pts[0][1]-13);return pts;}
+const outer=poly(135,'#ffa13a',spin,'{a} · risk'),inner=poly(67,'#b583ff',-spin*1.3,'{b} · repair');
+for(let i=0;i<8;i++){g.beginPath();g.moveTo(...outer[i]);g.lineTo(...inner[(i+2)%8]);g.strokeStyle='#55dfd2';g.lineWidth=1.6;g.setLineDash([5,5]);g.stroke();g.setLineDash([])}
+g.fillStyle='#fff';g.font='16px monospace';g.fillText('a.risk → next 24 ticks',15,30);g.fillText('b.request → offline 12-tick value',15,55);
+}
+function render(){drawReliability();const key=E('signal').value==='risk'?'riskCalibration':'valueCalibration',v=evidence[key];
+E('riskN').textContent=evidence.riskCalibration.n;E('valueN').textContent=evidence.valueCalibration.n;
+E('riskEce').textContent=evidence.riskCalibration.ece.toFixed(3);E('valueEce').textContent=evidence.valueCalibration.ece.toFixed(3);
+E('bins').innerHTML='<tr><th>Activation band</th><th>Count</th><th>Average score</th><th>Observed event rate</th></tr>'+
+v.bins.map(z=>'<tr><td>'+z.low.toFixed(1)+'–'+z.high.toFixed(1)+'</td><td>'+z.n+'</td><td>'+(z.meanPred===null?'—':z.meanPred.toFixed(3))+'</td><td>'+(z.eventRate===null?'—':z.eventRate.toFixed(3))+'</td></tr>').join('');
+if(!individual)return;
+E('audit').textContent='Chosen scenario: '+individual.family+' · '+individual.stress+'\nCapacity: '+individual.cap+' · Seed: '+individual.seed+'\nDuration: '+individual.duration+' ticks\nActual alive ticks: '+individual.aliveTicks+'\nRisk observations: '+individual.predictions.length+'\nEligible repair labels: '+individual.valueLabels.length+'\n\nRisk event base rate: '+evidence.riskCalibration.baseRate.toFixed(3)+'\nRisk Brier: '+evidence.riskCalibration.brier.toFixed(4)+'\nRisk ECE: '+evidence.riskCalibration.ece.toFixed(4)+'\nRepair value positives: '+evidence.valueCalibration.positives+'/'+evidence.valueCalibration.n+'\nRepair-value Brier: '+evidence.valueCalibration.brier.toFixed(4)+'\nRepair-value ECE: '+evidence.valueCalibration.ece.toFixed(4)+'\nLow-risk false-safe predictions: '+evidence.riskCalibration.falseSafe+'\nResource continuity: '+individual.ledger.continuityMax.toExponential(2)+'\n\nNo calibrated weights promoted. Raw neural scores remain unchanged.';
+}
+function run(){try{if(!evidence||!frozen)throw Error('Missing committed evidence');
+if(!ctx){const models=wag251Models(),horizon=wag261Train(models);ctx={models,horizon}}
+individual=wag273Run(+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('stress').value,frozen,ctx.models,ctx.horizon);render();
+}catch(err){E('audit').textContent='ERROR '+err.stack;throw err}}
+async function init(){try{const r=await Promise.all([fetch('./receipt-6001-6003.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(r.some(z=>!z.ok))throw Error('Missing frozen artifacts');evidence=await r[0].json();frozen=await r[1].json();wag264VerifyFreeze(frozen);run()}catch(err){E('audit').textContent='ERROR '+err.stack}}
+E('run').onclick=run;E('signal').onchange=()=>{if(evidence)render()};
+function animate(){angle+=.004;drawMesh();requestAnimationFrame(animate)}
+requestAnimationFrame(animate);init();
+</script></body></html>
