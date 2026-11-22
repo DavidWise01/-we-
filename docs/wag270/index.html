@@ -1,0 +1,83 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-270 · Threshold Robustness</title><style>
+:root{font:15px/1.47 system-ui;background:#faf9f5;color:#34253f}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:25px}h1{margin:0;color:#762bb2;font-size:clamp(30px,4vw,47px);letter-spacing:-.052em}h2{font-size:19px;color:#712aab;margin:0 0 13px}.sub{border-bottom:2px solid #e8d9ee;color:#776981;padding-bottom:16px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:19px 0}label{font-size:13px;color:#766a84}select,button{display:block;background:#fff;border:1px solid #c9acdb;color:#372849;border-radius:9px;font:inherit;padding:10px;margin-top:5px}button{background:#712da8;color:white;font-weight:700;box-shadow:0 0 17px #a975ed8b;cursor:pointer}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:16px}.panel{padding:18px;background:#fff;border:1px solid #eadceb;border-radius:14px;box-shadow:0 9px 23px #63358a19}canvas{width:100%;height:auto;background:#190f2c;border-radius:10px;display:block}table{border-collapse:collapse;width:100%;font-size:12px}td,th{text-align:left;padding:8px 6px;border-bottom:1px solid #eddfef}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:9px}.kpi{background:#fbf5ff;border-left:4px solid #ffa03b;padding:10px}.kpi b{display:block;color:#7732b0;font-size:23px}pre{font:12px/1.55 monospace;white-space:pre-wrap;max-height:280px;overflow:auto}.note{color:#796d84;font-size:12px}a{color:#7234aa}@media(max-width:860px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-270 · Test the Threshold</h1>
+<p class="sub">Phase III · Turn 2 / 12 · Bone-white × high-definition orange/purple neon · No retuning from holdouts · .dlw</p>
+<div class="controls"><label>Duration<select id="duration"><option value="240">240 ticks</option><option value="480" selected>480 ticks</option></select></label>
+<label>Stress<select id="stress"><option>late-collapse</option><option selected>double-shock</option><option>intermittent</option><option>resource-squeeze</option></select></label>
+<label>Family<select id="family"><option>scar</option><option selected>combined</option></select></label>
+<label>Capacity<select id="cap"><option>8</option><option selected>13</option></select></label>
+<label>Unseen seed<select id="seed"><option>5701</option><option>5702</option><option>5703</option></select></label>
+<button id="run">Replay five policies</button></div>
+<div class="layout">
+<section class="panel">
+<h2>Five controller trajectories</h2><canvas id="plot" width="1000" height="420"></canvas>
+<p class="note">Orange = frozen WAG-261; teal = no repair; violet = low threshold; pink = canonical; gold = high threshold. The canvas shows structural integrity, not just survival.</p>
+<h2 style="margin-top:22px">Aggregated 240/480-tick comparisons</h2><table id="aggregate"></table>
+<h2 style="margin-top:22px">Case-level Pareto receipt</h2><table id="case"></table></section>
+<aside class="panel"><h2>Evidence status</h2><div class="kpis">
+<div class="kpi">Policy simulations<b>480</b></div>
+<div class="kpi">Matched conditions<b>96</b></div>
+<div class="kpi">Case dominance, canonical vs frozen<b>19 / 48</b></div>
+<div class="kpi">Phase III progress<b>16.7%</b></div></div>
+<h2 style="margin-top:22px">Observation and accounting</h2><pre id="audit">Loading frozen baseline and evidence…</pre>
+<p class="note">19 cases favor canonical and 48 favor frozen by strict case-level dominance; these counts overlap neither but do not cover all 96. Model thresholds are predeclared and remain unchanged. All experiments share one synthetic simulator ancestry.</p>
+<p><a href="./receipt-5701-5703.json">480-run evidence receipt</a> · <a href="../wag264/frozen-policy.json">Sealed frozen controller</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a></p></aside>
+</div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="./wag270.js"></script>
+<script>
+const E=id=>document.getElementById(id);
+const palette={noRepair:'#43e8d9',frozen:'#ff982e',low:'#b783ff',canonical:'#ff79cb',high:'#ffc05a'};
+let receipt,frozen,context,runs;
+function draw(){
+ const g=E('plot').getContext('2d'),W=1000,H=420;g.fillStyle='#190f2c';g.fillRect(0,0,W,H);
+ for(let k=0;k<=10;k++){g.strokeStyle='#463258';g.beginPath();g.moveTo(0,k*H/10);g.lineTo(W,k*H/10);g.stroke()}
+ for(const [key,r] of Object.entries(runs)){
+  g.beginPath();g.strokeStyle=palette[key];g.lineWidth=2.7;g.shadowColor=palette[key];g.shadowBlur=12;
+  r.trace.forEach((v,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-v.integrity)*H):g.moveTo(0,(1-v.integrity)*H));g.stroke();g.shadowBlur=0;
+ }
+ g.font='bold 19px system-ui';g.fillStyle='#fff';g.fillText('WAG-270 · Five matched policies',20,29);
+}
+function show(){
+ draw();
+ const duration=E('duration').value,ag=receipt.aggregates[duration];
+ E('aggregate').innerHTML='<tr><th>Policy</th><th>Full survival</th><th>Mean integrity</th><th>Mean repairs</th></tr>'+
+ Object.entries(ag).map(([k,z])=>'<tr><td>'+k+'</td><td>'+z.fullSurvival+'/'+z.n+'</td><td>'+z.meanIntegrity.toFixed(6)+'</td><td>'+z.meanRepairs.toFixed(2)+'</td></tr>').join('');
+ const attrs=['noRepair','frozen','low','canonical','high'];
+ E('case').innerHTML='<tr><th>Policy</th><th>Alive ticks</th><th>Reserve ticks</th><th>Integrity</th></tr>'+
+ attrs.map(k=>'<tr><td>'+k+'</td><td>'+runs[k].aliveTicks+'</td><td>'+runs[k].reserveTicks+'</td><td>'+runs[k].meanIntegrity.toFixed(6)+'</td></tr>').join('');
+ const c=runs.canonical,b=runs.frozen;
+ E('audit').textContent='Selected case: '+duration+' ticks · '+E('family').value+' · '+E('stress').value+
+ '\nCapacity '+E('cap').value+', seed '+E('seed').value+
+ '\n\nFrozen integrity: '+b.meanIntegrity.toFixed(7)+
+ '\nCanonical integrity: '+c.meanIntegrity.toFixed(7)+
+ '\nIntegrity Δ: '+(c.meanIntegrity-b.meanIntegrity).toFixed(7)+
+ '\nAlive tick Δ: '+(c.aliveTicks-b.aliveTicks)+
+ '\nReserve Δ: '+(c.reserveTicks-b.reserveTicks)+
+ '\n\nCanonical dominates frozen: '+wag270Dominates(c,b)+
+ '\nFrozen dominates canonical: '+wag270Dominates(b,c)+
+ '\nAccounting continuity: '+c.ledger.continuityMax.toExponential(2)+
+ '\nCache energy residual: '+c.ledger.energyResidual.toExponential(2)+
+ '\nMaterial residual: '+c.ledger.materialResidual.toExponential(2)+
+ '\n\nNo threshold updated; none promoted.';
+}
+function run(){
+ try{if(!frozen||!receipt)throw Error('Missing evidence or frozen policy');
+ if(!context){const models=wag251Models(),horizon=wag261Train(models);context={models,horizon}}
+ const args=[+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('stress').value];
+ runs=Object.fromEntries(['noRepair','frozen','low','canonical','high'].map(k=>
+  [k,wag270Run(...args,k,frozen,context.models,context.horizon)]));
+ show();
+ }catch(err){E('audit').textContent='ERROR '+err.stack;throw err}
+}
+async function init(){
+ try{const responses=await Promise.all([fetch('./receipt-5701-5703.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);
+ if(responses.some(r=>!r.ok))throw Error('Missing committed artifact');
+ receipt=await responses[0].json();frozen=await responses[1].json();wag264VerifyFreeze(frozen);run();
+ }catch(err){E('audit').textContent='ERROR '+err.stack}
+}
+E('run').onclick=run;init();
+</script></body></html>
