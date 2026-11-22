@@ -1,0 +1,70 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-278 · Crystal Failure Reduction</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#382842}*{box-sizing:border-box}body{margin:0}main{max-width:1350px;margin:auto;padding:25px}
+h1{font-size:clamp(31px,4vw,48px);color:#742da9;letter-spacing:-.052em;margin:0}h2{font-size:19px;color:#702eb1;margin:0 0 12px}.sub{border-bottom:2px solid #e8dbed;color:#766984;padding-bottom:16px}
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:18px 0}label{font-size:13px;color:#776884}select,button{font:inherit;padding:10px;border:1px solid #c6a5dc;border-radius:9px;background:white;color:#30233d;display:block;margin-top:5px}button{color:white;background:#7530aa;font-weight:700;cursor:pointer;box-shadow:0 0 16px #ae72e98b}
+.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:14px}.panel{background:white;border:1px solid #e9dcee;border-radius:14px;padding:18px;box-shadow:0 10px 24px #603c8414}canvas{width:100%;height:auto;display:block;background:#170d2a;border-radius:11px}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:8px 5px;border-bottom:1px solid #ebdef1}
+.metricGrid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{padding:11px;background:#fbf4ff;border-left:4px solid #ff9b39}.metric b{display:block;font-size:22px;color:#7430b0}pre{white-space:pre-wrap;font:12px/1.56 monospace;max-height:380px;overflow:auto}.small{font-size:12px;color:#786982}a{color:#7737ab}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-278 · The First Observable Failure</h1>
+<p class="sub">Phase III · Turn 10/12 · <strong>---@---@---@---@---{} → {\a{b/}}</strong> · Frozen candidate preserved · .dlw</p>
+<div class="controls"><label>Reproducible failing case<select id="case"></select></label><button id="replay">Reproduce exact failing prefix</button></div>
+<div class="layout"><section class="panel">
+<h2>Minimal observed failure prefix</h2><canvas id="plot" width="1060" height="420"></canvas>
+<p class="small">Orange = frozen reference integrity; purple = crystalline candidate integrity. Gold vertical line = first differing repair action; teal line = earliest observable failure. The underlying full original run is retained.</p>
+<h2 style="margin-top:23px">Crystalline event chain</h2><canvas id="crystal" width="1060" height="260"></canvas><p class="small">The rail network changes actions, but action disagreement alone does not establish the cause of a later failure.</p>
+<h2 style="margin-top:23px">Reduced case ranking</h2><table id="ranking"></table></section>
+<aside class="panel"><h2>Reducer verification</h2><div class="metricGrid">
+<div class="metric">Selected failures<b>8</b></div><div class="metric">Survival failures<b>2</b></div>
+<div class="metric">Integrity failures<b>6</b></div><div class="metric">Phase III complete<b>83.3%</b></div></div>
+<h2 style="margin-top:23px">Reproducible failure detail</h2><pre id="audit">Loading WAG-278 failure receipt…</pre>
+<p class="small">Minimal means the first prefix at which the specified condition is observable. It does not mean the smallest independent causal input or smallest seed. Full 720-tick simulation initialization is preserved.</p>
+<p><a href="./receipt-6401-6404.json">Reduced failing-case receipt</a> · <a href="./wag278.js">Counterexample reduction engine</a> · <a href="../wag277/receipt-6401-6404.json">Original withheld experiment</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="../wag272/wag272.js"></script><script src="../wag274/wag274.js"></script><script src="../wag276/crystalline-mesh.js"></script><script src="../wag276/wag276.js"></script><script src="../wag277/lattice-chain.js"></script><script src="../wag277/wag277.js"></script><script src="./wag278.js"></script>
+<script>
+const E=id=>document.getElementById(id);let receipt,frozen,ctx,current,full,angle=0;
+function draw(){if(!current)return;const g=E('plot').getContext('2d'),W=1060,H=420;
+g.fillStyle='#170d2a';g.fillRect(0,0,W,H);for(let j=0;j<=8;j++){g.strokeStyle='#47325b';g.beginPath();g.moveTo(0,j*H/8);g.lineTo(W,j*H/8);g.stroke()}
+const stop=current.firstFailureTick,first=current.earliestActionDisagreementTick,points=full;
+if(points){for(const [key,col]of [['left','#ff9e3b'],['right','#ad85ff']]){g.strokeStyle=col;g.lineWidth=2.8;g.shadowColor=col;g.shadowBlur=9;g.beginPath();
+points[key].trace.slice(0,stop+1).forEach((z,i)=>{const x=i*W/Math.max(1,stop),y=H-25-z.integrity*(H-60);if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.shadowBlur=0}}
+else if(current.window){for(const [key,col]of [['integrityLeft','#ff9e3b'],['integrityRight','#ad85ff']]){g.strokeStyle=col;g.lineWidth=2.6;g.beginPath();current.window.forEach((z,i)=>{const x=i*W/Math.max(1,current.window.length-1),y=H-25-z[key]*(H-60);if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke()}}
+if(full&&first>=0){const x=first*W/Math.max(1,stop);g.strokeStyle='#ffd35f';g.lineWidth=2;g.beginPath();g.moveTo(x,0);g.lineTo(x,H);g.stroke()}
+g.strokeStyle='#4be9d8';g.lineWidth=3;g.beginPath();g.moveTo(W-3,0);g.lineTo(W-3,H);g.stroke();
+g.fillStyle='#fff';g.font='bold 20px system-ui';g.fillText('Earliest failure tick '+stop+' · '+current.kind,18,31)}
+function lattice(){const g=E('crystal').getContext('2d'),W=1060,H=260;g.fillStyle='#170d2a';g.fillRect(0,0,W,H);
+const cx=[125,335,545,755],y=135;for(let i=0;i<4;i++){const a=cx[i],c=i%2?'#ba87ff':'#ff9e38',rad=43;g.strokeStyle=c;g.lineWidth=2.5;g.shadowColor=c;g.shadowBlur=13;
+const p=Array.from({length:8},(_,k)=>{const x=k&1?1:-1,v=k&2?1:-1,z=k&4?1:-1,cs=Math.cos(angle*(i%2?-1:1)),sn=Math.sin(angle*(i%2?-1:1));return [a+(x*cs-z*sn)*rad,y+(v*.8+(x*sn+z*cs)*.14)*rad]});
+for(let k=0;k<8;k++)for(const bit of [1,2,4])if(k<(k^bit)){g.beginPath();g.moveTo(...p[k]);g.lineTo(...p[k^bit]);g.stroke()}g.shadowBlur=0;
+if(i<3){g.beginPath();g.moveTo(a+50,y);g.lineTo(cx[i+1]-50,y);g.strokeStyle='#4addd7';g.stroke()}g.fillStyle=c;g.font='bold 17px monospace';g.fillText('@'+i,a-12,y-65)}
+g.strokeStyle='#4addd7';g.beginPath();g.moveTo(808,y);g.lineTo(908,y);g.stroke();g.strokeStyle='#ae83ff';g.strokeRect(909,80,117,110);g.strokeRect(932,103,70,64);
+g.fillStyle='#fff';g.font='bold 17px monospace';g.fillText('{}',946,144);g.fillText('One action',911,210);angle+=.006;requestAnimationFrame(lattice)}
+function show(){draw();const d=current;E('audit').textContent='Failure type: '+d.kind+
+'\nDuration: '+d.case.duration+'\nFamily: '+d.case.family+'\nForce: '+d.case.force+
+'\nCapacity: '+d.case.cap+'\nSeed: '+d.case.seed+
+'\n\nFirst differing action tick: '+d.earliestActionDisagreementTick+
+'\nEarliest observable failure tick: '+d.firstFailureTick+
+'\nMinimal observable prefix: '+d.minimalObservablePrefixTicks+' ticks'+
+'\nGap at failure: '+d.decisiveState.gap.toFixed(9)+
+'\nViable frozen: '+d.decisiveState.viableLeft+
+'\nViable crystalline: '+d.decisiveState.viableRight+
+'\nExact repeat replay: '+d.reproduction.duplicateFullReplay+
+'\nNo earlier failure condition: '+d.reproduction.noEarlierObservedViolation+
+'\nAccounting residual: '+d.maxAccountingResidual.toExponential(2)+
+'\n\nNo causal attribution. No policy change.'}
+function select(){current=receipt.examples[+E('case').value];full=null;show()}
+function replay(){try{if(!ctx){const models=wag251Models(),horizon=wag261Train(models);ctx={models,horizon}}
+const d=current,a=d.case,args=[a.cap,a.family,a.seed,a.duration,a.force];
+const left=wag277Run(...args,d.leftMode,frozen,ctx.models,ctx.horizon),
+right=wag277Run(...args,d.rightMode,frozen,ctx.models,ctx.horizon);
+const t=wag278FirstDifference(left,right,d.kind);
+if(t!==d.firstFailureTick)throw Error('Failure tick mismatch');
+full={left,right};show();E('audit').textContent+='\n\nFull source replay: PASSED';
+}catch(e){E('audit').textContent='REPLAY FAILED: '+e.stack}}
+async function init(){try{const x=await Promise.all([fetch('./receipt-6401-6404.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(x.some(z=>!z.ok))throw Error('Required evidence is unavailable');
+receipt=await x[0].json();frozen=await x[1].json();wag264VerifyFreeze(frozen);
+E('case').innerHTML=receipt.examples.map((z,i)=>'<option value="'+i+'">'+z.kind+' · '+z.case.force+' · seed '+z.case.seed+'</option>').join('');
+E('ranking').innerHTML='<tr><th>Failure type</th><th>Seed</th><th>First action</th><th>First failure</th></tr>'+
+receipt.examples.map(z=>'<tr><td>'+z.kind+'</td><td>'+z.case.seed+'</td><td>'+z.earliestActionDisagreementTick+'</td><td>'+z.firstFailureTick+'</td></tr>').join('');
+select();replay()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('case').onchange=select;E('replay').onclick=replay;requestAnimationFrame(lattice);init();
+</script></body></html>
