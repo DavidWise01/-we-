@@ -39,7 +39,7 @@ for(const [mode,col]of [['frozen','#ffa13b'],['mesh','#b686ff'],['crystal','#47e
 function show(){plot();const agg=receipt.aggregate[E('duration').value];E('aggregate').innerHTML='<tr><th>Controller</th><th>Full survival</th><th>Mean integrity</th><th>Mean repairs</th></tr>'+
 Object.entries(agg).map(([mode,z])=>'<tr><td>'+mode+'</td><td>'+z.fullSurvival+'/'+z.n+'</td><td>'+z.meanIntegrity.toFixed(6)+'</td><td>'+z.meanRepairs.toFixed(2)+'</td></tr>').join('');
 const c=runs.crystal,f=runs.frozen,m=runs.mesh;E('audit').textContent='Frozen primitive: '+config.primitive+
-'\nCrystalline coefficient: '+config.railWeight+'\n3 propagation passes\n\n'+
+'\nCrystalline coefficient: '+config.signalRailWeight+'\n3 propagation passes\n\n'+
 'Case: '+E('family').value+' / '+E('force').value+
 '\nSeed '+E('seed').value+', capacity '+E('cap').value+
 '\nCrystal alive: '+c.aliveTicks+'/'+c.duration+
