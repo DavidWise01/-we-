@@ -1,0 +1,68 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-248 · Recovery Window Forecast</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#31223d}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:24px}
+h1{font-size:clamp(28px,4vw,44px);margin:0;color:#6828a3;letter-spacing:-.04em}h2{font-size:19px;margin:0 0 12px;color:#5a2996}
+.sub{color:#776e85;border-bottom:2px solid #e1c4ef;padding:0 0 17px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0;align-items:end}label{font-size:13px;color:#776582}
+select,button{font:inherit;display:block;border:1px solid #bda1d2;border-radius:9px;padding:10px 12px;background:white;color:#362044;margin-top:5px}
+button{background:#682aaa;color:white;font-weight:700;cursor:pointer;box-shadow:0 0 19px #b87bff88}
+.layout{display:grid;grid-template-columns:1.75fr 1fr;gap:14px}
+.panel{background:#fff;border:1px solid #e5d8ea;border-radius:14px;padding:17px;box-shadow:0 9px 22px #52227d14}
+canvas{display:block;width:100%;height:auto;border-radius:10px;background:#170f29}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#6a597a}.legend span:before{content:'● ';color:var(--c)}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:20px}
+.metric{border-left:4px solid #ff8b24;background:#faf4ff;padding:10px}.metric strong{display:block;font-size:24px;color:#6e27ad}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:7px 5px;border-bottom:1px solid #e9ddeb}
+pre{max-height:300px;white-space:pre-wrap;overflow:auto;font:12px/1.55 monospace}
+.note{font-size:12px;color:#766981} .pill{display:inline-block;border-radius:15px;padding:3px 9px;background:#f2e4fb;color:#63289c;font-weight:700;font-size:12px}
+@media(max-width:840px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-248 · Predict the Window</h1><p class="sub">Opening / Stable / Closing / Unknown · Observe the past, predict the next 9 ticks, never read the future. &nbsp; <span class="pill">.dlw</span></p>
+<div class="toolbar"><label>Environment<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>chirp</option><option>friction</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Seed<select id="seed"><option>3101</option><option>3102</option><option>3103</option><option>3104</option></select></label>
+<label>Duration<select id="duration"><option selected>240</option><option>480</option><option>960</option></select></label>
+<button id="run">Run forecast + comparisons</button></div>
+<div class="layout"><section class="panel">
+<h2>Recovery field · actual simulation</h2><canvas id="field" width="1000" height="460"></canvas>
+<div class="legend"><span style="--c:#41eddf">Integrity</span><span style="--c:#b17aff">Energy</span><span style="--c:#ff9d37">Pressure</span><span style="--c:#e5d4ff">Ceiling</span><span style="--c:#f3d575">Material</span></div>
+<h2 style="margin-top:25px">Prediction ribbon · forecast vs observed label</h2><canvas id="ribbon" width="1000" height="230"></canvas>
+<p class="note">Orange: closing · Purple: opening · Cyan: stable · Gray: unknown. Top ribbon = prediction; bottom ribbon = future-grounded evaluation only.</p>
+<h2 style="margin-top:25px">Forecast receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Forecast health</h2><div class="metrics"><div class="metric">Covered accuracy<strong id="accuracy">—</strong></div><div class="metric">Coverage<strong id="coverage">—</strong></div><div class="metric">Alive ticks<strong id="alive">—</strong></div><div class="metric">Missed repairs<strong id="miss">—</strong></div></div>
+<h2>Matched baselines</h2><table id="comparison"></table><h2 style="margin-top:22px">Decision readout</h2><pre id="readout">Run the observation lab.</pre>
+<p class="note">Labels use 48-tick counterfactual evaluations of immediate versus 9-tick-delayed intervention. At decision time only the frozen training table and recent observed state are permitted.</p></aside></div>
+</main><script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="./wag248.js"></script><script>
+const E=id=>document.getElementById(id);let model,refs;
+function drawField(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#170f29';g.fillRect(0,0,W,H);
+for(let y=0;y<=10;y++){g.strokeStyle='#4a335e';g.beginPath();g.moveTo(0,y*H/10);g.lineTo(W,y*H/10);g.stroke()}
+for(const [k,col]of [['integrity','#41eddf'],['energy','#b17aff'],['pressure','#ff9d37'],['ceiling','#e5d4ff'],['material','#f3d575']]){
+g.beginPath();g.lineWidth=2.6;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=12;
+r.trace.forEach((p,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-p[k])*H):g.moveTo(0,(1-p[k])*H));g.stroke();g.shadowBlur=0;}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='prevent'?'#ff8a27':'#b17aff';g.fillRect(i*W/r.trace.length,H-12,4,12)}});
+g.font='bold 21px system-ui';g.fillStyle='white';g.fillText('WAG-248 · '+r.scenario.toUpperCase(),18,28)}
+function drawRibbon(r){const c=E('ribbon'),g=c.getContext('2d'),W=c.width,H=c.height,colors={closing:'#ff913a',opening:'#a26af1',stable:'#4ae4dc',unknown:'#888195'};
+g.fillStyle='#170f29';g.fillRect(0,0,W,H);g.font='14px system-ui';g.fillStyle='#f0e9ff';g.fillText('PREDICTED',16,23);g.fillText('OBSERVED (EVALUATION)',16,131);
+const n=r.predictions.length,w=(W-38)/Math.max(1,n);r.predictions.forEach((p,i)=>{const x=20+i*w;
+g.fillStyle=colors[p.pred];g.shadowColor=colors[p.pred];g.shadowBlur=11;g.fillRect(x,38,Math.max(2,w-3),57);g.shadowBlur=0;
+g.fillStyle=colors[p.actual];g.fillRect(x,145,Math.max(2,w-3),57)});
+g.fillStyle='#f5eafe';g.font='12px monospace';g.fillText('orange closing · purple opening · cyan stable · gray unknown',18,H-9)}
+function run(){try{E('readout').textContent='Training from prior-only observation features…';
+if(!model){model=wag248Train();refs={ref247:wag247Train(),ref246:wag246Train(),ref244:train244(),ref245:train245()}}
+const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,duration=+E('duration').value;
+const results={};for(const k of ['wag248','wag247','wag246','wag245','wag244'])results[k]=wag248Run(cap,family,seed,duration,k,model,refs);
+const r=results.wag248;drawField(r);drawRibbon(r);
+E('accuracy').textContent=r.accuracy===null?'N/A':(100*r.accuracy).toFixed(1)+'%';
+E('coverage').textContent=r.covered+'/'+r.nPred;E('alive').textContent=r.aliveTicks+'/'+duration;E('miss').textContent=r.missed+'/'+r.positive;
+E('comparison').innerHTML='<tr><th>Controller</th><th>Integrity</th><th>Alive</th><th>Reserve</th></tr>'+
+Object.entries(results).map(([k,v])=>'<tr><td>'+k+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+v.reserveTicks+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>Forecast</th><th>Actual</th><th>Confidence</th><th>Action</th></tr>'+
+r.predictions.map(p=>'<tr><td>'+p.tick+'</td><td>'+p.pred+'</td><td>'+p.actual+'</td><td>'+p.confidence.toFixed(2)+'</td><td>'+p.action+'</td></tr>').join('');
+E('readout').textContent='Training observations: '+model.examples+'\nFine cells: '+Object.keys(model.fine).length+
+'\nCoarse cells: '+Object.keys(model.coarse).length+'\nForecast windows: '+r.nPred+
+'\nCovered: '+r.covered+'\nUnknown: '+r.unknown+'\nBrier score (covered only): '+(r.brier??NaN).toFixed(4)+
+'\nRepairs: '+(r.maintenance.rebuild+r.maintenance.prevent)+
+'\nEnergy ledger error: '+r.ledger.energy.toExponential(2)+
+'\nMaterial ledger error: '+r.ledger.material.toExponential(2)+
+'\n\n'+r.predictions.map(p=>'t='+p.tick+' '+p.pred+' → '+p.actual+' | '+p.action).join('\n');
+}catch(err){E('readout').textContent='Execution error: '+err.stack;throw err}}
+E('run').onclick=run;run();</script></body></html>
