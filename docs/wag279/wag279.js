@@ -89,7 +89,7 @@ function wag279SingleCase(z,frozen,models,horizon){
     meanIntegrity:original.meanIntegrity},
    intervention:{aliveTicks:override.aliveTicks,fullSurvival:override.fullSurvival,
     meanIntegrity:override.meanIntegrity},
-   maxResidual:Math.max(original.residual,override.residual),
+   maxResidual:Math.max(original.error,override.residual),
    replayDeterministic:true,
    traceAtIntervention:{original:original.trace[at],counterfactual:override.trace[at]},
    traceAtFailure:{original:original.trace[originalFailedAt],
