@@ -1,0 +1,65 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Crystalline Lattice Chain · @ → {}</title><style>
+:root{font:15px/1.5 system-ui;color:#372a42;background:#faf9f4}*{box-sizing:border-box}body{margin:0}main{max-width:1380px;margin:auto;padding:28px}h1{color:#7432ac;letter-spacing:-.05em;font-size:clamp(30px,4vw,49px);margin:0}
+.sub{border-bottom:2px solid #e5d5ed;padding:0 0 18px;color:#7b6b87}.layout{display:grid;grid-template-columns:1.75fr 1fr;gap:16px}
+.panel{border:1px solid #eadcf0;background:#fff;border-radius:15px;padding:18px;box-shadow:0 9px 24px #653e8117}canvas{width:100%;height:auto;display:block;background:#190e2c;border-radius:11px}
+.controls{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin:18px 0}label{font-size:13px;color:#73697f}select,button{display:block;padding:10px 13px;border:1px solid #bf9ddb;border-radius:9px;background:white;color:#39294b;font:inherit;margin-top:6px}button{background:#7530aa;color:white;font-weight:700;cursor:pointer;box-shadow:0 0 16px #b37bef83}
+h2{font-size:20px;color:#6b32a5;margin:0 0 12px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#faf3ff;padding:11px;border-left:4px solid #ff9b3b}.stat b{display:block;font-size:23px;color:#7533ab}pre{white-space:pre-wrap;font:12px/1.5 monospace;max-height:360px;overflow:auto}
+a{color:#7634aa}.small{font-size:12px;color:#756880}
+@media(max-width:850px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>Crystalline Lattice Mesh</h1>
+<p class="sub"><strong>---@---@---@---@---{}</strong> · Multiple crystalline junctions · Terminal {\a{b/}} · Diodic signal rails · .dlw</p>
+<div class="controls"><label>Junction count<select id="count"><option>2</option><option selected>4</option><option>8</option><option>16</option><option>32</option></select></label>
+<label>Input signal<select id="input"><option value="pulse">Pulse at first junction</option><option value="alternating">Alternating lattice charge</option><option value="uniform">Uniform network</option></select></label>
+<button id="reset">Reset chain</button><button id="advance">Advance one pulse</button><button id="toggle">Pause</button>
+</div><div class="layout"><section class="panel"><h2>Opposed crystalline junction network</h2><canvas id="world" width="1150" height="600"></canvas>
+<p class="small">Orange and purple alternate crystal orientation. Teal links move only activation signals; the terminal purple double shell represents the two nested cubits. Lattice positions are schematic, not physical scale.</p>
+<h2 style="margin-top:20px">Signal transfer over time</h2><canvas id="chart" width="1150" height="290"></canvas></section>
+<aside class="panel"><h2>Deterministic signal ledger</h2>
+<div class="stats"><div class="stat">Junctions<b id="junctions">4</b></div>
+<div class="stat">Neural signal sites<b id="sites">48</b></div>
+<div class="stat">Current pulse<b id="step">0</b></div>
+<div class="stat">Signal-sum error<b id="error">0</b></div></div>
+<h2 style="margin-top:24px">Network readout</h2><pre id="audit">Starting crystalline lattice experiment…</pre>
+<p class="small">Signal mass is an abstract activation sum. It is not material or energy conservation. The terminal cubit cannot issue repair actions in this topology-only prototype. The sealed WAG-276 controller has not been changed.</p>
+<p><a href="./lattice-chain.js">Lattice chain engine</a> · <a href="../wag276/controller.html">Frozen crystalline repair candidate</a> · <a href="../wag269/phase-progress.json">Phase III progress</a></p></aside></div></main>
+<script src="./lattice-chain.js"></script><script>
+const E=id=>document.getElementById(id);let state,history=[],playing=true,ang=0,verification;
+function reset(){state=wag277Initial(+E('count').value,E('input').value);history=[];history.push(snapshot());render()}
+function snapshot(){return {pulse:state.pulse,mean:state.junctionSignals.map(x=>x.reduce((a,b)=>a+b,0)/8),terminalA:state.terminalSignals.slice(0,8).reduce((a,b)=>a+b,0)/8,terminalB:state.terminalSignals.slice(8).reduce((a,b)=>a+b,0)/8,mass:wag277Mass(state)}}
+function advance(){state=wag277Step(state);history.push(snapshot());if(history.length>140)history.shift();render()}
+function draw(){const c=E('world'),g=c.getContext('2d'),W=c.width,H=c.height;
+g.fillStyle='#190e2c';g.fillRect(0,0,W,H);for(let i=0;i<23;i++){g.strokeStyle='#302343';g.beginPath();g.moveTo(i*50,0);g.lineTo(i*50,H);g.stroke()}
+if(!state)return;
+const n=state.topology.nodes.length,span=900/n,base=85;
+for(let i=0;i<n;i++){const cx=base+(i+.45)*span,cy=H*.47;const activity=state.junctionSignals[i].reduce((a,b)=>a+b,0)/8;
+const radius=Math.min(85,span*.38),col=i%2?'#bd82ff':'#ffa238';
+const pts=Array.from({length:8},(_,k)=>{const x=k&1?1:-1,y=k&2?1:-1,z=k&4?1:-1,c=Math.cos(ang*(i%2?-1:1)),s=Math.sin(ang*(i%2?-1:1));return [cx+(x*c-z*s)*radius,cy+(y*.75+(x*s+z*c)*.13)*radius]});
+g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=15;g.lineWidth=2;for(let k=0;k<8;k++)for(const bit of [1,2,4])if(k<(k^bit)){const q=k^bit;g.beginPath();g.moveTo(...pts[k]);g.lineTo(...pts[q]);g.stroke()}
+g.shadowBlur=0;g.fillStyle=col;g.font='bold 13px monospace';g.fillText('@'+i,cx-radius*.4,cy-radius-20);
+g.fillStyle='#fff';g.font='12px monospace';g.fillText(activity.toFixed(3),cx-radius*.36,cy+radius+22);
+if(i<n-1){const nx=base+(i+1.45)*span;g.strokeStyle='#56e6e1';g.lineWidth=2.4;g.shadowColor='#56e6e1';g.shadowBlur=8;g.beginPath();g.moveTo(cx+radius*.74,cy);g.lineTo(nx-radius*.74,cy);g.stroke();g.shadowBlur=0}}
+const tx=1050,ty=H*.47;g.strokeStyle='#b68aff';g.shadowColor='#b68aff';g.shadowBlur=16;g.lineWidth=3;g.strokeRect(tx-62,ty-74,123,148);g.strokeRect(tx-31,ty-38,62,76);g.shadowBlur=0;
+g.fillStyle='#fff';g.font='bold 17px monospace';g.fillText('{}',tx-13,ty+5);
+g.fillStyle='#54e8dd';g.fillRect(base+(n-.55)*span,ty-2,tx-65-(base+(n-.55)*span),4);
+g.fillStyle='#fff';g.font='19px monospace';g.fillText('---@'.repeat(n)+'---{}',20,38);
+if(playing)ang+=.007}
+function chart(){const g=E('chart').getContext('2d'),W=1150,H=290;g.fillStyle='#190e2c';g.fillRect(0,0,W,H);if(history.length<2)return;
+const colors=['#ffa23a','#b88cff','#4bdfd8','#f682d5','#ffd26d'];const n=state.topology.nodes.length;
+const keys=[...Array.from({length:Math.min(3,n)},(_,i)=>({get:x=>x.mean[i],col:colors[i]})),{get:x=>x.terminalA,col:colors[3]},{get:x=>x.terminalB,col:colors[4]}];
+const max=Math.max(.1,...history.flatMap(z=>[...z.mean,z.terminalA,z.terminalB]));
+for(const item of keys){g.beginPath();g.strokeStyle=item.col;g.lineWidth=2.5;g.shadowColor=item.col;g.shadowBlur=10;history.forEach((z,i)=>{const x=i*W/(history.length-1),y=H-20-item.get(z)*(H-45)/max;if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.shadowBlur=0}
+g.fillStyle='#fff';g.font='14px monospace';g.fillText('J0 orange · J1 violet · J2 teal · terminal a pink · terminal b gold',15,24)}
+function render(){if(!state)return;E('junctions').textContent=state.topology.nodes.length;E('sites').textContent=state.topology.nodes.length*8+16;E('step').textContent=state.pulse;const err=Math.abs(wag277Mass(state)-history[0].mass);E('error').textContent=err.toExponential(1);E('audit').textContent='Primitive: '+state.topology.glyph+'\nOrientation: alternating \\\\ / \\\\ /'+
+'\nReciprocal links: '+state.topology.links.length+
+'\nRail strands per link: 8'+
+'\nTerminal: '+state.topology.terminal.primitive+
+'\nInitial activation sum: '+history[0].mass.toFixed(9)+
+'\nCurrent activation sum: '+wag277Mass(state).toFixed(9)+
+'\nTerminal a: '+history.at(-1).terminalA.toFixed(6)+
+'\nTerminal b: '+history.at(-1).terminalB.toFixed(6)+
+'\n\n2 / 4 / 8 / 16 junction tests passed: '+!!verification+
+'\nNo weights trained or controller promoted.';chart()}
+function animation(){if(playing&&state&&state.pulse<2000&&ang%1<1) {if(Math.floor(ang*25)%6===0&&Math.floor((ang-.007)*25)%6!==0)advance()}draw();requestAnimationFrame(animation)}
+try{verification=wag277Verify();reset()}catch(e){E('audit').textContent='ERROR '+e.stack}
+E('reset').onclick=reset;E('advance').onclick=advance;E('toggle').onclick=()=>{playing=!playing;E('toggle').textContent=playing?'Pause':'Resume'};requestAnimationFrame(animation);
+</script></body></html>
