@@ -6,9 +6,9 @@
   "firstBound": 269,
   "lastBound": 280,
   "plannedTurns": 12,
-  "completedTurns": 3,
-  "progressPercent": 25,
-  "nextBound": 272,
+  "completedTurns": 4,
+  "progressPercent": 33.3,
+  "nextBound": 273,
   "policyPromotion": "NONE",
   "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
   "milestones": [
@@ -33,7 +33,7 @@
     {
       "bound": 272,
       "name": "Material-constrained rescue economy",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 33.3
     },
     {
@@ -86,34 +86,29 @@
     }
   ],
   "lastAccepted": {
-    "bound": 271,
-    "engine": "docs/wag271/wag271.js",
-    "lab": "docs/wag271/index.html",
-    "receipt": "docs/wag271/receipt-5801-5803.json",
+    "bound": 272,
+    "primitive": "{a{b}}",
+    "engine": "docs/wag272/wag272.js",
+    "lab": "docs/wag272/index.html",
+    "receipt": "docs/wag272/receipt-5901-5903.json",
+    "policyRuns": 288,
     "matchedConditions": 96,
-    "policyRuns": 384,
-    "predeclaredRepairLags": [
-      0,
-      3,
-      6,
-      12
-    ],
-    "fullSurvivalByHorizon": {
-      "240": "39/48 each policy",
-      "480": "24/48 each policy"
+    "architecture": "Two braced cubits; fixed-coefficient three-pass temporal recurrent neural mesh; outer a resource/survival regulator, inner b repair evaluator. One physically gated action per tick.",
+    "repairMaterialChargeError": 0,
+    "fullSurvival240": {
+      "mesh": 39,
+      "frozen": 36,
+      "cases": 48
     },
-    "delayedAliveRegressions": 0,
-    "integrityRegressionsByLag": {
-      "3": 79,
-      "6": 79,
-      "12": 76
+    "fullSurvival480": {
+      "mesh": 24,
+      "frozen": 24,
+      "cases": 48
     },
-    "physicalInvalidationByLag": {
-      "3": 6,
-      "6": 14,
-      "12": 15
-    },
-    "summary": "Fixed repair delays conserve resources and raise mean viable-tick ratio but degrade integrity. Full-survival counts tied across lags in both horizons. Due-time eligibility and pending horizon expiries recorded. No candidate promoted; Phase II frozen baseline unchanged. GitHub Pages live serving unverified."
+    "meshIntegrityRegressions": 76,
+    "meshIntegrityImprovements": 20,
+    "policyPromoted": false,
+    "summary": "First 3D neon visualized {a{b}} meshed neural-style regulator committed. Fixed weights, not trained. Resource audit and deterministic replay passed. Synthetic only; frozen WAG261 unchanged; live Pages deployment unverified."
   },
   "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
 }
