@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WAG-246 · Recovery Opportunity Lab</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#30243d}*{box-sizing:border-box}body{margin:0}
+main{max-width:1260px;margin:auto;padding:24px}header{border-bottom:2px solid #e3cef4;padding-bottom:16px}
+h1{margin:0;font-size:clamp(26px,4vw,42px);color:#6b2d9c}h2{margin-top:0;font-size:19px}
+.muted{color:#776d82}.bars{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:22px 0}
+select,button{padding:11px;border:1px solid #c5a4dc;border-radius:9px;background:white;color:#47335b}
+button{cursor:pointer;background:#6633a9;color:#fff;font-weight:700;box-shadow:0 0 17px #a56be978}
+.grid{display:grid;grid-template-columns:1.75fr 1fr;gap:16px}.panel{border:1px solid #e1d4e8;border-radius:13px;background:white;padding:18px;box-shadow:0 4px 15px #63317f14}
+canvas{width:100%;height:auto;background:#160e29;border-radius:9px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.stat{border-left:4px solid #ff8e23;background:#faf6fd;padding:9px}.stat b{display:block;color:#702eb2;font-size:23px}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:7px;text-align:left;border-bottom:1px solid #eadfec}
+pre{font:12px/1.5 ui-monospace,monospace;white-space:pre-wrap;max-height:340px;overflow:auto}
+.legend{display:flex;gap:13px;flex-wrap:wrap;font-size:12px}.legend span:before{content:'● ';color:var(--c)}
+@media(max-width:850px){.grid{grid-template-columns:1fr}}</style></head><body><main>
+<header><h1>WAG-246 · The Repair Opportunity</h1><div class="muted">Early · Middle · Late &nbsp; × &nbsp; Resource-poor · Resource-rich &nbsp; | &nbsp; Synthetic deterministic homeostasis · .dlw</div></header>
+<div class="bars">
+<label>Environment <select id="family"><option>scar</option><option>combined</option><option>famine</option><option>friction</option><option>chirp</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity <select id="capacity"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Duration <select id="duration"><option selected>240</option><option>480</option><option>960</option><option>1920</option></select></label>
+<label>Seed <select id="seed"><option>2701</option><option>2702</option><option>2703</option><option>2704</option></select></label>
+<button id="run">Run matched policies</button></div>
+<div class="grid"><section class="panel"><h2>Structural recovery · actual trajectory</h2><canvas width="1000" height="510" id="chart"></canvas>
+<p class="legend"><span style="--c:#46efdf">Integrity</span><span style="--c:#ae6fff">Energy</span><span style="--c:#f9b24c">Pressure</span><span style="--c:#d2c1ef">Ceiling</span><span style="--c:#fff38d">Material</span></p>
+<h2>Balanced opportunity map</h2><p class="muted">Each recovery window is evaluated by a matched counterfactual across 12, 48, and 192 ticks. Eligibility and resource safety are enforced again at action time.</p>
+<table id="map"></table></section>
+<aside class="panel"><h2>Controller results</h2><div class="stats">
+<div class="stat">Mean integrity<b id="integrity">—</b></div><div class="stat">Survival ticks<b id="alive">—</b></div>
+<div class="stat">Reserve ticks<b id="reserve">—</b></div><div class="stat">Missed local repairs<b id="missed">—</b></div></div>
+<h2>Matched baselines</h2><table id="compare"></table><h2>Decision trace</h2><pre id="trace">Run the laboratory to train and compare four policies.</pre>
+<p class="muted">The missed-repair counter is based on positive 12-tick local counterfactual value at scheduled checkpoints, not a global optimality certificate. WAG-244 and WAG-245 are independently trained reference policies.</p></aside></div>
+</main><script src="../wag245/wag245.js"></script><script src="./wag246.js"></script>
+<script>
+const $=id=>document.getElementById(id);let model,ref244,ref245;
+function draw(r){const c=$('chart'),ctx=c.getContext('2d'),W=c.width,H=c.height;ctx.fillStyle='#160e29';ctx.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){ctx.strokeStyle='#423153';ctx.beginPath();ctx.moveTo(0,j*H/10);ctx.lineTo(W,j*H/10);ctx.stroke()}
+for(const [k,color]of [['integrity','#46efdf'],['energy','#ae6fff'],['pressure','#f9b24c'],['ceiling','#d2c1ef'],['material','#fff38d']]){
+ctx.beginPath();ctx.strokeStyle=color;ctx.shadowColor=color;ctx.shadowBlur=13;ctx.lineWidth=3;
+r.trace.forEach((z,i)=>{const x=i*W/(r.trace.length-1),y=(1-z[k])*H;i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.stroke();ctx.shadowBlur=0}
+r.trace.forEach((z,i)=>{if(z.maintenance!=='abstain'){ctx.fillStyle=z.maintenance==='rebuild'?'#b67bff':'#ff9e36';ctx.fillRect(i*W/r.trace.length,H-14,4,14)}});
+ctx.fillStyle='#fff';ctx.font='bold 22px system-ui';ctx.fillText('WAG-246 · '+r.scenario.toUpperCase(),20,32)}
+function run(){try{
+ $('trace').textContent='Training deterministic stratified controller…';
+ if(!model){model=wag246Train();ref244=train244();ref245=train245()}
+ const cap=+$('capacity').value,family=$('family').value,seed=+$('seed').value,duration=+$('duration').value;
+ const r={};for(const mode of ['wag246','wag244','wag245','abstain'])r[mode]=wag246Run(cap,family,seed,duration,mode,model,ref244,ref245);
+ const a=r.wag246;draw(a);$('integrity').textContent=a.meanIntegrity.toFixed(4);$('alive').textContent=a.aliveTicks+'/'+duration;
+ $('reserve').textContent=a.reserveTicks+'/'+duration;$('missed').textContent=a.missed+'/'+a.repairOpportunity;
+ $('compare').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Reserve</th></tr>'+
+ Object.entries(r).map(([k,v])=>'<tr><td>'+k+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+v.reserveTicks+'</td></tr>').join('');
+ $('trace').textContent='Approved cells '+model.approved+'/'+model.covered+'\nSelected prevent '+a.maintenance.prevent+'\nSelected rebuild '+a.maintenance.rebuild+'\nBlocked '+a.blocked+'\nFalse abstentions (local) '+a.missed+'\nEnergy ledger error '+a.energyError.toExponential(2)+'\nMaterial ledger error '+a.materialError.toExponential(2)+'\n\n'+
+ a.trace.filter((z,i)=>i%24===0||i===a.trace.length-1).map(z=>'t '+String(z.t).padStart(4,'0')+' | I '+z.integrity.toFixed(3)+' E '+z.energy.toFixed(3)+' C '+z.ceiling.toFixed(3)+' | '+z.maintenance).join('\n');
+ $('map').innerHTML='<tr><th>Phase</th><th>Resource</th><th>Covered bins</th><th>Approved bins</th></tr>'+
+ ['early','middle','late'].flatMap((ph,p)=>['poor','rich'].map((resource,e)=>{const prefix=CAP234.indexOf(cap)+':'+p+':'+e+':',
+ keys=Object.keys(model.table).filter(k=>k.startsWith(prefix)),yes=keys.filter(k=>model.table[k].choice!=='abstain').length;
+ return '<tr><td>'+ph+'</td><td>'+resource+'</td><td>'+keys.length+'</td><td>'+yes+'</td></tr>'})).join('');
+ }catch(err){$('trace').textContent='Experiment failed: '+err.stack;throw err}}
+$('run').addEventListener('click',run);run();
+</script></body></html>
