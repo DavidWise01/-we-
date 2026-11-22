@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-279 · Crystal Action Falsification</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#332640}*{box-sizing:border-box}body{margin:0}main{max-width:1360px;margin:auto;padding:25px}h1{font-size:clamp(32px,4.2vw,50px);letter-spacing:-.055em;color:#752ead;margin:0}.sub{border-bottom:2px solid #e8d8ee;padding-bottom:16px;color:#786b82}
+.controls{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:18px 0}label{color:#70647f;font-size:13px}select,button{font:inherit;display:block;border:1px solid #c2a2d7;border-radius:9px;padding:10px;margin-top:6px;background:white;color:#382a46}button{background:#7132aa;color:#fff;cursor:pointer;font-weight:700;box-shadow:0 0 16px #b882ee8a}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:15px}.panel{background:white;border:1px solid #ebdcef;border-radius:14px;padding:18px;box-shadow:0 8px 22px #60368618}canvas{width:100%;height:auto;display:block;background:#190f2b;border-radius:11px}h2{font-size:19px;color:#7031ad;margin:0 0 13px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{background:#faf3ff;border-left:4px solid #ffa13d;padding:11px}.metric b{display:block;color:#732eaf;font-size:22px}table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:8px 6px;text-align:left;border-bottom:1px solid #ebddef}pre{font:12px/1.6 monospace;white-space:pre-wrap;max-height:345px;overflow:auto}.small{font-size:12px;color:#756c7f}a{color:#7432aa}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-279 · Does Tick 55 Cause the Failure?</h1>
+<p class="sub">Phase III · Turn 11/12 · <strong>---@---@---@---@---{} → {\a{b/}}</strong> · One surgical intervention; all future decisions follow frozen law · .dlw</p>
+<div class="controls"><label>Reproduced failure<select id="case"></select></label><button id="replay">Replay intervention</button></div>
+<div class="layout"><section class="panel">
+<h2>Original crystalline controller vs one-action intervention</h2><canvas id="chart" width="1040" height="395"></canvas>
+<p class="small">Purple = original crystal integrity · Teal = crystal integrity after one tick-55 action substitution. Gold line = intervention. The original forcing, initialization and all later decision rules are unchanged.</p>
+<h2 style="margin-top:23px">Counter-oriented crystalline action lattice</h2><canvas id="lattice" width="1040" height="280"></canvas>
+<h2 style="margin-top:23px">Ranked falsification cases</h2><table id="ranking"></table></section>
+<aside class="panel"><h2>Experiment scorecard</h2>
+<div class="metrics"><div class="metric">Interventions<b>8</b></div><div class="metric">Survival rescues<b>0</b></div><div class="metric">Integrity gains<b>3</b></div><div class="metric">Phase III<b>91.7%</b></div></div>
+<h2 style="margin-top:23px">Case details</h2><pre id="audit">Loading frozen failure evidence…</pre>
+<p class="small">The intervention is within-model causal for the altered trajectory, not evidence of a general repair rule. All eight examples were selected from the previous withheld cohort, so this is not a new independent holdout. No controller weights changed.</p>
+<p><a href="./receipt-tick55.json">Eight-case intervention receipt</a> · <a href="./wag279.js">Surgical replay source</a> · <a href="../wag278/receipt-6401-6404.json">Original counterexample prefixes</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="../wag272/wag272.js"></script><script src="../wag274/wag274.js"></script><script src="../wag276/crystalline-mesh.js"></script><script src="../wag276/wag276.js"></script><script src="../wag277/lattice-chain.js"></script><script src="../wag277/wag277.js"></script><script src="./wag279.js"></script><script>
+const E=id=>document.getElementById(id);let rec,frozen,ctx,current,runs,angle=0;
+function plot(){if(!runs)return;const g=E('chart').getContext('2d'),W=1040,H=395;g.fillStyle='#190f2b';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#4a3659';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [key,col]of [['original','#b48cff'],['override','#48e8d9']]){const z=runs[key];g.beginPath();g.lineWidth=2.5;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=12;z.trace.forEach((v,i)=>i?g.lineTo(i*W/(z.trace.length-1),(1-v.integrity)*H):g.moveTo(0,(1-v.integrity)*H));g.stroke();g.shadowBlur=0}
+g.strokeStyle='#ffd25f';g.lineWidth=2;g.beginPath();g.moveTo(55*W/(runs.original.trace.length-1),0);g.lineTo(55*W/(runs.original.trace.length-1),H);g.stroke();
+g.fillStyle='#fff';g.font='bold 19px system-ui';g.fillText('ONE ACTION · SAME FORCING · 720 TICKS',19,30)}
+function drawLattice(){const g=E('lattice').getContext('2d'),W=1040,H=280;g.fillStyle='#190f2b';g.fillRect(0,0,W,H);
+const xs=[105,300,495,690],y=145,edges=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+xs.forEach((cx,i)=>{const color=i%2?'#ae86ff':'#ffa13b',R=48,s=Math.sin(angle*(i%2?-1:1)),c=Math.cos(angle*(i%2?-1:1));
+const p=Array.from({length:8},(_,k)=>{const x=k&1?1:-1,z=k&4?1:-1,v=k&2?1:-1;return [cx+(x*c-z*s)*R,y+(v*.8+(x*s+z*c)*.13)*R]});
+g.lineWidth=2.2;g.strokeStyle=color;g.shadowColor=color;g.shadowBlur=13;edges.forEach(([a,b])=>{g.beginPath();g.moveTo(...p[a]);g.lineTo(...p[b]);g.stroke()});g.shadowBlur=0;if(i<3){g.strokeStyle='#50eddf';g.beginPath();g.moveTo(cx+56,y);g.lineTo(xs[i+1]-55,y);g.stroke()}
+g.fillStyle=color;g.font='bold 16px monospace';g.fillText('@'+i,cx-13,y-68)});
+g.strokeStyle='#4bece0';g.beginPath();g.moveTo(748,y);g.lineTo(851,y);g.stroke();g.strokeStyle='#b589ff';g.strokeRect(853,89,132,113);g.strokeRect(883,119,71,54);g.fillStyle='#fff';g.font='bold 21px monospace';g.fillText('{}',901,154);
+g.fillText('Tick 55 → one action',16,29);angle+=.006;requestAnimationFrame(drawLattice)}
+function display(){plot();const z=current;E('audit').textContent='Rank: '+z.rank+' / 8\nForce: '+z.id.force+
+'\nSeed: '+z.id.seed+'\nCase type: '+z.kind+'\nIntervention tick: '+z.interventionTick+
+'\nReference action: '+z.requestedReferenceAction+
+'\nOriginal crystal action: '+z.originalCrystalAction+
+'\nOverride applied: '+z.actualOverrideAction+
+'\nIdentical pre-intervention prefix: '+z.identicalPrefix+
+'\nAlive tick delta: '+z.aliveDelta+
+'\nMean integrity delta: '+z.integrityDelta.toFixed(9)+
+'\nOriginal failure restored? '+(z.kind==='survival-loss'?z.survivedOriginalFailure:'Not a survival-loss case')+
+'\n24-tick integrity gain: '+z.delayedIntegrityGain['24'].toFixed(9)+
+'\nMax accounting residual: '+z.maxResidual.toExponential(2)+
+'\nDeterministic replay: '+z.replayDeterministic+
+'\n\nFrozen weights unchanged. No promotion.'}
+function select(){current=rec.ranked[+E('case').value];runs=null;display()}
+function replay(){try{if(!ctx){const m=wag251Models(),h=wag261Train(m);ctx={m,h}}
+const z=current,id=z.id,args=[id.cap,id.family,id.seed,id.duration,id.force];
+const original=wag277Run(...args,'crystal',frozen,ctx.m,ctx.h),override=wag279SurgicalRun(...args,z.interventionTick,z.requestedReferenceAction,frozen,ctx.m,ctx.h);
+if(override.aliveTicks-original.aliveTicks!==z.aliveDelta)throw Error('replay alive tick mismatch');
+runs={original,override};display();E('audit').textContent+='\nFULL REPLAY: MATCHED';
+}catch(e){E('audit').textContent='ERROR '+e.stack}}
+async function init(){try{const responses=await Promise.all([fetch('./receipt-tick55.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(responses.some(r=>!r.ok))throw Error('Missing evidence');
+rec=await responses[0].json();frozen=await responses[1].json();wag264VerifyFreeze(frozen);
+E('case').innerHTML=rec.ranked.map((z,i)=>'<option value="'+i+'">#'+z.rank+' '+z.kind+' · '+z.id.force+' · '+z.id.seed+'</option>').join('');
+E('ranking').innerHTML='<tr><th>Rank</th><th>Kind</th><th>Seed</th><th>Alive Δ</th><th>Integrity Δ</th></tr>'+
+rec.ranked.map(z=>'<tr><td>'+z.rank+'</td><td>'+z.kind+'</td><td>'+z.id.seed+'</td><td>'+z.aliveDelta+'</td><td>'+z.integrityDelta.toFixed(6)+'</td></tr>').join('');
+select();replay()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('case').onchange=select;E('replay').onclick=replay;requestAnimationFrame(drawLattice);init();
+</script></body></html>
