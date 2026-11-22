@@ -1,0 +1,126 @@
+{
+  "release": "WAG-II-v1.0",
+  "bound": "WAG-268",
+  "scope": "WAG-257 through WAG-268",
+  "status": "CLOSED",
+  "completedTurns": 12,
+  "progressPercent": 100,
+  "releaseDate": "2026-11-22",
+  "frozenPolicy": "docs/wag264/frozen-policy.json",
+  "frozenPolicyCommit": "a0dd14168220b8ee6de506d0e0c68af74f82cfd4",
+  "rankingRule": [
+    "fullSurvival",
+    "meanAlive",
+    "meanReserve",
+    "meanIntegrity"
+  ],
+  "finalRanking": [
+    {
+      "rank": 1,
+      "policy": "noRepair",
+      "fullSurvival": 218,
+      "meanIntegrity": 0.9120668094376234
+    },
+    {
+      "rank": 2,
+      "policy": "rejectedAdaptive",
+      "fullSurvival": 214,
+      "meanIntegrity": 0.9199137807881156
+    },
+    {
+      "rank": 3,
+      "policy": "frozen",
+      "fullSurvival": 213,
+      "meanIntegrity": 0.920916858826814
+    }
+  ],
+  "unresolved": {
+    "survivalFailures": 43,
+    "syntheticOnly": true,
+    "livePagesDeploymentVerified": false
+  },
+  "deterministicReplay": {
+    "pairedControllerRuns": 24,
+    "reducedFailureReplays": 4,
+    "passed": 28,
+    "receipt": "docs/wag268/replay-receipt.json"
+  },
+  "immutableReferences": [
+    {
+      "path": "docs/wag257/receipt-4401-4404.json",
+      "gitBlobSha": "5ae87e90bc5d7707513576f1706082469faae024",
+      "sizeChars": 5935
+    },
+    {
+      "path": "docs/wag258/receipt-4601-4604.json",
+      "gitBlobSha": "5abfb5b06c007156360732c62be0aa683ae6c972",
+      "sizeChars": 8939
+    },
+    {
+      "path": "docs/wag259/receipt-4701-4704.json",
+      "gitBlobSha": "06842395ac193b5897a0991e85e17fabcb04c680",
+      "sizeChars": 13881
+    },
+    {
+      "path": "docs/wag260/receipt-4801-4804.json",
+      "gitBlobSha": "25dfabdddde6766277d39d87c27b1aa897221af2",
+      "sizeChars": 19731
+    },
+    {
+      "path": "docs/wag261/receipt-5001-5004.json",
+      "gitBlobSha": "9503eed41a07f33c6326205c6dde468641fe778e",
+      "sizeChars": 25974
+    },
+    {
+      "path": "docs/wag262/receipt-5101-5104.json",
+      "gitBlobSha": "7876094dad4cdace1941182ac8b4bfc58d011f70",
+      "sizeChars": 16135
+    },
+    {
+      "path": "docs/wag263/receipt-5201-5204.json",
+      "gitBlobSha": "ba4bf584060a2507d6c8e2bb80e6c0b72d1c19d2",
+      "sizeChars": 16378
+    },
+    {
+      "path": "docs/wag264/receipt-5401-5404.json",
+      "gitBlobSha": "a8316a65a98da7f37ff97a665f58a44d351a451b",
+      "sizeChars": 5468
+    },
+    {
+      "path": "docs/wag265/receipt-5501-5504.json",
+      "gitBlobSha": "8e4532d51e1d43a32d4fb7bee50c25028c4146ec",
+      "sizeChars": 2860
+    },
+    {
+      "path": "docs/wag266/receipt-5501-5504.json",
+      "gitBlobSha": "e812df217811824e0e651d8facbee277f77f0fab",
+      "sizeChars": 49074
+    },
+    {
+      "path": "docs/wag267/receipt-5501-5504.json",
+      "gitBlobSha": "eef80c14ed57f09ee0080074ff49a406c4666767",
+      "sizeChars": 432288
+    },
+    {
+      "path": "docs/wag268/replay-receipt.json",
+      "gitBlobSha": "7594084be85ee104daf58333847fccd54b2ae3de",
+      "sizeChars": 5370
+    },
+    {
+      "path": "docs/wag264/frozen-policy.json",
+      "gitBlobSha": "b28923dee98ed5c40e5f41f80d47cd9d9a1ab8d3",
+      "sizeChars": 1583
+    },
+    {
+      "path": "docs/wag257/PHASE_CHARTER.md",
+      "gitBlobSha": "2ddb1c5a66aaed676db3b249fe0e29b2a501be18",
+      "sizeChars": 3899
+    }
+  ],
+  "notes": [
+    "Blob hashes point to checked exact GitHub content.",
+    "Release manifest is a snapshot, not a cryptographic signature.",
+    "Phase completion is not performance success.",
+    "Original charter preserved; PHASE_CLOSEOUT.md is terminal closure record."
+  ]
+}
