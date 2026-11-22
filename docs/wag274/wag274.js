@@ -45,7 +45,7 @@ function wag274Run(cap,family,seed,duration,force,mode,frozen,models,horizon){
   ledger.continuity=Math.max(ledger.continuity,
    Math.abs(ledger.lastEnergy-x.s.energy),Math.abs(ledger.lastMaterial-x.material));
   const mesh=wag272Mesh(x,lastRepair,memory);memory=mesh.memory;
-  if(t%WAG274_SAMPLE_EVERY===0&&t+WAG274_FORECAST<=duration){
+  if(t%WAG274_SAMPLE_EVERY===0&&t+WAG274_FORECAST<duration){
    predictions.push({tick:t,score:mesh.a.risk,request:mesh.b.request,
     reserve:mesh.a.reserve,permit:mesh.a.permit});
   }
