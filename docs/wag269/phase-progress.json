@@ -6,9 +6,9 @@
   "firstBound": 269,
   "lastBound": 280,
   "plannedTurns": 12,
-  "completedTurns": 9,
-  "progressPercent": 75,
-  "nextBound": 278,
+  "completedTurns": 10,
+  "progressPercent": 83.3,
+  "nextBound": 279,
   "policyPromotion": "NONE",
   "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
   "milestones": [
@@ -69,7 +69,7 @@
     {
       "bound": 278,
       "name": "Counterexample minimization",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 83.3
     },
     {
@@ -86,45 +86,28 @@
     }
   ],
   "lastAccepted": {
-    "bound": 277,
+    "bound": 278,
     "primitive": "---@---@---@---@---{}",
-    "frozenPrimitive": "{\\a{b/}}",
-    "engine": "docs/wag277/wag277.js",
-    "lab": "docs/wag277/controller.html",
-    "signalLab": "docs/wag277/lattice-chain.html",
-    "receipt": "docs/wag277/receipt-6401-6404.json",
-    "frozenCandidate": "docs/wag276/frozen-crystalline-candidate.json",
-    "policyRuns": 384,
-    "matchedConditions": 128,
-    "holdoutSeeds": [
-      6401,
-      6402,
-      6403,
-      6404
+    "engine": "docs/wag278/wag278.js",
+    "lab": "docs/wag278/index.html",
+    "receipt": "docs/wag278/receipt-6401-6404.json",
+    "selectedCounterexamples": 8,
+    "survivalLossCounterexamples": 2,
+    "integrityGapCounterexamples": 6,
+    "threshold": 0.02,
+    "firstActionDisagreementTick": 55,
+    "earliestIntegrityFailureTickRange": [
+      145,
+      151
     ],
-    "durations": [
-      480,
-      720
+    "earliestSurvivalFailureTickRange": [
+      578,
+      579
     ],
-    "fullSurvival": {
-      "480": {
-        "frozen": 29,
-        "crystal": 29,
-        "chain": 29,
-        "total": 64
-      },
-      "720": {
-        "frozen": 29,
-        "crystal": 28,
-        "chain": 28,
-        "total": 64
-      }
-    },
-    "crystalIntegrityRegressions": 82,
-    "crystalAliveRegressions": 2,
-    "chainExploratory": true,
+    "minimality": "Earliest observable property crossing in original full-horizon deterministic replay, NOT minimized independent causal input",
+    "policyChanged": false,
     "policyPromoted": false,
-    "summary": "Precommitted frozen crystal tested on withheld 480/720, no survival advantage and one fewer 720 full-survival compared with WAG261. Separate exploratory 4-junction lattice chain altered 507 decisions, modestly changed mean integrity but remains below frozen reference. Deterministic replay, resource ledger and rail conservation passed; no tuning or policy promotion. Pages live unverified."
+    "summary": "Ranked eight minimal observable failure prefixes on prior WAG277 withheld cohort. Original 720-tick conditions preserved; exact repeat replays, no earlier property violation, conservation tests pass. Common action disagreement tick 55 but not proven causal. Frozen controller and crystalline weights unchanged. Pages live unverified."
   },
   "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
 }
