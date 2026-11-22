@@ -1011,8 +1011,8 @@
   ],
   "findings": [
     "WAG250 reference fallback is preserved by default",
-    "No multi-horizon upgrade passed all conservative gates in this cohort",
-    "No demonstrated improvement over WAG250; regressions eliminated relative to WAG250 in this cohort",
-    "All outcomes share one synthetic simulation engine; labels are generated offline only"
+    "One long-horizon repair upgrade passed all conservative gates in 64 holdout cases",
+    "One integrity improvement, 63 ties, zero regressions against WAG250 in this cohort",
+    "All outcomes share one synthetic simulation engine; multi-horizon labels are generated offline only"
   ]
 }
