@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-257 · The Value of Knowing</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f5;color:#342442}*{box-sizing:border-box}body{margin:0}main{max-width:1280px;margin:auto;padding:24px}
+h1{font-size:clamp(30px,4vw,47px);letter-spacing:-.05em;margin:0;color:#6928a8}h2{font-size:19px;color:#662e9b;margin:0 0 12px}
+.sub{color:#746a82;border-bottom:2px solid #e6d9ed;padding-bottom:16px}
+.bar{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:20px 0}
+label{font-size:13px;color:#7c7086}select,button{display:block;font:inherit;padding:10px 12px;margin-top:5px;border-radius:9px;border:1px solid #c6a5d9;background:white;color:#382646}
+button{cursor:pointer;background:#702ba8;color:white;font-weight:700;box-shadow:0 0 17px #ac76e68c}
+.layout{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}.panel{background:white;border:1px solid #ead9ec;border-radius:14px;padding:18px;box-shadow:0 8px 24px #633b8913}
+canvas{display:block;width:100%;height:auto;background:#160d28;border-radius:10px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#fcf5ff;border-left:4px solid #ff9b3d;padding:11px}.stat b{display:block;font-size:23px;color:#6c2eac}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:8px 5px;border-bottom:1px solid #eaddeb}
+pre{white-space:pre-wrap;max-height:260px;overflow:auto;font:12px/1.5 ui-monospace,monospace}.note{font-size:12px;color:#7a6e87}a{color:#7432a6}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-257 · The Value of Knowing</h1><p class="sub">Phase II · 1/12 · Hegemonic decision / diodic receipts · A probe is not valuable merely because it reveals something.</p>
+<div class="bar"><label>Hidden fee regime<select id="regime"><option>stable</option><option>surcharge</option><option>nonlinear</option><option>shock</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>phaseflip</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Unseen seed<select id="seed"><option>4401</option><option>4402</option><option>4403</option><option>4404</option></select></label>
+<label>Duration<select id="duration"><option selected>240</option><option>480</option></select></label>
+<button id="run">Compare information value</button></div>
+<div class="layout"><section class="panel">
+<h2>Net utility relative to no probing</h2><canvas id="bars" width="1000" height="420"></canvas>
+<p class="note">Net utility = mean integrity + 0.50 survival fraction + 0.25 reserve fraction + 0.18 final energy + optional material value − 0.18 recorded switching fees. External fees are expensed explicitly to avoid the predecessor's nonpersistent debit being treated as free.</p>
+<h2 style="margin-top:22px">Matched decision comparison</h2><table id="comparison"></table>
+<h2 style="margin-top:22px">Paid information receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Value of observation</h2><div class="stats">
+<div class="stat">Probe net value<b id="net">—</b></div><div class="stat">Probes attempted<b id="probes">—</b></div>
+<div class="stat">Different actions<b id="actions">—</b></div><div class="stat">Survival ticks<b id="alive">—</b></div>
+</div><h2 style="margin-top:24px">Evidence summary</h2><pre id="audit">Run the matched simulation.</pre>
+<p class="note">Paired counterfactuals are evaluation-only. The difference in outcomes combines the cost of physically intervening with any knowledge-informed action changes. This is not a causal isolation of information itself.</p>
+<p><a href="./index.html">Phase dashboard</a> · <a href="./PHASE_CHARTER.md">Frozen phase charter</a> · <a href="./phase-progress.json">Progress tracker</a></p></aside></div>
+</main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="../wag254/wag254.js"></script><script src="../wag255/wag255.js"></script><script src="../wag256/wag256.js"></script><script src="./wag257.js"></script>
+<script>
+const E=id=>document.getElementById(id);let models,pair;
+function plot(p){const c=E('bars'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#160d28';g.fillRect(0,0,W,H);
+const entries=Object.values(p.comparisons),max=Math.max(.00002,...entries.map(v=>Math.abs(v.deltaUtility))),baseY=H/2;
+g.strokeStyle='#d4b9e8';g.beginPath();g.moveTo(40,baseY);g.lineTo(W-30,baseY);g.stroke();
+entries.forEach((v,i)=>{const w=(W-90)/entries.length,x=50+i*w+10,h=Math.abs(v.deltaUtility)/max*140;
+const positive=v.deltaUtility>0,col=positive?'#4bead9':'#ff9c3d';
+g.fillStyle=col;g.shadowColor=col;g.shadowBlur=14;g.fillRect(x,positive?baseY-h:baseY,w-22,h);g.shadowBlur=0;
+g.fillStyle='#f6eafa';g.font='14px system-ui';g.fillText(v.mode,x,H-35);g.fillText(v.deltaUtility.toFixed(6),x,positive?baseY-h-12:baseY+h+18)});
+g.fillStyle='#fff';g.font='17px system-ui';g.fillText('Zero line · orange = negative, teal = positive',35,30)}
+function render(){plot(pair);const v=pair.comparisons.valueProbe,p=pair.policies.valueProbe;
+E('net').textContent=v.deltaUtility.toFixed(6);E('probes').textContent=v.probeCount;E('actions').textContent=v.changedActions;
+E('alive').textContent=p.aliveTicks+'/'+p.duration;
+E('comparison').innerHTML='<tr><th>Policy</th><th>Net vs no probe</th><th>Probes</th><th>Fee delta</th><th>Action changes</th></tr>'+
+Object.values(pair.comparisons).map(z=>'<tr><td>'+z.mode+'</td><td>'+z.deltaUtility.toFixed(6)+'</td><td>'+z.probeCount+'</td><td>'+z.additionalTotalFee.toFixed(6)+'</td><td>'+z.changedActions+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>Event</th><th>Predicted</th><th>Charged</th><th>Ratio</th></tr>'+
+p.transactions.map(z=>'<tr><td>'+z.tick+'</td><td>'+z.phase+'</td><td>'+z.predicted.toFixed(6)+'</td><td>'+z.charged.toFixed(6)+'</td><td>'+z.ratio.toFixed(2)+'×</td></tr>').join('');
+E('audit').textContent='Phase: II / bound 257\nTest seed: '+pair.seed+'\nMatched baseline utility: '+pair.baseline.utility.toFixed(8)+
+'\nProbe utility delta: '+v.deltaUtility.toFixed(8)+'\nProbe fee expense: '+v.informationPaid.toFixed(6)+
+'\nDetected mismatch tick: '+(v.detectedTick??'none observed')+
+'\nAction changes after probe: '+v.changesAfterProbe+
+'\nSurvival delta: '+v.aliveDelta+'\nReserve delta: '+v.reserveDelta+
+'\nConservation energy residual: '+p.ledger.energy.toExponential(2)+
+'\nConservation material residual: '+p.ledger.material.toExponential(2)+
+'\n\nNegative net = probe not repaid in this matched test.'}
+function run(){try{E('audit').textContent='Building matched evaluation…';if(!models)models=wag257Models();
+pair=wag257Pair(+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('regime').value,models.models,models.cadence,models.cost);render()
+}catch(err){E('audit').textContent='ERROR: '+err.stack;throw err}}
+E('run').onclick=run;run();
+</script></body></html>
