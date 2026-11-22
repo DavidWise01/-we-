@@ -1,0 +1,1949 @@
+{
+  "bound": "WAG-266",
+  "phase": "II",
+  "turn": 10,
+  "summary": {
+    "cases": 256,
+    "failures": 43,
+    "fullSurvival": 213,
+    "minimized": 4,
+    "allReproduced": true,
+    "totalReevaluations": 574
+  },
+  "failingCases": [
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5501,
+      "alive": 230,
+      "failed": true,
+      "firstNonviable": 230,
+      "ledger": {
+        "cacheError": 8.873110579621368e-16,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5502,
+      "alive": 230,
+      "failed": true,
+      "firstNonviable": 230,
+      "ledger": {
+        "cacheError": 1.4424225702747151e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5503,
+      "alive": 230,
+      "failed": true,
+      "firstNonviable": 230,
+      "ledger": {
+        "cacheError": 9.97465998686664e-16,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5504,
+      "alive": 229,
+      "failed": true,
+      "firstNonviable": 229,
+      "ledger": {
+        "cacheError": 1.4693107841523556e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5501,
+      "alive": 216,
+      "failed": true,
+      "firstNonviable": 216,
+      "ledger": {
+        "cacheError": 1.0816000872715392e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5502,
+      "alive": 215,
+      "failed": true,
+      "firstNonviable": 215,
+      "ledger": {
+        "cacheError": 1.775489477662262e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5503,
+      "alive": 215,
+      "failed": true,
+      "firstNonviable": 215,
+      "ledger": {
+        "cacheError": 1.2195106036116954e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5504,
+      "alive": 215,
+      "failed": true,
+      "firstNonviable": 215,
+      "ledger": {
+        "cacheError": 1.4137996329210978e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5501,
+      "alive": 204,
+      "failed": true,
+      "firstNonviable": 204,
+      "ledger": {
+        "cacheError": 9.983333604246525e-16,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5502,
+      "alive": 204,
+      "failed": true,
+      "firstNonviable": 204,
+      "ledger": {
+        "cacheError": 1.7477339020466331e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5503,
+      "alive": 203,
+      "failed": true,
+      "firstNonviable": 203,
+      "ledger": {
+        "cacheError": 1.1917550279960665e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5504,
+      "alive": 203,
+      "failed": true,
+      "firstNonviable": 203,
+      "ledger": {
+        "cacheError": 1.635844237846129e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5501,
+      "alive": 204,
+      "failed": true,
+      "firstNonviable": 204,
+      "ledger": {
+        "cacheError": 9.983333604246525e-16,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5502,
+      "alive": 204,
+      "failed": true,
+      "firstNonviable": 204,
+      "ledger": {
+        "cacheError": 1.497933721505973e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5503,
+      "alive": 203,
+      "failed": true,
+      "firstNonviable": 203,
+      "ledger": {
+        "cacheError": 1.1917550279960665e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "late-collapse",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5504,
+      "alive": 203,
+      "failed": true,
+      "firstNonviable": 203,
+      "ledger": {
+        "cacheError": 1.635844237846129e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5501,
+      "alive": 230,
+      "failed": true,
+      "firstNonviable": 230,
+      "ledger": {
+        "cacheError": 1.497933721505973e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5502,
+      "alive": 227,
+      "failed": true,
+      "firstNonviable": 227,
+      "ledger": {
+        "cacheError": 1.7477339020466331e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5503,
+      "alive": 225,
+      "failed": true,
+      "firstNonviable": 225,
+      "ledger": {
+        "cacheError": 1.2750217548429532e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 5,
+      "seed": 5504,
+      "alive": 224,
+      "failed": true,
+      "firstNonviable": 224,
+      "ledger": {
+        "cacheError": 1.5248219353836134e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5501,
+      "alive": 191,
+      "failed": true,
+      "firstNonviable": 191,
+      "ledger": {
+        "cacheError": 1.5812004483528597e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5502,
+      "alive": 191,
+      "failed": true,
+      "firstNonviable": 191,
+      "ledger": {
+        "cacheError": 1.6922227508153753e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5503,
+      "alive": 187,
+      "failed": true,
+      "firstNonviable": 187,
+      "ledger": {
+        "cacheError": 1.2750217548429532e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 8,
+      "seed": 5504,
+      "alive": 177,
+      "failed": true,
+      "firstNonviable": 164,
+      "ledger": {
+        "cacheError": 1.2472661792273243e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5501,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.1926223897340549e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5502,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.7199783264310042e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5503,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.2472661792273243e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5504,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.7191109646930158e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5501,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.1926223897340549e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5502,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.7199783264310042e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5503,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.2472661792273243e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "double-shock",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5504,
+      "alive": 145,
+      "failed": true,
+      "firstNonviable": 145,
+      "ledger": {
+        "cacheError": 1.7191109646930158e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "intermittent",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5502,
+      "alive": 239,
+      "failed": true,
+      "firstNonviable": 239,
+      "ledger": {
+        "cacheError": 1.5534448727372308e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "intermittent",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5503,
+      "alive": 231,
+      "failed": true,
+      "firstNonviable": 231,
+      "ledger": {
+        "cacheError": 1.330532906074211e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "intermittent",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5504,
+      "alive": 230,
+      "failed": true,
+      "firstNonviable": 230,
+      "ledger": {
+        "cacheError": 1.7191109646930158e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "intermittent",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5502,
+      "alive": 233,
+      "failed": true,
+      "firstNonviable": 231,
+      "ledger": {
+        "cacheError": 1.803245053277891e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "intermittent",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5503,
+      "alive": 229,
+      "failed": true,
+      "firstNonviable": 229,
+      "ledger": {
+        "cacheError": 1.330532906074211e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "intermittent",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5504,
+      "alive": 229,
+      "failed": true,
+      "firstNonviable": 229,
+      "ledger": {
+        "cacheError": 1.5248219353836134e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "resource-squeeze",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5502,
+      "alive": 239,
+      "failed": true,
+      "firstNonviable": 239,
+      "ledger": {
+        "cacheError": 1.6922227508153753e-15,
+        "materialError": 1.8318679906315083e-15
+      }
+    },
+    {
+      "stress": "resource-squeeze",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5503,
+      "alive": 235,
+      "failed": true,
+      "firstNonviable": 231,
+      "ledger": {
+        "cacheError": 1.0807327255335508e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "resource-squeeze",
+      "family": "combined",
+      "cap": 13,
+      "seed": 5504,
+      "alive": 235,
+      "failed": true,
+      "firstNonviable": 231,
+      "ledger": {
+        "cacheError": 1.5248219353836134e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "resource-squeeze",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5503,
+      "alive": 230,
+      "failed": true,
+      "firstNonviable": 230,
+      "ledger": {
+        "cacheError": 1.0807327255335508e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    },
+    {
+      "stress": "resource-squeeze",
+      "family": "combined",
+      "cap": 21,
+      "seed": 5504,
+      "alive": 230,
+      "failed": true,
+      "firstNonviable": 230,
+      "ledger": {
+        "cacheError": 1.4970663597679845e-15,
+        "materialError": 1.7763568394002505e-15
+      }
+    }
+  ],
+  "representativeMinima": [
+    {
+      "case": {
+        "stress": "late-collapse",
+        "family": "combined",
+        "cap": 5,
+        "seed": 5501,
+        "alive": 230,
+        "failed": true,
+        "firstNonviable": 230,
+        "ledger": {
+          "cacheError": 8.873110579621368e-16,
+          "materialError": 1.8318679906315083e-15
+        }
+      },
+      "original": {
+        "events": 79,
+        "alive": 230,
+        "firstNonviable": 230,
+        "totalDemand": 0.45820000000000094
+      },
+      "minimized": {
+        "events": 68,
+        "alive": 239,
+        "firstNonviable": 239,
+        "amplitude": 0.990478515625,
+        "totalDemand": 0.39064472656250054,
+        "ledger": {
+          "cacheError": 9.983333604246525e-16,
+          "materialError": 1.8318679906315083e-15
+        },
+        "eventsSchedule": [
+          {
+            "tick": 156,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 157,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 158,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 159,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 160,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 161,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 162,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 163,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 164,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 165,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 166,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 167,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 168,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 169,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 170,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 171,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 172,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 173,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 174,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 175,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 176,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 177,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 178,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 179,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 180,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 181,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 182,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 183,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 184,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 185,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 186,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 187,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 188,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 189,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 190,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 191,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 192,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 193,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 194,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 195,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 196,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 197,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 198,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 199,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 200,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 201,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 202,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 203,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 204,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 205,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 206,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 207,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 208,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 209,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 210,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 211,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 212,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 213,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 214,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 215,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 216,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 217,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 218,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 219,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 220,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 221,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 222,
+            "energy": -0.005744775390625,
+            "material": 0
+          },
+          {
+            "tick": 223,
+            "energy": -0.005744775390625,
+            "material": 0
+          }
+        ]
+      },
+      "noStressFailed": false,
+      "evaluations": 153,
+      "reduction": "greedy contiguous tick deletion, bins 32→1, then 12-step global amplitude binary search",
+      "caveat": "1-pass order-dependent reduction; amplitude search assumes an approximately monotonic failure boundary; not guaranteed globally smallest"
+    },
+    {
+      "case": {
+        "stress": "double-shock",
+        "family": "combined",
+        "cap": 5,
+        "seed": 5501,
+        "alive": 230,
+        "failed": true,
+        "firstNonviable": 230,
+        "ledger": {
+          "cacheError": 1.497933721505973e-15,
+          "materialError": 1.7763568394002505e-15
+        }
+      },
+      "original": {
+        "events": 5,
+        "alive": 230,
+        "firstNonviable": 230,
+        "totalDemand": 0.55
+      },
+      "minimized": {
+        "events": 5,
+        "alive": 239,
+        "firstNonviable": 239,
+        "amplitude": 0.92236328125,
+        "totalDemand": 0.5072998046875,
+        "ledger": {
+          "cacheError": 1.497933721505973e-15,
+          "materialError": 1.7763568394002505e-15
+        },
+        "eventsSchedule": [
+          {
+            "tick": 82,
+            "energy": -0.1014599609375,
+            "material": 0
+          },
+          {
+            "tick": 83,
+            "energy": -0.1014599609375,
+            "material": 0
+          },
+          {
+            "tick": 144,
+            "energy": -0.1014599609375,
+            "material": 0
+          },
+          {
+            "tick": 145,
+            "energy": -0.1014599609375,
+            "material": 0
+          },
+          {
+            "tick": 191,
+            "energy": -0.1014599609375,
+            "material": 0
+          }
+        ]
+      },
+      "noStressFailed": false,
+      "evaluations": 35,
+      "reduction": "greedy contiguous tick deletion, bins 32→1, then 12-step global amplitude binary search",
+      "caveat": "1-pass order-dependent reduction; amplitude search assumes an approximately monotonic failure boundary; not guaranteed globally smallest"
+    },
+    {
+      "case": {
+        "stress": "intermittent",
+        "family": "combined",
+        "cap": 13,
+        "seed": 5502,
+        "alive": 239,
+        "failed": true,
+        "firstNonviable": 239,
+        "ledger": {
+          "cacheError": 1.5534448727372308e-15,
+          "materialError": 1.8318679906315083e-15
+        }
+      },
+      "original": {
+        "events": 65,
+        "alive": 239,
+        "firstNonviable": 239,
+        "totalDemand": 0.29899999999999965
+      },
+      "minimized": {
+        "events": 60,
+        "alive": 239,
+        "firstNonviable": 239,
+        "amplitude": 0.993896484375,
+        "totalDemand": 0.2743154296874998,
+        "ledger": {
+          "cacheError": 1.8865117801247777e-15,
+          "materialError": 1.8318679906315083e-15
+        },
+        "eventsSchedule": [
+          {
+            "tick": 70,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 71,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 72,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 73,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 74,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 75,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 76,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 77,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 78,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 100,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 101,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 102,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 103,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 104,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 105,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 106,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 107,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 108,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 109,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 110,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 111,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 134,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 135,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 136,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 137,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 138,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 139,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 140,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 141,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 142,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 143,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 144,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 145,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 146,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 168,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 169,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 170,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 171,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 172,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 173,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 174,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 175,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 176,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 177,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 178,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 179,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 180,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 202,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 203,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 204,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 205,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 206,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 207,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 208,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 209,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 210,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 211,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 212,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 213,
+            "energy": -0.004571923828125,
+            "material": 0
+          },
+          {
+            "tick": 214,
+            "energy": -0.004571923828125,
+            "material": 0
+          }
+        ]
+      },
+      "noStressFailed": false,
+      "evaluations": 152,
+      "reduction": "greedy contiguous tick deletion, bins 32→1, then 12-step global amplitude binary search",
+      "caveat": "1-pass order-dependent reduction; amplitude search assumes an approximately monotonic failure boundary; not guaranteed globally smallest"
+    },
+    {
+      "case": {
+        "stress": "resource-squeeze",
+        "family": "combined",
+        "cap": 13,
+        "seed": 5502,
+        "alive": 239,
+        "failed": true,
+        "firstNonviable": 239,
+        "ledger": {
+          "cacheError": 1.6922227508153753e-15,
+          "materialError": 1.8318679906315083e-15
+        }
+      },
+      "original": {
+        "events": 143,
+        "alive": 239,
+        "firstNonviable": 239,
+        "totalDemand": 0.4252999999999999
+      },
+      "minimized": {
+        "events": 109,
+        "alive": 239,
+        "firstNonviable": 239,
+        "amplitude": 0.993408203125,
+        "totalDemand": 0.37570698242187506,
+        "ledger": {
+          "cacheError": 1.6367115995841175e-15,
+          "materialError": 1.8318679906315083e-15
+        },
+        "eventsSchedule": [
+          {
+            "tick": 96,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 97,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 98,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 99,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 100,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 101,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 102,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 103,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 104,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 105,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 106,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 107,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 108,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 109,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 110,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 111,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 112,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 113,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 114,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 115,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 116,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 117,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 118,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 119,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 120,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 121,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 122,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 123,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 124,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 125,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 126,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 127,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 128,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 129,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 130,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 131,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 132,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 133,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 134,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 135,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 136,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 137,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 138,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 139,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 140,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 141,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 142,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 143,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 144,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 145,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 146,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 147,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 148,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 149,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 150,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 151,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 152,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 153,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 154,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 155,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 156,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 157,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 158,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 159,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 160,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 161,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 162,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 163,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 164,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 165,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 166,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 167,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 168,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 169,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 170,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 171,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 172,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 173,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 174,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 175,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 176,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 177,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 178,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 179,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 180,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 181,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 182,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 183,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 184,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 185,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 186,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 187,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 188,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 189,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 190,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 191,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 192,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 193,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 194,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 195,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 196,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 197,
+            "energy": -0.0022848388671875,
+            "material": -0.00124176025390625
+          },
+          {
+            "tick": 198,
+            "energy": -0.0022848388671875,
+            "material": 0
+          },
+          {
+            "tick": 199,
+            "energy": -0.0022848388671875,
+            "material": 0
+          },
+          {
+            "tick": 200,
+            "energy": -0.0022848388671875,
+            "material": 0
+          },
+          {
+            "tick": 201,
+            "energy": -0.0022848388671875,
+            "material": 0
+          },
+          {
+            "tick": 202,
+            "energy": -0.0022848388671875,
+            "material": 0
+          },
+          {
+            "tick": 203,
+            "energy": -0.0022848388671875,
+            "material": 0
+          },
+          {
+            "tick": 204,
+            "energy": -0.0022848388671875,
+            "material": 0
+          }
+        ]
+      },
+      "noStressFailed": false,
+      "evaluations": 234,
+      "reduction": "greedy contiguous tick deletion, bins 32→1, then 12-step global amplitude binary search",
+      "caveat": "1-pass order-dependent reduction; amplitude search assumes an approximately monotonic failure boundary; not guaranteed globally smallest"
+    }
+  ],
+  "warnings": [
+    "All 43 original failure IDs preserved",
+    "No policy retuning",
+    "Minimization is local and limited by fixed schedules",
+    "One simulator genealogy"
+  ],
+  "frozenPolicyCommit": "a0dd14168220b8ee6de506d0e0c68af74f82cfd4",
+  "frozenPolicyPath": "docs/wag264/frozen-policy.json",
+  "fullStressCatalog": "docs/wag265/receipt-5501-5504.json",
+  "definitionOfFailure": "Less than 240 ticks satisfy energy > .08 AND integrity > .15",
+  "limitation": "One-step local minimization is not a global minimum; amplitude binary search assumes an approximately monotone boundary, verified by final replay."
+}
