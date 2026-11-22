@@ -1,0 +1,35 @@
+{
+  "release": "WAG-III-v1.0",
+  "status": "RESEARCH_RELEASE",
+  "preCloseoutVerifier": {
+    "bound": "WAG-280",
+    "release": "WAG-III-v1.0",
+    "pass": true,
+    "checked": [
+      "canonical geometry",
+      "unpromoted candidate",
+      "fixed source ancestry",
+      "288-run crystalline receipt",
+      "384-run withheld negative result",
+      "8 exact minimal observable replays",
+      "8 tick-55 interventions",
+      "reference policy unchanged",
+      "phase acceptance state"
+    ],
+    "phaseStatus": "OPEN",
+    "candidatePromoted": false,
+    "livePagesVerified": false
+  },
+  "manifestCommit": "eec7085dfdd278a996a10deb55dce30fa2036ce7",
+  "sourceVerifierCommit": "c4dbd512e6ce66549a571c4423f2b45111ae39f3",
+  "closeoutCommit": "fb931c0680de6f8076ed97685f84b280cf9eb281",
+  "evidenceBlobShas": {
+    "crystal": "052edfe03d3aedfc3338e2a2df4a3d2bec99e775",
+    "holdout": "ef61f1124ec277affacdd8f899caeb1f85b37fa0",
+    "reduction": "6435602ed1c931b9487510676fdd791c65b3afa9",
+    "intervention": "392892cb8897619e032ef1eecb9343f33addb967"
+  },
+  "finalDisposition": "DO_NOT_PROMOTE",
+  "phaseProgressUponCloseout": 100,
+  "livePagesVerified": false
+}
