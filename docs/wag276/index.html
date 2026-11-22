@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Crystalline Mesh · {\a{b/}}</title><style>
+:root{font:15px/1.5 system-ui;background:#faf9f4;color:#382b41}*{box-sizing:border-box}body{margin:0}main{max-width:1240px;margin:auto;padding:26px}
+h1{font-size:clamp(33px,4.5vw,53px);letter-spacing:-.055em;color:#7732ad;margin:0}.sub{color:#75647f;border-bottom:2px solid #e9d9ee;padding-bottom:15px}
+.grid{display:grid;grid-template-columns:1.8fr 1fr;gap:14px}.panel{background:white;border:1px solid #e8d9ed;border-radius:14px;padding:16px;box-shadow:0 9px 23px #69368518}
+canvas{width:100%;height:auto;display:block;background:#160c2a;border-radius:12px}h2{color:#6f2da8;font-size:20px;margin:0 0 12px}
+.metric{padding:10px;background:#fbf5ff;border-left:4px solid #ff9d39;margin-bottom:10px}.metric b{display:block;font-size:23px;color:#7633ae}
+pre{white-space:pre-wrap;font:13px/1.6 monospace}a{color:#7930aa}
+small{color:#796f80}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+button{font:inherit;border:1px solid #bda3d9;border-radius:9px;background:#7332aa;color:white;padding:10px 14px;cursor:pointer}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>Crystalline Neural Mesh · {\a{b/}}</h1>
+<p class="sub">WAG-276 versioned geometry preview · Outer \ inward · Inner / outward · One physical authority · .dlw</p>
+<div class="buttons"><button id="toggle">Pause rotation</button><button id="pulse">Inject a signal pulse</button></div>
+<div class="grid"><div class="panel">
+<h2>Counter-oriented crystalline cubits</h2><canvas id="view" width="1040" height="650"></canvas>
+<small>Orange is the outer survival/resource crystal <strong>a</strong>. Violet is the nested repair crystal <strong>b</strong>. Teal links are paired, opposed signal rails — not duplicated physical resource channels.</small>
+</div><aside class="panel"><h2>Topology acceptance</h2>
+<div class="metric">Braced cubits<b>2</b></div><div class="metric">Internal cube edges<b>24</b></div>
+<div class="metric">Directed rail links<b>16</b></div><div class="metric">Signal-balance residual<b id="balance">—</b></div>
+<pre id="log">Loading deterministic neural topology…</pre>
+<p><a href="./crystalline-mesh.js">Crystalline mesh source</a> · <a href="./CRYSTALLINE_MESH.md">Geometry contract</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a></p>
+<small>This is a verified topology preview, not a trained or released WAG-276 policy. The WAG-264 frozen baseline and original WAG-275 evidence are unchanged.</small>
+</aside></div></main>
+<script src="./crystalline-mesh.js"></script><script>
+let spin=0,playing=true,activations=[0,1,0,1,0,1,0,1],inner=[1,0,1,0,1,0,1,0];
+const g=document.getElementById('view').getContext('2d'),E=id=>document.getElementById(id);
+function project(p,scale,angle){const c=Math.cos(angle),s=Math.sin(angle),X=p.x*c-p.z*s,Z=p.x*s+p.z*c,depth=4.5/(4.5+Z*.45);return [520+X*scale*depth,324+(p.y*.82+Z*.14)*scale*depth]}
+function cube(scale,rot,color,label,values){const v=wag276CrystalVertices().map(p=>project(p,scale,rot));
+g.lineWidth=2.8;g.strokeStyle=color;g.shadowBlur=18;g.shadowColor=color;
+for(const e of wag276CrystalEdges()){g.beginPath();g.moveTo(...v[e.from]);g.lineTo(...v[e.to]);g.stroke()}
+g.shadowBlur=0;for(let i=0;i<v.length;i++){g.beginPath();g.arc(...v[i],3+7*values[i],0,2*Math.PI);g.fillStyle=color;g.fill()}
+g.font='bold 20px system-ui';g.fillStyle=color;g.fillText(label,v[0][0]-30,v[0][1]-20);return v}
+function draw(){g.fillStyle='#160c2a';g.fillRect(0,0,1040,650);for(let k=0;k<=20;k++){g.strokeStyle='#2c2345';g.beginPath();g.moveTo(k*52,0);g.lineTo(k*52,650);g.stroke()}
+const a=cube(178,spin,'#ffa23a','\  a · REGULATE',activations);
+const b=cube(88,-spin*1.4,'#b687ff','b · REPAIR  /',inner);
+for(const r of wag276CrystalRails().filter(x=>x.from==='a')){const p=a[r.fromVertex],q=b[r.toVertex];g.beginPath();g.moveTo(...p);g.lineTo(...q);g.strokeStyle='#4aece1';g.shadowColor='#4aece1';g.shadowBlur=14;g.lineWidth=1.4+activations[r.fromVertex]*2.4;g.setLineDash([6,6]);g.stroke();g.setLineDash([]);g.shadowBlur=0}
+g.fillStyle='#fff';g.font='bold 24px ui-monospace,monospace';g.fillText('{\\a{b/}}',25,42);
+g.font='14px monospace';g.fillText('8 opposed rail pairs  ·  3 recurrent passes  ·  no material transfer',25,68);
+if(playing)spin+=.006;requestAnimationFrame(draw)}
+try{const report=wag276CrystalVerify();E('balance').textContent=report.balancedSignalResidual;
+E('log').textContent='Primitive: '+report.primitive+'\nVertices per cubit: '+report.verticesPerCubit+
+'\nCube edges: '+report.edgesPerCubit+'\nOpposed rails: '+report.opposedRailLinks+
+'\nDeterministic: '+report.deterministic+'\nAuthority: '+report.resourceAuthority+
+'\n\nSTATUS: geometry preview only.\n\nNo training, no policy promotion.';
+}catch(e){E('log').textContent='ERROR '+e.stack}
+E('toggle').onclick=()=>{playing=!playing;E('toggle').textContent=playing?'Pause rotation':'Resume rotation'};
+E('pulse').onclick=()=>{const x=wag276CrystalPropagate(activations,inner);activations=x.a;inner=x.b};
+requestAnimationFrame(draw);
+</script></body></html>
