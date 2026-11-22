@@ -1,0 +1,75 @@
+{
+  "phase": "WAG-II",
+  "name": "Hegemonic Diodic Control",
+  "status": "OPEN",
+  "plannedTurns": 12,
+  "completedTurns": 0,
+  "progressPercent": 0,
+  "firstBound": 257,
+  "lastBound": 268,
+  "nextBound": 257,
+  "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
+  "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
+  "milestones": [
+    {
+      "bound": 257,
+      "accepted": false,
+      "cumulativePercent": 8.3
+    },
+    {
+      "bound": 258,
+      "accepted": false,
+      "cumulativePercent": 16.7
+    },
+    {
+      "bound": 259,
+      "accepted": false,
+      "cumulativePercent": 25
+    },
+    {
+      "bound": 260,
+      "accepted": false,
+      "cumulativePercent": 33.3
+    },
+    {
+      "bound": 261,
+      "accepted": false,
+      "cumulativePercent": 41.7
+    },
+    {
+      "bound": 262,
+      "accepted": false,
+      "cumulativePercent": 50
+    },
+    {
+      "bound": 263,
+      "accepted": false,
+      "cumulativePercent": 58.3
+    },
+    {
+      "bound": 264,
+      "accepted": false,
+      "cumulativePercent": 66.7
+    },
+    {
+      "bound": 265,
+      "accepted": false,
+      "cumulativePercent": 75
+    },
+    {
+      "bound": 266,
+      "accepted": false,
+      "cumulativePercent": 83.3
+    },
+    {
+      "bound": 267,
+      "accepted": false,
+      "cumulativePercent": 91.7
+    },
+    {
+      "bound": 268,
+      "accepted": false,
+      "cumulativePercent": 100
+    }
+  ]
+}
