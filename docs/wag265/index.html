@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-265 · Unfamiliar Stress</title><style>
+:root{font:15px/1.5 system-ui;background:#faf9f4;color:#362542}*{box-sizing:border-box}body{margin:0}main{max-width:1290px;margin:auto;padding:26px}
+h1{font-size:clamp(30px,4vw,46px);margin:0;letter-spacing:-.05em;color:#6d28a9}
+h2{font-size:19px;color:#672ba5;margin:0 0 12px}.sub{color:#786b84;border-bottom:2px solid #e5d8eb;padding-bottom:15px}
+.controls{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin:20px 0}label{font-size:13px;color:#736580}select,button{font:inherit;display:block;background:white;color:#382847;border:1px solid #c2a9d8;border-radius:9px;padding:10px;margin-top:5px}
+button{color:white;background:#702ea5;box-shadow:0 0 17px #ad6eea8b;cursor:pointer;font-weight:700}
+.layout{display:grid;grid-template-columns:1.62fr 1fr;gap:14px}.panel{background:white;padding:18px;border:1px solid #eadbec;border-radius:14px;box-shadow:0 8px 20px #61348615}
+canvas{display:block;width:100%;height:auto;background:#180c2a;border-radius:10px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{background:#fcf6ff;border-left:4px solid #ff9e39;padding:10px}.stat b{font-size:23px;color:#692aab;display:block}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{border-bottom:1px solid #ecdcef;text-align:left;padding:8px 5px}pre{white-space:pre-wrap;max-height:260px;overflow:auto;font:12px/1.6 monospace}.note{font-size:12px;color:#7b7187}a{color:#762bb1}@media(max-width:840px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-265 · The Unfamiliar World</h1>
+<p class="sub">Phase II · Turn 9/12 · WAG-264 policy stays frozen · New energy and material stresses · No retraining · .dlw</p>
+<div class="controls">
+<label>Unseen stress<select id="stress"><option>late-collapse</option><option>double-shock</option><option>intermittent</option><option>resource-squeeze</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option selected>combined</option><option>phaseflip</option><option>famine</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Unseen seed<select id="seed"><option>5501</option><option>5502</option><option>5503</option><option>5504</option></select></label>
+<button id="run">Run frozen stress test</button></div>
+<div class="layout"><section class="panel">
+<h2>Physical state under unfamiliar disruption</h2><canvas id="field" width="1000" height="440"></canvas>
+<p class="note">Teal = structural integrity, purple = operational energy, orange = material. Dashed white = rejected adaptive comparator's integrity. Vertical marks show external stress events.</p>
+<h2 style="margin-top:23px">External energy and material pressure</h2><canvas id="stressChart" width="1000" height="190"></canvas><p class="note">Only the simulator knows the future stress schedule. The controller observes state consequences after they occur.</p>
+<h2 style="margin-top:23px">Held-out checkpoints</h2><table id="checkpoints"></table></section>
+<aside class="panel"><h2>Stress outcome</h2><div class="stats"><div class="stat">Survival ticks<b id="alive">—</b></div><div class="stat">Reserve ticks<b id="reserve">—</b></div><div class="stat">Mean integrity<b id="integrity">—</b></div><div class="stat">Adaptive Δ integrity<b id="delta">—</b></div></div>
+<h2 style="margin-top:23px">Immutable policy and conservation</h2><pre id="audit">Loading frozen artifact…</pre>
+<p class="note">The baseline was frozen before these new disturbances. Surviving fewer than 240 ticks is a failure, not a success. Comparisons against the rejected policy do not authorize replacing the frozen policy.</p>
+<p><a href="../wag264/frozen-policy.json">Frozen policy</a> · <a href="./receipt-5501-5504.json">256-case aggregate receipt</a> · <a href="../wag257/">Phase dashboard</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="../wag254/wag254.js"></script><script src="../wag255/wag255.js"></script><script src="../wag256/wag256.js"></script><script src="../wag257/wag257.js"></script><script src="../wag258/wag258.js"></script><script src="../wag259/wag259.js"></script><script src="../wag260/wag260.js"></script><script src="../wag261/wag261.js"></script><script src="../wag262/wag262.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="./wag265.js"></script>
+<script>
+const E=id=>document.getElementById(id);let frozen,context,pair;
+function draw(){const a=pair.frozen,b=pair.rejected,c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#180c2a';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#45345b';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [name,col] of [['integrity','#4bebd9'],['energy','#aa7cfb'],['material','#ff9e3d']]){g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=11;g.lineWidth=2.7;g.beginPath();a.trace.forEach((v,i)=>i?g.lineTo(i*W/(a.trace.length-1),(1-v[name])*H):g.moveTo(0,(1-v[name])*H));g.stroke();g.shadowBlur=0}
+g.strokeStyle='#fff';g.lineWidth=1.8;g.setLineDash([6,7]);g.beginPath();b.trace.forEach((v,i)=>i?g.lineTo(i*W/(b.trace.length-1),(1-v.integrity)*H):g.moveTo(0,(1-v.integrity)*H));g.stroke();g.setLineDash([]);
+g.fillStyle='#fff';g.font='bold 20px system-ui';g.fillText('WAG-265 · '+a.stress.toUpperCase(),20,30);
+const sc=E('stressChart').getContext('2d');sc.fillStyle='#180c2a';sc.fillRect(0,0,1000,190);sc.fillStyle='#f9eaff';sc.font='14px system-ui';sc.fillText('External withdrawals · orange energy / teal material',15,23);
+a.external.stresses.forEach(z=>{const x=z.tick*1000/a.duration,dy=Math.min(130,Math.abs(z.applied.energy)*850),dm=Math.min(130,Math.abs(z.applied.material)*850);sc.fillStyle='#ff9e3d';sc.fillRect(x,174-dy,Math.max(2,1000/a.duration),dy);if(dm){sc.fillStyle='#4bebd9';sc.fillRect(x,174-dm,2,dm)}})}
+function show(){const a=pair.frozen,b=pair.rejected;draw();
+E('alive').textContent=a.aliveTicks+'/'+a.duration;E('reserve').textContent=a.reserveTicks+'/'+a.duration;
+E('integrity').textContent=a.meanIntegrity.toFixed(6);E('delta').textContent=pair.adaptiveIntegrityDelta.toFixed(6);
+E('checkpoints').innerHTML='<tr><th>Tick</th><th>Energy</th><th>Material</th><th>Integrity</th></tr>'+a.snapshots.map(s=>'<tr><td>'+s.tick+'</td><td>'+s.energy.toFixed(5)+'</td><td>'+s.material.toFixed(5)+'</td><td>'+s.integrity.toFixed(5)+'</td></tr>').join('');
+E('audit').textContent='Frozen choice: '+frozen.policy[a.capacity]+'\nTraining seeds: '+frozen.trainingSeeds.join(', ')+'\nTest seed: '+a.seed+'\nUnseen stress: '+a.stress+'\nEnergy withdrawn: '+a.external.withdrawnEnergy.toFixed(7)+'\nMaterial withdrawn: '+a.external.withdrawnMaterial.toFixed(7)+'\nFinal energy: '+a.finalEnergy.toFixed(7)+'\nFinal material: '+a.finalMaterial.toFixed(7)+'\nAlive ticks: '+a.aliveTicks+'/'+a.duration+'\nRejected adaptive survival Δ: '+pair.adaptiveAliveDelta+'\nRejected adaptive reserve Δ: '+pair.adaptiveReserveDelta+'\nNext-tick continuity: '+a.external.continuityMax.toExponential(2)+'\nInternal cache energy residual: '+a.ledger.nativeEnergyResidual.toExponential(2)+'\nExternal material balance residual: '+a.ledger.externalMaterialResidual.toExponential(2)+'\n\nNo policy updates permitted after seeing these results.'}
+function run(){try{if(!frozen)throw Error('Frozen policy not loaded');if(!context){const models=wag251Models(),h=wag261Train(models);context={models,h}}
+pair=wag265Pair(+E('cap').value,E('family').value,+E('seed').value,240,E('stress').value,frozen,context.models,context.h);show()}catch(err){E('audit').textContent='ERROR '+err.stack;throw err}}
+async function init(){try{const resp=await fetch('../wag264/frozen-policy.json',{cache:'no-store'});if(!resp.ok)throw Error('Frozen policy artifact unavailable');frozen=await resp.json();wag264VerifyFreeze(frozen);run()}catch(err){E('audit').textContent='ERROR '+err.stack}}
+E('run').onclick=run;init();
+</script></body></html>
