@@ -1,0 +1,72 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-249 · Calibrated Repair Lab</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#342541}*{box-sizing:border-box}body{margin:0}main{max-width:1300px;margin:auto;padding:24px}
+h1{font-size:clamp(28px,4vw,44px);letter-spacing:-.045em;color:#6828a7;margin:0}
+h2{font-size:19px;color:#5b2a92;margin:0 0 12px}.sub{color:#82738c;border-bottom:2px solid #e4d4ed;padding-bottom:15px}
+.bar{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0;align-items:end}label{font-size:13px;color:#776685}
+select,button{display:block;font:inherit;margin-top:5px;border-radius:9px;padding:10px;border:1px solid #c5a6da;background:white;color:#342245}
+button{background:#6930a7;color:white;font-weight:700;cursor:pointer;box-shadow:0 0 20px #9b67d579}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px}
+.panel{background:#fff;border:1px solid #e7d7ed;border-radius:14px;padding:17px;box-shadow:0 6px 20px #5a328314}
+canvas{display:block;width:100%;height:auto;border-radius:10px;background:#170d29}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.stat{border-left:4px solid #ff963b;background:#fbf5ff;padding:10px}.stat b{display:block;font-size:24px;color:#7130ae}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:7px 5px;border-bottom:1px solid #eaddf0}
+pre{font:12px/1.55 monospace;white-space:pre-wrap;max-height:260px;overflow:auto}.note{font-size:12px;color:#766982}
+.legend{font-size:12px;color:#756784}.legend span{margin-right:14px}.legend span:before{content:'● ';color:var(--c)}
+@media(max-width:850px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>WAG-249 · Trust the Confidence</h1>
+<p class="sub">Frozen forecasts → held-out confidence calibration → selective repair → evaluation on unseen seeds · <b>.dlw</b></p>
+<div class="bar"><label>Environment<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>friction</option><option>chirp</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Test seed<select id="seed"><option>3301</option><option>3302</option><option>3303</option><option>3304</option></select></label>
+<label>Confidence floor<select id="floor"><option value=".5">0.50</option><option value=".6" selected>0.60</option><option value=".7">0.70</option><option value=".8">0.80</option></select></label>
+<button id="run">Run calibration comparison</button></div>
+<div class="layout"><section class="panel"><h2>Repair field · 240 simulated ticks</h2><canvas id="field" width="1000" height="440"></canvas>
+<p class="legend"><span style="--c:#48e9de">Integrity</span><span style="--c:#b87aff">Energy</span><span style="--c:#ff983a">Pressure</span><span style="--c:#e8d8ff">Ceiling</span><span style="--c:#efcc73">Material</span></p>
+<h2 style="margin-top:22px">Reliability · stated vs observed confidence</h2><canvas id="reliability" width="1000" height="330"></canvas>
+<p class="note">Dashed diagonal represents perfect calibration. Observed bin accuracies come from separate calibration seeds. Uncertainty and sparse-bin abstention remain explicit.</p>
+<h2 style="margin-top:25px">Observed decision receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Held-out results</h2><div class="stats">
+<div class="stat">Calibration ECE<b id="ece">—</b></div>
+<div class="stat">Calibration samples<b id="samples">—</b></div>
+<div class="stat">Surviving ticks<b id="alive">—</b></div>
+<div class="stat">Missed / beneficial<b id="missed">—</b></div>
+</div><h2 style="margin-top:24px">Matched policy comparison</h2><table id="comparison"></table>
+<h2 style="margin-top:24px">Gate receipts</h2><pre id="trace">Run to inspect.</pre><p class="note">This is a synthetic simulation. Future-grounded true labels are computed only for offline calibration and evaluation, never used for the current action.</p></aside></div>
+</main><script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="./wag249.js"></script><script>
+const E=id=>document.getElementById(id);let base,cal,refs;
+function field(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#170d29';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#453052';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [k,col]of [['integrity','#48e9de'],['energy','#b87aff'],['pressure','#ff983a'],['ceiling','#e8d8ff'],['material','#efcc73']]){
+g.beginPath();g.lineWidth=2.7;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=12;
+r.trace.forEach((v,i)=>i?g.lineTo(i*W/239,(1-v[k])*H):g.moveTo(0,(1-v[k])*H));g.stroke();g.shadowBlur=0;}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='rebuild'?'#b47aff':'#ff983a';g.fillRect(i*W/240,H-13,4,13)}});
+g.fillStyle='#fff';g.font='bold 20px system-ui';g.fillText('WAG-249 · '+r.scenario.toUpperCase(),19,29)}
+function reliability(){const c=E('reliability'),g=c.getContext('2d'),W=c.width,H=c.height;
+g.fillStyle='#170d29';g.fillRect(0,0,W,H);const x=v=>55+v*(W-95),y=v=>H-45-v*(H-88);
+g.strokeStyle='#716086';g.setLineDash([6,6]);g.beginPath();g.moveTo(x(0),y(0));g.lineTo(x(1),y(1));g.stroke();g.setLineDash([]);
+for(const [key,z]of Object.entries(cal.rates)){const nominal=(+key.split(':')[1]+.5)/5,observed=z.correct/z.n;
+g.fillStyle=key.startsWith('closing')?'#ff983a':key.startsWith('opening')?'#b87aff':'#48e9de';
+g.shadowColor=g.fillStyle;g.shadowBlur=12;g.beginPath();g.arc(x(nominal),y(observed),Math.max(4,Math.min(15,Math.sqrt(z.n))),0,Math.PI*2);g.fill();g.shadowBlur=0;}
+g.font='13px monospace';g.fillStyle='#f5e9ff';g.fillText('Perfect calibration → dashed',50,22);
+g.fillText('Nominal confidence →',W-235,H-12);g.fillText('Observed accuracy ↑',53,44)}
+function run(){try{E('trace').textContent='Training / calibrating / comparing…';
+if(!base){base=wag248Train();cal=wag249Calibrate(base);refs={ref247:wag247Train(),ref246:wag246Train(),ref244:train244(),ref245:train245()}}
+const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,min=+E('floor').value,duration=240;
+const results={};for(const mode of ['wag249','wag248','wag247','wag246','wag245','wag244'])
+results[mode]=wag249Run(cap,family,seed,duration,mode,base,cal,refs,min);
+const r=results.wag249;field(r);reliability();E('ece').textContent=cal.ece===null?'N/A':cal.ece.toFixed(3);
+E('samples').textContent=cal.samples;E('alive').textContent=r.aliveTicks+'/240';E('missed').textContent=r.missed+'/'+r.positive;
+E('comparison').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Reserve</th></tr>'+
+Object.entries(results).map(([k,v])=>'<tr><td>'+k+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+v.reserveTicks+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>Prediction</th><th>Reality</th><th>Calibrated lower</th><th>Action</th></tr>'+
+r.decisions.map(v=>'<tr><td>'+v.tick+'</td><td>'+v.pred+'</td><td>'+v.actual+'</td><td>'+(v.lower===null?'uncovered':v.lower.toFixed(3))+'</td><td>'+v.action+'</td></tr>').join('');
+E('trace').textContent='Calibration seeds: '+cal.calSeeds.join(', ')+'\nBins: '+Object.keys(cal.rates).length+
+'\nAccuracy on covered test windows: '+(r.accuracy??NaN).toFixed(3)+
+'\nTest ECE: '+(r.ece??NaN).toFixed(3)+'\nDecisions: '+r.decisions.length+
+'\nRepairs: '+(r.maintenance.prevent+r.maintenance.rebuild)+
+'\nEnergy ledger: '+r.ledger.energy.toExponential(2)+
+'\nMaterial ledger: '+r.ledger.material.toExponential(2)+'\n\n'+
+r.decisions.map(v=>'tick '+v.tick+' '+v.reason+' → '+v.action+' / actual '+v.actual).join('\n');
+}catch(err){E('trace').textContent='ERROR: '+err.stack;throw err}}
+E('run').onclick=run;run();</script></body></html>
