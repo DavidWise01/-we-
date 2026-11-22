@@ -1,0 +1,44 @@
+{
+  "bound": "WAG-276",
+  "status": "CANDIDATE_FROZEN_FOR_WAG277",
+  "primitive": "{\\a{b/}}",
+  "phase": "WAG-III",
+  "candidateEngine": "docs/wag276/wag276.js",
+  "candidateSourceCommit": "01ece30bc8474d1f53220eded7df980a7154390e",
+  "topology": "docs/wag276/crystalline-mesh.js",
+  "topologySourceCommit": "422bfecfd5fac38ba4aa4ebffd3ed83ccdb8023d",
+  "opposedRailPairs": 8,
+  "directedLinks": 16,
+  "propagationPasses": 3,
+  "signalRailWeight": 0.125,
+  "decision": {
+    "minPermit": 0.57,
+    "minRequest": 0.51,
+    "energyReserve": 0.4,
+    "materialReserve": 0.026,
+    "minRepairGap": 7
+  },
+  "comparisonReceipt": "docs/wag276/receipt-6301-6303.json",
+  "withheldEvaluation": {
+    "nextBound": 277,
+    "seeds": [
+      6401,
+      6402,
+      6403,
+      6404
+    ],
+    "durations": [
+      480,
+      720
+    ],
+    "noRetuning": true
+  },
+  "promotion": false,
+  "sourcePolicy": "docs/wag264/frozen-policy.json",
+  "description": "This freezes an experimental crystalline neural candidate before WAG277's unseen long-horizon trial; it does not promote candidate over the frozen WAG261 baseline.",
+  "caveats": [
+    "All evidence so far shares the same simulator ancestry",
+    "Crystalline rails pass signals and cannot transfer physical material",
+    "Training of neural weights has not occurred"
+  ]
+}
