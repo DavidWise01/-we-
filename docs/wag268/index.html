@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-II v1.0 · Final Frozen Release</title><style>
+:root{font:15px/1.5 system-ui;background:#faf9f4;color:#372641}*{box-sizing:border-box}
+body{margin:0}main{max-width:1280px;margin:auto;padding:28px}
+h1{font-size:clamp(32px,5vw,54px);letter-spacing:-.055em;color:#6d2aa9;margin:0}
+h2{font-size:20px;color:#722ca8;margin:0 0 12px}
+.sub{padding-bottom:18px;border-bottom:2px solid #e5d9ec;color:#7a6b82}
+.shell{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}
+.panel{background:#fff;border:1px solid #e8d9f0;border-radius:15px;box-shadow:0 9px 24px #6b438517;padding:19px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.metric{background:#fcf5ff;padding:12px;border-left:4px solid #ff9b39}
+.metric b{color:#712cab;font-size:25px;display:block}
+canvas{width:100%;height:auto;background:#190d2e;border-radius:11px;display:block}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:10px 6px;border-bottom:1px solid #eadff0}
+.warning{font-size:13px;color:#654b63}.progress{height:16px;border-radius:12px;overflow:hidden;background:#e7d7f0;margin:12px 0}.progress div{height:100%;width:100%;background:linear-gradient(90deg,#ff9b40,#823cba)}
+pre{font:12px/1.55 monospace;white-space:pre-wrap;max-height:250px;overflow:auto}a{color:#7432af}.list{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0}.list a{background:white;padding:10px;border:1px solid #e6d9ed;border-radius:8px;text-decoration:none}.small{font-size:12px;color:#7b7083}@media(max-width:860px){.shell{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-II · Final Frozen Release</h1>
+<p class="sub">WAG-257–WAG-268 · Hegemonic Diodic Control · One action, one ranked objective, immutable evidence · .dlw</p>
+<div class="progress"><div></div></div><p><strong>12 / 12 turns · 100% of Phase II research workflow closed</strong></p>
+<div class="shell"><section class="panel">
+<h2>Final survival-first ranking</h2><canvas id="chart" width="1000" height="440"></canvas>
+<p class="small">Orange = full-survival cases / 256 · Purple = mean structural integrity. Rankings were predeclared and cannot modify the selected frozen policy.</p>
+<h2 style="margin-top:24px">Frozen scorecard</h2><table id="ranking"></table>
+<h2 style="margin-top:24px">Unresolved counterexamples</h2><table id="failures"></table></section>
+<aside class="panel"><h2>Release invariants</h2>
+<div class="stats"><div class="metric">Completed bounds<b>12 / 12</b></div><div class="metric">Deterministic replays<b>28 / 28</b></div><div class="metric">Survival failures<b>43</b></div><div class="metric">Locally minimized<b>4 / 4</b></div></div>
+<h2 style="margin-top:24px">Evidence status</h2><pre id="audit">Loading immutable release artifacts…</pre>
+<p class="warning">A completed research phase does not establish general robustness. The frozen WAG-261 controller has the highest mean structural integrity but loses the survival-first synthetic ranking to no repair. No-repair is a diagnostic comparator, not an authorized controller swap.</p>
+<p class="small">Live GitHub Pages serving has not been independently verified; this source is committed to GitHub.</p></aside></div>
+<div class="list">
+<a href="./release-manifest.json">Release manifest</a><a href="./replay-receipt.json">Deterministic replay</a>
+<a href="./PHASE_CLOSEOUT.md">Phase closeout</a><a href="../wag264/frozen-policy.json">Frozen policy</a>
+<a href="../wag266/receipt-5501-5504.json">43 failures</a><a href="../wag267/receipt-5501-5504.json">768-run ranking</a>
+<a href="../wag257/phase-progress.json">Phase tracker</a></div>
+<script>
+const $=id=>document.getElementById(id);
+function paint(r){const ctx=$('chart').getContext('2d'),W=1000,H=440;
+ctx.fillStyle='#190d2e';ctx.fillRect(0,0,W,H);
+for(let k=0;k<=4;k++){ctx.strokeStyle='#46365f';ctx.beginPath();ctx.moveTo(0,70+k*80);ctx.lineTo(W,70+k*80);ctx.stroke()}
+const colors=['#ffa13a','#b67bff','#4beedb'];
+r.forEach((v,i)=>{const x=55+i*325,bar=v.fullSurvival/256*270;
+ctx.fillStyle=colors[i];ctx.shadowColor=colors[i];ctx.shadowBlur=15;ctx.fillRect(x,385-bar,92,bar);ctx.shadowBlur=0;
+ctx.fillStyle='#fff';ctx.font='17px system-ui';ctx.fillText(v.mode==='noRepair'?'No repair':v.mode==='frozen'?'Frozen WAG-261':'Rejected adaptive',x,37);
+ctx.font='bold 20px system-ui';ctx.fillText(v.fullSurvival+'/256',x,408);
+ctx.font='14px monospace';ctx.fillText('Integrity '+v.meanIntegrity.toFixed(5),x+110,390-bar/2)});
+}
+async function initialize(){try{
+const paths=['release-manifest.json','replay-receipt.json','../wag267/receipt-5501-5504.json','../wag266/receipt-5501-5504.json'];
+const results=await Promise.all(paths.map(path=>fetch(path,{cache:'no-store'})));
+if(results.some(x=>!x.ok))throw Error('Missing release artifact');
+const [release,replay,score,archive]=await Promise.all(results.map(x=>x.json()));
+if(release.status!=='CLOSED'||release.completedTurns!==12||!replay.passed)throw Error('Release not closed or replay failed');
+paint(score.ranking);
+$('ranking').innerHTML='<tr><th>Rank</th><th>Controller</th><th>Survived all 240 ticks</th><th>Mean integrity</th></tr>'+
+score.ranking.map(z=>'<tr><td>'+z.rank+'</td><td>'+z.mode+'</td><td>'+z.fullSurvival+'/256</td><td>'+z.meanIntegrity.toFixed(6)+'</td></tr>').join('');
+$('failures').innerHTML='<tr><th>Stress family</th><th>Reduced events</th><th>Viable ticks</th></tr>'+
+archive.representativeMinima.map(z=>'<tr><td>'+z.case.stress+'</td><td>'+z.minimized.events+'</td><td>'+z.minimized.alive+'/240</td></tr>').join('');
+$('audit').textContent='Release: '+release.release+'\nStatus: '+release.status+'\nBounds accepted: '+release.completedTurns+
+'\nReference blobs: '+release.immutableReferences.length+'\nFrozen policy: WAG-261 across all capacities'+
+'\nReplay runs: '+replay.totalReplayRuns+' (passed)'+
+'\nArchived survival failures: '+archive.summary.failures+
+'\nRanking: '+score.ranking.map(z=>z.mode).join(' > ')+
+'\n\nNo physical generalization claimed. Pages deployment separate from GitHub source commit.';
+}catch(err){$('audit').textContent='ERROR: '+err.message;throw err}}
+initialize();
+</script></main></body></html>
