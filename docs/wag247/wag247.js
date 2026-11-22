@@ -60,7 +60,7 @@ function wag247Train(){
 }
 function wag247Decision(x,model,policy){
  if(policy!=='always'&&!WAG247_CHECKPOINTS.includes(x.t%240))return 'abstain';
- if(policy='wag246')return 'abstain'; // assigned separately by WAG-246 runner
+ if(policy==='wag246')return 'abstain'; // assigned separately by WAG-246 runner
  if(policy==='always')return wag247Eligible(x,'rebuild')?'rebuild':wag247Eligible(x,'prevent')?'prevent':'abstain';
  const record=model.table[wag247Key(x)];
  if(!record||record.decision!=='act')return 'abstain';
