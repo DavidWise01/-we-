@@ -1,0 +1,82 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-256 · The Cost of Knowing</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#332340}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:24px}
+h1{font-size:clamp(29px,4vw,45px);letter-spacing:-.045em;color:#702ca8;margin:0}
+h2{font-size:19px;color:#632d92;margin:0 0 12px}.sub{padding:0 0 17px;border-bottom:2px solid #e5d5ef;color:#776b83}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:18px 0}
+label{font-size:13px;color:#756885}select,button{display:block;font:inherit;margin-top:5px;padding:10px;border:1px solid #c6acdc;border-radius:9px;background:white;color:#372548}
+button{background:#6e2ca8;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 0 19px #a871e68a}
+.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:15px}.panel{background:white;border:1px solid #e8d9ec;border-radius:14px;padding:17px;box-shadow:0 9px 24px #5c247f13}
+canvas{display:block;background:#180e2b;width:100%;height:auto;border-radius:10px}
+.legend{display:flex;flex-wrap:wrap;gap:13px;font-size:12px;color:#776b86}.legend span:before{content:'● ';color:var(--c)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{background:#faf4ff;border-left:4px solid #ff9d39;padding:10px}.stat b{display:block;font-size:23px;color:#702baa}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{text-align:left;padding:7px 5px;border-bottom:1px solid #ebdff0}
+pre{font:12px/1.55 monospace;white-space:pre-wrap;max-height:320px;overflow:auto}.note{font-size:12px;color:#796c85}
+@media(max-width:880px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>WAG-256 · The Cost of Knowing</h1>
+<p class="sub">Probe only when the information may matter. Every observation must be paid for. · .dlw</p>
+<div class="controls">
+<label>Hidden cost regime<select id="regime"><option>stable</option><option>surcharge</option><option>nonlinear</option><option>shock</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>friction</option><option>chirp</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Test seed<select id="seed"><option>4301</option><option>4302</option><option>4303</option><option>4304</option></select></label>
+<label>Duration<select id="duration"><option selected>240</option><option>480</option></select></label>
+<label>Controller<select id="policy"><option value="valueProbe">Information-seeking</option><option value="periodicProbe">Periodic probes</option><option value="noProbe">No probes</option><option value="frozen">Frozen estimate</option></select></label>
+<button id="run">Run paid observation test</button></div>
+<div class="layout"><section class="panel">
+<h2>Living structural state</h2><canvas id="field" width="1000" height="440"></canvas>
+<p class="legend"><span style="--c:#4bebdd">Integrity</span><span style="--c:#ae7aff">Energy</span><span style="--c:#ffa13e">Pressure</span><span style="--c:#e8d8ff">Ceiling</span><span style="--c:#f0d37d">Material</span></p>
+<h2 style="margin-top:23px">Information acquired through paid switching</h2><canvas id="transactions" width="1000" height="260"></canvas>
+<p class="note">Purple markers are predicted charges, orange bars are actual fees. Absence of a transaction means the hidden cost remains unobserved.</p>
+<h2 style="margin-top:22px">Append-only transaction receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Observation economics</h2><div class="stats">
+<div class="stat">Probes begun<b id="probes">—</b></div>
+<div class="stat">Probe fees paid<b id="fees">—</b></div>
+<div class="stat">Mismatch discovered<b id="detected">—</b></div>
+<div class="stat">Survival ticks<b id="alive">—</b></div>
+</div><h2 style="margin-top:24px">Matched controllers</h2><table id="comparison"></table>
+<h2 style="margin-top:24px">Resource and evidence ledger</h2><pre id="audit">Run the simulator.</pre>
+<p class="note">Synthetic model. Detection is a factual observation after a charge, not evidence that the probe was economically worthwhile. Probe entry and return both consume resources; a failed return remains visible.</p></aside></div>
+</main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="../wag254/wag254.js"></script><script src="../wag255/wag255.js"></script><script src="./wag256.js"></script>
+<script>
+const E=id=>document.getElementById(id);let models,cadence,cost,results;
+function drawField(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#180e2b';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#48335a';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [k,color]of [['integrity','#4bebdd'],['energy','#ae7aff'],['pressure','#ffa13e'],['ceiling','#e8d8ff'],['material','#f0d37d']]){
+g.beginPath();g.strokeStyle=color;g.shadowColor=color;g.shadowBlur=11;g.lineWidth=2.7;
+r.trace.forEach((v,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-v[k])*H):g.moveTo(0,(1-v[k])*H));g.stroke();g.shadowBlur=0}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='rebuild'?'#ae7aff':'#ffa13e';g.fillRect(i*W/r.trace.length,H-12,3,12)}});
+g.fillStyle='#fff';g.font='bold 21px system-ui';g.fillText('WAG-256 · '+r.regime.toUpperCase(),20,30)}
+function drawCosts(r){const c=E('transactions'),g=c.getContext('2d'),W=c.width,H=c.height,rows=r.transactions;
+g.fillStyle='#180e2b';g.fillRect(0,0,W,H);g.fillStyle='#f6eaff';g.font='14px system-ui';g.fillText('Real receipts: information requires a transaction',18,24);
+if(!rows.length){g.fillText('No observations · cost regime still unknown',22,90);return}
+const max=Math.max(.0001,...rows.map(z=>Math.max(z.predicted,z.actual))),w=(W-44)/rows.length;
+rows.forEach((v,i)=>{const x=22+i*w,h=v.actual/max*(H-85),pred=v.predicted/max*(H-85);
+g.fillStyle='#ffa13e';g.shadowColor=g.fillStyle;g.shadowBlur=10;g.fillRect(x,H-30-h,Math.max(4,w-8),h);g.shadowBlur=0;
+g.fillStyle='#b87cff';g.fillRect(x,H-30-pred,Math.max(4,w-8),4);
+g.fillStyle='#fff';g.font='11px monospace';g.fillText(v.tick,x,H-10)})}
+function display(){const r=results[E('policy').value];drawField(r);drawCosts(r);
+E('probes').textContent=r.probeCount;E('fees').textContent=r.probeDebits.toFixed(5);
+E('detected').textContent=r.detectedTick===null?'Not observed':'Tick '+r.detectedTick;
+E('alive').textContent=r.aliveTicks+'/'+r.duration;
+E('comparison').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Probes</th><th>Total fee</th><th>Detected</th></tr>'+
+Object.entries(results).map(([k,v])=>'<tr><td>'+k+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.probeCount+'</td><td>'+v.fees.toFixed(5)+'</td><td>'+(v.detectedTick??'—')+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>Change</th><th>Phase</th><th>Predicted</th><th>Actual</th><th>Ratio</th></tr>'+
+r.transactions.map(z=>'<tr><td>'+z.tick+'</td><td>'+z.from+'→'+z.to+'</td><td>'+z.phase+'</td><td>'+z.predicted.toFixed(6)+'</td><td>'+z.actual.toFixed(6)+'</td><td>'+z.ratio.toFixed(2)+'×</td></tr>').join('');
+E('audit').textContent='Hidden world: '+r.regime+'\nProbe budget: '+r.probeBudget.toFixed(5)+
+'\nProbe debits: '+r.probeDebits.toFixed(5)+'\nProbe state: '+r.probeStage+
+'\nRemaining information budget: '+(r.probeBudget-r.probeDebits).toFixed(5)+
+'\nLast real observation: '+(r.lastObservedTick??'none')+
+'\nEvidence status: '+r.observedStatus+'\nOperational switches: '+r.baselineChanges+
+'\nMissed repair opportunities: '+r.missed+'/'+r.opportunities+
+'\nLocal regret: '+r.regret.toFixed(6)+
+'\nEnergy ledger residual: '+r.ledger.energy.toExponential(2)+
+'\nMaterial ledger residual: '+r.ledger.material.toExponential(2)+
+'\n\nA zero mismatch count with zero observations cannot certify normal cost.';}
+function run(){try{E('audit').textContent='Initializing observation policies…';if(!models){models=wag251Models();cadence=wag252Train(models);cost=wag254Train(models)}
+const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,duration=+E('duration').value,regime=E('regime').value;
+results={};for(const policy of ['valueProbe','periodicProbe','noProbe','frozen'])
+ results[policy]=wag256Run(cap,family,seed,duration,regime,policy,models,cadence,cost);
+display()}catch(err){E('audit').textContent='ERROR: '+err.stack;throw err}}
+E('run').onclick=run;E('policy').onchange=()=>{if(results)display()};run();
+</script></body></html>
