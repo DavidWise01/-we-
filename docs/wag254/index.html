@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-254 · Learn the Cost of Changing State</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f4;color:#322341}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:24px}
+h1{font-size:clamp(29px,4vw,44px);letter-spacing:-.045em;color:#6f2ca9;margin:0}h2{font-size:19px;color:#672c99;margin:0 0 12px}
+.sub{padding:0 0 17px;border-bottom:2px solid #e6d6ef;color:#806f89}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:19px 0;align-items:end}label{font-size:13px;color:#786686}select,button{font:inherit;display:block;margin-top:5px;background:white;border:1px solid #c9a9dc;color:#39254d;border-radius:9px;padding:10px}
+button{cursor:pointer;background:#702aa7;color:white;box-shadow:0 0 20px #a675e58c;font-weight:700}
+.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:15px}.panel{background:#fff;border:1px solid #e8d9ec;border-radius:14px;padding:17px;box-shadow:0 8px 22px #55278315}
+canvas{display:block;width:100%;height:auto;background:#160e2b;border-radius:10px}
+.legend{font-size:12px;color:#796d87;display:flex;gap:13px;flex-wrap:wrap}.legend span:before{content:'● ';color:var(--c)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.stat{border-left:4px solid #ff983d;padding:10px;background:#faf5ff}.stat b{display:block;font-size:23px;color:#702baa}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{text-align:left;padding:7px 5px;border-bottom:1px solid #e9dbed}
+pre{font:12px/1.55 monospace;white-space:pre-wrap;overflow:auto;max-height:270px}.note{font-size:12px;color:#756b81}
+@media(max-width:860px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-254 · The Price of a Change</h1>
+<p class="sub">Energy scarcity · Structural damage · Rapid reversal · Cost-aware switching · .dlw</p>
+<div class="toolbar"><label>Scenario<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>friction</option><option>chirp</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Holdout seed<select id="seed"><option>4101</option><option>4102</option><option>4103</option><option>4104</option></select></label>
+<label>Horizon<select id="duration"><option selected>240</option><option>480</option></select></label>
+<label>Controller<select id="policy"><option value="learnedCost">WAG-254 cost-aware</option><option value="confirm2">Confirmation ×2</option><option value="confirm4">Confirmation ×4</option><option value="wag252">WAG-252 baseline</option><option value="fixed3">Fixed 3</option><option value="wag250">WAG-250</option></select></label>
+<button id="run">Run paired outcomes</button></div>
+<div class="layout"><section class="panel"><h2>Recovery field</h2><canvas id="field" width="1000" height="440"></canvas>
+<p class="legend"><span style="--c:#49efda">Integrity</span><span style="--c:#b47bff">Energy</span><span style="--c:#ffa039">Pressure</span><span style="--c:#e6d8ff">Ceiling</span><span style="--c:#efda7c">Material</span></p>
+<h2 style="margin-top:23px">Forecast fee versus actual charge</h2><canvas id="fees" width="1000" height="260"></canvas>
+<p class="note">Upper orange bars represent actual synthetic switch fee; narrow purple markers represent the estimated fee. Predictions are frozen before the decision. The environment charges the fee after the decision.</p>
+<h2 style="margin-top:22px">Switching transaction receipts</h2><table id="transactions"></table></section>
+<aside class="panel"><h2>Economic outcomes</h2><div class="stats">
+<div class="stat">Integrity<b id="integrity">—</b></div><div class="stat">Alive ticks<b id="alive">—</b></div>
+<div class="stat">Switches<b id="switches">—</b></div><div class="stat">Switch energy<b id="energy">—</b></div></div>
+<h2 style="margin-top:23px">Matched control policies</h2><table id="comparison"></table>
+<h2 style="margin-top:23px">Evidence and conservation</h2><pre id="audit">Run the simulation.</pre>
+<p class="note">A declared synthetic fee law is learned from simulated transactions. Near-zero error verifies lookup consistency, not physical cost discovery. Switching expenditure is tracked separately from inherited WAG-244 energy-transfer accounting.</p></aside></div>
+</main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="../wag253/wag253.js"></script><script src="./wag254.js"></script>
+<script>
+const E=id=>document.getElementById(id);let models,cadence,cost,results;
+function field(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#160e2b';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#463258';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [k,color]of [['integrity','#49efda'],['energy','#b47bff'],['pressure','#ffa039'],['ceiling','#e6d8ff'],['material','#efda7c']]){
+g.beginPath();g.strokeStyle=color;g.shadowColor=color;g.lineWidth=2.6;g.shadowBlur=13;
+r.trace.forEach((v,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-v[k])*H):g.moveTo(0,(1-v[k])*H));g.stroke();g.shadowBlur=0}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='rebuild'?'#b47bff':'#ffa039';g.fillRect(i*W/r.trace.length,H-12,3,12)}});
+g.fillStyle='#f5f0ff';g.font='bold 21px system-ui';g.fillText('WAG-254 · '+r.scenario.toUpperCase(),18,30)}
+function drawFees(r){const c=E('fees'),g=c.getContext('2d'),W=c.width,H=c.height,rows=r.transitions||[];
+g.fillStyle='#160e2b';g.fillRect(0,0,W,H);g.fillStyle='#f7edff';g.font='14px system-ui';g.fillText('Estimated cost → charged cost',18,23);
+const max=Math.max(.0001,...rows.map(z=>Math.max(z.actual,z.predicted))),w=(W-50)/Math.max(1,rows.length);
+rows.forEach((z,i)=>{const x=25+i*w,actual=(z.actual/max)*(H-75),pred=(z.predicted/max)*(H-75);
+g.fillStyle='#ff983c';g.shadowColor='#ff983c';g.shadowBlur=10;g.fillRect(x,H-30-actual,Math.max(4,w-10),actual);g.shadowBlur=0;
+g.fillStyle='#b77fff';g.fillRect(x,H-30-pred,Math.max(4,w-10),3);g.fillStyle='#fff';g.font='11px monospace';g.fillText(z.tick,x,H-10)})}
+function display(){const r=results[E('policy').value];field(r);drawFees(r);
+E('integrity').textContent=r.meanIntegrity.toFixed(4);E('alive').textContent=r.aliveTicks+'/'+r.duration;
+E('switches').textContent=r.switches??'N/A';E('energy').textContent=r.switchFees===undefined?'N/A':r.switchFees.toFixed(5);
+E('comparison').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Switches</th></tr>'+Object.entries(results).map(([k,v])=>
+'<tr><td>'+k+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+(v.switches??'—')+'</td></tr>').join('');
+E('transactions').innerHTML='<tr><th>Tick</th><th>Cadence change</th><th>Estimated fee</th><th>Actual fee</th></tr>'+
+(r.transitions??[]).map(z=>'<tr><td>'+z.tick+'</td><td>'+z.from+' → '+z.to+'</td><td>'+((z.predicted??z.cost)??NaN).toFixed(6)+'</td><td>'+((z.actual??z.cost)??NaN).toFixed(6)+'</td></tr>').join('');
+E('audit').textContent='Training examples: '+cost.samples+'\nFine cost cells: '+Object.keys(cost.fine).length+
+'\nParent cost cells: '+Object.keys(cost.parent).length+'\nCost MAE on transitions: '+(r.feeMAE??NaN).toFixed(7)+
+'\nDeferred switch requests: '+(r.blocked??'N/A')+'\nRepairs: '+(r.maintenance.prevent+r.maintenance.rebuild)+
+'\nTotal switch energy: '+(r.switchFees??0).toFixed(6)+
+'\nSource-transfer ledger error: '+(r.ledger?.energy??NaN).toExponential(2)+
+'\nMaterial ledger error: '+(r.ledger?.material??NaN).toExponential(2);}
+function run(){try{E('audit').textContent='Training context-sensitive fee model…';if(!models){models=wag251Models();cadence=wag252Train(models);cost=wag254Train(models)}
+const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,duration=+E('duration').value;
+results={};for(const k of ['learnedCost','confirm2','confirm4','wag252','fixed3','wag250'])
+results[k]=wag254Run(cap,family,seed,duration,k,models,cadence,cost);display()}catch(err){E('audit').textContent='Execution failed: '+err.stack;throw err}}
+E('run').onclick=run;E('policy').onchange=()=>{if(results)display()};run();
+</script></body></html>
