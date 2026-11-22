@@ -93,4 +93,33 @@ function wag265Pair(cap,family,seed,duration,stress,frozen,models,horizon){
   adaptiveAliveDelta:rejected.aliveTicks-frozenRun.aliveTicks,
   adaptiveReserveDelta:rejected.reserveTicks-frozenRun.reserveTicks};
 }
-if(typeof module!=='undefined')module.exports={wag265Stress,wag265Apply,wag265Run,wag265Pair};
+function wag265Experiment(frozen,models,horizon){
+ wag264VerifyFreeze(frozen);
+ const rows=[];
+ for(const stress of WAG265_STRESS)for(const family of WAG265_FAMILIES)
+ for(const cap of CAP234)for(const seed of WAG265_TEST){
+  const p=wag265Pair(cap,family,seed,240,stress,frozen,models,horizon);
+  rows.push({stress,family,cap,seed,alive:p.frozen.aliveTicks,
+   reserve:p.frozen.reserveTicks,integrity:p.frozen.meanIntegrity,
+   adaptiveIntegrityDelta:p.adaptiveIntegrityDelta,
+   adaptiveAliveDelta:p.adaptiveAliveDelta,adaptiveReserveDelta:p.adaptiveReserveDelta,
+   energy:p.frozen.finalEnergy,material:p.frozen.finalMaterial,
+   energyResidual:p.frozen.ledger.nativeEnergyResidual,
+   materialResidual:p.frozen.ledger.externalMaterialResidual,
+   continuity:p.frozen.external.continuityMax});
+ }
+ const metrics=z=>({cases:z.length,fullSurvival:z.filter(v=>v.alive===240).length,
+  meanAlive:z.reduce((a,v)=>a+v.alive,0)/z.length,
+  meanReserve:z.reduce((a,v)=>a+v.reserve,0)/z.length,
+  meanIntegrity:z.reduce((a,v)=>a+v.integrity,0)/z.length,
+  adaptiveImproved:z.filter(v=>v.adaptiveIntegrityDelta>1e-10).length,
+  adaptiveRegressed:z.filter(v=>v.adaptiveIntegrityDelta< -1e-10).length,
+  adaptiveMeanIntegrityDelta:z.reduce((a,v)=>a+v.adaptiveIntegrityDelta,0)/z.length});
+ return {bound:'WAG-265',frozenPolicy:frozen.policy,rows,
+  summary:{...metrics(rows),byStress:Object.fromEntries(WAG265_STRESS.map(k=>
+   [k,metrics(rows.filter(v=>v.stress===k))])),
+   maxContinuity:Math.max(...rows.map(v=>v.continuity)),
+   maxCacheResidual:Math.max(...rows.map(v=>Math.abs(v.energyResidual))),
+   maxMaterialResidual:Math.max(...rows.map(v=>Math.abs(v.materialResidual)))}};
+}
+if(typeof module!=='undefined')module.exports={wag265Stress,wag265Apply,wag265Run,wag265Pair,wag265Experiment};
