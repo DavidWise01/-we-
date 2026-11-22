@@ -63,7 +63,11 @@ function wag265Run(cap,family,seed,duration,stress,mode,frozen,models,horizon){
   if([48,96,144,192,239].includes(t))snapshots.push({tick:t,energy:x.s.energy,
    material:x.material,integrity:z.integrity,level:gate.level});
  }
- const energy=wag248Ledger(x).energy;
+ const pending=x.queue.filter(z=>z.due>=x.duration).reduce((a,z)=>a+z.amount,0);
+ const energy=Math.max(Math.abs(.2+x.energyIn-x.energyWithdrawn-x.cache),
+  Math.abs(x.energyFlux-x.energyIn-x.energyWaste),
+  Math.abs(x.energyWithdrawn-x.energyDelivered-x.transferLost-pending*.84));
+ if(energy>1e-8)throw Error('native cache conservation failed');
  // WAG248 native material invariant excludes external losses, so reconcile
  // the new physical material ledger explicitly (without rewriting the original).
  const matResidual=Math.abs(.2+x.materialIn+ledger.injectedMaterial-
