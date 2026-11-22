@@ -1,0 +1,56 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-271 · Repair Timing</title><style>
+:root{font:15px/1.48 system-ui;background:#faf9f5;color:#352541}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:25px}h1{margin:0;color:#712bb2;font-size:clamp(30px,4vw,48px);letter-spacing:-.052em}h2{color:#6b2ca7;font-size:19px;margin:0 0 12px}.sub{color:#786983;border-bottom:2px solid #e6d9eb;padding-bottom:15px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:20px 0}label{font-size:13px;color:#766984}select,button{font:inherit;display:block;margin-top:5px;background:#fff;border:1px solid #cbaedd;border-radius:9px;padding:10px;color:#372646}button{background:#6c2bad;color:#fff;box-shadow:0 0 16px #ae77e992;font-weight:700;cursor:pointer}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:15px}.panel{background:#fff;border:1px solid #e9d9ed;border-radius:14px;padding:18px;box-shadow:0 9px 22px #6d3b8716}
+canvas{display:block;background:#190e2d;width:100%;height:auto;border-radius:10px}table{border-collapse:collapse;width:100%;font-size:12px}td,th{border-bottom:1px solid #ebdfec;padding:8px 5px;text-align:left}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.metric{background:#fcf5ff;border-left:4px solid #ff9d3d;padding:11px}.metric b{font-size:23px;color:#7433b1;display:block}
+pre{white-space:pre-wrap;max-height:290px;overflow:auto;font:12px/1.55 monospace}.small{font-size:12px;color:#766a83}a{color:#742cae}@media(max-width:880px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-271 · The Cost of Waiting</h1>
+<p class="sub">Phase III · Turn 3 / 12 · 0 / 3 / 6 / 12-tick repair lag · One pending ticket · Authoritative physical eligibility · .dlw</p>
+<div class="controls"><label>Horizon<select id="duration"><option value="240">240 ticks</option><option selected value="480">480 ticks</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option selected>combined</option></select></label>
+<label>Stress<select id="stress"><option>late-collapse</option><option selected>double-shock</option><option>intermittent</option><option>resource-squeeze</option></select></label>
+<label>Capacity<select id="cap"><option>8</option><option selected>13</option></select></label>
+<label>Fresh seed<select id="seed"><option>5801</option><option>5802</option><option>5803</option></select></label>
+<button id="run">Replay four repair schedules</button></div>
+<div class="layout"><section class="panel">
+<h2>Structural integrity · delayed versus immediate</h2><canvas id="traces" width="1000" height="400"></canvas>
+<p class="small">Neon orange = immediate · Lavender = 3 ticks · Purple = 6 ticks · Teal = 12 ticks. Each policy faces identical synthetic forcing.</p>
+<h2 style="margin-top:23px">Physical repair execution and missed windows</h2><canvas id="timing" width="1000" height="220"></canvas><p class="small">Solid colored ticks mark repairs actually applied. White marks show delayed tickets invalidated at execution or unfulfilled at the horizon.</p>
+<h2 style="margin-top:23px">Matched cohort results</h2><table id="aggregate"></table></section>
+<aside class="panel"><h2>Timing audit</h2><div class="metrics"><div class="metric">Matched cases<b>96</b></div><div class="metric">Policy runs<b>384</b></div><div class="metric">Phase III progress<b>25.0%</b></div><div class="metric">Policy promotion<b>None</b></div></div>
+<h2 style="margin-top:23px">Individual-case results</h2><table id="details"></table>
+<h2 style="margin-top:23px">Resource reconciliation</h2><pre id="audit">Loading source and evidence…</pre>
+<p class="small">Delayed tickets are not funded in advance. A request may expire if current energy, material, pressure or structural eligibility changes. Losses are preserved; no retuning from evaluation outcomes.</p>
+<p><a href="./receipt-5801-5803.json">384-run evidence receipt</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a> · <a href="../wag268/release-manifest.json">Sealed Phase II release</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="./wag271.js"></script><script>
+const E=id=>document.getElementById(id);
+const colors={'0':'#ff9b37','3':'#bfa1ff','6':'#8e49f5','12':'#51edde'};
+let evidence,frozen,context,runs;
+function draw(){
+ const c=E('traces'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#190e2d';g.fillRect(0,0,W,H);
+ for(let j=0;j<=10;j++){g.strokeStyle='#49335e';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+ for(const [delay,r]of Object.entries(runs)){g.strokeStyle=colors[delay];g.shadowColor=colors[delay];g.shadowBlur=10;g.lineWidth=2.7;g.beginPath();
+ r.trace.forEach((z,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-z.integrity)*H):g.moveTo(0,(1-z.integrity)*H));g.stroke();g.shadowBlur=0}
+ g.fillStyle='#fff';g.font='bold 19px system-ui';g.fillText('WAG-271 · Structural trajectory',17,27);
+ const z=E('timing').getContext('2d');z.fillStyle='#190e2d';z.fillRect(0,0,1000,220);
+ for(const [delay,r] of Object.entries(runs)){const y=34+[0,3,6,12].indexOf(+delay)*48;
+  z.fillStyle='#fff';z.font='12px system-ui';z.fillText(delay+' ticks',12,y);
+  for(const tr of r.trace)if(tr.action!=='abstain'){z.fillStyle=colors[delay];z.fillRect(90+tr.tick*890/r.duration,y-12,3,22)}
+  z.fillStyle='#d5c0ea';z.font='11px monospace';z.fillText('missed '+(r.timing.invalidAtDue+r.timing.pendingAtEnd),860,y+12)}
+}
+function show(){draw();const cohort=evidence.aggregate[E('duration').value];E('aggregate').innerHTML='<tr><th>Lag</th><th>Full survival</th><th>Mean integrity</th><th>Mean repairs</th><th>Missed windows</th></tr>'+
+ Object.entries(cohort).map(([d,x])=>'<tr><td>'+d+' ticks</td><td>'+x.fullSurvival+'/'+x.n+'</td><td>'+x.meanIntegrity.toFixed(6)+'</td><td>'+x.meanRepairs.toFixed(2)+'</td><td>'+x.missedWindows+'</td></tr>').join('');
+ E('details').innerHTML='<tr><th>Lag</th><th>Alive</th><th>Integrity</th><th>Repairs</th></tr>'+
+ Object.entries(runs).map(([d,z])=>'<tr><td>'+d+'</td><td>'+z.aliveTicks+'/'+z.duration+'</td><td>'+z.meanIntegrity.toFixed(6)+'</td><td>'+z.repairs+'</td></tr>').join('');
+ E('audit').textContent='Test: '+E('family').value+' / '+E('stress').value+'\nCapacity: '+E('cap').value+' | Seed: '+E('seed').value+'\nHorizon: '+E('duration').value+' ticks\n'+
+ Object.entries(runs).map(([d,z])=>d+' ticks: '+z.timing.requests+' requests, '+z.timing.executed+' realized, '+z.timing.invalidAtDue+' invalidated, '+z.timing.pendingAtEnd+' pending at horizon; energy residual '+z.ledger.cacheResidual.toExponential(1)).join('\n')+
+ '\n\nA queued repair is not automatically affordable tomorrow.\nNo policy promoted.'}
+function run(){try{if(!evidence||!frozen)throw Error('Missing frozen policy/evidence');
+ if(!context){const m=wag251Models(),h=wag261Train(m);context={m,h}}
+ runs=Object.fromEntries([0,3,6,12].map(delay=>[delay,wag271Run(+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('stress').value,delay,frozen,context.m,context.h)]));
+ show()}catch(e){E('audit').textContent='ERROR '+e.stack;throw e}}
+async function init(){try{const results=await Promise.all([fetch('./receipt-5801-5803.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(results.some(r=>!r.ok))throw Error('Missing GitHub release artifact');evidence=await results[0].json();frozen=await results[1].json();wag264VerifyFreeze(frozen);run()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('run').onclick=run;init();
+</script></body></html>
