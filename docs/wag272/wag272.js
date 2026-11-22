@@ -22,21 +22,23 @@ function wag272NeuralInputs(x,lastRepair){
   pressure:wag272Clamp(observed),trend:wag272Clamp(.5+trend*16),
   timeSinceRepair:wag272Clamp((x.t-lastRepair)/16)};
 }
-function wag272Mesh(x,lastRepair){
+function wag272Mesh(x,lastRepair,memory=null){
  const u=wag272NeuralInputs(x,lastRepair);
  // Three pulses over two braces, bounded by clamped [0,1] neuron channels.
  // Cross-cubit arrows a.reserve -> b.gate -> a.choice; observability only.
- const a={survive:0,reserve:0,risk:0,permit:0},b={prevent:0,rebuild:0,urgency:0,request:0};
+ const a=memory?.a?{...memory.a}:{survive:0,reserve:0,risk:0,permit:0};
+ const b=memory?.b?{...memory.b}:{prevent:0,rebuild:0,urgency:0,request:0};
  const messages=[];
  for(let pass=0;pass<3;pass++){
-  a.survive=wag272Clamp(.46*u.energy+.26*u.integrity+.20*u.material+.08*u.trend);
-  a.reserve=wag272Clamp(.63*u.energy+.37*u.material-.16*u.pressure);
-  a.risk=wag272Clamp(.50*(1-u.energy)+.30*(1-u.integrity)+.20*u.pressure);
-  b.urgency=wag272Clamp(.63*u.scar+.28*u.pressure+.09*(1-u.integrity));
-  b.rebuild=wag272Clamp(.65*u.scar+.22*u.energy+.13*a.reserve);
-  b.prevent=wag272Clamp(.55*u.pressure+.23*u.energy+.22*a.reserve);
-  b.request=wag272Clamp(Math.max(b.rebuild,b.prevent)*.70+b.urgency*.30);
-  a.permit=wag272Clamp(.54*a.reserve+.26*a.survive+.20*b.request-.28*a.risk);
+  const prevA={...a},prevB={...b};
+  a.survive=wag272Clamp(.76*(.46*u.energy+.26*u.integrity+.20*u.material+.08*u.trend)+.24*prevA.survive);
+  a.reserve=wag272Clamp(.78*(.63*u.energy+.37*u.material-.16*u.pressure)+.22*prevA.reserve);
+  a.risk=wag272Clamp(.80*(.50*(1-u.energy)+.30*(1-u.integrity)+.20*u.pressure)+.20*prevA.risk);
+  b.urgency=wag272Clamp(.8*(.63*u.scar+.28*u.pressure+.09*(1-u.integrity))+.2*prevB.urgency);
+  b.rebuild=wag272Clamp(.8*(.65*u.scar+.22*u.energy+.13*prevA.reserve)+.2*prevB.rebuild);
+  b.prevent=wag272Clamp(.8*(.55*u.pressure+.23*u.energy+.22*prevA.reserve)+.2*prevB.prevent);
+  b.request=wag272Clamp(.8*(Math.max(b.rebuild,b.prevent)*.70+b.urgency*.30)+.2*prevB.request);
+  a.permit=wag272Clamp(.80*(.54*a.reserve+.26*a.survive+.20*prevB.request-.28*a.risk)+.20*prevA.permit);
   messages.push({pass,a:{...a},b:{...b}});
  }
  const prefer=b.rebuild>=b.prevent?'rebuild':'prevent',cost=WAG272_COST[prefer];
@@ -53,7 +55,7 @@ function wag272Mesh(x,lastRepair){
  const accepted=eligible&&safety&&timing&&worth&&a.permit>.34;
  return {action:accepted?prefer:'abstain',prefer,accepted,
   reasons:{eligible,safety,timing,worth,permit:a.permit>.34},
-  a,b,messages,inputs:u};
+  a,b,messages,inputs:u,memory:{a:{...a},b:{...b}}};
 }
 function wag272Run(cap,family,seed,duration,stress,mode,frozen,models,horizon){
  wag264VerifyFreeze(frozen);
@@ -61,6 +63,7 @@ function wag272Run(cap,family,seed,duration,stress,mode,frozen,models,horizon){
  const x=start244(cap,family,seed,duration);x.modelTable=models.train250.source;
  const state={level:'normal',alarmStreak:0,clearStreak:0,changes:[]};
  let lastRepair=-100,repairCount=0,requestCount=0,guardDenials=0,engineDenials=0;
+ let neuralMemory=null;
  const ledger={lastEnergy:x.s.energy,lastMaterial:x.material,continuityMax:0,
   withdrawnEnergy:0,withdrawnMaterial:0,injectedEnergy:0,injectedMaterial:0,
   internalMaterialCharged:0,internalRepairEnergyAttributed:0};
@@ -68,7 +71,8 @@ function wag272Run(cap,family,seed,duration,stress,mode,frozen,models,horizon){
  for(let t=0;t<duration;t++){
   ledger.continuityMax=Math.max(ledger.continuityMax,Math.abs(x.s.energy-ledger.lastEnergy),
    Math.abs(x.material-ledger.lastMaterial));
-  const mesh=wag272Mesh(x,lastRepair);
+  const mesh=wag272Mesh(x,lastRepair,neuralMemory);
+  neuralMemory=mesh.memory;
   let action=mode==='mesh'?mesh.action:mode==='noRepair'?'abstain':
    wag263Select(x,models,horizon,lastRepair,wag263Gate(x,state),'baseline').action;
   if(mode==='mesh'&&mesh.prefer!=='abstain'){requestCount++;if(!mesh.accepted)guardDenials++}
@@ -145,7 +149,7 @@ function wag272Experiment(frozen,models,horizon){
   network:{type:'deterministic recurrent two-cubit mesh',passes:3,
    outer:'a survival/resource governor',inner:'b repair valuation',
    edges:['a.reserve→b.rebuild','a.reserve→b.prevent',
-    'b.request→a.permit','a.permit→single action gate'],
+    'b.request→a.permit','a.permit→single action gate','a(t)→a(t+1)','b(t)→b(t+1)'],
    guard:WAG272_GUARD,cost:WAG272_COST},
   aggregate,cases,rows,
   summary:{policyRuns:rows.length,matchedConditions:cases.length,
