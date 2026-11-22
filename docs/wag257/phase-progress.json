@@ -3,11 +3,11 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 4,
-  "progressPercent": 33.3,
+  "completedTurns": 5,
+  "progressPercent": 41.7,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 261,
+  "nextBound": 262,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -33,7 +33,7 @@
     },
     {
       "bound": 261,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 41.7
     },
     {
@@ -73,15 +73,17 @@
     }
   ],
   "lastAccepted": {
-    "bound": 260,
-    "engine": "docs/wag260/wag260.js",
-    "lab": "docs/wag260/index.html",
-    "receipt": "docs/wag260/receipt-4801-4804.json",
-    "matchedCases": 32,
-    "integrityRegressions": 32,
-    "meanIntegrityDelta": -0.006055992259930865,
-    "survivalReserveNonInferiorCases": 24,
-    "probes": 0,
-    "summary": "A deterministic one-action policy was implemented and syntactically verified, but it underperforms WAG-250 in every matched structural-integrity holdout. WAG-261 must address the regression; live Pages deployment unverified."
+    "bound": 261,
+    "engine": "docs/wag261/wag261.js",
+    "lab": "docs/wag261/index.html",
+    "receipt": "docs/wag261/receipt-5001-5004.json",
+    "trainingSnapshots": 720,
+    "trainingObservations": 1728,
+    "holdoutCases": 64,
+    "improved": 1,
+    "tied": 63,
+    "regressed": 0,
+    "survivalReserveNonInferior": 64,
+    "summary": "WAG250 repair fallback preserves baseline; one modest synthetic multi-horizon gain; Pages live deployment unverified"
   }
 }
