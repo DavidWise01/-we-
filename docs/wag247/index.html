@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-247 · Opportunity Persistence</title>
+<style>:root{font:15px/1.45 system-ui;background:#faf9f5;color:#342842}*{box-sizing:border-box}body{margin:0}main{max-width:1300px;margin:auto;padding:24px}h1{color:#672baa;font-size:clamp(28px,4vw,44px);margin:0}h2{font-size:19px;color:#5b289a;margin:0 0 10px}.sub{color:#80718f;padding-bottom:16px;border-bottom:2px solid #ebd6f3}.controls{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0;align-items:end}select,button{font:inherit;padding:10px;border-radius:9px;border:1px solid #b69acb;background:white;color:#3b2651}button{background:#7130b2;color:white;cursor:pointer;box-shadow:0 0 18px #a676e599;font-weight:bold}.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:14px}.panel{background:#fff;border:1px solid #e7d8ee;border-radius:14px;padding:17px;box-shadow:0 9px 24px #56208013}canvas{width:100%;height:auto;border-radius:10px;background:#130d25}.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:#685c78}.legend i{font-style:normal;color:var(--c)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{border-left:4px solid #ff8c29;background:#faf5ff;padding:10px}.metric strong{display:block;font-size:25px;color:#692ba5}table{border-collapse:collapse;width:100%;font-size:12px}th,td{padding:8px 5px;border-bottom:1px solid #ecdeef;text-align:left}pre{max-height:310px;overflow:auto;white-space:pre-wrap;font:12px/1.5 monospace}.note{color:#786d84;font-size:12px}@media(max-width:840px){.layout{grid-template-columns:1fr}}</style></head><body>
+<main><h1>WAG-247 · The Vanishing Window</h1><p class="sub">An opportunity may persist, decay, or disappear. Observe the window before choosing to wait. &nbsp; {24/[2]/[4]/(3)/(3)/(1)/(1)} · {{i}} · .dlw</p>
+<div class="controls"><label>Environment<br><select id="family"><option>scar</option><option>combined</option><option>famine</option><option>chirp</option><option>friction</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<br><select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Seed<br><select id="seed"><option>2901</option><option>2902</option><option>2903</option><option>2904</option></select></label>
+<label>Duration<br><select id="duration"><option selected>240</option><option>480</option><option>960</option></select></label>
+<button id="run">Run matched comparison</button></div>
+<div class="layout"><section class="panel"><h2>Live structural trajectory</h2><canvas id="plot" width="1000" height="480"></canvas>
+<div class="legend"><span><i style="--c:#45eadb">●</i> Integrity</span><span><i style="--c:#b57bff">●</i> Energy</span><span><i style="--c:#ff9a32">●</i> Pressure</span><span><i style="--c:#e8dbff">●</i> Ceiling</span><span><i style="--c:#ffe17a">●</i> Material</span></div>
+<h2 style="margin-top:24px">Opportunity decay · 0 / 3 / 9 / 18 ticks</h2><canvas id="decay" width="1000" height="270"></canvas>
+<p class="note">Delay curves are counterfactual evaluations for the selected checkpoint and are not visible to the deployed controller.</p>
+<label>Inspect checkpoint <select id="checkpoint"><option>36</option><option>72</option><option selected>120</option><option>156</option><option>204</option></select></label>
+<h2 style="margin-top:24px">Decision receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>WAG-247 outcome</h2><div class="metrics">
+<div class="metric">Mean integrity<strong id="int">—</strong></div><div class="metric">Surviving ticks<strong id="alive">—</strong></div>
+<div class="metric">Reserve ticks<strong id="reserve">—</strong></div><div class="metric">Missed / beneficial<strong id="missed">—</strong></div></div>
+<h2 style="margin-top:24px">Prior bound comparison</h2><table id="comparison"></table>
+<h2 style="margin-top:24px">Trained behavior</h2><pre id="trace">Run to inspect.</pre>
+<p class="note">All quantities are synthetic. This interface is an observation lab, not proof that a repair strategy generalizes to physical systems.</p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="./wag247.js"></script>
+<script>
+const el=id=>document.getElementById(id);let m,m246,b244,b245,last,inputs;
+function plot(r){const c=el('plot'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#130d25';g.fillRect(0,0,W,H);
+for(let y=0;y<=10;y++){g.strokeStyle='#46365b';g.lineWidth=1;g.beginPath();g.moveTo(0,H*y/10);g.lineTo(W,H*y/10);g.stroke()}
+for(const [k,col]of [['integrity','#45eadb'],['energy','#b57bff'],['pressure','#ff9a32'],['ceiling','#e8dbff'],['material','#ffe17a']]){
+g.beginPath();g.lineWidth=2.6;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=12;
+r.trace.forEach((p,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-p[k])*H):g.moveTo(0,(1-p[k])*H));g.stroke();g.shadowBlur=0;}
+r.trace.forEach((z,i)=>{if(z.maintenance!=='abstain'){g.fillStyle=z.maintenance==='prevent'?'#ff982c':'#ba80ff';g.fillRect(i*W/r.trace.length,H-13,3,13)}});g.font='bold 21px system-ui';g.fillStyle='white';g.fillText(r.scenario.toUpperCase()+' · WAG-247',19,30)}
+function decay(){if(!last)return;const tick=+el('checkpoint').value,c=el('decay'),g=c.getContext('2d'),W=c.width,H=c.height;
+const x=start244(inputs.cap,inputs.family,inputs.seed,inputs.duration);x.modelTable=m.source;while(x.t<tick)step244(x,'abstain');
+const p=wag247Profile(x),values=['prevent','rebuild'].map(a=>p.byAction[a]);const max=Math.max(.0001,...values.flat().map(z=>Math.abs(z.gain)));
+g.fillStyle='#130d25';g.fillRect(0,0,W,H);g.strokeStyle='#635078';g.beginPath();g.moveTo(38,H/2);g.lineTo(W-20,H/2);g.stroke();
+values.forEach((v,j)=>{const color=j?'#bd85ff':'#ff9d36';g.beginPath();g.strokeStyle=color;g.shadowColor=color;g.shadowBlur=13;g.lineWidth=4;
+v.forEach((z,i)=>{const px=48+i*(W-100)/3,py=H/2-z.gain/max*(H*.40);i?g.lineTo(px,py):g.moveTo(px,py)});g.stroke();g.shadowBlur=0;
+v.forEach((z,i)=>{const px=48+i*(W-100)/3,py=H/2-z.gain/max*(H*.40);g.fillStyle=color;g.beginPath();g.arc(px,py,6,0,Math.PI*2);g.fill()})});
+g.font='14px monospace';g.fillStyle='#f5eaff';[0,3,9,18].forEach((d,i)=>g.fillText('+'+d+' ticks',42+i*(W-100)/3,H-15));
+g.fillText('PREVENT / REBUILD  ·  positive = value above abstain',38,24)}
+function run(){try{
+el('trace').textContent='Training synthetic persistence model…';
+if(!m){m=wag247Train();m246=wag246Train();b244=train244();b245=train245()}
+inputs={cap:+el('cap').value,family:el('family').value,seed:+el('seed').value,duration:+el('duration').value};
+const r={};for(const policy of ['wag247','wag246','wag245','wag244','always'])
+ r[policy]=wag247Run(inputs.cap,inputs.family,inputs.seed,inputs.duration,policy,m,m246,b244,b245);
+last=r.wag247;plot(last);decay();el('int').textContent=last.meanIntegrity.toFixed(4);
+el('alive').textContent=last.aliveTicks+'/'+inputs.duration;el('reserve').textContent=last.reserveTicks+'/'+inputs.duration;
+el('missed').textContent=last.missed+'/'+last.positive;
+el('comparison').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Reserve</th></tr>'+
+Object.entries(r).map(([k,v])=>'<tr><td>'+k+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+v.reserveTicks+'</td></tr>').join('');
+el('receipts').innerHTML='<tr><th>Tick</th><th>Action</th><th>Repair-now gain</th><th>Latest positive delay</th></tr>'+
+last.receipts.map(z=>'<tr><td>'+z.tick+'</td><td>'+z.action+'</td><td>'+z.immediate.toFixed(6)+'</td><td>'+z.latest+'</td></tr>').join('');
+el('trace').textContent='Training profiles: '+m.profiles+'\nTrained state cells: '+Object.keys(m.table).length+
+'\nRepairs: '+(last.maintenance.prevent+last.maintenance.rebuild)+
+'\nExpiring missed windows: '+last.expired+'\nLost opportunity value: '+last.opportunityLoss.toFixed(6)+
+'\nConservation errors: E '+last.energyError.toExponential(2)+' / M '+last.materialError.toExponential(2)+
+'\n\n'+last.receipts.map(z=>'tick '+z.tick+': '+z.action+' / expiry '+z.latest).join('\n');
+}catch(err){el('trace').textContent='Experiment failed: '+err.stack;throw err}}
+el('run').onclick=run;el('checkpoint').onchange=decay;run();
+</script></body></html>
