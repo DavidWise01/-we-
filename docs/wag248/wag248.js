@@ -70,8 +70,8 @@ function wag248Action(x,pred){
  if(pred.expectedValue<=WAG248_BENEFIT)return 'abstain';
  if(pred.state==='opening'&&pred.confidence>.57)return 'abstain'; // waiting is preferable if window opens
  if(pred.state!=='closing'&&pred.expectedMissed<.0001)return 'abstain';
- if(wag247Eligible(x,'rebuild')&&pred.features.scar>.012)return 'rebuild';
- if(wag247Eligible(x,'prevent'))return 'prevent';
+ if(wag246Eligible(x,'rebuild')&&pred.features.scar>.012)return 'rebuild';
+ if(wag246Eligible(x,'prevent'))return 'prevent';
  return 'abstain';
 }
 function wag248Ledger(x){
