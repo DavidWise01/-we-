@@ -3,11 +3,11 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 2,
-  "progressPercent": 16.7,
+  "completedTurns": 3,
+  "progressPercent": 25,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 259,
+  "nextBound": 260,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -23,7 +23,7 @@
     },
     {
       "bound": 259,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 25
     },
     {
@@ -73,14 +73,16 @@
     }
   ],
   "lastAccepted": {
-    "bound": 258,
-    "receipt": "docs/wag258/receipt-4601-4604.json",
-    "engine": "docs/wag258/wag258.js",
-    "lab": "docs/wag258/index.html",
-    "trainPairs": 192,
-    "holdoutCases": 16,
-    "chosenProbes": 0,
-    "alwaysProbeNegativeCases": 16,
-    "summary": "Frozen episode value gate declined probes across 16 negative-value scar holdouts. Per-opportunity learning remains untested; Pages deployment unverified."
+    "bound": 259,
+    "engine": "docs/wag259/wag259.js",
+    "lab": "docs/wag259/index.html",
+    "receipt": "docs/wag259/receipt-4701-4704.json",
+    "testCases": 32,
+    "diagnosticProbeEntries": 20,
+    "completedReturns": 20,
+    "escrowBreaches": 0,
+    "strandedProbes": 0,
+    "productionProbeEntries": 0,
+    "summary": "Bounded two-leg probe escrow passes 32 synthetic holds; energy fees shadow-accounted; Pages deployment unverified."
   }
 }
