@@ -6,9 +6,9 @@
   "firstBound": 269,
   "lastBound": 280,
   "plannedTurns": 12,
-  "completedTurns": 2,
-  "progressPercent": 16.7,
-  "nextBound": 271,
+  "completedTurns": 3,
+  "progressPercent": 25,
+  "nextBound": 272,
   "policyPromotion": "NONE",
   "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
   "milestones": [
@@ -27,7 +27,7 @@
     {
       "bound": 271,
       "name": "Repair timing and recovery lag",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 25
     },
     {
@@ -86,17 +86,34 @@
     }
   ],
   "lastAccepted": {
-    "bound": 270,
-    "engine": "docs/wag270/wag270.js",
-    "lab": "docs/wag270/index.html",
-    "receipt": "docs/wag270/receipt-5701-5703.json",
-    "policyRuns": 480,
+    "bound": 271,
+    "engine": "docs/wag271/wag271.js",
+    "lab": "docs/wag271/index.html",
+    "receipt": "docs/wag271/receipt-5801-5803.json",
     "matchedConditions": 96,
-    "canonicalDominatesFrozen": 19,
-    "frozenDominatesCanonical": 48,
-    "canonicalIntegrityRegressions": 77,
-    "canonicalAliveRegressions": 1,
-    "summary": "Three predeclared threshold variants compared against frozen WAG261 and noRepair over 240/480 ticks. No full-survival count difference within horizons (36/48 and 24/48). Frozen maintains top mean integrity; threshold changes do not establish robust superiority. Original controller/frozen policy unchanged. Live Pages unverified."
+    "policyRuns": 384,
+    "predeclaredRepairLags": [
+      0,
+      3,
+      6,
+      12
+    ],
+    "fullSurvivalByHorizon": {
+      "240": "39/48 each policy",
+      "480": "24/48 each policy"
+    },
+    "delayedAliveRegressions": 0,
+    "integrityRegressionsByLag": {
+      "3": 79,
+      "6": 79,
+      "12": 76
+    },
+    "physicalInvalidationByLag": {
+      "3": 6,
+      "6": 14,
+      "12": 15
+    },
+    "summary": "Fixed repair delays conserve resources and raise mean viable-tick ratio but degrade integrity. Full-survival counts tied across lags in both horizons. Due-time eligibility and pending horizon expiries recorded. No candidate promoted; Phase II frozen baseline unchanged. GitHub Pages live serving unverified."
   },
   "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
 }
