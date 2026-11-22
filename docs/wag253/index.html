@@ -1,0 +1,71 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-253 · Cadence Switching Inertia</title><style>
+:root{font:15px/1.45 system-ui;background:#faf9f5;color:#30223d}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:24px}
+h1{font-size:clamp(29px,4vw,45px);letter-spacing:-.046em;color:#692ba9;margin:0}h2{font-size:19px;color:#652c97;margin:0 0 12px}
+.sub{border-bottom:2px solid #e6d5ed;padding-bottom:17px;color:#766b82}
+.toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:19px 0}
+label{font-size:13px;color:#7b6d89}select,button{display:block;font:inherit;margin-top:5px;padding:10px 12px;border:1px solid #c7a9d8;border-radius:9px;background:white;color:#39254a}
+button{cursor:pointer;background:#6d2aa7;color:white;font-weight:700;box-shadow:0 0 17px #a474e37d}
+.layout{display:grid;grid-template-columns:1.75fr 1fr;gap:15px}
+.panel{background:white;border:1px solid #e9dced;border-radius:14px;padding:17px;box-shadow:0 7px 24px #64328512}
+canvas{display:block;width:100%;height:auto;background:#170e2a;border-radius:10px}
+.legend{font-size:12px;color:#7a7088;display:flex;gap:13px;flex-wrap:wrap}.legend span:before{content:'● ';color:var(--c)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.stat{padding:10px;background:#faf4ff;border-left:4px solid #ff983a}.stat b{display:block;font-size:24px;color:#702cae}
+table{border-collapse:collapse;width:100%;font-size:12px}th,td{text-align:left;padding:7px 5px;border-bottom:1px solid #e9ddef}
+pre{font:12px/1.5 ui-monospace,monospace;max-height:280px;white-space:pre-wrap;overflow:auto}
+.note{color:#786c85;font-size:12px}@media(max-width:860px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>WAG-253 · The Cost of Changing Rhythm</h1>
+<p class="sub">Learning stability · Confirming cadence changes · Paying switch cost · Preserving recovery &nbsp; .dlw</p>
+<div class="toolbar"><label>Environment<select id="family"><option>scar</option><option>combined</option><option>famine</option><option>friction</option><option>chirp</option><option>phaseflip</option><option>bursts</option></select></label>
+<label>Capacity<select id="cap"><option>5</option><option>8</option><option selected>13</option><option>21</option></select></label>
+<label>Holdout seed<select id="seed"><option>3901</option><option>3902</option><option>3903</option><option>3904</option></select></label>
+<label>Duration<select id="duration"><option selected>240</option><option>480</option></select></label>
+<label>Controller<select id="policy"><option value="immediate">Immediate + fee</option><option value="confirm2" selected>Confirm twice</option><option value="confirm4">Confirm four times</option><option value="hold12">Hold 12 ticks</option><option value="no-fee-reference">Immediate, no fee</option><option value="wag252">WAG-252 original</option><option value="fixed3">Fixed 3</option></select></label>
+<button id="run">Compare switching policies</button></div>
+<div class="layout"><section class="panel"><h2>Living recovery field</h2><canvas id="field" width="1000" height="450"></canvas>
+<div class="legend"><span style="--c:#4cefdc">Integrity</span><span style="--c:#b27aff">Energy</span><span style="--c:#ff9d3a">Pressure</span><span style="--c:#e5d8ff">Ceiling</span><span style="--c:#f5d476">Material</span></div>
+<h2 style="margin-top:22px">Cadence changes and waiting periods</h2><canvas id="switches" width="1000" height="255"></canvas>
+<p class="note">Vertical markers indicate actual cadence changes. Orange indicates a shorter cadence, purple a longer one. Switch fees are additional synthetic energy debits, beyond the inherited source/transfer ledger.</p>
+<h2 style="margin-top:24px">Switch receipts</h2><table id="receipts"></table></section>
+<aside class="panel"><h2>Switching economics</h2><div class="stats"><div class="stat">Mean integrity<b id="integrity">—</b></div><div class="stat">Surviving ticks<b id="alive">—</b></div>
+<div class="stat">Cadence switches<b id="count">—</b></div><div class="stat">Energy spent on switches<b id="fees">—</b></div></div>
+<h2 style="margin-top:24px">Matched policy outcomes</h2><table id="comparison"></table>
+<h2 style="margin-top:24px">Trace and conservation</h2><pre id="audit">Run to inspect.</pre>
+<p class="note">Synthetic results. Fee-charged comparisons should not be conflated with the original fee-free WAG-252 reference. Future-grounded regret appears only in evaluation receipts.</p></aside></div>
+</main><script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag252/wag252.js"></script><script src="./wag253.js"></script>
+<script>
+const E=id=>document.getElementById(id);let models,trained,results;
+function field(r){const c=E('field'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#170e2a';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#46315b';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [k,col]of [['integrity','#4cefdc'],['energy','#b27aff'],['pressure','#ff9d3a'],['ceiling','#e5d8ff'],['material','#f5d476']]){
+g.beginPath();g.lineWidth=2.7;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=12;
+r.trace.forEach((v,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-v[k])*H):g.moveTo(0,(1-v[k])*H));g.stroke();g.shadowBlur=0}
+r.trace.forEach((v,i)=>{if(v.maintenance!=='abstain'){g.fillStyle=v.maintenance==='rebuild'?'#b27aff':'#ff9d3a';g.fillRect(i*W/r.trace.length,H-12,3,12)}});
+g.font='bold 20px system-ui';g.fillStyle='#fff';g.fillText('WAG-253 · '+r.scenario.toUpperCase(),17,30)}
+function switches(r){const c=E('switches'),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#170e2a';g.fillRect(0,0,W,H);
+for(const t of [0,.25,.5,.75,1]){g.strokeStyle='#3f3055';g.beginPath();g.moveTo(35,(H-35)*t);g.lineTo(W-18,(H-35)*t);g.stroke()}
+g.font='13px system-ui';g.fillStyle='#f7edff';g.fillText('Cadence transition timeline',18,24);
+(r.transitions||[]).forEach(z=>{const x=38+(z.tick/r.duration)*(W-70),col=z.to<z.from?'#ff9638':'#aa7aff';
+g.strokeStyle=col;g.lineWidth=4;g.shadowColor=col;g.shadowBlur=15;g.beginPath();g.moveTo(x,42);g.lineTo(x,H-30);g.stroke();g.shadowBlur=0});
+g.fillStyle='#f7edff';g.fillText('0',35,H-8);g.fillText(String(r.duration),W-52,H-8);
+g.fillText('Orange: faster · Purple: slower',W-274,24)}
+function display(){const r=results[E('policy').value];field(r);switches(r);
+E('integrity').textContent=r.meanIntegrity.toFixed(4);E('alive').textContent=r.aliveTicks+'/'+r.duration;
+E('count').textContent=r.switches??'N/A';E('fees').textContent=r.switchFees===undefined?'N/A':r.switchFees.toFixed(5);
+E('comparison').innerHTML='<tr><th>Policy</th><th>Integrity</th><th>Alive</th><th>Switches</th></tr>'+
+Object.entries(results).map(([name,v])=>'<tr><td>'+name+'</td><td>'+v.meanIntegrity.toFixed(4)+'</td><td>'+v.aliveTicks+'</td><td>'+(v.switches??'—')+'</td></tr>').join('');
+E('receipts').innerHTML='<tr><th>Tick</th><th>From</th><th>To</th><th>Switch cost</th></tr>'+
+(r.transitions??[]).map(z=>'<tr><td>'+z.tick+'</td><td>'+z.from+'</td><td>'+z.to+'</td><td>'+z.cost.toFixed(6)+'</td></tr>').join('');
+E('audit').textContent='Policy: '+r.mode+'\nRepairs: '+(r.maintenance.prevent+r.maintenance.rebuild)+
+'\nSwitches: '+(r.switches??'N/A')+'\nSwitch energy: '+(r.switchFees??0).toFixed(6)+
+'\nSuppressed changes: '+(r.blocked??'N/A')+'\nLocal regret: '+(r.regret??NaN).toFixed(6)+
+'\nEnergy source ledger: '+(r.ledger?.energy??NaN).toExponential(2)+
+'\nMaterial ledger: '+(r.ledger?.material??NaN).toExponential(2)+
+'\n\nExtra switch debits are recorded separately and are not included in the source-transfer ledger.'}
+function run(){try{E('audit').textContent='Building frozen cadence policy…';if(!models){models=wag251Models();trained=wag252Train(models)}
+const cap=+E('cap').value,family=E('family').value,seed=+E('seed').value,duration=+E('duration').value;
+results={};for(const policy of ['immediate','confirm2','confirm4','hold12','no-fee-reference','wag252','fixed3'])
+results[policy]=wag253Run(cap,family,seed,duration,policy,models,trained);
+display()}catch(err){E('audit').textContent='Error: '+err.stack;throw err}}
+E('run').onclick=run;E('policy').onchange=()=>{if(results)display()};run();
+</script></body></html>
