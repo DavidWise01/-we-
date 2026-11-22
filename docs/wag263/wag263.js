@@ -23,9 +23,9 @@ function wag263Trend(x){
 }
 function wag263Gate(x,st){
  const z=wag263Trend(x);
- const alarm=z.energy<.41||z.material<.024||z.recentSlope<-.005;
- const warning=z.energy<.57||z.material<.052||z.recentSlope<-.0026;
- const stable=z.energy>.63&&z.material>.066&&z.recentSlope>-.0012;
+ const alarm=z.energy<.37||z.material<.018||(z.energy<.48&&z.recentSlope<-.006);
+ const warning=z.energy<.48||z.material<.035||(z.energy<.59&&z.recentSlope<-.004);
+ const stable=z.energy>.59&&z.material>.052&&z.recentSlope>-.003;
  if(alarm){st.alarmStreak++;st.clearStreak=0;}
  else if(warning){st.alarmStreak=Math.max(st.alarmStreak,1);st.clearStreak=0;}
  else if(stable){st.clearStreak++;st.alarmStreak=0;}
