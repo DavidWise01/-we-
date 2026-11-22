@@ -112,7 +112,7 @@ function wag260Run(cap,family,seed,duration,regime,variant,models,refs,cost,voi)
   limitations:'WAG250 repair-value gate is conservative; event-level cost uses shadow fees; probe VOI frozen at episode start.'};
 }
 function wag260Experiment(){
- const models=wag251Models(),refs={...models},cost=wag254Train(models),voi=wag258Train(models,models.ref248,cost),
+ const models=wag251Models(),refs={...models},cadence=wag252Train(models),cost=wag254Train(models),voi=wag258Train(models,cadence,cost),
   groups={},examples=[];
  for(const regime of WAG260_REGIMES)for(const family of ['scar','combined','phaseflip','famine'])
  for(const cap of CAP234)for(const seed of WAG260_TEST){
