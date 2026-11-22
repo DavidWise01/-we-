@@ -3,17 +3,17 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 0,
-  "progressPercent": 0,
+  "completedTurns": 1,
+  "progressPercent": 8.3,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 257,
+  "nextBound": 258,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
     {
       "bound": 257,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 8.3
     },
     {
@@ -71,5 +71,14 @@
       "accepted": false,
       "cumulativePercent": 100
     }
-  ]
+  ],
+  "lastAccepted": {
+    "bound": 257,
+    "receipt": "docs/wag257/receipt-4401-4404.json",
+    "engine": "docs/wag257/wag257.js",
+    "lab": "docs/wag257/lab.html",
+    "testCases": 16,
+    "negativeNetCases": 16,
+    "summary": "16/16 net negative; no repair action changes; Pages deployment not verified"
+  }
 }
