@@ -1,14 +1,14 @@
 {
   "phase": "WAG-III",
   "title": "Survival–Integrity Pareto Control",
-  "status": "OPEN",
+  "status": "CLOSED",
   "baseline": "WAG-II-v1.0 CLOSED (unchanged)",
   "firstBound": 269,
   "lastBound": 280,
   "plannedTurns": 12,
-  "completedTurns": 11,
-  "progressPercent": 91.7,
-  "nextBound": 280,
+  "completedTurns": 12,
+  "progressPercent": 100,
+  "nextBound": null,
   "policyPromotion": "NONE",
   "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
   "milestones": [
@@ -81,25 +81,31 @@
     {
       "bound": 280,
       "name": "Final freeze and release",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 100
     }
   ],
   "lastAccepted": {
-    "bound": 279,
-    "primitive": "---@---@---@---@---{} → {\\a{b/}}",
-    "engine": "docs/wag279/wag279.js",
-    "lab": "docs/wag279/index.html",
-    "receipt": "docs/wag279/receipt-tick55.json",
-    "cases": 8,
-    "interventionTick": 55,
-    "appliedOverrides": 8,
-    "survivalRescues": 0,
-    "integrityImproved": 3,
-    "integrityRegressed": 5,
-    "sourceWeightsChanged": false,
-    "policyPromoted": false,
-    "summary": "Surgical tick-55 action substitution (crystal prevent to frozen WAG261 abstain) on eight held-out-origin counterexamples did not restore two 720-tick survival failures. Mean structural changes mixed. Exact identical pre-intervention prefixes and deterministic replay; accounting residual <=3.1e-14. Single-model intervention is causal only within synthetic simulator and selected failures are not fresh holdout. Do not tune crystalline candidate from these cases. Pages live serving unverified."
+    "bound": 280,
+    "release": "WAG-III-v1.0",
+    "status": "RESEARCH_RELEASE_SEALED",
+    "manifest": "docs/wag280/release-manifest.json",
+    "receipt": "docs/wag280/release-receipt.json",
+    "verifier": "docs/wag280/wag280.js",
+    "closeout": "docs/wag280/PHASE_CLOSEOUT.md",
+    "lab": "docs/wag280/index.html",
+    "candidatePromoted": false,
+    "reference": "WAG-261",
+    "fullSurvival720": {
+      "frozenReference": 29,
+      "crystal": 28,
+      "matchedCases": 64
+    },
+    "closedAfter": "12 of 12 bound releases; all evidence retained",
+    "livePagesVerified": false
   },
-  "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
+  "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort",
+  "phaseCloseout": "docs/wag280/PHASE_CLOSEOUT.md",
+  "releaseManifest": "docs/wag280/release-manifest.json",
+  "livePagesVerified": false
 }
