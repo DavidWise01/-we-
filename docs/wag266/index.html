@@ -1,0 +1,48 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-266 · Counterexample Minimizer</title><style>
+:root{font:15px/1.5 system-ui;background:#faf9f4;color:#392745}*{box-sizing:border-box}body{margin:0}main{max-width:1280px;margin:auto;padding:24px}h1{font-size:clamp(30px,4vw,46px);letter-spacing:-.045em;color:#6c28a5;margin:0}h2{font-size:19px;color:#692aa1;margin:0 0 12px}.sub{color:#756b81;border-bottom:2px solid #e7daed;padding-bottom:16px}
+.controls{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:22px 0}label{font-size:13px;color:#746780}select,button{font:inherit;display:block;padding:10px 13px;margin-top:5px;border-radius:9px;background:white;border:1px solid #c7aade;color:#362547}button{background:#7029a7;color:white;font-weight:700;box-shadow:0 0 20px #af79e08f;cursor:pointer}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:16px}.panel{padding:18px;background:#fff;border:1px solid #ebdcee;border-radius:14px;box-shadow:0 8px 22px #63348916}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{padding:11px;background:#fcf4ff;border-left:4px solid #ff9d39}.stat b{font-size:24px;color:#7331b1;display:block}canvas{display:block;width:100%;height:auto;background:#190e29;border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{text-align:left;border-bottom:1px solid #e9ddec;padding:8px 5px}pre{font:12px/1.55 ui-monospace,monospace;white-space:pre-wrap;max-height:330px;overflow:auto}.note{color:#80738a;font-size:12px}a{color:#7635a9}@media(max-width:870px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>WAG-266 · Smallest Failure Found</h1>
+<p class="sub">Phase II · Turn 10/12 · Preserve the original · Remove redundant stress · Reproduce the break · .dlw</p>
+<div class="controls"><label>Failure family<select id="stress"><option>late-collapse</option><option>double-shock</option><option>intermittent</option><option>resource-squeeze</option></select></label>
+<button id="run">Replay original and reduced stress</button></div>
+<div class="layout"><section class="panel">
+<h2>Same frozen controller · original vs minimized</h2><canvas id="field" width="1000" height="430"></canvas>
+<p class="note">Orange line = original operational energy; neon purple = reduced-case energy; teal = reduced-case integrity. Dotted threshold represents the energy viability floor at 0.08.</p>
+<h2 style="margin-top:23px">Stress schedule before and after</h2><canvas id="schedule" width="1000" height="180"></canvas>
+<p class="note">Orange bars: original external energy stress. Purple bars: minimized energy stress. Teal bars: material stress where present.</p>
+<h2 style="margin-top:23px">All four minimized representatives</h2><table id="table"></table></section>
+<aside class="panel"><h2>Reproduction receipt</h2><div class="stats">
+<div class="stat">Original alive<b id="original">—</b></div><div class="stat">Reduced alive<b id="reduced">—</b></div>
+<div class="stat">Original events<b id="events">—</b></div><div class="stat">Remaining events<b id="remaining">—</b></div></div>
+<h2 style="margin-top:23px">Counterexample audit</h2><pre id="audit">Loading immutable evidence and frozen policy…</pre>
+<p class="note">The retained schedule is locally minimized, not globally optimal. No thresholds, action rules, or original observations are changed in the frozen controller. All failures come from one synthetic simulator ancestry.</p>
+<p><a href="./receipt-5501-5504.json">Complete evidence receipt</a> · <a href="../wag264/frozen-policy.json">Frozen controller</a> · <a href="../wag257/">Phase dashboard</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="./wag266.js"></script>
+<script>
+const E=id=>document.getElementById(id);let evidence,frozen,context,orig,reduced;
+function draw(){const g=E('field').getContext('2d'),W=1000,H=430;g.fillStyle='#190e29';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#48355b';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+const paths=[[orig,'energy','#ffa13d',false],[reduced,'energy','#b279ff',false],[reduced,'integrity','#4ce7dc',false]];
+for(const [item,name,color]of paths){g.strokeStyle=color;g.shadowColor=color;g.shadowBlur=10;g.lineWidth=2.7;g.beginPath();item.trace.forEach((z,i)=>i?g.lineTo(i*W/(item.trace.length-1),(1-z[name])*H):g.moveTo(0,(1-z[name])*H));g.stroke();g.shadowBlur=0}
+g.setLineDash([5,7]);g.strokeStyle='#fff';g.beginPath();g.moveTo(0,(1-.08)*H);g.lineTo(W,(1-.08)*H);g.stroke();g.setLineDash([]);g.fillStyle='#fff';g.font='bold 18px system-ui';g.fillText('FROZEN CONTROLLER · REPRODUCIBLE FAILURE',18,27);
+const s=E('schedule').getContext('2d');s.fillStyle='#190e29';s.fillRect(0,0,1000,180);
+for(const [events,col,baseline]of [[wag266Schedule(orig.stress,orig.seed),'#ff9e3b',170],[evidence.representativeMinima.find(r=>r.case.stress===orig.stress).minimized.eventsSchedule,'#b17af9',130]])events.forEach(z=>{const h=Math.min(100,Math.abs(z.energy)*780);s.fillStyle=col;s.fillRect(z.tick*1000/240,baseline-h,Math.max(2,1000/240),h);if(z.material){s.fillStyle='#4ce7dc';s.fillRect(z.tick*1000/240,baseline-Math.abs(z.material)*950,2,Math.abs(z.material)*950)}})
+s.fillStyle='#fff';s.font='13px system-ui';s.fillText('Original / reduced stress magnitude',17,25);}
+function render(){draw();const rep=evidence.representativeMinima.find(z=>z.case.stress===E('stress').value);
+E('original').textContent=orig.aliveTicks+'/240';E('reduced').textContent=reduced.aliveTicks+'/240';
+E('events').textContent=rep.original.events;E('remaining').textContent=rep.minimized.events;
+E('table').innerHTML='<tr><th>Stress</th><th>Original</th><th>Reduced</th><th>Replay</th></tr>'+
+evidence.representativeMinima.map(z=>'<tr><td>'+z.case.stress+'</td><td>'+z.original.events+'</td><td>'+z.minimized.events+'</td><td>'+(z.minimized.alive<240?'FAIL':'unexpected success')+'</td></tr>').join('');
+E('audit').textContent='Frozen policy: '+frozen.policy[rep.case.cap]+'\nStress: '+rep.case.stress+'\nCapacity: '+rep.case.cap+'\nFamily: '+rep.case.family+'\nSeed: '+rep.case.seed+'\nOriginal alive: '+orig.aliveTicks+'\nReduced alive: '+reduced.aliveTicks+'\nReduced amplitude: '+rep.minimized.amplitude.toFixed(7)+'\nRemoved events: '+(rep.original.events-rep.minimized.events)+'\nReevaluation count: '+rep.evaluations+'\nReduced first nonviable tick: '+rep.minimized.firstNonviable+'\nConservation cache: '+reduced.ledger.cacheError.toExponential(2)+'\nConservation material: '+reduced.ledger.materialError.toExponential(2)+'\n\n43 original failure IDs preserved. These 4 locally minimized schedules are NOT claimed globally minimal.'}
+function run(){try{if(!evidence||!frozen)throw Error('Evidence not loaded');
+if(!context){const models=wag251Models(),horizon=wag261Train(models);context={models,horizon}}
+const rep=evidence.representativeMinima.find(z=>z.case.stress===E('stress').value),k=rep.case;
+orig=wag266Run(k.cap,k.family,k.seed,k.stress,wag266Schedule(k.stress,k.seed),frozen,context.models,context.horizon);
+reduced=wag266Run(k.cap,k.family,k.seed,k.stress,rep.minimized.eventsSchedule,frozen,context.models,context.horizon);
+if(!orig.failed||!reduced.failed)throw Error('Failure no longer reproducible');
+render()}catch(err){E('audit').textContent='ERROR '+err.stack;throw err}}
+async function init(){try{const responses=await Promise.all([fetch('./receipt-5501-5504.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(responses.some(r=>!r.ok))throw Error('Missing required artifacts');evidence=await responses[0].json();frozen=await responses[1].json();wag264VerifyFreeze(frozen);run()}catch(err){E('audit').textContent='ERROR '+err.stack}}
+E('run').onclick=run;init();
+</script></body></html>
