@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-272 · Neural Mesh {a{b}}</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#33263e}*{box-sizing:border-box}body{margin:0}main{max-width:1400px;margin:auto;padding:25px}
+h1{font-size:clamp(30px,4.3vw,51px);color:#7329ab;letter-spacing:-.055em;margin:0}.sub{border-bottom:2px solid #e9d8f0;color:#786d86;padding-bottom:17px}
+h2{font-size:19px;color:#6b2ca5;margin:0 0 12px}
+.panel{background:white;border:1px solid #e8d8ed;border-radius:15px;padding:17px;box-shadow:0 9px 22px #683a8517}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:20px 0}
+label{font-size:13px;color:#74647f}select,button{font:inherit;display:block;margin-top:5px;padding:9px 11px;border-radius:9px;border:1px solid #c5aada;background:#fff;color:#3b2b44}
+button{background:#6d2caf;color:#fff;box-shadow:0 0 16px #b572ed89;font-weight:700;cursor:pointer}button.secondary{background:white;color:#672da3}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px}canvas{background:#180d2b;width:100%;height:auto;border-radius:12px;display:block}
+.metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.metric{background:#fbf5ff;border-left:4px solid #ff9b36;padding:10px}.metric b{color:#722aae;font-size:23px;display:block}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{border-bottom:1px solid #ebdef0;text-align:left;padding:7px 6px}pre{font:12px/1.55 ui-monospace,monospace;white-space:pre-wrap;overflow:auto;max-height:360px}.small{font-size:12px;color:#756b80}a{color:#7935b3}.legend{display:flex;gap:18px;flex-wrap:wrap;color:#756a86;font-size:12px;margin:7px 0 0}
+@media(max-width:940px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-272 · Meshed Neural Cubits</h1>
+<p class="sub">Phase III · Turn 4 of 12 · One outer brace, one nested inner brace · <strong>{a{b}}</strong> · 3 message-passing pulses · Persistent recurrent state · .dlw</p>
+<div class="controls">
+<label>Stress<select id="stress"><option>late-collapse</option><option selected>double-shock</option><option>intermittent</option><option>resource-squeeze</option></select></label>
+<label>Environment<select id="family"><option>scar</option><option selected>combined</option></select></label>
+<label>Capacity<select id="cap"><option>8</option><option selected>13</option></select></label>
+<label>Horizon<select id="duration"><option value="240">240 ticks</option><option value="480" selected>480 ticks</option></select></label>
+<label>Seed<select id="seed"><option selected>5901</option><option>5902</option><option>5903</option></select></label>
+<button id="run">Run neural mesh</button><button class="secondary" id="play">Pause</button>
+</div>
+<div class="layout"><section class="panel">
+<h2>Two braced cubits · rotating neural lattice</h2>
+<canvas id="mesh" width="1050" height="550"></canvas>
+<div class="legend"><span>🟠 a · Resource/survival regulator</span><span>🟣 b · Repair evaluator</span><span>◈ Inter-cubit weighted signals</span></div>
+<h2 style="margin-top:24px">Operational energy and structural integrity</h2>
+<canvas id="history" width="1050" height="265"></canvas>
+<p class="small">Orange = outer-cubit system energy · Purple = structural integrity · Teal = available repair material. Tick cursor corresponds to the 3D lattice above.</p>
+<h2 style="margin-top:24px">Cohort evidence: frozen vs meshed controller</h2>
+<table id="results"></table></section>
+<aside class="panel"><h2>Observe the emergent action</h2>
+<div class="metrics"><div class="metric">Alive ticks<b id="alive">—</b></div><div class="metric">Repairs applied<b id="repairs">—</b></div><div class="metric">Material charge error<b id="materialError">—</b></div><div class="metric">Phase III progress<b>33.3%</b></div></div>
+<h2 style="margin-top:24px">Neural readout</h2><pre id="readout">Loading model and evidence…</pre>
+<h2 style="margin-top:24px">Network contract</h2><p><strong>a — Outer brace:</strong> energy, material reserves, integrity, stress and permission to act.</p>
+<p><strong>b — Inner brace:</strong> repair urgency, prevention score, rebuilding score and request signal.</p>
+<p><strong>Nested mesh:</strong> <code>a.reserve → b.request → a.permit → one physical action</code>, with recurrent memory between ticks.</p>
+<p class="small">Weights are deterministic and currently fixed, not trained. Only the inherited WAG-244 engine charges energy/material for accepted repairs. This is a prototype neural-style regulator, not evidence of learned intelligence.</p>
+<p><a href="./receipt-5901-5903.json">288-run experiment receipt</a> · <a href="../wag269/phase-progress.json">Phase III progress</a> · <a href="../wag268/release-manifest.json">Sealed Phase II</a></p></aside>
+</div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="./wag272.js"></script>
+<script>
+const E=id=>document.getElementById(id);let frozen,receipt,context,runs,tick=0,playing=true,angle=0;
+const outer=[[-1,-1,-1],[1,-1,-1],[-1,1,-1],[1,1,-1],[-1,-1,1],[1,-1,1],[-1,1,1],[1,1,1]];
+const edges=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+function projection(p,scale,angle){let [x,y,z]=p;const c=Math.cos(angle),s=Math.sin(angle),X=x*c-z*s,Z=x*s+z*c;const d=4.7/(4.7+Z*.45);return [525+X*scale*d,265+(y*.93+Z*.17)*scale*d]}
+function lattice(g,scale,color,spin,brightness,label){
+ const pts=outer.map(p=>projection(p,scale,spin));
+ g.strokeStyle=color;g.lineWidth=2.3;g.shadowColor=color;g.shadowBlur=17*brightness;
+ for(const [a,b] of edges){g.beginPath();g.moveTo(...pts[a]);g.lineTo(...pts[b]);g.stroke()}
+ for(const [i,p] of pts.entries()){g.beginPath();g.arc(p[0],p[1],4+brightness*3,0,Math.PI*2);g.fillStyle=color;g.fill()}
+ g.shadowBlur=0;g.font='bold 17px system-ui';g.fillStyle=color;g.fillText(label,pts[0][0]-15,pts[0][1]-18);return pts;
+}
+function drawMesh(){
+ const g=E('mesh').getContext('2d'),W=1050,H=550;
+ g.fillStyle='#180d2b';g.fillRect(0,0,W,H);
+ for(let i=0;i<19;i++){g.strokeStyle='#39264a';g.beginPath();g.moveTo(i*W/18,0);g.lineTo(i*W/18,H);g.stroke()}
+ for(let j=0;j<9;j++){g.beginPath();g.moveTo(0,j*H/8);g.lineTo(W,j*H/8);g.stroke()}
+ if(!runs)return;const r=runs.mesh;
+ const current=r.trace[Math.min(tick,r.trace.length-1)],sample=r.samples[Math.min(Math.floor(tick/16),r.samples.length-1)];
+ const pulse=.65+.35*Math.sin(angle*3);
+ const a=lattice(g,177,'#ffa339',angle,pulse,'{a}  REGULATE');
+ const b=lattice(g,86,'#b87bff',-angle*1.3,pulse,'{b}  REPAIR');
+ for(let i=0;i<8;i++){const p=a[i],q=b[(i+3)%8];g.beginPath();g.moveTo(...p);g.lineTo(...q);
+ g.lineWidth=1.5+sample.a.permit*1.6;g.strokeStyle='rgba(95,235,233,.55)';
+ g.shadowColor='#4cf2e3';g.shadowBlur=11+10*pulse;g.stroke();g.shadowBlur=0}
+ g.fillStyle='#fff';g.font='bold 22px system-ui';g.fillText('NESTED  {a{b}}',25,37);
+ g.font='15px monospace';g.fillText('Tick '+tick+' / '+r.duration+'    Action: '+current.action.toUpperCase(),25,66);
+ g.fillStyle='#ffaf61';g.fillText('a.reserve: '+sample.a.reserve.toFixed(3)+'  a.permit: '+sample.a.permit.toFixed(3),25,H-53);
+ g.fillStyle='#d29dff';g.fillText('b.request: '+sample.b.request.toFixed(3)+'  b.urgency: '+sample.b.urgency.toFixed(3),25,H-26);
+}
+function drawHistory(){
+ const g=E('history').getContext('2d'),W=1050,H=265;g.fillStyle='#190e2d';g.fillRect(0,0,W,H);if(!runs)return;
+ const r=runs.mesh;for(const [field,color]of [['energy','#ffa13d'],['integrity','#a878ff'],['material','#46eddb']]){
+ g.beginPath();g.lineWidth=2.5;g.strokeStyle=color;g.shadowColor=color;g.shadowBlur=12;
+ r.trace.forEach((z,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-z[field])*H):g.moveTo(0,(1-z[field])*H));g.stroke();g.shadowBlur=0;}
+ g.beginPath();g.moveTo(tick*W/(r.trace.length-1),0);g.lineTo(tick*W/(r.trace.length-1),H);g.strokeStyle='#fff';g.lineWidth=1.5;g.stroke();
+}
+function display(){
+ if(!runs)return;drawMesh();drawHistory();
+ const r=runs.mesh,z=r.trace[Math.min(tick,r.trace.length-1)],sample=r.samples[Math.min(Math.floor(tick/16),r.samples.length-1)];
+ E('alive').textContent=r.aliveTicks+'/'+r.duration;
+ E('repairs').textContent=r.repairs;E('materialError').textContent=r.ledger.chargeError.toExponential(1);
+ E('readout').textContent='Tick: '+tick+'\nChosen physical action: '+z.action+
+ '\nEnergy: '+z.energy.toFixed(6)+'\nMaterial: '+z.material.toFixed(6)+'\nIntegrity: '+z.integrity.toFixed(6)+
+ '\nOuter a.survive: '+sample.a.survive.toFixed(5)+'\nOuter a.reserve: '+sample.a.reserve.toFixed(5)+
+ '\nOuter a.risk: '+sample.a.risk.toFixed(5)+'\nOuter a.permit: '+sample.a.permit.toFixed(5)+
+ '\nInner b.prevent: '+sample.b.prevent.toFixed(5)+'\nInner b.rebuild: '+sample.b.rebuild.toFixed(5)+
+ '\nInner b.urgency: '+sample.b.urgency.toFixed(5)+'\nInner b.request: '+sample.b.request.toFixed(5)+
+ '\n\nGuard denials: '+r.guardDenials+'\nEngine refusals: '+r.engineDenials+
+ '\nMaterial spent: '+r.ledger.internalMaterialCharged.toFixed(6)+
+ '\nRepair energy accounted: '+r.ledger.internalRepairEnergyAttributed.toFixed(6)+
+ '\nConservation material residual: '+r.ledger.materialResidual.toExponential(2)+
+ '\nContinuity residual: '+r.ledger.continuityMax.toExponential(2);
+}
+function stepFrame(){angle+=.004;if(playing&&runs)tick=(tick+1)%runs.mesh.duration;display();requestAnimationFrame(stepFrame)}
+function run(){try{if(!receipt||!frozen)throw Error('Missing network evidence');
+ if(!context){const models=wag251Models(),horizon=wag261Train(models);context={models,horizon}}
+ const args=[+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('stress').value];
+ runs=Object.fromEntries(['frozen','mesh','noRepair'].map(mode=>[mode,wag272Run(...args,mode,frozen,context.models,context.horizon)]));
+ tick=0;const ag=receipt.aggregate[E('duration').value];E('results').innerHTML='<tr><th>Policy</th><th>Full survival</th><th>Mean integrity</th><th>Mean repairs</th></tr>'+
+ Object.entries(ag).map(([name,z])=>'<tr><td>'+name+'</td><td>'+z.fullSurvival+'/'+z.n+'</td><td>'+z.meanIntegrity.toFixed(6)+'</td><td>'+z.meanRepairs.toFixed(2)+'</td></tr>').join('');
+ display();
+ }catch(e){E('readout').textContent='ERROR '+e.stack;throw e}}
+async function init(){try{const responses=await Promise.all([fetch('./receipt-5901-5903.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'})]);if(responses.some(r=>!r.ok))throw Error('Missing committed evidence artifacts');
+ receipt=await responses[0].json();frozen=await responses[1].json();wag264VerifyFreeze(frozen);run();
+ }catch(e){E('readout').textContent='ERROR '+e.stack}}
+E('run').onclick=run;E('play').onclick=()=>{playing=!playing;E('play').textContent=playing?'Pause':'Play'};
+requestAnimationFrame(stepFrame);init();
+</script></body></html>
