@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-276 · {\a{b/}} Crystalline Controller</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#392741}*{box-sizing:border-box}body{margin:0}main{max-width:1350px;margin:auto;padding:26px}h1{font-size:clamp(30px,4vw,48px);color:#7330a8;letter-spacing:-.055em;margin:0}h2{font-size:19px;color:#6c29ad;margin:0 0 12px}.sub{color:#796b83;border-bottom:2px solid #e5d7ed;padding-bottom:16px}
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:20px 0}label{font-size:13px;color:#756982}select,button{font:inherit;display:block;margin-top:5px;background:white;border:1px solid #c9aed9;border-radius:9px;padding:10px;color:#352745}button{background:#6a2aaa;color:white;box-shadow:0 0 16px #b07cf29a;cursor:pointer;font-weight:700}
+.layout{display:grid;grid-template-columns:1.6fr 1fr;gap:15px}.panel{background:white;border:1px solid #e8d9ef;border-radius:14px;padding:18px;box-shadow:0 9px 22px #65348a17}canvas{width:100%;height:auto;background:#180d2c;border-radius:11px;display:block}table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:8px 5px;border-bottom:1px solid #eee1f2;text-align:left}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{padding:11px;background:#fcf5ff;border-left:4px solid #ffa13b}.metric b{display:block;font-size:23px;color:#6e2bac}.small{font-size:12px;color:#74677f}pre{font:12px/1.5 monospace;white-space:pre-wrap;max-height:280px;overflow:auto}a{color:#7134a6}@media(max-width:890px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-276 · Crystalline Controller</h1><p class="sub">Phase III · Turn 8 of 12 · <strong>{\a{b/}}</strong> · Frozen neural candidate, no learned weights · One diodic physical gate · .dlw</p>
+<div class="controls">
+<label>Duration<select id="duration"><option value="240">240 ticks</option><option value="480" selected>480 ticks</option></select></label>
+<label>Stress<select id="force"><option>antiphase</option><option selected>surge-crash</option><option>shrinking-cycle</option><option>dual-burst</option></select></label>
+<label>Family<select id="family"><option>scar</option><option selected>combined</option></select></label>
+<label>Capacity<select id="cap"><option>8</option><option selected>13</option></select></label>
+<label>Seed<select id="seed"><option selected>6301</option><option>6302</option><option>6303</option></select></label>
+<button id="run">Replay crystalline controller</button></div>
+<div class="layout">
+<section class="panel"><h2>Counter-oriented crystalline lattice</h2><canvas id="lattice" width="1050" height="400"></canvas>
+<p class="small">Orange outer \a regulates survival and resources. Purple inner b/ evaluates repairs. Eight counter-oriented rail pairs exchange signals; they do not exchange physical energy or material.</p>
+<h2 style="margin-top:23px">Structural integrity: matched controllers</h2><canvas id="plot" width="1050" height="330"></canvas>
+<p class="small">Orange frozen WAG-261 · purple original mesh · teal crystalline mesh. No candidate is promoted by this experiment.</p>
+<h2 style="margin-top:23px">Cohort results</h2><table id="aggregate"></table></section>
+<aside class="panel"><h2>Acceptance record</h2>
+<div class="metrics"><div class="metric">Policy runs<b>288</b></div><div class="metric">Matched cases<b>96</b></div><div class="metric">Integrity regressions<b>65</b></div><div class="metric">Phase III complete<b>66.7%</b></div></div>
+<h2 style="margin-top:23px">Physical & crystalline readout</h2><pre id="audit">Loading WAG-276 release evidence…</pre>
+<p class="small">Crystalline coefficients were committed before evaluation. This frozen experimental candidate awaits WAG-277 withheld seeds; the production reference remains frozen WAG-261.</p>
+<p><a href="./receipt-6301-6303.json">288-run evidence</a> · <a href="./frozen-crystalline-candidate.json">Candidate freeze contract</a> · <a href="./CRYSTALLINE_MESH.md">Geometry specification</a> · <a href="../wag269/phase-progress.json">Phase III tracker</a></p></aside></div></main>
+<script src="../wag245/wag245.js"></script><script src="../wag246/wag246.js"></script><script src="../wag247/wag247.js"></script><script src="../wag248/wag248.js"></script><script src="../wag249/wag249.js"></script><script src="../wag250/wag250.js"></script><script src="../wag251/wag251.js"></script><script src="../wag261/wag261.js"></script><script src="../wag263/wag263.js"></script><script src="../wag264/wag264.js"></script><script src="../wag265/wag265.js"></script><script src="../wag269/wag269.js"></script><script src="../wag272/wag272.js"></script><script src="../wag274/wag274.js"></script><script src="./crystalline-mesh.js"></script><script src="./wag276.js"></script>
+<script>
+const E=id=>document.getElementById(id);let frozen,receipt,config,context,runs,angle=0;
+function project(p,scale,ang){const c=Math.cos(ang),s=Math.sin(ang),X=p.x*c-p.z*s,Z=p.x*s+p.z*c,d=4.7/(4.7+.45*Z);return [525+X*scale*d,198+(p.y*.8+.13*Z)*scale*d]}
+function lattice(){const g=E('lattice').getContext('2d');g.fillStyle='#180d2c';g.fillRect(0,0,1050,400);
+function cube(scale,rot,col,label){const pts=wag276CrystalVertices().map(p=>project(p,scale,rot));g.strokeStyle=col;g.lineWidth=2.7;g.shadowBlur=13;g.shadowColor=col;wag276CrystalEdges().forEach(e=>{g.beginPath();g.moveTo(...pts[e.from]);g.lineTo(...pts[e.to]);g.stroke()});g.shadowBlur=0;g.fillStyle=col;g.font='bold 17px system-ui';g.fillText(label,pts[0][0],pts[0][1]-13);return pts}
+const a=cube(145,angle,'#ffa13b','\\a · resources'),b=cube(72,-angle*1.4,'#b584ff','b/ · repair');
+for(const rail of wag276CrystalRails().filter(x=>x.from==='a')){g.beginPath();g.moveTo(...a[rail.fromVertex]);g.lineTo(...b[rail.toVertex]);g.setLineDash([6,5]);g.strokeStyle='#48e8dc';g.lineWidth=1.6;g.shadowColor='#48e8dc';g.shadowBlur=9;g.stroke();g.shadowBlur=0;g.setLineDash([])}
+g.fillStyle='#fff';g.font='bold 24px monospace';g.fillText('{\\a{b/}} · fixed crystal rails',20,34);
+angle+=.004;requestAnimationFrame(lattice)}
+function plot(){if(!runs)return;const g=E('plot').getContext('2d'),W=1050,H=330;g.fillStyle='#180d2c';g.fillRect(0,0,W,H);
+for(let j=0;j<=10;j++){g.strokeStyle='#473159';g.beginPath();g.moveTo(0,j*H/10);g.lineTo(W,j*H/10);g.stroke()}
+for(const [mode,col]of [['frozen','#ffa13b'],['mesh','#b686ff'],['crystal','#47eada']]){const r=runs[mode];g.beginPath();g.lineWidth=2.5;g.strokeStyle=col;g.shadowColor=col;g.shadowBlur=9;r.trace.forEach((z,i)=>i?g.lineTo(i*W/(r.trace.length-1),(1-z.integrity)*H):g.moveTo(0,(1-z.integrity)*H));g.stroke();g.shadowBlur=0}}
+function show(){plot();const agg=receipt.aggregate[E('duration').value];E('aggregate').innerHTML='<tr><th>Controller</th><th>Full survival</th><th>Mean integrity</th><th>Mean repairs</th></tr>'+
+Object.entries(agg).map(([mode,z])=>'<tr><td>'+mode+'</td><td>'+z.fullSurvival+'/'+z.n+'</td><td>'+z.meanIntegrity.toFixed(6)+'</td><td>'+z.meanRepairs.toFixed(2)+'</td></tr>').join('');
+const c=runs.crystal,f=runs.frozen,m=runs.mesh;E('audit').textContent='Frozen primitive: '+config.primitive+
+'\nCrystalline coefficient: '+config.railWeight+'\n3 propagation passes\n\n'+
+'Case: '+E('family').value+' / '+E('force').value+
+'\nSeed '+E('seed').value+', capacity '+E('cap').value+
+'\nCrystal alive: '+c.aliveTicks+'/'+c.duration+
+'\nFrozen alive: '+f.aliveTicks+'/'+f.duration+
+'\nOriginal mesh alive: '+m.aliveTicks+'/'+m.duration+
+'\nCrystal integrity: '+c.meanIntegrity.toFixed(6)+
+'\nFrozen integrity: '+f.meanIntegrity.toFixed(6)+
+'\nRail vetoes: '+c.crystalVeto+
+'\nActual repairs: '+c.repairs+
+'\nPhysical rejections: '+c.denied+
+'\nMax material/energy residual: '+c.conservation.toExponential(2)+
+'\nContinuity error: '+c.continuity.toExponential(2)+
+'\n\nCandidate frozen; no promotion on current cohort.'}
+function run(){try{if(!frozen||!receipt)throw Error('Missing artifacts');if(!context){const models=wag251Models(),horizon=wag261Train(models);context={models,horizon}}
+const args=[+E('cap').value,E('family').value,+E('seed').value,+E('duration').value,E('force').value];
+runs=Object.fromEntries(['frozen','mesh','crystal'].map(mode=>[mode,wag276Run(...args,mode,frozen,context.models,context.horizon)]));show()}catch(e){E('audit').textContent='ERROR '+e.stack;throw e}}
+async function init(){try{const r=await Promise.all([fetch('./receipt-6301-6303.json',{cache:'no-store'}),fetch('../wag264/frozen-policy.json',{cache:'no-store'}),fetch('./frozen-crystalline-candidate.json',{cache:'no-store'})]);if(r.some(z=>!z.ok))throw Error('Missing committed receipt or frozen candidate');receipt=await r[0].json();frozen=await r[1].json();config=await r[2].json();wag264VerifyFreeze(frozen);if(config.primitive!==receipt.primitive)throw Error('Geometry mismatch');run()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('run').onclick=run;requestAnimationFrame(lattice);init();
+</script></body></html>
