@@ -3,11 +3,11 @@
   "name": "Hegemonic Diodic Control",
   "status": "OPEN",
   "plannedTurns": 12,
-  "completedTurns": 5,
-  "progressPercent": 41.7,
+  "completedTurns": 6,
+  "progressPercent": 50,
   "firstBound": 257,
   "lastBound": 268,
-  "nextBound": 262,
+  "nextBound": 263,
   "acceptanceRule": "Commit + executable test + published source/page + evidence receipt; live deployment separately verified",
   "boundaryRule": "Close early on witness-majority, quorum, Byzantine or consensus protocol expansion; preserve actual percentage, do not claim 100%",
   "milestones": [
@@ -38,7 +38,7 @@
     },
     {
       "bound": 262,
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 50
     },
     {
@@ -73,17 +73,15 @@
     }
   ],
   "lastAccepted": {
-    "bound": 261,
-    "engine": "docs/wag261/wag261.js",
-    "lab": "docs/wag261/index.html",
-    "receipt": "docs/wag261/receipt-5001-5004.json",
-    "trainingSnapshots": 720,
-    "trainingObservations": 1728,
-    "holdoutCases": 64,
-    "improved": 1,
-    "tied": 63,
-    "regressed": 0,
-    "survivalReserveNonInferior": 64,
-    "summary": "WAG250 repair fallback preserves baseline; one modest synthetic multi-horizon gain; Pages live deployment unverified"
+    "bound": 262,
+    "engine": "docs/wag262/wag262.js",
+    "lab": "docs/wag262/index.html",
+    "receipt": "docs/wag262/receipt-5101-5104.json",
+    "testCases": 32,
+    "forcedFeeTransactions": 64,
+    "continuityPass": 32,
+    "productionIntegrityRegressions": 0,
+    "feeResidualMax": 0,
+    "summary": "External switching fees persisted in operational energy into subsequent ticks; native repair material/energy charged once. Forced accounting probes are diagnostic only. Production matched WAG261, live Pages deployment unverified."
   }
 }
