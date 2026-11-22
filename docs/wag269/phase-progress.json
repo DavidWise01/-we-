@@ -6,9 +6,9 @@
   "firstBound": 269,
   "lastBound": 280,
   "plannedTurns": 12,
-  "completedTurns": 4,
-  "progressPercent": 33.3,
-  "nextBound": 273,
+  "completedTurns": 5,
+  "progressPercent": 41.7,
+  "nextBound": 274,
   "policyPromotion": "NONE",
   "scope": "Ranked single-action control with survival, integrity, material and prolonged stress horizons",
   "milestones": [
@@ -39,7 +39,7 @@
     {
       "bound": 273,
       "name": "Survival risk calibration",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 41.7
     },
     {
@@ -86,29 +86,27 @@
     }
   ],
   "lastAccepted": {
-    "bound": 272,
+    "bound": 273,
     "primitive": "{a{b}}",
-    "engine": "docs/wag272/wag272.js",
-    "lab": "docs/wag272/index.html",
-    "receipt": "docs/wag272/receipt-5901-5903.json",
-    "policyRuns": 288,
-    "matchedConditions": 96,
-    "architecture": "Two braced cubits; fixed-coefficient three-pass temporal recurrent neural mesh; outer a resource/survival regulator, inner b repair evaluator. One physically gated action per tick.",
-    "repairMaterialChargeError": 0,
-    "fullSurvival240": {
-      "mesh": 39,
-      "frozen": 36,
-      "cases": 48
+    "engine": "docs/wag273/wag273.js",
+    "lab": "docs/wag273/index.html",
+    "receipt": "docs/wag273/receipt-6001-6003.json",
+    "syntheticRuns": 96,
+    "riskPredictions": 1440,
+    "repairCounterfactualLabels": 710,
+    "outerRisk": {
+      "brier": 0.08838648724431503,
+      "ece": 0.21960891157506085,
+      "events": 277
     },
-    "fullSurvival480": {
-      "mesh": 24,
-      "frozen": 24,
-      "cases": 48
+    "innerValue": {
+      "brier": 0.2280456247014982,
+      "ece": 0.12309471364694147,
+      "positiveValues": 474
     },
-    "meshIntegrityRegressions": 76,
-    "meshIntegrityImprovements": 20,
+    "weightsFrozen": true,
     "policyPromoted": false,
-    "summary": "First 3D neon visualized {a{b}} meshed neural-style regulator committed. Fixed weights, not trained. Resource audit and deterministic replay passed. Synthetic only; frozen WAG261 unchanged; live Pages deployment unverified."
+    "summary": "First two-cubit mesh reliability calibration on new seeds. Both raw neural scores demonstrably miscalibrated; no fitted probabilities or policy promotion. 96-case compact receipt, 1440 risk and 710 value predictions regenerate from engine. GitHub Pages serving unverified."
   },
   "acceptanceRule": "Committed executable source, tested evidence, page, and receipt; verify live Pages separately; don't tune on the evaluation cohort"
 }
