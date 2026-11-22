@@ -31,7 +31,8 @@ function wag273Bins(rows,scoreKey,labelKey){
  }
  return {n,positives:positive,baseRate:n?positive/n:null,
   brier:n?brier/n:null,ece:n?ece:null,
-  falseSafe,coverage:n?1-falseSafe/n:null,bins};
+  falseSafe,falseSafeRateAmongAll:n?falseSafe/n:null,
+  falseSafeRateAmongPositive:positive?falseSafe/positive:null,bins};
 }
 function wag273Branch(x,action,horizon){
  // Copies only within the offline evaluator, never in online action selection.
