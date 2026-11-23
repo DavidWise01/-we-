@@ -11,7 +11,7 @@ const WAG284_CONFIG=Object.freeze({
  trainSeeds:[7101,7102,7103],heldoutSeeds:[7201,7202],
  durations:[240],forces:['antiphase','dual-burst'],
  families:['scar','combined'],capacities:[8,13],
- sampleTicks:[48,72,96,120,144,168,192],
+ sampleTicks:[48,72,96,120,144,168],
  horizons:[24,48],featureCount:32,epochs:120,rate:.035,
  ridge:.003,materialValue:.25,
  target:'delayed relative crystal-vs-reference integrity gain plus material reserve advantage',
