@@ -1,0 +1,2478 @@
+{
+  "bound": "WAG-284",
+  "phase": "WAG-IV",
+  "turn": 4,
+  "config": {
+    "primitive": "---@---@---@---@---{} → {\\a{b/}}",
+    "trainSeeds": [
+      7101,
+      7102,
+      7103
+    ],
+    "heldoutSeeds": [
+      7201,
+      7202
+    ],
+    "durations": [
+      240
+    ],
+    "forces": [
+      "antiphase",
+      "dual-burst"
+    ],
+    "families": [
+      "scar",
+      "combined"
+    ],
+    "capacities": [
+      8,
+      13
+    ],
+    "sampleTicks": [
+      48,
+      72,
+      96,
+      120,
+      144,
+      168
+    ],
+    "horizons": [
+      24,
+      48
+    ],
+    "featureCount": 32,
+    "epochs": 120,
+    "rate": 0.035,
+    "ridge": 0.003,
+    "materialValue": 0.25,
+    "target": "delayed relative crystal-vs-reference integrity gain plus material reserve advantage",
+    "policyAuthority": "WAG-261; read-only observation only"
+  },
+  "model": {
+    "weights": [
+      0.005420078037413781,
+      -0.001411977356432613,
+      -0.0028219184377198583,
+      -0.0024717151796555463,
+      -0.0017235891668595247,
+      0.0004187749766148764,
+      -0.008395564832488473,
+      -0.001086594481056087,
+      -0.003105701874247263,
+      0.004816580418418975,
+      -0.0026828287234690724,
+      -0.005819669982709101,
+      0.005347141408811068,
+      -0.001361872658287616,
+      0.005679653819666781,
+      0,
+      -0.006662498428891258,
+      0.00666249842889128,
+      0.003335477884188955,
+      -0.00542007803741378,
+      0.0028219184377199463,
+      0.001411977356432614,
+      -0.003945634576761737,
+      0.0009165280031039597,
+      -0.00047243225543151633,
+      -0.015305980514826862,
+      -0.009193710457521818,
+      -0.0015447885150828933,
+      -0.003580649247739746,
+      -0.0037770178425239245,
+      -0.0006033436708223936,
+      2.46238872865577e-16
+    ],
+    "mean": 0.003086388888888883,
+    "mu": [
+      0.8753479861111109,
+      0.5143819938748045,
+      0.20503888888889027,
+      0.906628958333332,
+      0.5614136375401927,
+      0.20490347222222347,
+      0.9246957638888881,
+      0.569444861191056,
+      0.20644236111111225,
+      0.38454652777777787,
+      0.3418879431303212,
+      0.5006770833333336,
+      0.44032187500000003,
+      0.45802376783521603,
+      0.49230555555555594,
+      0,
+      0.6180555555555539,
+      0.3819444444444436,
+      0.44999999999999885,
+      0.1246520138888888,
+      0.7949611111111109,
+      0.48561800612519535,
+      0.4877489356405983,
+      0.1803284156875012,
+      0.10600134172431358,
+      0.262517777777777,
+      0.07393888888888943,
+      0.6015111746711324,
+      0.7974288385243052,
+      0.3473816025022004,
+      0.04254250847222274,
+      0
+    ],
+    "sd": [
+      0.17662033216911233,
+      0.2877373227087185,
+      0.022395591428495256,
+      0.1283413266001963,
+      0.2815962902209201,
+      0.020645222117405295,
+      0.08518969970323635,
+      0.26091957666233,
+      0.021213388657025982,
+      0.19091078401499872,
+      0.34662245926989127,
+      0.06172535126441376,
+      0.15575294514322985,
+      0.34739925710609004,
+      0.0656097763059255,
+      0.02,
+      0.48586303193644015,
+      0.48586303193643837,
+      0.17078251276599338,
+      0.17662033216911238,
+      0.022395591428495246,
+      0.28773732270871843,
+      0.28677790514198076,
+      0.044420884827972094,
+      0.05991281522826117,
+      0.3331847558130067,
+      0.06548177557228184,
+      0.37043164480506446,
+      0.24234635734173365,
+      0.2923448544585211,
+      0.02,
+      1
+    ],
+    "history": [
+      {
+        "epoch": 0,
+        "trainMSE": 0.0012597146532793207
+      },
+      {
+        "epoch": 20,
+        "trainMSE": 0.0009959084706529719
+      },
+      {
+        "epoch": 40,
+        "trainMSE": 0.0009475050402181239
+      },
+      {
+        "epoch": 60,
+        "trainMSE": 0.0009217066521592395
+      },
+      {
+        "epoch": 80,
+        "trainMSE": 0.0009048739323344366
+      },
+      {
+        "epoch": 100,
+        "trainMSE": 0.0008926383339889852
+      },
+      {
+        "epoch": 120,
+        "trainMSE": 0.0008830808343975043
+      }
+    ]
+  },
+  "training": {
+    "count": 288,
+    "scenarios": [
+      {
+        "seed": 7101,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7101,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7101,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7101,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7101,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 178,
+        "crystalAlive": 182
+      },
+      {
+        "seed": 7101,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 133,
+        "crystalAlive": 135
+      },
+      {
+        "seed": 7101,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 135,
+        "crystalAlive": 135
+      },
+      {
+        "seed": 7101,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 134,
+        "crystalAlive": 134
+      },
+      {
+        "seed": 7102,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7102,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7102,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7102,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7102,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 179,
+        "crystalAlive": 194
+      },
+      {
+        "seed": 7102,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 133,
+        "crystalAlive": 134
+      },
+      {
+        "seed": 7102,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 134,
+        "crystalAlive": 134
+      },
+      {
+        "seed": 7102,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 133,
+        "crystalAlive": 133
+      },
+      {
+        "seed": 7103,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7103,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7103,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7103,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7103,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 176,
+        "crystalAlive": 182
+      },
+      {
+        "seed": 7103,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 133,
+        "crystalAlive": 134
+      },
+      {
+        "seed": 7103,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 133,
+        "crystalAlive": 133
+      },
+      {
+        "seed": 7103,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 132,
+        "crystalAlive": 132
+      }
+    ],
+    "baselineMSE": 0.0012597146532793205,
+    "trainedMSE": 0.0008830808343975046
+  },
+  "heldout": {
+    "count": 192,
+    "scenarios": [
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 182,
+        "crystalAlive": 184
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 167,
+        "crystalAlive": 168
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 137,
+        "crystalAlive": 138
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 136,
+        "crystalAlive": 136
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 240,
+        "crystalAlive": 240
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "referenceAlive": 181,
+        "crystalAlive": 186
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "referenceAlive": 155,
+        "crystalAlive": 167
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "referenceAlive": 137,
+        "crystalAlive": 137
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "referenceAlive": 135,
+        "crystalAlive": 135
+      }
+    ],
+    "baselineMSE": 0.0003860874799961421,
+    "trainedMSE": 0.00046290205934155707,
+    "mae": 0.013962962584845579,
+    "signWins": 119,
+    "examples": 192,
+    "samples": [
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.0010800000000000254,
+        "prediction": 0.0030550471346618467
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": -0.0009050000000000308,
+        "prediction": 0.0030550471346618467
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": -0.001985000000000056,
+        "prediction": -0.011923265531400147
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": -0.008090000000000042,
+        "prediction": -0.011923265531400147
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": -0.0061049999999999854,
+        "prediction": -0.004830123783770271
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": -0.0064299999999999635,
+        "prediction": -0.004830123783770271
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": -0.0003249999999999781,
+        "prediction": 0.011829340868075466
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": -0.0018600000000000005,
+        "prediction": 0.011829340868075466
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": -0.0015350000000000225,
+        "prediction": 0.0034856325869117685
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": -0.004454999999999945,
+        "prediction": 0.0034856325869117685
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": -0.0029199999999999227,
+        "prediction": 0.0014522365412966557
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": -0.00454499999999998,
+        "prediction": 0.0014522365412966557
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": -0.0007999999999999674,
+        "prediction": 0.0030550471346618467
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.0021000000000000463,
+        "prediction": 0.0030550471346618467
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.0013000000000000789,
+        "prediction": 0.00006924921514864625
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": -0.004864999999999994,
+        "prediction": 0.00006924921514864625
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": -0.0035649999999999155,
+        "prediction": 0.03958403670074612
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": -0.010064999999999921,
+        "prediction": 0.03958403670074612
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": -0.006500000000000006,
+        "prediction": 0.0030121674482769564
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": -0.011345000000000036,
+        "prediction": 0.0030121674482769564
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": -0.00484500000000003,
+        "prediction": -0.006847913244576056
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": -0.008810000000000123,
+        "prediction": -0.006847913244576056
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.0039650000000000934,
+        "prediction": -0.006092609295355326
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.007550000000000084,
+        "prediction": -0.006092609295355326
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.0010800000000000254,
+        "prediction": 0.009740438070138737
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": -0.0011149999999999632,
+        "prediction": 0.009740438070138737
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": -0.0021949999999999886,
+        "prediction": -0.01440302339369764
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": -0.009715000000000099,
+        "prediction": -0.01440302339369764
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": -0.00752000000000011,
+        "prediction": -0.00367729036499624
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": -0.007845000000000088,
+        "prediction": -0.00367729036499624
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": -0.0003249999999999781,
+        "prediction": -0.007492477768515351
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": -0.0018399999999998695,
+        "prediction": -0.007492477768515351
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": -0.0015149999999998914,
+        "prediction": 0.00886888043449415
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": -0.005249999999999949,
+        "prediction": 0.00886888043449415
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": -0.0037350000000000577,
+        "prediction": 0.01900918017178669
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": -0.005380000000000024,
+        "prediction": 0.01900918017178669
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": -0.0007999999999999674,
+        "prediction": 0.01014622808154713
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.0021000000000000463,
+        "prediction": 0.01014622808154713
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.0013000000000000789,
+        "prediction": -0.0025753005421894934
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": -0.0032400000000000484,
+        "prediction": -0.0025753005421894934
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": -0.0019399999999999695,
+        "prediction": 0.024281427858015545
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": -0.008439999999999864,
+        "prediction": 0.024281427858015545
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": -0.006499999999999895,
+        "prediction": -0.015076738462435213
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": -0.011345000000000036,
+        "prediction": -0.015076738462435213
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": -0.004845000000000141,
+        "prediction": -0.002255844419334262
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": -0.008904999999999982,
+        "prediction": -0.002255844419334262
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.0040599999999998415,
+        "prediction": 0.006544103710377577
+      },
+      {
+        "seed": 7201,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.009289999999999965,
+        "prediction": 0.006544103710377577
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.005715000000000095,
+        "prediction": 0.00666609229422769
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": 0.00840500000000001,
+        "prediction": 0.00666609229422769
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": 0.0026899999999999147,
+        "prediction": 0.02609462068161586
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": 0.009169999999999928,
+        "prediction": 0.02609462068161586
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": 0.0064800000000000135,
+        "prediction": 0.0031153572755065187
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": 0.013389999999999985,
+        "prediction": 0.0031153572755065187
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": 0.006909999999999972,
+        "prediction": 0.021646546381347997
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": 0.013170000000000126,
+        "prediction": 0.021646546381347997
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": 0.006260000000000154,
+        "prediction": 0.07525074629875922
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": 0.04284000000000003,
+        "prediction": 0.07525074629875922
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": 0.036579999999999877,
+        "prediction": 0.05612123496898262
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": 0.036319999999999825,
+        "prediction": 0.05612123496898262
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": -0.0016250000000000014,
+        "prediction": -0.00035746351018924516
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.0029149999999999315,
+        "prediction": -0.00035746351018924516
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.00128999999999993,
+        "prediction": 0.013849390035004757
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": 0.003580000000000083,
+        "prediction": 0.013849390035004757
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": 0.004870000000000013,
+        "prediction": 0.005696909316872287
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": 0.044189999999999924,
+        "prediction": 0.005696909316872287
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": 0.03931999999999991,
+        "prediction": 0.03887608813989337
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": 0.06257999999999997,
+        "prediction": 0.03887608813989337
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": 0.02326000000000006,
+        "prediction": 0.01382505336903566
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": 0.01874,
+        "prediction": 0.01382505336903566
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.004520000000000059,
+        "prediction": -0.0069118616317548915
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.04839000000000015,
+        "prediction": -0.0069118616317548915
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.0016449999999999382,
+        "prediction": 0.055746809636933056
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": 0.0009599999999999331,
+        "prediction": 0.055746809636933056
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": -0.000685000000000005,
+        "prediction": 0.025448657013434756
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": 0.0007400000000000462,
+        "prediction": 0.025448657013434756
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": 0.0014250000000000512,
+        "prediction": 0.0002368775287947848
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": 0.0026150000000000756,
+        "prediction": 0.0002368775287947848
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": 0.0011900000000000244,
+        "prediction": 0.00456661610993078
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": 0.0020300000000000318,
+        "prediction": 0.00456661610993078
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": 0.0008400000000000074,
+        "prediction": 0.02442258991188579
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": 0.002610000000000001,
+        "prediction": 0.02442258991188579
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": 0.0017699999999999938,
+        "prediction": 0.008710576585320758
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": 0.0017699999999999938,
+        "prediction": 0.008710576585320758
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": 0.0025500000000000522,
+        "prediction": 0.021152128786179683
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.004064999999999944,
+        "prediction": 0.021152128786179683
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.006614999999999996,
+        "prediction": 0.03147991151096643
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": -0.004209999999999964,
+        "prediction": 0.03147991151096643
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": 0.002405000000000032,
+        "prediction": 0.022523177805823476
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": 0.028054999999999983,
+        "prediction": 0.022523177805823476
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": 0.02564999999999995,
+        "prediction": 0.016324835500560304
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": 0.02511000000000002,
+        "prediction": 0.016324835500560304
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": -0.0005399999999999294,
+        "prediction": -0.0007777194787427981
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": -0.0009599999999999748,
+        "prediction": -0.0007777194787427981
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.00042000000000004534,
+        "prediction": -0.00834682139683733
+      },
+      {
+        "seed": 7201,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.017640000000000045,
+        "prediction": -0.00834682139683733
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.0010699999999999599,
+        "prediction": 0.0004117356051822731
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": -0.0013649999999999357,
+        "prediction": 0.0004117356051822731
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": -0.0024349999999998956,
+        "prediction": -0.01222954854587643
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": -0.00808999999999993,
+        "prediction": -0.01222954854587643
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": -0.005655000000000035,
+        "prediction": -0.005083528499733959
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": -0.005980000000000124,
+        "prediction": -0.005083528499733959
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": -0.0003250000000000891,
+        "prediction": 0.013140725803034126
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": -0.0018600000000000005,
+        "prediction": 0.013140725803034126
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": -0.0015349999999999114,
+        "prediction": 0.002441647902030569
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": -0.0032849999999999963,
+        "prediction": 0.002441647902030569
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": -0.0017500000000000848,
+        "prediction": 0.002746219373337739
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": -0.0033750000000000308,
+        "prediction": 0.002746219373337739
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": -0.0008800000000000474,
+        "prediction": 0.0004117356051822731
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.0021699999999999497,
+        "prediction": 0.0004117356051822731
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.0012899999999999023,
+        "prediction": 0.00006018841702179825
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": -0.004874999999999949,
+        "prediction": 0.00006018841702179825
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": -0.0035850000000000465,
+        "prediction": 0.03908505373864775
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": -0.010085000000000052,
+        "prediction": 0.03908505373864775
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": -0.006500000000000006,
+        "prediction": 0.004723311806473854
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": -0.011495000000000019,
+        "prediction": 0.004723311806473854
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": -0.004995000000000013,
+        "prediction": -0.007227144574012285
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": -0.008265000000000015,
+        "prediction": -0.007227144574012285
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.003270000000000002,
+        "prediction": -0.004615896960901204
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.008154999999999961,
+        "prediction": -0.004615896960901204
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.0010699999999999599,
+        "prediction": 0.007613569484331931
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": -0.002215000000000064,
+        "prediction": 0.007613569484331931
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": -0.003285000000000024,
+        "prediction": -0.017719524572481056
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": -0.009714999999999988,
+        "prediction": -0.017719524572481056
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": -0.0064299999999999635,
+        "prediction": -0.006222968947876542
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": -0.006754999999999942,
+        "prediction": -0.006222968947876542
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": -0.0003249999999999781,
+        "prediction": -0.010998881412660064
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": -0.0018399999999999805,
+        "prediction": -0.010998881412660064
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": -0.0015150000000000025,
+        "prediction": 0.005694686886877329
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": -0.002360000000000001,
+        "prediction": 0.005694686886877329
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": -0.0008449999999999985,
+        "prediction": 0.01573183798181191
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": -0.004970000000000002,
+        "prediction": 0.01573183798181191
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": -0.0008800000000000474,
+        "prediction": 0.007655767955448308
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.0021699999999999497,
+        "prediction": 0.007655767955448308
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.0012899999999999023,
+        "prediction": -0.005660205470945175
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": -0.003249999999999892,
+        "prediction": -0.005660205470945175
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": -0.0019599999999999895,
+        "prediction": 0.021134127771189243
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": -0.008459999999999995,
+        "prediction": 0.021134127771189243
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": -0.006500000000000006,
+        "prediction": -0.01854055199033504
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": -0.01149500000000013,
+        "prediction": -0.01854055199033504
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": -0.004995000000000124,
+        "prediction": -0.0054768416294683105
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": -0.009315000000000115,
+        "prediction": -0.0054768416294683105
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.0043199999999999905,
+        "prediction": 0.0035202117433467787
+      },
+      {
+        "seed": 7202,
+        "family": "scar",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.009539999999999937,
+        "prediction": 0.0035202117433467787
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.005350000000000049,
+        "prediction": 0.007833080656812477
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": 0.008340000000000042,
+        "prediction": 0.007833080656812477
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": 0.0029899999999999927,
+        "prediction": 0.026156032179737613
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": 0.009729999999999933,
+        "prediction": 0.026156032179737613
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": 0.0067399999999999405,
+        "prediction": 0.001570939675805689
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": 0.013829999999999981,
+        "prediction": 0.001570939675805689
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": 0.007090000000000041,
+        "prediction": 0.021017391000762605
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": 0.013539999999999996,
+        "prediction": 0.021017391000762605
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": 0.006449999999999956,
+        "prediction": 0.07937412062585908
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": 0.04299999999999998,
+        "prediction": 0.07937412062585908
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": 0.03655000000000003,
+        "prediction": 0.05462288635531386
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": 0.03462999999999996,
+        "prediction": 0.05462288635531386
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": -0.0016450000000000214,
+        "prediction": 0.0013602916987017727
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.0030150000000000315,
+        "prediction": 0.0013602916987017727
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.00137000000000001,
+        "prediction": 0.013592522004365896
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": 0.003584999999999963,
+        "prediction": 0.013592522004365896
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": 0.004954999999999973,
+        "prediction": 0.0046887663491197535
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": 0.08011499999999998,
+        "prediction": 0.0046887663491197535
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": 0.07516,
+        "prediction": 0.03870514145002662
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": 0.13037000000000004,
+        "prediction": 0.03870514145002662
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": 0.05521000000000004,
+        "prediction": 0.011423501977112305
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": 0.027830000000000077,
+        "prediction": 0.011423501977112305
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.02737999999999996,
+        "prediction": -0.00939010527037987
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "antiphase",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.11553000000000006,
+        "prediction": -0.00939010527037987
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 24,
+        "target": 0.011274999999999938,
+        "prediction": 0.02930681470965579
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 48,
+        "h": 48,
+        "target": 0.01439000000000007,
+        "prediction": 0.02930681470965579
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 24,
+        "target": 0.0031150000000001316,
+        "prediction": 0.03391860240924896
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 72,
+        "h": 48,
+        "target": 0.007779999999999981,
+        "prediction": 0.03391860240924896
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 24,
+        "target": 0.00466499999999985,
+        "prediction": -0.00300689750701803
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 96,
+        "h": 48,
+        "target": 0.0077449999999999325,
+        "prediction": -0.00300689750701803
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 24,
+        "target": 0.0030800000000000827,
+        "prediction": -0.0002858279403688958
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 120,
+        "h": 48,
+        "target": 0.0014500000000000624,
+        "prediction": -0.0002858279403688958
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 24,
+        "target": -0.0016300000000000203,
+        "prediction": 0.0169818109255253
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 144,
+        "h": 48,
+        "target": -0.011240000000000028,
+        "prediction": 0.0169818109255253
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 24,
+        "target": -0.009610000000000007,
+        "prediction": 0.008842017092822035
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 8,
+        "t": 168,
+        "h": 48,
+        "target": -0.009610000000000007,
+        "prediction": 0.008842017092822035
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 24,
+        "target": 0.0021599999999999397,
+        "prediction": 0.018870326149568083
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 48,
+        "h": 48,
+        "target": -0.0006500000000000672,
+        "prediction": 0.018870326149568083
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 24,
+        "target": -0.002810000000000007,
+        "prediction": 0.02893974233137405
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 72,
+        "h": 48,
+        "target": 0.0022050000000000264,
+        "prediction": 0.02893974233137405
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 24,
+        "target": 0.005015000000000033,
+        "prediction": -0.003947084849420123
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 96,
+        "h": 48,
+        "target": 0.019854999999999998,
+        "prediction": -0.003947084849420123
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 24,
+        "target": 0.014839999999999964,
+        "prediction": 0.01419033211560958
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 120,
+        "h": 48,
+        "target": 0.015039999999999998,
+        "prediction": 0.01419033211560958
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 24,
+        "target": 0.00020000000000003348,
+        "prediction": 0.0026125176381628446
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 144,
+        "h": 48,
+        "target": -0.003789999999999988,
+        "prediction": 0.0026125176381628446
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 24,
+        "target": -0.003990000000000021,
+        "prediction": -0.007960095411434895
+      },
+      {
+        "seed": 7202,
+        "family": "combined",
+        "force": "dual-burst",
+        "cap": 13,
+        "t": 168,
+        "h": 48,
+        "target": -0.0047900000000000165,
+        "prediction": -0.007960095411434895
+      }
+    ]
+  },
+  "summary": {
+    "trainPairs": 288,
+    "heldoutPairs": 192,
+    "delayedHorizonTicks": [
+      24,
+      48
+    ],
+    "baselineMSE": 0.0003860874799961421,
+    "learnedMSE": 0.00046290205934155707,
+    "improvementRatio": -0.1989564109827715,
+    "heldoutSignAccuracy": 0.6197916666666666,
+    "physicalActionSelectionByModel": 0,
+    "sourceAncestries": 1
+  },
+  "cautions": [
+    "Labels are paired policy trajectories, NOT isolated repair-action counterfactuals",
+    "Features derive only from current and past frozen-reference observations",
+    "Future observations construct labels after simulation; no future feature leakage",
+    "Learning is supervised and cannot directly change repairs or issue resource debits",
+    "Both policies share one synthetic simulator ancestry; no independent validity claim",
+    "WAG-261 baseline and Phase III archive remain immutable"
+  ],
+  "engineCommit": "f7d3258d208a0caceb6cfb75d0017760171c7f12",
+  "reference": "docs/wag264/frozen-policy.json",
+  "crystalCandidate": "docs/wag276/frozen-crystalline-candidate.json",
+  "audit": {
+    "deterministicReplay": true,
+    "allTrainHeldoutSeedsDisjoint": true,
+    "noFutureFeatures": true,
+    "physicalSelectionByReadout": 0,
+    "promotion": false
+  },
+  "disposition": "READOUT_FALSIFIED_ON_HELDOUT_NO_PROMOTION"
+}
