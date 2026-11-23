@@ -1,0 +1,192 @@
+{
+  "bound": "WAG-281",
+  "phase": "WAG-IV",
+  "turn": 1,
+  "primitive": "---@---@---@---@---{}",
+  "config": {
+    "primitive": "---@---@---@---@---{}",
+    "crystal": "{\\a{b/}}",
+    "junctions": 4,
+    "baselineWeight": 0.125,
+    "teacherWeight": 0.22,
+    "trainSeeds": [
+      6501,
+      6502,
+      6503
+    ],
+    "holdoutSeeds": [
+      6601,
+      6602
+    ],
+    "patternsPerSeed": 6,
+    "pulses": 72,
+    "epochs": 6,
+    "learningRate": 0.4,
+    "finiteDifference": 0.003,
+    "minWeight": 0.025,
+    "maxWeight": 0.245
+  },
+  "fixed": [
+    0.125,
+    0.125,
+    0.125,
+    0.125
+  ],
+  "learned": [
+    0.1282761397302449,
+    0.12958440286535408,
+    0.1299046335164832,
+    0.12958256190823844
+  ],
+  "history": [
+    {
+      "epoch": 0,
+      "weights": [
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ],
+      "trainMSE": 0.00024410006379379522,
+      "heldoutMSE": 0.0003453133028534275
+    },
+    {
+      "epoch": 1,
+      "weights": [
+        0.12556916503163257,
+        0.12580125871759115,
+        0.1258582691034208,
+        0.12580125871759115
+      ],
+      "gradient": [
+        -0.0014229125790813906,
+        -0.0020031467939778847,
+        -0.0021456727585520198,
+        -0.0020031467939778756
+      ],
+      "trainMSE": 0.00023829920999234012,
+      "heldoutMSE": 0.0003371071928081535
+    },
+    {
+      "epoch": 2,
+      "weights": [
+        0.1261286871964726,
+        0.12658691157359792,
+        0.12669938061319394,
+        0.12658677612909294
+      ],
+      "gradient": [
+        -0.0013988054121001252,
+        -0.001964132140016911,
+        -0.0021027787744328638,
+        -0.001963793528754487
+      ],
+      "trainMSE": 0.00023271952049306932,
+      "heldoutMSE": 0.0003292139502585839
+    },
+    {
+      "epoch": 3,
+      "weights": [
+        0.12667886601548145,
+        0.12735752791899424,
+        0.1275239799563214,
+        0.12735713172173305
+      ],
+      "gradient": [
+        -0.0013754470475221172,
+        -0.0019265408634907893,
+        -0.00206149835781866,
+        -0.0019258889816002398
+      ],
+      "trainMSE": 0.00022734892902804085,
+      "heldoutMSE": 0.00032161650579977364
+    },
+    {
+      "epoch": 4,
+      "weights": [
+        0.12721998751194283,
+        0.1281136463433712,
+        0.12833267646314012,
+        0.12811287338902033
+      ],
+      "gradient": [
+        -0.0013528037411534583,
+        -0.0018902960609424057,
+        -0.0020217412670467945,
+        -0.0018893541682182124
+      ],
+      "trainMSE": 0.00022217622886426243,
+      "heldoutMSE": 0.0003142990059578494
+    },
+    {
+      "epoch": 5,
+      "weights": [
+        0.12775232498479885,
+        0.12885577685395105,
+        0.1291260460259758,
+        0.12885451968963957
+      ],
+      "gradient": [
+        -0.0013308436821400807,
+        -0.0018553262764496668,
+        -0.001983423907089234,
+        -0.0018541157515480622
+      ],
+      "trainMSE": 0.00021719099754130333,
+      "heldoutMSE": 0.0003072467067209531
+    },
+    {
+      "epoch": 6,
+      "weights": [
+        0.1282761397302449,
+        0.12958440286535408,
+        0.1299046335164832,
+        0.12958256190823844
+      ],
+      "gradient": [
+        -0.0013095368636150933,
+        -0.0018215650285075607,
+        -0.0019464687262685126,
+        -0.001820105546497167
+      ],
+      "trainMSE": 0.0002123835293908057,
+      "heldoutMSE": 0.00030044587807875564
+    }
+  ],
+  "summary": {
+    "trainCases": 18,
+    "holdoutCases": 12,
+    "holdoutBaselineMSE": 0.0003453133028534275,
+    "holdoutLearnedMSE": 0.00030044587807875564,
+    "holdoutMSEImprovement": 0.000044867424774671847,
+    "updatedWeights": 4,
+    "maxSignalResidual": 6.217248937900877e-15,
+    "noPhysicalActions": true
+  },
+  "limits": [
+    "The teacher is an in-model signal transport target, not an optimal repair controller",
+    "Each junction learns one shared eight-strand rail weight, not a general neural network",
+    "Held-out examples share algorithmic signal-generation ancestry with the training examples",
+    "All outcomes are synthetic and signal conservation is not physical energy conservation",
+    "Phase III remains closed; WAG261 is the unmodified reference controller"
+  ],
+  "sourceCommit": "754ef79d1523dadc47cc204371e66338dd3457a3",
+  "sourceAncestry": {
+    "phaseIII": "docs/wag280/release-manifest.json",
+    "originalChain": "docs/wag277/lattice-chain.js",
+    "newEngine": "docs/wag281/wag281.js",
+    "sameSyntheticSignalModel": true
+  },
+  "audit": {
+    "deterministicReplay": true,
+    "trainingOnlyGradient": true,
+    "noControllerAction": true,
+    "trainSeedsDisjointHoldoutSeeds": true,
+    "holdoutMSEImprovementPercent": 12.993251173331247
+  },
+  "comparison": {
+    "baseline": 0.0003453133028534275,
+    "trained": 0.00030044587807875564
+  },
+  "status": "LEARNING_PROTOTYPE_NOT_PROMOTED"
+}
