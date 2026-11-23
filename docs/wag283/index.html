@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-283 · Eight-Channel Crystal Lattice</title><style>
+:root{font:14px/1.5 system-ui;background:#fbfaf6;color:#382840}*{box-sizing:border-box}body{margin:0}main{max-width:1380px;margin:auto;padding:26px}
+h1{font-size:clamp(32px,4.3vw,50px);letter-spacing:-.053em;margin:0;color:#7231af}
+h2{font-size:19px;color:#7231ae;margin:0 0 12px}.sub{border-bottom:2px solid #e9dded;padding-bottom:17px;color:#746984}
+.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:18px 0}label{font-size:13px;color:#756881}select,button{font:inherit;border:1px solid #c6a9d8;border-radius:9px;padding:10px 13px;display:block;margin-top:5px;background:#fff;color:#372844}button{background:#7330ae;color:#fff;cursor:pointer;box-shadow:0 0 15px #aa75e792;font-weight:700}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:15px}.panel{background:#fff;border:1px solid #e8dbed;border-radius:14px;padding:18px;box-shadow:0 10px 25px #5a337e13}
+canvas{width:100%;height:auto;display:block;border-radius:11px;background:#180d2b}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#faf3ff;border-left:4px solid #ffa23a;padding:10px}.stat b{display:block;font-size:24px;color:#7030b1}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{border-bottom:1px solid #eaddf0;padding:7px;text-align:left}
+pre{white-space:pre-wrap;font:12px/1.6 monospace;max-height:320px;overflow:auto}
+.small{color:#796e82;font-size:12px}a{color:#7333a5}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-283 · Eight Channels Per Crystal</h1>
+<p class="sub">Phase IV · Turn 3/12 · <strong>---@---@---@---@---{} → {\a{b/}}</strong> · 32 independently learned signal couplings · .dlw</p>
+<div class="controls"><label>Held-out seed<select id="seed"><option value="7001">7001</option><option value="7002">7002</option></select></label>
+<label>Input pattern<select id="pattern"><option>0</option><option>1</option><option>2</option><option>3</option></select></label>
+<label>Rail to inspect<select id="rail"><option value="0">J0→J1</option><option value="1">J1→J2</option><option value="2">J2→J3</option><option value="3">J3→{}</option></select></label>
+<button id="run">Replay learned signal</button></div>
+<div class="layout"><section class="panel">
+<h2>Opposed crystalline eight-lane transport</h2><canvas id="lattice" width="1060" height="380"></canvas>
+<p class="small">Each link carries eight separately weighted, reciprocal signal lanes. A lane's outgoing signal is balanced by its incoming signal. The terminal remains a separate nested double cubit; it issues no physical action here.</p>
+<h2 style="margin-top:23px">Held-out trajectory prediction error</h2><canvas id="error" width="1060" height="310"></canvas>
+<p class="small">Orange: four learned scalar couplings · Teal: 32 channel-specific couplings. Both are trained on the same 12 examples and tested on eight previously unseen examples from the same synthetic teacher family.</p>
+<h2 style="margin-top:23px">Selected rail's eight learned channel coefficients</h2><canvas id="coefficients" width="1060" height="285"></canvas>
+</section><aside class="panel"><h2>Test scorecard</h2>
+<div class="stats"><div class="stat">Signal couplings<b>32</b></div><div class="stat">Held-out wins<b>8/8</b></div>
+<div class="stat">Relative MSE reduction<b>99.8%</b></div><div class="stat">Phase IV<b>25.0%</b></div></div>
+<h2 style="margin-top:23px">Deterministic ledger</h2><pre id="audit">Loading WAG-283 training receipt…</pre>
+<h2 style="margin-top:23px">Held-out cohort</h2><table id="score"></table>
+<p class="small">The oracle has distinct per-channel transport coefficients by construction, so this is an expressivity comparison, not a demonstration of improved physical repair or general-purpose intelligence.</p>
+<p><a href="./wag283.js">32-channel learning engine</a> · <a href="./receipt-6901-7002.json">Source evidence receipt</a> · <a href="../wag281/phase-progress.json">Phase IV progress</a> · <a href="../wag280/">Frozen Phase III</a></p></aside></div></main>
+<script src="../wag277/lattice-chain.js"></script><script src="../wag281/wag281.js"></script><script src="./wag283.js"></script>
+<script>
+const E=id=>document.getElementById(id);let receipt,angle=0,selected;
+function lattice(){const g=E('lattice').getContext('2d'),W=1060,H=380;g.fillStyle='#180d2b';g.fillRect(0,0,W,H);
+const xs=[108,320,533,745],y=185,edge=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+for(let i=0;i<4;i++){const cx=xs[i],col=i%2?'#b786ff':'#ffa23b',R=48,cs=Math.cos(angle*(i%2?-1:1)),sn=Math.sin(angle*(i%2?-1:1));
+const p=Array.from({length:8},(_,k)=>{const x=k&1?1:-1,z=k&4?1:-1,v=k&2?1:-1;return [cx+(x*cs-z*sn)*R,y+(v*.82+(x*sn+z*cs)*.15)*R]});
+g.strokeStyle=col;g.lineWidth=2.3;g.shadowColor=col;g.shadowBlur=13;for(const [a,b]of edge){g.beginPath();g.moveTo(...p[a]);g.lineTo(...p[b]);g.stroke()}g.shadowBlur=0;
+g.fillStyle=col;g.font='bold 17px monospace';g.fillText('@'+i,cx-12,95);
+const next=i<3?xs[i+1]-62:913;const start=cx+61;
+for(let lane=0;lane<8;lane++){g.strokeStyle=['#4be5dc','#65bddf','#cd7dfc','#ffa13a'][lane%4];
+g.lineWidth=1.1;g.globalAlpha=.5;g.beginPath();g.moveTo(start,y-22+lane*6);g.lineTo(next,y-22+lane*6);g.stroke();g.globalAlpha=1}}
+g.strokeStyle='#b889ff';g.lineWidth=2.6;g.shadowBlur=15;g.shadowColor='#b889ff';g.strokeRect(915,108,125,156);g.strokeRect(943,148,68,76);g.shadowBlur=0;g.fillStyle='#fff';g.font='bold 20px monospace';g.fillText('{}',963,189);g.fillText('---@---@---@---@---{}',18,33);g.font='14px monospace';g.fillText('Eight diodic channels per connection · one resource authority',18,56);angle+=.005;requestAnimationFrame(lattice)}
+function drawError(){if(!selected)return;const g=E('error').getContext('2d'),W=1060,H=310;g.fillStyle='#180d2b';g.fillRect(0,0,W,H);
+const a=selected.scalar.series.map(z=>z.mse),b=selected.channels.series.map(z=>z.mse),max=Math.max(...a,...b,1e-10)*1.1;
+for(let k=0;k<5;k++){g.strokeStyle='#483458';g.beginPath();g.moveTo(0,k*H/4);g.lineTo(W,k*H/4);g.stroke()}
+[[a,'#ffa23b','Scalar',0],[b,'#4be5dc','Multichannel',1]].forEach(([v,col,label,j])=>{g.strokeStyle=col;g.lineWidth=3;g.shadowColor=col;g.shadowBlur=11;g.beginPath();v.forEach((y,i)=>{const x=49+i*(W-94)/(v.length-1),yy=H-34-y*(H-76)/max;if(i)g.lineTo(x,yy);else g.moveTo(x,yy)});g.stroke();g.shadowBlur=0;g.fillStyle=col;g.font='bold 15px system-ui';g.fillText(label,55+j*180,23)})}
+function drawCoefficients(){if(!receipt)return;const g=E('coefficients').getContext('2d'),W=1060,H=285;g.fillStyle='#180d2b';g.fillRect(0,0,W,H);
+const rail=+E('rail').value,weights=receipt.models.channels.weights[rail],teacher=receipt.target[rail],width=(W-100)/8;
+for(let lane=0;lane<8;lane++){const x=50+lane*width,h=weights[lane]/.245*190,th=teacher[lane]/.245*190;
+g.fillStyle='#49e7db';g.fillRect(x,H-50-h,28,h);g.fillStyle='#ffa13b';g.fillRect(x+32,H-50-th,20,th);g.fillStyle='#fff';g.font='13px monospace';g.fillText('C'+lane,x+10,H-26)}
+g.fillStyle='#fff';g.font='14px monospace';g.fillText('Teal learned · Orange synthetic teacher · bounded [.025,.245]',15,25)}
+function replay(){try{if(!receipt)throw Error('Evidence unavailable');const seed=+E('seed').value,pattern=+E('pattern').value;
+const a=receipt.holdout.scalar.find(x=>x.seed===seed&&x.pattern===pattern),b=receipt.holdout.channels.find(x=>x.seed===seed&&x.pattern===pattern);
+if(!a||!b)throw Error('Missing held-out case');selected={scalar:a,channels:b};drawError();drawCoefficients();
+E('audit').textContent='Case: '+seed+' / pattern '+pattern+
+'\nScalar rollout MSE: '+a.mse.toExponential(7)+
+'\nChannel rollout MSE: '+b.mse.toExponential(7)+
+'\nSelected case improvement: '+(100*(1-b.mse/a.mse)).toFixed(3)+'%'+
+'\nCouplings: 4 vs 32'+
+'\nTraining seeds: '+receipt.config.trainSeeds.join(', ')+
+'\nHeld-out seeds: '+receipt.config.holdoutSeeds.join(', ')+
+'\nMax signal residual: '+receipt.summary.maxResidual.toExponential(3)+
+'\n\nSynthetic channel-specific teacher.'+
+'\nNo physical action; no policy promotion.';
+E('score').innerHTML='<tr><th>Metric</th><th>Scalar</th><th>8 lanes</th></tr>'+
+'<tr><td>Held-out one-step MSE</td><td>'+receipt.summary.heldoutScalarOneStepMSE.toExponential(3)+'</td><td>'+receipt.summary.heldoutChannelOneStepMSE.toExponential(3)+'</td></tr>'+
+'<tr><td>Held-out rollout MSE</td><td>'+receipt.summary.heldoutScalarRolloutMSE.toExponential(3)+'</td><td>'+receipt.summary.heldoutChannelRolloutMSE.toExponential(3)+'</td></tr>';
+}catch(e){E('audit').textContent='ERROR '+e.stack}}
+async function init(){try{const r=await fetch('./receipt-6901-7002.json',{cache:'no-store'});if(!r.ok)throw Error('Receipt not available');receipt=await r.json();replay()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('run').onclick=replay;E('rail').onchange=drawCoefficients;requestAnimationFrame(lattice);init();
+</script></body></html>
