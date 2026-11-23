@@ -4,7 +4,7 @@
   This is connected nearest-neighbor geometry, NOT all-to-all or physics.
 */
 const WAG287_ZIGZAG=Object.freeze({
-  literal:'---/\\/\\/@\\/\\/---/\\/\\/@\\/\\/---/\\/\\/#\\/\\/---/\\/\\/@\\/\\/---/\\/\\/@\\/\\/----',
+  literal:"---/\\/@\\/\\---/\\/@\\/\\---/\\/#\\/\\---/\\/@\\/\\---/\\/@\\/\\----",
   silos:['@','@','#','@','@'],
   internal:['{Ss@sS}','{Ss@sS}','{[(Ss#Ss)]}','{Ss@sS}','{Ss@sS}'],
   links:[[0,1],[1,2],[2,3],[3,4]],
