@@ -6,9 +6,9 @@
   "firstBound": 281,
   "lastBound": 292,
   "plannedTurns": 12,
-  "completedTurns": 3,
-  "progressPercent": 25,
-  "nextBound": 284,
+  "completedTurns": 4,
+  "progressPercent": 33.3,
+  "nextBound": 285,
   "policyPromotion": "NONE",
   "primitive": "---@---@---@---@---{} → {\\a{b/}} → one action",
   "reference": "WAG-261 frozen baseline",
@@ -36,7 +36,7 @@
     {
       "bound": 284,
       "name": "Delayed reward and repair-value labels",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 33.3
     },
     {
@@ -89,25 +89,26 @@
     }
   ],
   "lastAccepted": {
-    "bound": 283,
+    "bound": 284,
     "primitive": "---@---@---@---@---{} → {\\a{b/}}",
-    "engine": "docs/wag283/wag283.js",
-    "lab": "docs/wag283/index.html",
-    "receipt": "docs/wag283/receipt-6901-7002.json",
-    "trainingCases": 12,
-    "heldoutCases": 8,
-    "epochs": 9,
-    "scalarWeights": 4,
-    "multichannelWeights": 32,
-    "heldoutScalarMSE": 0.0005124038895329253,
-    "heldoutMultichannelMSE": 0.0000010038685071699837,
-    "relativeImprovementPercent": 99.80408647793735,
-    "heldoutWins": 8,
-    "maxSignalResidual": 7.993605777301127e-15,
-    "physicalActions": 0,
+    "engine": "docs/wag284/wag284.js",
+    "lab": "docs/wag284/index.html",
+    "receipt": "docs/wag284/receipt-7101-7202.json",
+    "trainPairs": 288,
+    "heldoutPairs": 192,
+    "horizons": [
+      24,
+      48
+    ],
+    "features": 32,
+    "baselineMSE": 0.0003860874799961421,
+    "heldoutMSE": 0.00046290205934155707,
+    "relativeMSEChangePercent": 19.89564109827715,
+    "heldoutSignAccuracyPercent": 61.97916666666666,
+    "modelSelectedPhysicalActions": 0,
     "policyPromoted": false,
-    "interpretation": "The synthetic teacher deliberately has different transport weights per channel. This measures model expressivity under identical supervised signal samples, not autonomous learning, general unseen physics, or improved repair actions.",
-    "livePagesVerified": false
+    "acceptedAs": "FALSIFIED_DELTA_PREDICTOR_NOT_PROMOTED",
+    "summary": "Supervised 32-feature readout over matched frozen-vs-crystal policy trajectories fit training data but suffered 19.9% higher heldout error than constant mean. These are paired-policy outcome proxies, not isolated action labels. Controller weights unchanged, Phase III frozen, Pages live unverified."
   },
   "invariants": [
     "Phase III remains CLOSED",
