@@ -6,9 +6,9 @@
   "firstBound": 281,
   "lastBound": 292,
   "plannedTurns": 12,
-  "completedTurns": 4,
-  "progressPercent": 33.3,
-  "nextBound": 285,
+  "completedTurns": 5,
+  "progressPercent": 41.7,
+  "nextBound": 286,
   "policyPromotion": "NONE",
   "primitive": "---@---@---@---@---{} → {\\a{b/}} → one action",
   "reference": "WAG-261 frozen baseline",
@@ -42,7 +42,7 @@
     {
       "bound": 285,
       "name": "Bounded training under resource constraints",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 41.7
     },
     {
@@ -89,26 +89,30 @@
     }
   ],
   "lastAccepted": {
-    "bound": 284,
+    "bound": 285,
     "primitive": "---@---@---@---@---{} → {\\a{b/}}",
-    "engine": "docs/wag284/wag284.js",
-    "lab": "docs/wag284/index.html",
-    "receipt": "docs/wag284/receipt-7101-7202.json",
-    "trainPairs": 288,
-    "heldoutPairs": 192,
-    "horizons": [
-      24,
-      48
-    ],
-    "features": 32,
-    "baselineMSE": 0.0003860874799961421,
-    "heldoutMSE": 0.00046290205934155707,
-    "relativeMSEChangePercent": 19.89564109827715,
-    "heldoutSignAccuracyPercent": 61.97916666666666,
-    "modelSelectedPhysicalActions": 0,
-    "policyPromoted": false,
-    "acceptedAs": "FALSIFIED_DELTA_PREDICTOR_NOT_PROMOTED",
-    "summary": "Supervised 32-feature readout over matched frozen-vs-crystal policy trajectories fit training data but suffered 19.9% higher heldout error than constant mean. These are paired-policy outcome proxies, not isolated action labels. Controller weights unchanged, Phase III frozen, Pages live unverified."
+    "engine": "docs/wag285/wag285.js",
+    "lab": "docs/wag285/index.html",
+    "receipt": "docs/wag285/receipt-7301-7402.json",
+    "trainingCases": 12,
+    "heldoutCases": 8,
+    "budget": {
+      "epochs": 2,
+      "trainPairEvaluations": 1152,
+      "coefficientUpdates": 64,
+      "coefficientMemorySlots": 32
+    },
+    "referenceEpochs": 9,
+    "startingHeldoutMSE": 0.00020649752541451142,
+    "budgetHeldoutMSE": 0.000022296344726421963,
+    "referenceHeldoutMSE": 0.0000012349029997076077,
+    "budgetImprovementPercent": 89.20260924112019,
+    "budgetWinsAgainstInitial": 8,
+    "budgetWinsAgainstReference": 0,
+    "physicalActions": 0,
+    "promoted": false,
+    "acceptedAs": "BOUNDED_SYNTHETIC_TRANSPORT_LEARNING",
+    "caution": "Budget is symbolic model-operations, not measured joules/material. Original WAG284 delayed repair-value regression unchanged. Budgeted learner does not match better-funded nine-epoch reference. GitHub Pages serving not verified."
   },
   "invariants": [
     "Phase III remains CLOSED",
