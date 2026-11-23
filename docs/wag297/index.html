@@ -1,0 +1,36 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-297 · Frontal Shadow and Illumination</title><style>
+:root{font:14px/1.5 system-ui;color:#3c3152;background:#fbfaff}*{box-sizing:border-box}body{margin:0}main{max-width:1360px;margin:auto;padding:20px}h1{color:#7451b0;font-size:clamp(30px,4vw,50px);margin:0}.subtitle{color:#81708e}.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(290px,1fr);gap:14px}.panel{background:#fff;border:1px solid #e3d9ef;border-radius:16px;padding:17px;box-shadow:0 8px 24px #563f8e19}canvas{width:100%;display:block;aspect-ratio:1.6;background:#110927;border-radius:12px;touch-action:none}h2{color:#7451b0;font-size:20px}label{display:block;margin:8px 0;color:#766c85}.small{font-size:12px;color:#7c7286}pre{white-space:pre-wrap;font:12px/1.7 monospace}.legend{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.legend div{padding:11px;border-radius:11px;background:#f3eeff;text-align:center;font:22px monospace}.legend small{display:block;font:12px system-ui;color:#806f8a}a{color:#7350ad}button{border:1px solid #cebce0;background:#7652ab;color:white;border-radius:8px;padding:9px;cursor:pointer}@media(max-width:840px){.grid{grid-template-columns:1fr}}</style></head><body><main>
+<h1>WAG-297 · Frontal Shadow &amp; Illumination</h1><p class="subtitle"><b>{{5x5}}^{{5}} ⊃ {{3x3}}^{{3}} ⊃ {{1x1}}^{{1}}</b> · One frontal address · Three unit forms in shadow · <b>{[()]}</b> illuminates · .dlw</p>
+<div class="grid"><section class="panel"><h2>Nested crystalline cube · drag to rotate</h2><canvas id="cube" width="1100" height="690"></canvas><label>Illumination of the three nested unit forms: <b id="amount">0%</b><input type="range" min="0" max="100" value="0" id="light" style="width:100%;accent-color:#a57ae5"></label>
+<div class="legend"><div>[1]<small>Box · unit</small></div><div>{1}<small>Brace · unit</small></div><div>(1)<small>Toroid · unit</small></div></div>
+<p class="small">The central 1³ location holds all three semantic representations without making three addressable silos. In shadow they are not individually revealed; the nested brace / box / toroid aperture {[()]} progressively illuminates them. This is a model visualization, not optical hardware.</p></section>
+<aside class="panel"><h2>Center illumination receipt</h2><pre id="read"></pre><h2>Invariant checks</h2><pre id="audit"></pre><p class="small">No authoritative memory writes; no added address locations; WAG-296's trained-prototype experiments and earlier phase records are unchanged. Only the displayed geometry is extended.</p><button id="dark">Return to shadow</button><p><a href="./frontal-light.js">Frontal illumination source</a> · <a href="../wag296/">WAG-296 learning baseline</a></p></aside></div></main>
+<script src="../wag288/cube-mesh.js"></script><script src="../wag289/nested-cubes.js"></script><script src="../wag290/cortex-selection.js"></script><script src="../wag291/candidate-freeze.js"></script><script src="../wag292/adaptive-selection.js"></script><script src="../wag293/cortex-challenge.js"></script><script src="../wag294/local-recovery.js"></script><script src="../wag295/phase-closure.js"></script><script src="../wag296/prototype-learning.js"></script><script src="./frontal-light.js"></script><script>
+const $=id=>document.getElementById(id),c=$('cube'),g=c.getContext('2d'),audit=wag297Audit();
+let ay=.55,ax=-.43,drag=false,lx=0,ly=0,light=0;
+function projection(i){const [X,Y,Z]=wag288Coords(i),x=X-2,y=Y-2,z=Z-2,C=Math.cos(ay),S=Math.sin(ay),A=Math.cos(ax),B=Math.sin(ax),u=x*C-z*S,w=x*S+z*C,v=y*A-w*B,d=y*B+w*A,k=1060/(9+d*.5);return{x:550+u*k,y:345+v*k,z:d}}
+function draw(){g.fillStyle='#110927';g.fillRect(0,0,1100,690);ay+=.0016;
+for(const [a,b] of WAG288_EDGES){const p=projection(a),q=projection(b);g.strokeStyle='#9d84cc';g.globalAlpha=.14;g.beginPath();g.moveTo(p.x,p.y);g.lineTo(q.x,q.y);g.stroke()}g.globalAlpha=1;
+for(const i of Array.from({length:125},(_,i)=>i).sort((a,b)=>projection(b).z-projection(a).z)){
+const p=projection(i),role=wag289Role(i),col=role==='frontal'?'#ffb87c':role==='cortex'?'#76eddb':'#ab91ee';
+if(role!=='frontal'){g.beginPath();g.arc(p.x,p.y,role==='cortex'?5:3.4,0,Math.PI*2);g.fillStyle=col;g.shadowColor=col;g.shadowBlur=12;g.fill();g.shadowBlur=0;}
+else {
+  // Single address; the three nested shapes occupy the same projected center.
+  const glow=light*30;g.save();g.translate(p.x,p.y);g.shadowColor='#fff0b9';g.shadowBlur=glow;
+  g.strokeStyle='rgba(255,177,114,'+(.18+light*.82)+')';g.lineWidth=2.5;g.strokeRect(-26,-26,52,52);
+  g.strokeStyle='rgba(147,250,239,'+(.10+light*.88)+')';g.beginPath();g.arc(0,0,21,Math.PI,Math.PI*2);g.stroke();
+  g.strokeStyle='rgba(245,221,255,'+(.08+light*.92)+')';g.beginPath();g.ellipse(0,0,15,9,ay,0,2*Math.PI);g.stroke();
+  if(light>.04){g.fillStyle='#fff9dc';g.font='bold 15px monospace';g.fillText('[1]',29,-16);g.fillText('{1}',29,4);g.fillText('(1)',29,24)}
+  else {g.fillStyle='#8f758f';g.font='bold 20px monospace';g.fillText('?',30,5)}
+  g.restore();
+}}
+g.fillStyle='white';g.font='bold 20px monospace';g.fillText('1³: [1] {1} (1)  ->  {[()]}',20,32);requestAnimationFrame(draw)}
+function update(){light=+$('light').value/100;$('amount').textContent=Math.round(light*100)+'%';
+const q=wag297Light(light);$('read').textContent='Address: '+q.address+'\nFrontal: '+WAG297.volume+'\nThree unit forms: '+WAG297.units.join(' · ')+'\nIllumination: '+q.geometry+'\nStatus: '+q.status+'\nLight: '+Math.round(light*100)+'%\nSilo memories modified: 0';
+$('audit').textContent=Object.values(audit.checks).filter(Boolean).length+'/'+Object.keys(audit.checks).length+' PASS\nSource WAG-288–296 unchanged\nNew physical channels: 0\nRead-only visualization';}
+$('light').oninput=update;$('dark').onclick=()=>{$('light').value=0;update()};
+c.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY;c.setPointerCapture(e.pointerId)});
+c.addEventListener('pointermove',e=>{if(drag){ay+=(e.clientX-lx)*.007;ax+=(e.clientY-ly)*.007;lx=e.clientX;ly=e.clientY}});
+c.addEventListener('pointerup',()=>drag=false);c.addEventListener('pointercancel',()=>drag=false);
+update();requestAnimationFrame(draw);
+</script></body></html>
