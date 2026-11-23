@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quartz Zigzag Silo Mesh</title><style>
+:root{font:14px/1.5 system-ui;background:#fbfaff;color:#342744}*{box-sizing:border-box}body{margin:0}main{max-width:1370px;margin:auto;padding:24px}h1{font-size:clamp(30px,4.2vw,52px);color:#7554aa;letter-spacing:-.05em;margin:0}h2{color:#7451a9;font-size:19px;margin:0 0 11px}.subtitle{color:#796b87;border-bottom:2px solid #e6dbf0;padding-bottom:15px}.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px}.panel{border:1px solid #e5dbee;border-radius:15px;background:white;padding:17px;box-shadow:0 8px 26px #65468d19}canvas{width:100%;height:auto;display:block;background:#140b29;border-radius:12px}.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:end;margin:18px 0}label{color:#736788;font-size:13px}select,button{font:inherit;border:1px solid #cdbce3;border-radius:9px;padding:10px;display:block;margin-top:5px;background:white}button{color:white;background:#7651ad;font-weight:700;cursor:pointer}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}.metric{background:#f5f1ff;padding:10px;border-left:4px solid #8bdbea}.metric b{display:block;color:#7850af;font-size:24px}pre{white-space:pre-wrap;overflow:auto;font:12px/1.6 monospace}.small{font-size:12px;color:#796d88}a{color:#744fa8}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>Quartz · Connected Zigzag Silo Mesh</h1>
+<p class="subtitle"><strong id="glyph"></strong> · Four independent quartz silos · Nested central # · Dual diagonal signal paths per neighboring pair · .dlw</p>
+<div class="controls"><label>Boundary coupling<select id="weight"><option value="0">0 · isolate all</option><option value="0.0625">0.0625 · gentle</option><option value="0.125" selected>0.125 · balanced</option><option value="0.2">0.20 · strong</option><option value="0.25">0.25 · maximum</option></select></label><button id="reset">Restart signals</button><button id="play">Pause animation</button></div>
+<div class="layout"><section class="panel"><h2>Double diagonal quartz coupling</h2><canvas id="stage" width="1160" height="470"></canvas>
+<p class="small">Each / and \ diagonal transports signal between two neighboring quartz silos. The eight signal cells remain separate per silo; signals move through the central # by reciprocal transfer, not shared state or physical material.</p>
+<h2 style="margin-top:22px">Observed signal per silo</h2><canvas id="trace" width="1160" height="270"></canvas></section>
+<aside class="panel"><h2>Signal conservation checks</h2><div class="metrics"><div class="metric">Quartz silos<b>4</b></div><div class="metric">Nested hub<b>1</b></div><div class="metric">Diagonal paths<b>8</b></div><div class="metric">Phase IV<b>50%</b></div></div>
+<h2 style="margin-top:22px">Current receipt</h2><pre id="audit">Loading connected mesh…</pre><p class="small">This is a connected nearest-neighbor chain, not all-to-all connectivity. It is a WAG-287 topology preview, not a frozen learned controller. The older WAG-286 results and WAG-261 authority are unchanged.</p><p><a href="./zigzag-mesh.js">Connected mesh code</a> · <a href="./silo-topology.js">Silo isolation code</a> · <a href="./silos.html">Previous silo visualization</a> · <a href="../wag281/phase-progress.json">Phase IV tracker</a></p></aside></div>
+<script src="./silo-topology.js"></script><script src="./zigzag-mesh.js"></script><script>
+const E=id=>document.getElementById(id);const validation=wag287MeshAudit();
+let state=wag287MeshInitial(),history=[],playing=true,angle=0,previous=-1;
+E('glyph').textContent=WAG287_ZIGZAG.literal;
+function remember(){history.push({tick:state.tick,v:state.nodes.map(n=>n.reduce((a,b)=>a+b,0)/8)});if(history.length>170)history.shift()}remember();
+function quartz(g,x,y,i,activity){const hub=i===2,R=hub?67:53,H=hub?99:82,r=angle*(i%2?-1:1);
+const p=Array.from({length:6},(_,k)=>{const a=r+k*Math.PI/3;return [x+Math.cos(a)*R,Math.sin(a)*R*.43]});
+for(let k=0;k<6;k++){const j=(k+1)%6;g.beginPath();g.moveTo(p[k][0],y-H+p[k][1]);g.lineTo(p[j][0],y-H+p[j][1]);g.lineTo(p[j][0],y+H+p[j][1]);g.lineTo(p[k][0],y+H+p[k][1]);g.closePath();g.fillStyle=k%2?'#a7e8fa':'#d7b7ff';g.globalAlpha=.08+.24*activity;g.fill();g.globalAlpha=1}
+g.strokeStyle=hub?'#f2d3ff':i%2?'#a6edff':'#d9c2ff';g.shadowColor=g.strokeStyle;g.shadowBlur=hub?18:12;g.lineWidth=1.7;
+for(let k=0;k<6;k++){const j=(k+1)%6;for(const h of [-H,H]){g.beginPath();g.moveTo(p[k][0],y+h+p[k][1]);g.lineTo(p[j][0],y+h+p[j][1]);g.stroke()}g.beginPath();g.moveTo(p[k][0],y-H+p[k][1]);g.lineTo(p[k][0],y+H+p[k][1]);g.stroke()}
+g.shadowBlur=0;
+if(hub){g.strokeStyle='#f3d5ff';g.strokeRect(x-37,y-53,74,106);g.strokeStyle='#a6ffee';g.beginPath();g.ellipse(x,y,32,18,angle,0,2*Math.PI);g.stroke()}
+g.textAlign='center';g.fillStyle='#fff';g.font='bold 24px monospace';g.fillText(hub?'#':'@',x,y+8);g.font='13px monospace';g.fillText(WAG287_ZIGZAG.internal[i],x,y+H+34);g.textAlign='left'}
+function draw(){const g=E('stage').getContext('2d'),W=1160,H=470;g.fillStyle='#140b29';g.fillRect(0,0,W,H);const xs=[116,344,572,800,1028],cy=227,mean=state.nodes.map(n=>n.reduce((a,b)=>a+b,0)/8);
+for(let e=0;e<4;e++)for(let ch=0;ch<8;ch++){const from=xs[e]+65,to=xs[e+1]-65,dy=-28+ch*8;g.strokeStyle=ch%2?'#e2bdff':'#8de7ec';g.globalAlpha=.24+mean[e]*.5;g.lineWidth=1.4;g.beginPath();g.moveTo(from,cy+dy-13);g.lineTo(to,cy+dy+13);g.moveTo(from,cy+dy+13);g.lineTo(to,cy+dy-13);g.stroke();g.globalAlpha=1}
+xs.forEach((x,i)=>quartz(g,x,cy,i,mean[i]));g.fillStyle='#fff';g.font='bold 22px monospace';g.fillText(WAG287_ZIGZAG.literal,18,32);
+if(playing){angle+=.005;const t=Math.floor(angle*31);if(t!==previous){previous=t;state=wag287MeshTick(state,+E('weight').value);remember();trace()}}
+requestAnimationFrame(draw)}
+function trace(){const g=E('trace').getContext('2d'),W=1160,H=270;g.fillStyle='#140b29';g.fillRect(0,0,W,H);const colors=['#dcc0ff','#9befff','#fff0ff','#aac8ff','#eac4ff'];
+const max=Math.max(.1,...history.flatMap(z=>z.v))*1.11;for(let k=0;k<5;k++){g.strokeStyle='#453554';g.beginPath();g.moveTo(0,k*H/4);g.lineTo(W,k*H/4);g.stroke()}
+colors.forEach((col,j)=>{g.strokeStyle=col;g.lineWidth=2.7;g.beginPath();history.forEach((z,i)=>{const x=36+i*(W-72)/Math.max(1,history.length-1),y=H-31-z.v[j]*(H-65)/max;if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.fillStyle=col;g.font='bold 13px monospace';g.fillText(j===2?'HUB':'SILO '+(j<2?j:j-1),40+j*178,20)});
+E('audit').textContent='Exact glyph:\n'+WAG287_ZIGZAG.literal+
+'\n\nSilo states: 5 separate arrays'+
+'\nEdges: 4 nearest-neighbor boundaries'+
+'\nZigzag routes per edge: 2'+
+'\nSignal sites per silo: 8'+
+'\nCurrent pulse: '+state.tick+
+'\nCoupling: '+E('weight').value+
+'\nTotal activation: '+wag287MeshMass(state).toFixed(9)+
+'\nMax tested residual: '+Math.max(...validation.tests.map(t=>t.maxResidual)).toExponential(3)+
+'\nAcross-boundary tests passed: '+validation.pass+
+'\nEdge transfer totals:\n'+state.deliveredAcrossEdges.map((v,i)=>' '+i+'→'+(i+1)+': '+v.toFixed(5)).join('\n')+
+'\nPhysical actions: 0\nFrozen WAG-III and WAG-IV evidence unchanged.'}
+E('reset').onclick=()=>{state=wag287MeshInitial();history=[];remember();trace()};
+E('play').onclick=()=>{playing=!playing;E('play').textContent=playing?'Pause animation':'Resume animation'};
+trace();requestAnimationFrame(draw);
+</script></body></html>
