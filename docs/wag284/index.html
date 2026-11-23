@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-284 · Delayed Repair Value</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f6;color:#382842}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:25px}
+h1{font-size:clamp(32px,4vw,49px);letter-spacing:-.05em;margin:0;color:#742ea9}.sub{padding-bottom:16px;border-bottom:2px solid #e8daec;color:#7b6987}
+.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:15px}.panel{background:white;border:1px solid #e7d8ed;border-radius:14px;padding:18px;box-shadow:0 9px 24px #663a8618}
+canvas{display:block;width:100%;height:auto;background:#190e2d;border-radius:11px}h2{font-size:19px;color:#702cb0;margin:0 0 12px}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{background:#fbf3ff;border-left:4px solid #ffa139;padding:11px}.metric b{display:block;font-size:23px;color:#722da9}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:16px 0}label{font-size:13px;color:#776982}
+select{font:inherit;display:block;padding:10px;border:1px solid #c4a7da;border-radius:8px;background:white;margin-top:5px}
+table{width:100%;border-collapse:collapse;font-size:12px}td,th{padding:8px;border-bottom:1px solid #ebddf0;text-align:left}pre{font:12px/1.5 monospace;white-space:pre-wrap;max-height:310px;overflow:auto}.small{font-size:12px;color:#776b84}a{color:#762faa}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-284 · Delayed Repair-Value Learning</h1>
+<p class="sub">Phase IV · Turn 4/12 · <strong>---@---@---@---@---{} → {\a{b/}}</strong> · Read-only paired-policy proxy · .dlw</p>
+<div class="controls"><label>Held-out seed<select id="seed"><option>7201</option><option>7202</option></select></label><label>Prediction horizon<select id="horizon"><option>24</option><option>48</option></select></label></div>
+<div class="layout"><section class="panel">
+<h2>Crystalline proxy evaluator · no physical action</h2><canvas id="lattice" width="1060" height="350"></canvas>
+<p class="small">The four crystalline junctions form a 32-feature readout. The physical reference and experimental candidate remain unmodified, and their future outcomes are used only to label completed simulations.</p>
+<h2 style="margin-top:23px">Held-out delayed-value prediction</h2><canvas id="predictions" width="1060" height="360"></canvas>
+<p class="small">Orange: observed delayed paired-policy proxy · Violet: constant training mean · Teal: learned readout prediction. Paired policy divergence is not a single-action causal label.</p>
+<h2 style="margin-top:23px">Training progression</h2><canvas id="learning" width="1060" height="290"></canvas></section>
+<aside class="panel"><h2>Acceptance ledger</h2>
+<div class="metrics"><div class="metric">Training pairs<b>288</b></div><div class="metric">Held-out pairs<b>192</b></div><div class="metric">Held-out MSE change<b>+19.9%</b></div><div class="metric">Phase IV<b>33.3%</b></div></div>
+<h2 style="margin-top:22px">Readout disposition</h2><p><strong>Failed generalization gate.</strong> The trained predictor performed worse than the constant-mean baseline on withheld seeds.</p>
+<pre id="audit">Loading preserved model and results…</pre>
+<table id="table"></table>
+<p class="small">No weights were changed based on withheld errors. These are two existing policy trajectories within one synthetic simulator, not isolated counterfactual repair interventions.</p>
+<p><a href="./wag284.js">Read-only learning engine</a> · <a href="./receipt-7101-7202.json">288/192-pair receipt</a> · <a href="../wag281/phase-progress.json">Phase IV tracker</a> · <a href="../wag280/">Sealed Phase III</a></p>
+</aside></div></main>
+<script>
+const E=id=>document.getElementById(id);let data,spin=0;
+function lattice(){const g=E('lattice').getContext('2d'),W=g.canvas.width,H=g.canvas.height;g.fillStyle='#190e2d';g.fillRect(0,0,W,H);
+const xs=[115,332,549,766],y=170,edges=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+for(let i=0;i<4;i++){const col=i%2?'#b28aff':'#ffa13a',cx=xs[i],c=Math.cos(spin*(i%2?-1:1)),s=Math.sin(spin*(i%2?-1:1)),R=48;
+const p=Array.from({length:8},(_,j)=>{const x=j&1?1:-1,z=j&4?1:-1,v=j&2?1:-1;return [cx+(x*c-z*s)*R,y+(v*.8+(x*s+z*c)*.13)*R]});
+g.strokeStyle=col;g.lineWidth=2.4;g.shadowBlur=11;g.shadowColor=col;for(const [a,b]of edges){g.beginPath();g.moveTo(...p[a]);g.lineTo(...p[b]);g.stroke()}g.shadowBlur=0;
+g.fillStyle=col;g.font='bold 17px monospace';g.fillText('@'+i,cx-13,81);if(i<3){g.strokeStyle='#49e7db';g.beginPath();g.moveTo(cx+59,y);g.lineTo(xs[i+1]-59,y);g.stroke()}}
+g.strokeStyle='#46e4db';g.beginPath();g.moveTo(826,y);g.lineTo(912,y);g.stroke();g.strokeStyle='#b589ff';g.strokeRect(913,112,125,116);g.strokeRect(941,143,70,56);
+g.fillStyle='#fff';g.font='bold 19px monospace';g.fillText('{}',964,176);g.fillText('---@---@---@---@---{}',17,31);g.font='13px monospace';g.fillText('READ ONLY · NO PHYSICAL ACTION',18,52);spin+=.006;requestAnimationFrame(lattice)}
+function lineChart(id,series){const g=E(id).getContext('2d'),W=g.canvas.width,H=g.canvas.height;g.fillStyle='#190e2d';g.fillRect(0,0,W,H);
+const all=series.flatMap(z=>z.values),max=Math.max(...all,.001),min=Math.min(...all,-.001),range=Math.max(.001,max-min);
+for(let j=0;j<5;j++){g.strokeStyle='#433154';g.beginPath();g.moveTo(0,j*H/4);g.lineTo(W,j*H/4);g.stroke()}
+for(const [k,z]of series.entries()){g.strokeStyle=z.color;g.lineWidth=2.6;g.beginPath();z.values.forEach((v,i)=>{const x=44+i*(W-90)/(z.values.length-1),y=H-29-(v-min)*(H-72)/range;if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.fillStyle=z.color;g.font='bold 14px system-ui';g.fillText(z.label,50+k*205,23)}}
+function show(){if(!data)return;const rows=data.heldout.samples.filter(z=>z.seed===+E('seed').value&&z.h===+E('horizon').value).slice(0,48);
+lineChart('predictions',[{values:rows.map(z=>z.target),color:'#ffa13a',label:'Observed proxy'},
+{values:rows.map(()=>data.model.mean),color:'#b789ff',label:'Constant mean'},
+{values:rows.map(z=>z.prediction),color:'#4ce8db',label:'Learned prediction'}]);
+lineChart('learning',[{values:data.model.history.map(z=>z.trainMSE),color:'#4ce8db',label:'Training MSE'}]);
+E('audit').textContent='Training seeds: '+data.config.trainSeeds.join(', ')+'\nHeld-out seeds: '+data.config.heldoutSeeds.join(', ')+
+'\nHorizon ticks: '+data.config.horizons.join(', ')+'\nCurrent-only input features: '+data.config.featureCount+
+'\nHeld-out baseline MSE: '+data.summary.baselineMSE.toExponential(7)+
+'\nHeld-out learned MSE: '+data.summary.learnedMSE.toExponential(7)+
+'\nRelative error change: '+(-100*data.summary.improvementRatio).toFixed(2)+'% worse'+
+'\nHeld-out sign accuracy: '+(100*data.summary.heldoutSignAccuracy).toFixed(1)+'%'+
+'\nPhysical model-selected actions: 0'+
+'\n\nSTATUS: FALSIFIED · not promoted';
+E('table').innerHTML='<tr><th>Metric</th><th>Baseline</th><th>Learned</th></tr><tr><td>Heldout MSE</td><td>'+
+data.summary.baselineMSE.toExponential(5)+'</td><td>'+data.summary.learnedMSE.toExponential(5)+'</td></tr>'}
+async function init(){try{const r=await fetch('./receipt-7101-7202.json',{cache:'no-store'});if(!r.ok)throw Error('Receipt not available');data=await r.json();show()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('seed').onchange=show;E('horizon').onchange=show;requestAnimationFrame(lattice);init();
+</script></body></html>
