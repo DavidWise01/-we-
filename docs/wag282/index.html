@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-282 · Temporal Crystalline Memory</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f4;color:#362a41}*{box-sizing:border-box}body{margin:0}main{max-width:1320px;margin:auto;padding:25px}h1{font-size:clamp(32px,4vw,50px);letter-spacing:-.05em;color:#7131a9;margin:0}h2{font-size:19px;color:#712cb1;margin:0 0 12px}.sub{color:#7c7085;border-bottom:2px solid #e5d7ed;padding-bottom:17px}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:14px}.panel{background:white;border:1px solid #e8d9ed;border-radius:14px;padding:18px;box-shadow:0 9px 24px #653c8517}canvas{width:100%;height:auto;display:block;border-radius:11px;background:#190e2b}
+.controls{display:flex;align-items:end;flex-wrap:wrap;gap:12px;margin:18px 0}label{color:#75687f;font-size:13px}select,button{font:inherit;border:1px solid #c4a8d6;padding:10px 13px;border-radius:8px;display:block;margin-top:4px;background:#fff;color:#352640}button{background:#7231aa;color:#fff;font-weight:700;cursor:pointer;box-shadow:0 0 15px #ab70e989}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:#fcf4ff;border-left:4px solid #ffa33a;padding:10px}.stat b{font-size:23px;color:#7332ad;display:block}table{width:100%;border-collapse:collapse;font-size:12px}th,td{border-bottom:1px solid #e9ddef;text-align:left;padding:7px 5px}
+pre{white-space:pre-wrap;font:12px/1.6 monospace;max-height:300px;overflow:auto}.small{font-size:12px;color:#746780}a{color:#7732ae}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>WAG-282 · Crystalline Temporal Memory</h1>
+<p class="sub">Phase IV · Turn 2/12 · <strong>---@---@---@---@---{} → {\a{b/}}</strong> · Each lattice stores the last four prediction-error gradients · .dlw</p>
+<div class="controls"><label>Held-out seed<select id="seed"><option value="6801">6801</option><option value="6802">6802</option></select></label>
+<label>Input pattern<select id="pattern"><option>0</option><option>1</option><option>2</option><option>3</option></select></label><button id="run">Replay bounded memory</button></div>
+<div class="layout"><section class="panel">
+<h2>Crystalline junction memory</h2><canvas id="lattice" width="1060" height="360"></canvas><p class="small">Each orange or violet crystalline junction adjusts its coupled rail coefficient from a rolling window of four observed error gradients. Teal rails transmit abstract activation, not physical resources.</p>
+<h2 style="margin-top:22px">Transport prediction error over time</h2><canvas id="errors" width="1060" height="315"></canvas><p class="small">Purple = fixed WAG-281 weights; teal = adaptive WAG-282 weights. Teacher conditions change at tick 24 and tick 48. Error is evaluated before this tick's teacher transition is used for learning.</p>
+<h2 style="margin-top:22px">Per-junction rail weights</h2><canvas id="weights" width="1060" height="260"></canvas></section>
+<aside class="panel"><h2>Experimental scorecard</h2><div class="stats">
+<div class="stat">Held-out wins<b>8/8</b></div><div class="stat">Error reduction<b>6.67%</b></div><div class="stat">Memory per rail<b>4</b></div><div class="stat">Phase IV<b>16.7%</b></div></div>
+<h2 style="margin-top:23px">Current evidence</h2><pre id="audit">Loading committed evidence…</pre>
+<h2 style="margin-top:23px">Cohort metrics</h2><table id="table"></table>
+<p class="small">This uses online supervised teacher feedback and does not independently discover repair utility. The reference WAG-261 and frozen Phase III archive are unchanged; this lab issues no repair actions.</p>
+<p><a href="./wag282.js">Temporal memory source</a> · <a href="./receipt-6701-6802.json">Experiment receipt</a> · <a href="../wag281/phase-progress.json">Phase IV tracker</a> · <a href="../wag280/">Sealed Phase III</a></p></aside></div></main>
+<script src="../wag277/lattice-chain.js"></script><script src="../wag281/wag281.js"></script><script src="./wag282.js"></script>
+<script>
+const E=id=>document.getElementById(id);let data,angle=0,scenario;
+function drawLattice(){const g=E('lattice').getContext('2d'),W=1060,H=360;g.fillStyle='#190e2b';g.fillRect(0,0,W,H);const xs=[110,326,542,758],y=176;
+for(let i=0;i<4;i++){const c=i%2?'#ba86ff':'#ffa039',x=xs[i],s=Math.sin(angle*(i%2?-1:1)),q=Math.cos(angle*(i%2?-1:1)),radius=47;
+const p=Array.from({length:8},(_,j)=>{const a=j&1?1:-1,b=j&2?1:-1,d=j&4?1:-1;return [x+(a*q-d*s)*radius,y+(b*.8+(a*s+d*q)*.13)*radius]});
+g.strokeStyle=c;g.lineWidth=2.3;g.shadowColor=c;g.shadowBlur=13;for(let j=0;j<8;j++)for(const b of [1,2,4])if(j<(j^b)){g.beginPath();g.moveTo(...p[j]);g.lineTo(...p[j^b]);g.stroke()}g.shadowBlur=0;g.fillStyle=c;g.font='bold 17px monospace';g.fillText('@'+i,x-13,92);
+g.fillStyle='#fff';g.font='13px monospace';g.fillText('m=4',x-16,264);
+if(i<3){g.strokeStyle='#46e9dd';g.beginPath();g.moveTo(x+56,y);g.lineTo(xs[i+1]-56,y);g.stroke()}}
+g.strokeStyle='#47e9db';g.beginPath();g.moveTo(816,y);g.lineTo(915,y);g.stroke();g.strokeStyle='#b789ff';g.strokeRect(915,110,126,136);g.strokeRect(943,145,71,67);g.fillStyle='#fff';g.font='bold 19px monospace';g.fillText('{}',960,183);g.fillText('---@---@---@---@---{}',18,31);angle+=.004;requestAnimationFrame(drawLattice)}
+function lineChart(id,series){const g=E(id).getContext('2d'),W=g.canvas.width,H=g.canvas.height;g.fillStyle='#190e2b';g.fillRect(0,0,W,H);
+const max=Math.max(1e-10,...series.flatMap(z=>z.values))*1.1;for(let j=0;j<=4;j++){g.strokeStyle='#4a365d';g.beginPath();g.moveTo(0,j*H/4);g.lineTo(W,j*H/4);g.stroke()}
+const len=series[0].values.length;
+series.forEach(({values,color,label},k)=>{g.strokeStyle=color;g.lineWidth=2.8;g.beginPath();values.forEach((v,i)=>{const x=45+i*(W-95)/(len-1),y=H-30-v*(H-65)/max;if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.fillStyle=color;g.font='bold 14px monospace';g.fillText(label,50+k*205,24)});
+if(id==='errors'){g.strokeStyle='#ffd468';g.setLineDash([5,7]);for(const t of [24,48]){const x=45+(t-1)*(W-95)/71;g.beginPath();g.moveTo(x,0);g.lineTo(x,H);g.stroke()}g.setLineDash([])}}
+function replay(){try{if(!data)throw Error('Missing evidence');const seed=+E('seed').value,index=+E('pattern').value;
+const initial=data.initialWeights,fixed=wag282Scenario(seed,index,initial,false),adapt=wag282Scenario(seed,index,initial,true);
+scenario={fixed,adapt};const a=data.holdout.adaptive.find(z=>z.seed===seed&&z.index===index);
+if(Math.abs(adapt.meanMSE-a.meanMSE)>1e-12)throw Error('Receipt replay mismatch');
+const normalize=r=>{const lookup=new Map(r.series.map(z=>[z.tick,z.loss]));return [...lookup.values()]};
+lineChart('errors',[{values:normalize(fixed),color:'#b787ff',label:'Fixed signal MSE'},
+{values:normalize(adapt),color:'#46e9dd',label:'Adaptive signal MSE'}]);
+lineChart('weights',Array.from({length:4},(_,j)=>({values:adapt.series.map(z=>z.weights[j]),color:['#ffa13a','#b787ff','#4ae7d8','#ffd165'][j],label:'Rail '+j})));
+E('audit').textContent='Seed '+seed+' / pattern '+index+
+'\nFixed trajectory MSE: '+fixed.meanMSE.toFixed(9)+
+'\nAdaptive trajectory MSE: '+adapt.meanMSE.toFixed(9)+
+'\nOnline memory: '+adapt.memoryDepth.join(', ')+
+'\nLast rail weights: '+adapt.finalWeights.map(v=>v.toFixed(5)).join(', ')+
+'\nMax signal residual: '+adapt.maxResidual.toExponential(2)+
+'\nPrediction target: teacher state AFTER observed tick'+
+'\nUpdate: AFTER prediction, before next tick'+
+'\n\nNo physical action or policy promotion.';
+E('table').innerHTML='<tr><th>Metric</th><th>Fixed</th><th>Temporal</th></tr>'+
+'<tr><td>Train MSE</td><td>'+data.summary.trainFixedMSE.toFixed(7)+'</td><td>'+data.summary.trainAdaptiveMSE.toFixed(7)+'</td></tr>'+
+'<tr><td>Holdout MSE</td><td>'+data.summary.holdoutFixedMSE.toFixed(7)+'</td><td>'+data.summary.holdoutAdaptiveMSE.toFixed(7)+'</td></tr>';
+}catch(e){E('audit').textContent='ERROR '+e.stack}}
+async function init(){try{const r=await fetch('./receipt-6701-6802.json',{cache:'no-store'});if(!r.ok)throw Error('Receipt missing');data=await r.json();replay()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('run').onclick=replay;requestAnimationFrame(drawLattice);init();
+</script></body></html>
