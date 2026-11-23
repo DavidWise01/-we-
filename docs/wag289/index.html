@@ -1,0 +1,35 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-289 · Quartz Cortex Frontal Cube</title>
+<style>:root{font:14px/1.5 system-ui;color:#342843;background:#f9f6ff}*{box-sizing:border-box}body{margin:0}main{max-width:1420px;margin:auto;padding:22px}h1{font-size:clamp(32px,4vw,52px);color:#7451a9;letter-spacing:-.04em;margin:0}.sub{color:#776b89}.grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(290px,1fr);gap:15px}.panel{background:white;border:1px solid #e5d7f3;border-radius:16px;padding:16px;box-shadow:0 6px 20px #61458612}canvas{width:100%;display:block;aspect-ratio:1.5;background:#110c26;border-radius:12px;touch-action:none}.controls{display:flex;gap:9px;flex-wrap:wrap;margin:15px 0;align-items:end}button,select{font:inherit;border:1px solid #bfb0d9;border-radius:9px;padding:9px;background:white}button{color:white;background:#7950b9;cursor:pointer}label{font-size:12px;color:#736683}label select{display:block}h2{font-size:18px;color:#7752b1}pre{white-space:pre-wrap;font-size:12px;overflow:auto}.metric{border-left:5px solid;padding:8px 12px;margin-bottom:9px;background:#f8f4ff}.metric b{font-size:25px;display:block}.small{font-size:12px;color:#7b708a}a{color:#7150b0}@media(max-width:850px){.grid{grid-template-columns:1fr}}</style></head><body><main>
+<h1>Quartz · Cortex · Frontal</h1><p class="sub"><strong>{{5×5}}^{{5}} ⊃ {{3×3}}^{{3}} ⊃ {{1×1}}^{{1}}</strong> · 125 independent memories · One nested central identity · .dlw</p>
+<div class="controls"><label>Visible structure<select id="view"><option value="all">All three nested regions</option><option value="quartz">Quartz shell (98)</option><option value="cortex">Cortex cube (27)</option><option value="frontal">Frontal center (1)</option></select></label><label>Signal coupling<select id="weight"><option value="0">0 · isolated</option><option value=".0625">.0625</option><option value=".125" selected>.125</option><option value=".2">.2</option><option value=".25">.25</option></select></label><button id="pause">Pause</button><button id="reset">Reset</button><button id="spin">Rotate: on</button></div>
+<div class="grid"><section class="panel"><h2>Three concentric cubic address regions</h2><canvas id="stage" width="1100" height="730"></canvas><p class="small">Drag to orbit. The violet outer shell holds 98 silos, the teal 3³ cortex contains 27 positions (including the center), and the orange 1³ frontal region is the existing nested # center. No extra nodes are created or memories merged.</p></section>
+<aside class="panel"><h2>Nested occupancy</h2><div class="metric" style="border-color:#ae83ff"><b>125</b>Outer quartz cube · 5³ (including inner regions)</div><div class="metric" style="border-color:#60f0de"><b>27</b>Cortex cube · 3³ (including center)</div><div class="metric" style="border-color:#ffae65"><b>1</b>Frontal-lobe cube · 1³</div><h2>Live deterministic audit</h2><pre id="audit"></pre><p class="small">This is a computational analogy, not a biological cortex. The previous WAG-288 engine remains unchanged. The layout reuses all 300 original neighbor boundaries and 600 diagonal logical routes.</p><p><a href="./nested-cubes.js">Nested classification engine</a> · <a href="../wag288/cube.html">WAG-288 baseline</a></p></aside></div></main>
+<script src="../wag288/cube-mesh.js"></script><script src="./nested-cubes.js"></script><script>
+const $=id=>document.getElementById(id),c=$('stage'),g=c.getContext('2d'),validation=wag289Audit();
+let s=wag288Initial(),tick=0,animate=true,rotate=true,ax=-.5,ay=.55,drag=false,lx=0,ly=0;
+const palette={quartz:'#bc99ff',cortex:'#72ffe9',frontal:'#ffb569'};
+function coord(i){const [X,Y,Z]=wag288Coords(i);let x=X-2,y=Y-2,z=Z-2;
+const cy=Math.cos(ay),sy=Math.sin(ay),cx=Math.cos(ax),sx=Math.sin(ax);
+const u=x*cy-z*sy,w=x*sy+z*cy,v=y*cx-w*sx,d=y*sx+w*cx;
+const k=1120/(9+d*.48);return {x:550+u*k,y:365+v*k,z:d};}
+function included(i){const view=$('view').value,r=wag289Role(i);return view==='all'||(view==='cortex'&&(r==='cortex'||r==='frontal'))||view===r;}
+function draw(){
+ g.fillStyle='#110c26';g.fillRect(0,0,1100,730);if(rotate)ay+=.0027;
+ for(const [a,b] of WAG288_EDGES){if(!included(a)||!included(b))continue;
+ const A=coord(a),B=coord(b),ra=wag289Role(a),rb=wag289Role(b);
+ g.strokeStyle=ra===rb?palette[ra]:'#f6e3ff';g.globalAlpha=ra===rb?.23:.15;
+ g.lineWidth=ra===rb?1.5:1;g.beginPath();g.moveTo(A.x,A.y);g.lineTo(B.x,B.y);g.stroke();}
+ g.globalAlpha=1;
+ const list=Array.from({length:125},(_,i)=>i).filter(included).sort((a,b)=>coord(b).z-coord(a).z);
+ for(const i of list){const p=coord(i),r=wag289Role(i),energy=s.nodes[i].reduce((a,b)=>a+b,0)/8;
+ const rad=r==='frontal'?16:r==='cortex'?5+energy*5:3+energy*4;
+ g.beginPath();g.arc(p.x,p.y,rad,0,2*Math.PI);g.fillStyle=palette[r];g.shadowColor=palette[r];g.shadowBlur=r==='frontal'?32:13;g.fill();g.shadowBlur=0;
+ if(r==='frontal'){g.strokeStyle='#ffe3b9';g.lineWidth=2;g.strokeRect(p.x-25,p.y-25,50,50);g.beginPath();g.ellipse(p.x,p.y,24,11,ay,0,Math.PI*2);g.stroke();g.font='bold 25px monospace';g.fillStyle='#fff';g.fillText('#',p.x+28,p.y-20);}}
+ g.fillStyle='#fff';g.font='bold 18px monospace';g.fillText('5³  ⊃  3³  ⊃  1³  ·  .dlw',24,33);
+ if(animate&&tick++%4===0){s=wag288Tick(s,+$('weight').value);if(tick%28===0)receipt();}
+ requestAnimationFrame(draw);
+}
+function receipt(){$('audit').textContent='Region assignment: '+(validation.pass?'PASS':'FAIL')+'\n'+Object.entries(validation.checks).map(([k,v])=>k+': '+(v?'PASS':'FAIL')).join('\n')+'\n\nShell cells: 98\nCortex shell: 26\nCenter: 1\nCortex total: 27\nAll cells: 125\n\nSignals tick: '+s.tick+'\nActivation total: '+wag288Mass(s).toFixed(9)+'\nMax conservation residual: '+s.maxResidual.toExponential(3)+'\nPhysical actions: 0';}
+$('pause').onclick=()=>{animate=!animate;$('pause').textContent=animate?'Pause':'Resume';};$('reset').onclick=()=>{s=wag288Initial();receipt();};$('spin').onclick=()=>{rotate=!rotate;$('spin').textContent='Rotate: '+(rotate?'on':'off');};
+c.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY;c.setPointerCapture(e.pointerId)});c.addEventListener('pointermove',e=>{if(drag){ay+=(e.clientX-lx)*.007;ax+=(e.clientY-ly)*.007;lx=e.clientX;ly=e.clientY}});c.addEventListener('pointerup',()=>drag=false);c.addEventListener('pointercancel',()=>drag=false);receipt();requestAnimationFrame(draw);
+</script></body></html>
