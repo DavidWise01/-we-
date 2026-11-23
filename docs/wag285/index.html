@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-285 · Resource-Constrained Crystal Learning</title><style>
+:root{font:14px/1.5 system-ui;background:#faf9f5;color:#362940}*{box-sizing:border-box}body{margin:0}main{max-width:1330px;margin:auto;padding:25px}h1{font-size:clamp(31px,4.5vw,50px);letter-spacing:-.05em;color:#702dae;margin:0}h2{font-size:19px;color:#712baa;margin:0 0 12px}.sub{border-bottom:2px solid #e8dbed;color:#776b80;padding-bottom:16px}.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:15px}.panel{background:white;border:1px solid #e7d9eb;border-radius:14px;padding:18px;box-shadow:0 9px 23px #5a378617}canvas{display:block;width:100%;height:auto;background:#190e2c;border-radius:11px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{padding:11px;background:#faf3ff;border-left:4px solid #ffa339}.stat b{display:block;color:#7030aa;font-size:23px}.controls{display:flex;gap:11px;align-items:end;flex-wrap:wrap;margin:17px 0}label{font-size:13px;color:#776986}select{font:inherit;display:block;padding:10px;border:1px solid #c4a8d8;border-radius:9px;margin-top:4px;background:white}table{border-collapse:collapse;width:100%;font-size:12px}th,td{padding:7px;border-bottom:1px solid #ebdff0;text-align:left}pre{font:12px/1.6 monospace;white-space:pre-wrap;max-height:310px;overflow:auto}.small{font-size:12px;color:#73677d}a{color:#7331a8}@media(max-width:890px){.layout{grid-template-columns:1fr}}</style></head><body><main>
+<h1>WAG-285 · Learning Within Limits</h1><p class="sub">Phase IV · Turn 5/12 · <strong>---@---@---@---@---{} → {\a{b/}}</strong> · 32 weights · strict computational budget · .dlw</p>
+<div class="controls"><label>Held-out seed<select id="seed"><option>7401</option><option>7402</option></select></label><label>Pattern<select id="pattern"><option>0</option><option>1</option><option>2</option><option>3</option></select></label></div>
+<div class="layout"><section class="panel"><h2>Eight-lane crystalline learning chain</h2><canvas id="mesh" width="1070" height="330"></canvas>
+<p class="small">Four alternating crystalline nodes, eight reciprocal signal lanes per connection, one nested terminal. This laboratory does not issue resource-consuming repair actions.</p>
+<h2 style="margin-top:22px">Held-out trajectory loss</h2><canvas id="lines" width="1070" height="315"></canvas><p class="small">Purple untrained · teal capped learner · orange reference trained for nine epochs. The constrained model uses two training epochs.</p>
+<h2 style="margin-top:22px">Learning capacity versus budget</h2><canvas id="cost" width="1070" height="280"></canvas></section>
+<aside class="panel"><h2>Acceptance ledger</h2><div class="stats"><div class="stat">Training pair evaluations<b>1,152</b></div><div class="stat">Updates allowed<b>64</b></div><div class="stat">Held-out improvements<b>8/8</b></div><div class="stat">Phase IV<b>41.7%</b></div></div>
+<h2 style="margin-top:22px">Exact evidence</h2><pre id="audit">Loading held-out research receipt…</pre><table id="score"></table>
+<p class="small">These budgets count model operations, not electrical joules. The supervised synthetic transport task is distinct from the falsified WAG-284 delayed repair-value predictor. WAG-261 remains authoritative for physical actions.</p>
+<p><a href="./wag285.js">Budgeted learning engine</a> · <a href="./receipt-7301-7402.json">Deterministic evidence receipt</a> · <a href="../wag281/phase-progress.json">Phase IV tracker</a> · <a href="../wag280/">Frozen Phase III release</a></p>
+</aside></div></main><script>
+const E=id=>document.getElementById(id);let receipt,angle=0;
+function mesh(){const g=E('mesh').getContext('2d'),W=1070,H=330;g.fillStyle='#190e2c';g.fillRect(0,0,W,H);const xs=[115,333,552,769],y=167,edges=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+for(let j=0;j<4;j++){const cx=xs[j],R=46,col=j%2?'#b688ff':'#ffa03b',c=Math.cos(angle*(j%2?-1:1)),s=Math.sin(angle*(j%2?-1:1));const p=Array.from({length:8},(_,k)=>{const x=k&1?1:-1,z=k&4?1:-1,v=k&2?1:-1;return [cx+(x*c-z*s)*R,y+(v*.82+(x*s+z*c)*.14)*R]});g.strokeStyle=col;g.lineWidth=2.3;g.shadowBlur=12;g.shadowColor=col;edges.forEach(([a,b])=>{g.beginPath();g.moveTo(...p[a]);g.lineTo(...p[b]);g.stroke()});g.shadowBlur=0;g.fillStyle=col;g.font='bold 16px monospace';g.fillText('@'+j,cx-12,82);for(let k=0;k<8;k++){g.strokeStyle=['#4ee8dd','#85b9ee','#f3a348','#ad8dfa'][k%4];g.globalAlpha=.6;g.lineWidth=1.3;g.beginPath();g.moveTo(cx+55,y-22+k*6);g.lineTo((j<3?xs[j+1]-55:915),y-22+k*6);g.stroke();g.globalAlpha=1}}
+g.strokeStyle='#b688ff';g.strokeRect(916,103,125,130);g.strokeRect(945,136,68,62);g.fillStyle='#fff';g.font='bold 18px monospace';g.fillText('{}',967,177);g.fillText('---@---@---@---@---{}',18,30);angle+=.006;requestAnimationFrame(mesh)}
+function drawChart(id,series){const g=E(id).getContext('2d'),W=g.canvas.width,H=g.canvas.height;g.fillStyle='#190e2c';g.fillRect(0,0,W,H);const max=Math.max(.000001,...series.flatMap(s=>s.values))*1.08;for(let k=0;k<5;k++){g.strokeStyle='#483358';g.beginPath();g.moveTo(0,k*H/4);g.lineTo(W,k*H/4);g.stroke()}series.forEach((s,j)=>{g.strokeStyle=s.color;g.lineWidth=2.7;g.beginPath();s.values.forEach((v,i)=>{const x=48+i*(W-90)/Math.max(1,s.values.length-1),y=H-34-v*(H-75)/max;if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.fillStyle=s.color;g.font='bold 14px system-ui';g.fillText(s.name,50+j*195,24)})}
+function show(){if(!receipt)return;const seed=+E('seed').value,pattern=+E('pattern').value,z=receipt.cases.find(z=>z.seed===seed&&z.pattern===pattern);if(!z)return;
+drawChart('lines',[{values:z.series.initial.map(z=>z.mse),name:'Untrained',color:'#b68aff'},{values:z.series.budgeted.map(z=>z.mse),name:'Budgeted',color:'#4ae9dc'},{values:z.series.reference.map(z=>z.mse),name:'Reference',color:'#ffa13b'}]);
+drawChart('cost',[{values:[receipt.summary.initialHeldoutMSE,receipt.summary.budgetHeldoutMSE,receipt.summary.referenceHeldoutMSE],name:'Mean MSE by budget',color:'#4de9da'}]);
+E('audit').textContent='Seed '+seed+' · pattern '+pattern+
+'\nStarting MSE: '+z.initialMSE.toExponential(7)+
+'\nConstrained MSE: '+z.budgetedMSE.toExponential(7)+
+'\nNine-epoch reference MSE: '+z.referenceMSE.toExponential(7)+
+'\nCapped learner improvement: '+(100*(1-z.budgetedMSE/z.initialMSE)).toFixed(2)+'%'+
+'\nTraining passes: '+receipt.budgetModel.ledger.epochs+
+'\nPair evaluations: '+receipt.budgetModel.ledger.trainingPairsUsed+
+'\nCoefficient updates: '+receipt.budgetModel.ledger.coefficientUpdates+
+'\nWeight slots: '+receipt.budgetModel.ledger.memorySlots+
+'\nMaximum signal residual: '+receipt.summary.maxConservationResidual.toExponential(2)+
+'\nBudget violations: '+receipt.budgetModel.ledger.violations+
+'\nPhysical action selections: 0';
+E('score').innerHTML='<tr><th>Model</th><th>Held-out MSE</th></tr>'+
+[['Untrained',receipt.summary.initialHeldoutMSE],['Budgeted',receipt.summary.budgetHeldoutMSE],['Reference',receipt.summary.referenceHeldoutMSE]].map(([n,v])=>'<tr><td>'+n+'</td><td>'+v.toExponential(5)+'</td></tr>').join('')}
+async function load(){try{const r=await fetch('./receipt-7301-7402.json',{cache:'no-store'});if(!r.ok)throw Error('Missing receipt');receipt=await r.json();show()}catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('seed').onchange=show;E('pattern').onchange=show;requestAnimationFrame(mesh);load();
+</script></body></html>
