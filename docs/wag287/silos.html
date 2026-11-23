@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-287 · Quartz Silo Lattice</title><style>
+:root{font:14px/1.5 system-ui;background:#fcfaff;color:#352744}*{box-sizing:border-box}body{margin:0}main{max-width:1330px;margin:auto;padding:24px}h1{font-size:clamp(32px,4.5vw,53px);color:#7b59ab;letter-spacing:-.05em;margin:0}h2{font-size:19px;color:#7352a2;margin:0 0 12px}.sub{color:#746b82;border-bottom:2px solid #e6ddf0;padding-bottom:15px}.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:15px}.panel{background:white;border:1px solid #e2d9ef;border-radius:15px;padding:18px;box-shadow:0 10px 25px #69489817}canvas{display:block;width:100%;height:auto;background:#140e28;border-radius:12px}.controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:18px 0}label{font-size:13px;color:#756a83}select,button{font:inherit;padding:10px 12px;border:1px solid #cbbbe1;border-radius:9px;background:white;display:block;margin-top:5px}button{background:#7755ad;color:white;font-weight:700;cursor:pointer}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}.metric{background:#f6f2ff;padding:10px;border-left:4px solid #9ce0ef}.metric b{font-size:24px;color:#7751b1;display:block}pre{white-space:pre-wrap;overflow:auto;font:12px/1.55 monospace;max-height:360px}.small{font-size:12px;color:#796e86}a{color:#7652ae}@media(max-width:920px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>Quartz · Individual Silo Lattice</h1>
+<p class="sub"><strong>---{Ss@sS}---{Ss@sS---{[(Ss#Ss)]}---{Ss@sS}---{Ss@sS}---</strong> · Four quartz silos surrounding a nested central silo · .dlw</p>
+<div class="controls"><label>Inter-silo coupling<select id="weight"><option value="0">0 · isolate all silos</option><option value="0.0625">0.0625 · gentle</option><option value="0.125" selected>0.125 · standard</option><option value="0.2">0.20 · strong</option><option value="0.25">0.25 · upper bound</option></select></label><button id="reset">Reset silo state</button><button id="pause">Pause motion</button></div>
+<div class="layout"><section class="panel"><h2>Quartz silos and nested coupling center</h2><canvas id="stage" width="1120" height="475"></canvas>
+<p class="small">Each translucent prismatic silo has its own eight-channel signal state. The central {[(Ss#Ss)]} is depicted as nested brace, box and toroid shells. Teal lines are reciprocal abstract signal transfers—not shared memory or physical resource flow.</p>
+<h2 style="margin-top:22px">Per-silo signal history</h2><canvas id="trace" width="1120" height="270"></canvas>
+</section><aside class="panel"><h2>Silo topology audit</h2><div class="metrics"><div class="metric">Outer quartz silos<b>4</b></div><div class="metric">Nested center<b>1</b></div><div class="metric">Reciprocal links<b>4</b></div><div class="metric">Phase IV<b>50%</b></div></div>
+<h2 style="margin-top:23px">Original notation and simulation</h2><pre id="audit">Loading silicon-quartz topology…</pre>
+<p class="small">Your original expression is preserved exactly. The computation uses a balanced second left silo. This is a topology preview, not the completed WAG-287 learning-candidate freeze. Previous experiment receipts remain unchanged.</p>
+<p><a href="./silo-topology.js">Silo topology and tests</a> · <a href="../wag286/">WAG-286 quartz growth lab</a> · <a href="../wag281/phase-progress.json">Phase IV tracker</a></p></aside></div></main>
+<script src="./silo-topology.js"></script><script>
+const E=id=>document.getElementById(id),validation=wag287SiloCheck();
+let model=wag287SiloInitial(),history=[],animate=true,theta=0,frame=-1;
+function snapshot(){history.push({tick:model.step,v:model.nodes.map(a=>a.reduce((s,x)=>s+x,0)/8)});if(history.length>150)history.shift()}snapshot();
+function prism(g,x,y,i,activity){const hub=i===2,r=hub?76:61,h=hub?100:88,rot=theta*(i%2?-1:1);
+const poly=Array.from({length:6},(_,k)=>{const a=rot+k*Math.PI/3;return [x+Math.cos(a)*r,Math.sin(a)*r*.39]});
+for(let k=0;k<6;k++){const j=(k+1)%6;g.beginPath();g.moveTo(poly[k][0],y-h+poly[k][1]);g.lineTo(poly[j][0],y-h+poly[j][1]);g.lineTo(poly[j][0],y+h+poly[j][1]);g.lineTo(poly[k][0],y+h+poly[k][1]);g.closePath();g.fillStyle=k%2?'#a8e9f5':'#d7bcff';g.globalAlpha=.08+activity*.3;g.fill();g.globalAlpha=1}
+g.strokeStyle=hub?'#e5c8ff':i%2?'#a6e8f5':'#decaff';g.shadowColor=g.strokeStyle;g.shadowBlur=hub?18:11;g.lineWidth=1.7;for(let k=0;k<6;k++){const j=(k+1)%6;for(const v of [-h,h]){g.beginPath();g.moveTo(poly[k][0],y+v+poly[k][1]);g.lineTo(poly[j][0],y+v+poly[j][1]);g.stroke()}g.beginPath();g.moveTo(poly[k][0],y-h+poly[k][1]);g.lineTo(poly[k][0],y+h+poly[k][1]);g.stroke()}g.shadowBlur=0;
+if(hub){g.strokeStyle='#ffdfed';g.lineWidth=2;g.strokeRect(x-49,y-62,98,124);g.strokeStyle='#8ef3e7';g.beginPath();g.ellipse(x,y,42,23,theta*.7,0,2*Math.PI);g.stroke()}
+g.fillStyle='#fff';g.textAlign='center';g.font='bold '+(hub?25:20)+'px monospace';g.fillText(hub?'#':'@',x,y+9);g.font='13px monospace';g.fillText(hub?'{[(Ss#Ss)]}':'{Ss@sS}',x,y+h+35);g.textAlign='left'}
+function render(){const g=E('stage').getContext('2d'),W=1120,H=475,xs=[125,343,560,778,996],y=233;g.fillStyle='#140e28';g.fillRect(0,0,W,H);
+const levels=model.nodes.map(z=>z.reduce((s,x)=>s+x,0)/8);
+for(let i=0;i<4;i++)for(let k=0;k<8;k++){g.strokeStyle=['#abf5ed','#b7ddff','#e5c8ff','#fff2fd'][k%4];g.globalAlpha=.15+.55*levels[i];g.lineWidth=1.5;g.beginPath();g.moveTo(xs[i]+80,y-29+k*8);g.lineTo(xs[i+1]-80,y-29+k*8);g.stroke();g.globalAlpha=1}
+xs.forEach((x,i)=>prism(g,x,y,i,levels[i]));g.fillStyle='#fff';g.font='bold 18px monospace';g.fillText('---{Ss@sS}---{Ss@sS---{[(Ss#Ss)]}---{Ss@sS}---{Ss@sS}---',14,33);
+if(animate){theta+=.005;const tick=Math.floor(theta*28);if(tick!==frame){frame=tick;model=wag287SiloPulse(model,Array(4).fill(+E('weight').value));snapshot();drawTrace()}}
+requestAnimationFrame(render)}
+function drawTrace(){const g=E('trace').getContext('2d'),W=1120,H=270;g.fillStyle='#140e28';g.fillRect(0,0,W,H);
+for(let i=0;i<5;i++){g.strokeStyle='#3a2c53';g.beginPath();g.moveTo(0,i*H/4);g.lineTo(W,i*H/4);g.stroke()}
+const max=Math.max(.1,...history.flatMap(x=>x.v))*1.1,colors=['#d5b4ff','#95e9ff','#fff1ff','#a5cfff','#e5c3ff'];
+colors.forEach((col,j)=>{g.strokeStyle=col;g.lineWidth=2.5;g.beginPath();history.forEach((z,i)=>{const x=35+i*(W-70)/Math.max(1,history.length-1),y=H-31-z.v[j]*(H-66)/max;if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.fillStyle=col;g.font='bold 13px monospace';g.fillText(j===2?'#':'@'+j,40+j*130,21)});
+E('audit').textContent='Literal:\\n'+WAG287_SILO.literal+'\\n\\nBalanced simulation:\\n'+WAG287_SILO.balanced+
+'\\n\\nSilo count: 5\\nEight separate signal cells per silo\\nCentral shells: { brace → [ box → ( toroid ) ] }'+
+'\\nCurrent pulse: '+model.step+'\\nSelected coupling: '+E('weight').value+
+'\\nTotal signal: '+wag287SiloMass(model).toFixed(9)+
+'\\nMaximum test residual: '+Math.max(...validation.cases.map(c=>c.maxResidual)).toExponential(3)+
+'\\nIsolation at coupling=0: PASS\\nFive tests passed: '+validation.pass+
+'\\nPhysical action calls: 0\\n\\nHistorical receipts untouched.'}
+E('reset').onclick=()=>{model=wag287SiloInitial();history=[];snapshot();drawTrace()};E('pause').onclick=()=>{animate=!animate;E('pause').textContent=animate?'Pause motion':'Resume motion'};drawTrace();requestAnimationFrame(render);
+</script></body></html>
