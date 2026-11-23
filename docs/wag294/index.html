@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-294 · Quartz-Shell Damage Recovery</title><style>
+:root{font:14px/1.5 system-ui;background:#faf8ff;color:#342846}*{box-sizing:border-box}body{margin:0}main{max-width:1390px;margin:auto;padding:20px}h1{font-size:clamp(30px,4vw,50px);color:#7751ae;margin:0}p{color:#766b87}.layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(290px,1fr);gap:14px}.panel{border:1px solid #e6dcef;background:#fff;border-radius:15px;padding:16px;box-shadow:0 8px 22px #66458d17}canvas{width:100%;display:block;aspect-ratio:1.6;background:#120a29;border-radius:12px;touch-action:none}button,select{font:inherit;border-radius:9px;padding:9px;border:1px solid #cbb9df;background:#fff}button{background:#7953b5;color:white;cursor:pointer;font-weight:bold}.controls{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0;align-items:end}label{font-size:12px;color:#776c84}label select{display:block}pre{white-space:pre-wrap;overflow:auto;font:12px/1.55 monospace}h2{font-size:19px;color:#734cad}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stats div{background:#f4effc;border-left:4px solid #7df3e5;padding:9px}.stats b{font-size:24px;color:#714bac;display:block}.small{font-size:12px;color:#7d718a}a{color:#7550ae}@media(max-width:850px){.layout{grid-template-columns:1fr}}</style></head><body><main>
+<h1>WAG-294 · Damage Localization &amp; Recovery</h1><p><b>{{5×5}}^{{5}} ⊃ {{3×3}}^{{3}} ⊃ {{1×1}}^{{1}}</b> · Six spatially distinct quartz anchors · Conservative abstention · .dlw</p>
+<div class="controls"><label>Coupling<select id="weight"><option value="0">0 · isolate</option><option value=".0625">.0625</option><option value=".125" selected>.125</option><option value=".2">.2</option><option value=".25">.25</option></select></label><button id="run">Evaluate + append</button><button id="pause">Pause</button><button id="spin">Rotate: on</button><button id="reset">Reset</button><button id="export">Export receipts</button></div>
+<div class="layout"><section class="panel"><h2>Quartz / cortex / frontal · drag to orbit</h2><canvas id="cube" width="1100" height="710"></canvas><p class="small">Amber nodes are six predeclared quartz-shell reference cells. Teal is the 26-cell cortex shell, orange the central frontal cell, and violet the remaining quartz shell. Independent state arrays are preserved.</p><h2>Correct · incorrect · abstained</h2><canvas id="plot" width="1100" height="355" style="aspect-ratio:3.1"></canvas><p class="small">Independent references are deliberately injected before faults in this synthetic benchmark. Recovery is possible only because the references carry redundant target information; five compromised anchors expose an undetectable false consensus.</p></section>
+<aside class="panel"><h2>Observed receipt</h2><div class="stats"><div>Memory silos<b>125</b></div><div>Shell anchors<b>6</b></div><div>Scenarios<b>8</b></div><div>Receipts<b id="n">0</b></div></div><pre id="summary">Press Evaluate to run the challenge.</pre><h2>Ledger</h2><pre id="ledger">No receipts.</pre><h2>Audit</h2><pre id="audit"></pre><p class="small">No actuation, no learned controller, no assumed physical quartz behavior. Exported receipts document limited synthetic tests; resetting the page clears only local in-memory ledger entries.</p><p><a href="./local-recovery.js">Recovery engine</a> · <a href="../wag293/">WAG-293 challenge</a></p></aside></div></main>
+<script src="../wag288/cube-mesh.js"></script><script src="../wag289/nested-cubes.js"></script><script src="../wag290/cortex-selection.js"></script><script src="../wag291/candidate-freeze.js"></script><script src="../wag292/adaptive-selection.js"></script><script src="../wag293/cortex-challenge.js"></script><script src="./local-recovery.js"></script>
+<script>
+const $=id=>document.getElementById(id),canvas=$('cube'),g=canvas.getContext('2d'),pg=$('plot').getContext('2d'),audit=wag294Audit();
+let state=wag288Initial(),ledger=Object.freeze([]),playing=true,rotating=true,frame=0,ay=.57,ax=-.45,drag=false,lx=0,ly=0;
+const anchors=new Set(WAG294.anchors),colors={quartz:'#bb9cfa',cortex:'#7afae1',frontal:'#ffb66f',anchor:'#ffde76'};
+function project(i){const [X,Y,Z]=wag288Coords(i),x=X-2,y=Y-2,z=Z-2,C=Math.cos(ay),S=Math.sin(ay),A=Math.cos(ax),B=Math.sin(ax),u=x*C-z*S,w=x*S+z*C,v=y*A-w*B,d=y*B+w*A,k=1090/(9+d*.49);return{x:550+u*k,y:355+v*k,z:d}}
+function draw(){
+ g.fillStyle='#120a29';g.fillRect(0,0,1100,710);if(rotating)ay+=.0023;
+ for(const [a,b] of WAG288_EDGES){const p=project(a),q=project(b);g.strokeStyle=anchors.has(a)||anchors.has(b)?'#d4af6e':'#8f74b0';g.globalAlpha=.17;g.beginPath();g.moveTo(p.x,p.y);g.lineTo(q.x,q.y);g.stroke()}g.globalAlpha=1;
+ for(const i of Array.from({length:125},(_,n)=>n).sort((a,b)=>project(b).z-project(a).z)){
+ const p=project(i),r=wag289Role(i),anchor=anchors.has(i),color=anchor?colors.anchor:colors[r],rad=r==='frontal'?15:anchor?10:r==='cortex'?6:4;
+ g.fillStyle=color;g.shadowBlur=anchor?27:12;g.shadowColor=color;g.beginPath();g.arc(p.x,p.y,rad,0,2*Math.PI);g.fill();g.shadowBlur=0;
+ if(r==='frontal'){g.strokeStyle='#ffb66f';g.lineWidth=2;g.strokeRect(p.x-23,p.y-23,46,46);g.fillStyle='#fff';g.font='bold 20px monospace';g.fillText('#',p.x+28,p.y-12)}}
+ g.fillStyle='#fff';g.font='bold 19px monospace';g.fillText('5³ ⊃ 3³ ⊃ 1³ · SIX ANCHORS · .dlw',20,32);
+ if(playing&&frame++%4===0)state=wag288Tick(state,+$('weight').value);requestAnimationFrame(draw)}
+function plot(){
+ pg.fillStyle='#120a29';pg.fillRect(0,0,1100,355);pg.fillStyle='white';pg.font='bold 17px monospace';pg.fillText('Correct (teal) / Wrong (pink) / Abstain (amber)',18,26);
+ const r=ledger.at(-1);if(!r)return;const cw=126;
+ r.scenarios.forEach((s,i)=>{const x=12+i*135,y=283,scale=2.5,parts=[[s.correct,'#70f8d9'],[s.incorrect,'#f079aa'],[s.abstained,'#ffd37e']];
+ let pos=y;for(const [count,col] of parts){const height=count*scale;pg.fillStyle=col;pg.fillRect(x,pos-height,cw,height);pos-=height}
+ pg.fillStyle='white';pg.font='10px monospace';pg.fillText(s.scenario.replace('both-','b-').replace('-damaged',' dmg').replace('-anchors',' anc'),x,304);
+ pg.fillText(s.correct+'/'+s.incorrect+'/'+s.abstained,x,322)})}
+function display(){const r=ledger.at(-1);$('n').textContent=ledger.length;
+ $('summary').textContent=r?r.scenarios.map(s=>s.scenario+': '+s.correct+' correct / '+s.incorrect+' wrong / '+s.abstained+' abstain').join('\n'):'No challenge evaluated.';
+ $('ledger').textContent=ledger.length?ledger.slice(-8).map((v,i)=>'#'+(ledger.length-Math.min(8,ledger.length)+i+1)+' · tick '+v.tick+' · 8 scenarios').join('\n'):'No receipts.';
+ $('audit').textContent='Deterministic checks: '+Object.values(audit.checks).filter(Boolean).length+'/'+Object.keys(audit.checks).length+'\nStatus: '+(audit.pass?'PASS':'FAIL')+'\nSix distinct shell anchors\nPrior engine files unchanged\nPhysical actions: 0';plot()}
+$('run').onclick=()=>{ledger=wag294LedgerAppend(ledger,wag294Evaluate(state));display()};
+$('reset').onclick=()=>{state=wag288Initial();ledger=Object.freeze([]);frame=0;display()};
+$('pause').onclick=()=>{playing=!playing;$('pause').textContent=playing?'Pause':'Resume'};
+$('spin').onclick=()=>{rotating=!rotating;$('spin').textContent='Rotate: '+(rotating?'on':'off')};
+$('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(ledger,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='wag294-receipts.json';a.click();URL.revokeObjectURL(url)};
+canvas.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY;canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(drag){ay+=(e.clientX-lx)*.007;ax+=(e.clientY-ly)*.007;lx=e.clientX;ly=e.clientY}});
+canvas.addEventListener('pointerup',()=>drag=false);canvas.addEventListener('pointercancel',()=>drag=false);display();requestAnimationFrame(draw);
+</script></body></html>
