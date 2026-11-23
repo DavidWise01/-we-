@@ -1,0 +1,116 @@
+{
+  "phase": "WAG-IV",
+  "title": "Learnable Crystalline Lattice",
+  "status": "OPEN",
+  "predecessor": "WAG-III-v1.0 CLOSED (immutable)",
+  "firstBound": 281,
+  "lastBound": 292,
+  "plannedTurns": 12,
+  "completedTurns": 1,
+  "progressPercent": 8.3,
+  "nextBound": 282,
+  "policyPromotion": "NONE",
+  "primitive": "---@---@---@---@---{} → {\\a{b/}} → one action",
+  "reference": "WAG-261 frozen baseline",
+  "researchCandidate": "Four learnable crystalline inter-junction signal weights; not an authorized repair controller",
+  "scope": "Learn local transport dynamics, validate generalization with fresh synthetic families, and only then consider physical action integration",
+  "milestones": [
+    {
+      "bound": 281,
+      "name": "Conserved crystalline lattice transport learning",
+      "accepted": true,
+      "cumulativePercent": 8.3
+    },
+    {
+      "bound": 282,
+      "name": "Temporal feedback and local prediction residuals",
+      "accepted": false,
+      "cumulativePercent": 16.7
+    },
+    {
+      "bound": 283,
+      "name": "Multiple independent lattice channels",
+      "accepted": false,
+      "cumulativePercent": 25
+    },
+    {
+      "bound": 284,
+      "name": "Delayed reward and repair-value labels",
+      "accepted": false,
+      "cumulativePercent": 33.3
+    },
+    {
+      "bound": 285,
+      "name": "Bounded training under resource constraints",
+      "accepted": false,
+      "cumulativePercent": 41.7
+    },
+    {
+      "bound": 286,
+      "name": "Stability under changing lattice counts",
+      "accepted": false,
+      "cumulativePercent": 50
+    },
+    {
+      "bound": 287,
+      "name": "Freeze candidate and training recipe",
+      "accepted": false,
+      "cumulativePercent": 58.3
+    },
+    {
+      "bound": 288,
+      "name": "Unseen pattern and forcing holdout",
+      "accepted": false,
+      "cumulativePercent": 66.7
+    },
+    {
+      "bound": 289,
+      "name": "Long-horizon integrity and resource tests",
+      "accepted": false,
+      "cumulativePercent": 75
+    },
+    {
+      "bound": 290,
+      "name": "Minimal learning failure reproductions",
+      "accepted": false,
+      "cumulativePercent": 83.3
+    },
+    {
+      "bound": 291,
+      "name": "Ranked falsification and no-promotion gate",
+      "accepted": false,
+      "cumulativePercent": 91.7
+    },
+    {
+      "bound": 292,
+      "name": "Final Phase IV release",
+      "accepted": false,
+      "cumulativePercent": 100
+    }
+  ],
+  "lastAccepted": {
+    "bound": 281,
+    "engine": "docs/wag281/wag281.js",
+    "receipt": "docs/wag281/receipt-6501-6602.json",
+    "lab": "docs/wag281/index.html",
+    "trainingCases": 18,
+    "holdoutCases": 12,
+    "epochs": 6,
+    "learnedWeights": 4,
+    "holdoutBaselineMSE": 0.0003453133028534275,
+    "holdoutLearnedMSE": 0.00030044587807875564,
+    "holdoutImprovementPercent": 12.993251173331247,
+    "learnedRepairPolicy": false,
+    "promoted": false,
+    "summary": "Deterministic gradient learning on abstract conserved crystalline signal channels. Supervised by a synthetic transport teacher, with disjoint heldout seeds but shared simulator ancestry. No physical action, no claim of learned repair policy."
+  },
+  "invariants": [
+    "Phase III remains CLOSED",
+    "single physical action authority",
+    "signal conservation does not equal physical energy",
+    "no policy promotion without precommitted physical evaluation",
+    "train/test seed separation",
+    "append-only evidence"
+  ],
+  "livePagesVerified": false
+}
