@@ -27,7 +27,7 @@ function wag316Fixture(scenario,seq){
  if(scenario==='swapped-key')clock.publicKey=status.publicKey;
  if(scenario==='shared-root')clock.roots=['fixture-Q'];
  if(scenario==='replayed-counter'){
-  clock.body=wag316Packet('clock',0).body;clock.signature=wag316Packet('clock',0).signature;
+  clock.body=wag316Packet('clock',(seq+7)%8).body;clock.signature=wag316Packet('clock',(seq+7)%8).signature;
  }
  if(scenario==='counter-ahead')clock.body.counter+=4;
  if(scenario==='reported-revocation')status.body.state='REVOKED';
