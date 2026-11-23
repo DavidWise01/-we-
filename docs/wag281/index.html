@@ -1,0 +1,79 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-281 · Learnable Crystalline Lattice</title><style>
+:root{font:14px/1.5 system-ui;background:#fbf9f5;color:#392a43}*{box-sizing:border-box}body{margin:0}main{max-width:1370px;margin:auto;padding:26px}
+h1{font-size:clamp(32px,4.4vw,51px);letter-spacing:-.05em;color:#7230ad;margin:0}
+h2{font-size:19px;color:#6c2aa5;margin:0 0 12px}.sub{color:#796b86;border-bottom:2px solid #ebdbef;padding-bottom:16px}
+.controls{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:19px 0}label{font-size:13px;color:#776785}
+select,button{font:inherit;display:block;margin-top:5px;padding:10px;border:1px solid #bda1d9;border-radius:9px;color:#382748;background:white}
+button{background:#6f2baa;color:white;cursor:pointer;font-weight:700;box-shadow:0 0 17px #b47ced89}
+.layout{display:grid;grid-template-columns:1.65fr 1fr;gap:15px}.panel{background:white;padding:18px;border:1px solid #e7d7ed;border-radius:14px;box-shadow:0 10px 24px #633b8516}
+canvas{display:block;width:100%;height:auto;border-radius:10px;background:#190e2b}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.metric{padding:11px;background:#faf3ff;border-left:4px solid #ffa239}.metric b{font-size:23px;color:#7132af;display:block}
+table{border-collapse:collapse;width:100%;font-size:12px}td,th{padding:8px 6px;border-bottom:1px solid #eaddf0;text-align:left}
+pre{font:12px/1.6 monospace;white-space:pre-wrap;max-height:355px;overflow:auto}
+.small{color:#7c6a85;font-size:12px}a{color:#7732a6}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+</style></head><body><main>
+<h1>WAG-281 · Crystals That Learn</h1>
+<p class="sub">Phase IV · Turn 1 / 12 · <strong>---@---@---@---@---{} → {\a{b/}}</strong> · Four trainable rail weights · One physical authority · .dlw</p>
+<div class="controls"><label>Scenario<select id="seed"><option value="6601">Held-out seed 6601</option><option value="6602">Held-out seed 6602</option><option value="6501">Training seed 6501</option></select></label>
+<label>Signal pattern<select id="pattern"><option value="0">Pattern 0</option><option value="1">Pattern 1</option><option value="2">Pattern 2</option><option value="3">Pattern 3</option><option value="4">Pattern 4</option><option value="5">Pattern 5</option></select></label>
+<button id="run">Replay signal learning</button></div>
+<div class="layout"><section class="panel">
+<h2>Four connected crystalline junctions</h2><canvas id="mesh" width="1090" height="350"></canvas>
+<p class="small">Orange and purple junctions alternate orientation. Every teal link is bidirectional signal coupling. Learned coefficients are bounded; all actual physical maintenance actions remain outside this laboratory.</p>
+<h2 style="margin-top:24px">Terminal b · fixed vs learned vs teacher</h2><canvas id="signal" width="1090" height="355"></canvas>
+<p class="small">Purple: original fixed rails · teal: learned rails · gold: synthetic teacher. Differences describe signal-transport fit, not physical repair accuracy.</p>
+<h2 style="margin-top:24px">Weight learning by epoch</h2><canvas id="weights" width="1090" height="275"></canvas></section>
+<aside class="panel"><h2>Learning scorecard</h2>
+<div class="metrics"><div class="metric">Learned weights<b>4 / 4</b></div><div class="metric">Training patterns<b>18</b></div>
+<div class="metric">Held-out patterns<b>12</b></div><div class="metric">Phase IV<b>8.3%</b></div></div>
+<h2 style="margin-top:24px">Actual receipt</h2><pre id="audit">Loading frozen learning receipt…</pre>
+<h2 style="margin-top:24px">Final coupling weights</h2><table id="weightTable"></table>
+<p class="small">The synthetic oracle is used for teaching transport, not optimal resource management. Training gradients use only training seeds. Held-out examples share the same signal generator ancestry.</p>
+<p><a href="./receipt-6501-6602.json">Learning evidence receipt</a> · <a href="./wag281.js">Training engine</a> · <a href="./phase-progress.json">Phase IV tracker</a> · <a href="../wag280/">Sealed Phase III release</a></p></aside></div></main>
+<script src="../wag277/lattice-chain.js"></script><script src="./wag281.js"></script><script>
+const E=id=>document.getElementById(id);let receipt,angle=0,scenario;
+function mesh(){const g=E('mesh').getContext('2d'),W=1090,H=350;g.fillStyle='#190e2b';g.fillRect(0,0,W,H);
+const xs=[123,340,555,770],y=178,edge=[[0,1],[0,2],[0,4],[1,3],[1,5],[2,3],[2,6],[3,7],[4,5],[4,6],[5,7],[6,7]];
+for(let i=0;i<4;i++){const cx=xs[i],col=i%2?'#b689ff':'#ffa13b',R=51,rot=angle*(i%2?-1:1),cs=Math.cos(rot),sn=Math.sin(rot);
+const pts=Array.from({length:8},(_,k)=>{const x=k&1?1:-1,z=k&4?1:-1,v=k&2?1:-1;return [cx+(x*cs-z*sn)*R,y+(v*.8+(x*sn+z*cs)*.14)*R]});
+g.strokeStyle=col;g.lineWidth=2.3;g.shadowColor=col;g.shadowBlur=14;edge.forEach(([u,v])=>{g.beginPath();g.moveTo(...pts[u]);g.lineTo(...pts[v]);g.stroke()});g.shadowBlur=0;
+g.fillStyle=col;g.font='bold 17px monospace';g.fillText('@'+i,cx-15,90);
+if(i<3){g.beginPath();g.strokeStyle='#4de9d9';g.lineWidth=2.7;g.moveTo(cx+62,y);g.lineTo(xs[i+1]-62,y);g.stroke();if(receipt){g.fillStyle='#fff';g.font='13px monospace';g.fillText(receipt.learned[i].toFixed(4),(cx+xs[i+1])/2-28,y-13)}}}
+g.strokeStyle='#4ce9d9';g.beginPath();g.moveTo(xs[3]+62,y);g.lineTo(913,y);g.stroke();g.strokeStyle='#ba82ff';g.strokeRect(913,116,148,132);g.strokeRect(946,149,82,67);
+g.fillStyle='#fff';g.font='bold 19px monospace';g.fillText('{}',967,189);if(receipt)g.fillText(receipt.learned[3].toFixed(4),828,160);
+g.fillText('---@---@---@---@---{}',18,30);angle+=.005;requestAnimationFrame(mesh)}
+function chart(id,series,maxValue){const c=E(id),g=c.getContext('2d'),W=c.width,H=c.height;g.fillStyle='#190e2b';g.fillRect(0,0,W,H);
+for(let j=0;j<5;j++){g.strokeStyle='#453358';g.beginPath();g.moveTo(0,j*H/4);g.lineTo(W,j*H/4);g.stroke()}
+const n=series[0].values.length,x=i=>47+(W-88)*i/Math.max(1,n-1),y=v=>H-35-(H-75)*v/maxValue;
+for(const {values,color,name}of series){g.beginPath();g.strokeStyle=color;g.lineWidth=3;g.shadowColor=color;g.shadowBlur=10;
+values.forEach((v,i)=>i?g.lineTo(x(i),y(v)):g.moveTo(x(i),y(v)));g.stroke();g.shadowBlur=0;
+g.fillStyle=color;g.font='bold 14px system-ui';g.fillText(name,55+series.indexOf?.(undefined)*0||55,20)}
+}
+function drawSignal(){if(!scenario)return;const fixed=scenario.fixed.checkpoints.map(z=>z.b),learned=scenario.learned.checkpoints.map(z=>z.b),teacher=scenario.teacher.checkpoints.map(z=>z.b);
+const g=E('signal').getContext('2d'),W=1090,H=355;g.fillStyle='#190e2b';g.fillRect(0,0,W,H);const max=Math.max(.001,...fixed,...learned,...teacher)*1.15;
+for(let k=0;k<5;k++){g.strokeStyle='#49355d';g.beginPath();g.moveTo(0,k*H/4);g.lineTo(W,k*H/4);g.stroke()}
+for(const [data,col,name,index]of [[fixed,'#b78cff','Fixed',0],[learned,'#4de9d9','Learned',1],[teacher,'#ffd15f','Teacher',2]]){g.beginPath();g.strokeStyle=col;g.lineWidth=3;g.shadowColor=col;g.shadowBlur=10;data.forEach((v,i)=>i?g.lineTo(50+i*(W-110)/(data.length-1),H-38-v*(H-75)/max):g.moveTo(50,H-38-v*(H-75)/max));g.stroke();g.shadowBlur=0;g.fillStyle=col;g.font='bold 15px system-ui';g.fillText(name,65+index*165,25)}}
+function drawWeights(){if(!receipt)return;const g=E('weights').getContext('2d'),W=1090,H=275;g.fillStyle='#190e2b';g.fillRect(0,0,W,H);for(let k=0;k<5;k++){g.strokeStyle='#473359';g.beginPath();g.moveTo(0,k*H/4);g.lineTo(W,k*H/4);g.stroke()}
+const colors=['#ffa13b','#b88aff','#49eadd','#ffd16c'];for(let i=0;i<4;i++){g.beginPath();g.strokeStyle=colors[i];g.lineWidth=3;receipt.history.forEach((z,j)=>{const x=55+j*(W-100)/(receipt.history.length-1),y=H-30-(z.weights[i]-.12)*6500;if(j)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.fillStyle=colors[i];g.font='bold 13px system-ui';g.fillText('Rail '+(i+1),65+i*175,24)}}
+function replay(){try{if(!receipt)throw Error('Receipt unavailable');const source=wag281Example(+E('seed').value,+E('pattern').value);
+scenario={fixed:wag281RunSignal(source,receipt.fixed),learned:wag281RunSignal(source,receipt.learned),
+teacher:wag281RunSignal(source,Array(4).fill(receipt.config.teacherWeight))};
+const sample=+E('seed').value;E('audit').textContent='Source: seed '+sample+' · pattern '+E('pattern').value+
+'\nCohort: '+(sample>=6600?'held out':'training')+
+'\nTrain-only gradients: 6 epochs'+
+'\nBaseline held-out MSE: '+receipt.summary.holdoutBaselineMSE.toFixed(9)+
+'\nLearned held-out MSE: '+receipt.summary.holdoutLearnedMSE.toFixed(9)+
+'\nImprovement: '+receipt.audit.holdoutMSEImprovementPercent.toFixed(2)+'%'+
+'\nConservation residual: '+scenario.learned.residual.toExponential(2)+
+'\nFinal terminal-b fixed: '+scenario.fixed.terminalB.toFixed(6)+
+'\nFinal terminal-b learned: '+scenario.learned.terminalB.toFixed(6)+
+'\nFinal terminal-b teacher: '+scenario.teacher.terminalB.toFixed(6)+
+'\n\nNo physical actions or policy promotion.';
+drawSignal();drawWeights();
+E('weightTable').innerHTML='<tr><th>Rail</th><th>Frozen start</th><th>After 6 epochs</th></tr>'+
+receipt.learned.map((w,i)=>'<tr><td>@'+i+' connection</td><td>'+receipt.fixed[i].toFixed(6)+'</td><td>'+w.toFixed(6)+'</td></tr>').join('');
+}catch(e){E('audit').textContent='ERROR '+e.stack}}
+async function init(){try{const r=await fetch('./receipt-6501-6602.json',{cache:'no-store'});if(!r.ok)throw Error('Receipt not published');receipt=await r.json();if(receipt.bound!=='WAG-281')throw Error('Receipt identity mismatch');replay()}
+catch(e){E('audit').textContent='ERROR '+e.stack}}
+E('run').onclick=replay;requestAnimationFrame(mesh);init();
+</script></body></html>
