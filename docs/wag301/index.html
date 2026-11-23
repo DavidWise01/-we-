@@ -26,9 +26,9 @@ g.font='bold 20px monospace';g.fillStyle='white';g.fillText('[1]  {1}  (1)  |  {
 function update(){$('challenge').textContent=benchmark.rows.map(r=>r.kind+': '+r.correct+' correct / '+r.wrong+' wrong / '+r.abstain+' abstain').join('\n');light=Number($('light').value)/100;$('percent').textContent=Math.round(light*100)+'%';receipt=wag301Observe(source,light);
 for(let i=0;i<3;i++){const c=receipt.claims.find(x=>x.form===WAG301.forms[i]);$('r'+i).textContent=c?c.method+' · channel '+c.channel:'SHADOW'}
 const a=receipt.decision;$('decision').textContent='Illumination: '+Math.round(light*100)+'%\nLocal claims: '+a.count+' / 3\nShared source roots: '+a.independentRoots+'\nAgreement: '+(a.unanimous?'yes':'no')+'\nResult: '+a.verdict+'\nCandidate: '+(a.candidate===null?'WITHHELD':a.candidate)+'\nPromotion authorized: NO';
-$('audit').textContent=Object.values(audit.checks).filter(Boolean).length+'/'+Object.keys(audit.checks).length+' checks PASS\nSource mutation: 0\nPhysical actions: 0\nPhase V turn 5/8 (62.5%)'}
+$('audit').textContent=Object.values(audit.checks).filter(Boolean).length+'/'+Object.keys(audit.checks).length+' checks PASS\nSource mutation: 0\nPhysical actions: 0\nPhase V turn 6/8 (75%)'}
 $('light').oninput=update;$('reset').onclick=()=>{$('light').value=0;update()};
-$('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify(receipt,null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='wag301-private-interpretations.json';a.click();URL.revokeObjectURL(url)};
+$('export').onclick=()=>{const url=URL.createObjectURL(new Blob([JSON.stringify({observation:receipt,benchmark},null,2)],{type:'application/json'})),a=document.createElement('a');a.href=url;a.download='wag301-private-interpretations.json';a.click();URL.revokeObjectURL(url)};
 canvas.addEventListener('pointerdown',e=>{drag=true;lx=e.clientX;ly=e.clientY;canvas.setPointerCapture(e.pointerId)});
 canvas.addEventListener('pointermove',e=>{if(drag){ay+=(e.clientX-lx)*.007;ax+=(e.clientY-ly)*.007;lx=e.clientX;ly=e.clientY}});
 canvas.addEventListener('pointerup',()=>drag=false);canvas.addEventListener('pointercancel',()=>drag=false);update();requestAnimationFrame(draw);
