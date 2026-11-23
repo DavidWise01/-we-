@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WAG-288 · Quartz Crystalline Cube</title>
+<style>:root{font:14px/1.5 system-ui;color:#37274b;background:#fbfaff}*{box-sizing:border-box}body{margin:0}main{max-width:1470px;margin:auto;padding:18px}h1{font-size:clamp(30px,4vw,51px);color:#7252b0;margin:0}p{color:#786d87}.layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(260px,1fr);gap:15px}.panel{background:white;border:1px solid #e2d7ee;border-radius:16px;padding:14px;box-shadow:0 8px 24px #62448015}canvas{width:100%;aspect-ratio:1.6;display:block;border-radius:12px;background:#120920;touch-action:none}.controls{display:flex;flex-wrap:wrap;align-items:end;gap:11px;margin:15px 0}button,select{border-radius:8px;border:1px solid #c8b8dc;background:white;padding:9px;font:inherit}button{background:#7651af;color:white;cursor:pointer;font-weight:bold}label{font-size:12px;color:#786b85}label select{display:block}h2{font-size:19px;color:#7153ab;margin:2px 0 12px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}.stats div{background:#f5f0fd;padding:10px;border-left:4px solid #9cecff}.stats b{display:block;color:#734db1;font-size:26px}pre{white-space:pre-wrap;overflow:auto;font-size:12px}.small{font-size:12px;color:#7f758c}a{color:#704baa}@media(max-width:850px){.layout{grid-template-columns:1fr}}</style></head><body><main>
+<h1>Quartz · Crystalline Cube</h1><p><strong>{{5 variable × 5 variable}} ^ {{5 constant}}</strong> · 125 independent silos · 1 nested center · 600 reciprocal diagonal paths · .dlw</p>
+<div class="controls"><label>Coupling<select id="coupling"><option value="0">0 · isolated</option><option value=".0625">0.0625 · gentle</option><option value=".125" selected>0.125 · balanced</option><option value=".2">0.2 · strong</option><option value=".25">0.25 · maximum</option></select></label><label>View<select id="view"><option value="all">Full cube</option><option value="0">Depth 1</option><option value="1">Depth 2</option><option value="2">Depth 3</option><option value="3">Depth 4</option><option value="4">Depth 5</option></select></label><button id="play">Pause</button><button id="reset">Restart signals</button><button id="rotate">Auto-rotate: on</button></div>
+<div class="layout"><section class="panel"><h2>Rotating quartz lattice · drag to orbit</h2><canvas id="cube" width="1100" height="690" aria-label="3D projected cubic mesh"></canvas><p class="small">All 125 positions retain separate 8-channel state. Connecting lines are reciprocal nearest-neighbor signal routes. Central magenta # retains brace → box → toroid structure. The five depth coordinates remain constant while their local signal values evolve.</p></section><aside class="panel"><h2>Conservation laboratory</h2><div class="stats"><div>Independent silos<b>125</b></div><div>Fixed layers<b>5</b></div><div>Neighbor boundaries<b>300</b></div><div>Diagonal routes<b>600</b></div></div><h2 style="margin-top:22px">Deterministic audit</h2><pre id="audit"></pre><p class="small">WAG-288 is a new geometry preview. No physical quartz effect is claimed. WAG-287 baseline and all frozen receipts remain untouched. Phase IV learning-candidate freeze is not yet verified.</p><a href="./cube-mesh.js">Cube engine</a> · <a href="./mesh.html">Preserved WAG-287</a></aside></div></main>
+<script src="./cube-mesh.js"></script><script>
+const $=id=>document.getElementById(id),canvas=$('cube'),ctx=canvas.getContext('2d'),audit=wag288Audit();
+let state=wag288Initial(),playing=true,rotating=true,ax=-.45,ay=.58,frame=0,drag=false,lastX=0,lastY=0;
+const colors=['#a9efff','#d5abff'];
+function point(i){let [x,y,z]=wag288Coords(i);x-=2;y-=2;z-=2;
+const cx=Math.cos(ay),sx=Math.sin(ay),cy=Math.cos(ax),sy=Math.sin(ax);
+const px=x*cx-z*sx,pz=x*sx+z*cx,py=y*cy-pz*sy,zz=y*sy+pz*cy;
+const sc=1040/(9+zz*.5);return {x:550+px*sc,y:345+py*sc,z:zz};}
+function draw(){
+ ctx.fillStyle='#120920';ctx.fillRect(0,0,1100,690);
+ if(rotating)ay+=.0025;
+ const shown=i=>$('view').value==='all'||wag288Coords(i)[2]===Number($('view').value);
+ for(const [a,b] of WAG288_EDGES){if(!shown(a)||!shown(b))continue;
+ const p=point(a),q=point(b);ctx.strokeStyle=(wag288Coords(a)[2]===wag288Coords(b)[2])?'#6dc9ee':'#c897f5';ctx.globalAlpha=.20;ctx.lineWidth=1.25;ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.stroke();}
+ ctx.globalAlpha=1;
+ const order=Array.from({length:125},(_,i)=>i).filter(shown).sort((a,b)=>point(b).z-point(a).z);
+ for(const i of order){const p=point(i),hub=i===62,activity=state.nodes[i].reduce((a,b)=>a+b,0)/8;
+  const size=hub?12:4+activity*5;ctx.beginPath();ctx.arc(p.x,p.y,size,0,Math.PI*2);
+  ctx.fillStyle=hub?'#ffeaff':colors[wag288Coords(i)[2]%2];ctx.shadowColor=hub?'#f175ff':'#4dd9ff';ctx.shadowBlur=hub?30:14;ctx.fill();ctx.shadowBlur=0;
+  if(hub){ctx.font='bold 21px monospace';ctx.fillStyle='#ffe6ff';ctx.fillText('#',p.x+17,p.y-16);
+    ctx.strokeStyle='#f4a2ff';ctx.lineWidth=2;ctx.strokeRect(p.x-19,p.y-19,38,38);
+    ctx.beginPath();ctx.ellipse(p.x,p.y,19,9,ay,0,2*Math.PI);ctx.stroke();}
+ }
+ ctx.font='bold 19px monospace';ctx.fillStyle='#fff';ctx.fillText('5 × 5 × 5  |  {[(Ss#Ss)]}',24,33);
+ if(playing&&frame++%4===0){state=wag288Tick(state,+$('coupling').value);if(frame%24===0)receipt();}
+ requestAnimationFrame(draw);
+}
+function receipt(){ $('audit').textContent='Topology: '+WAG288.geometry+'\nCenter: '+WAG288.centerGlyph+'\nLattice: 5 x 5 x 5\nBoundaries: '+WAG288_EDGES.length+'\nRoutes: '+WAG288_EDGES.length*2+'\n\n5 coupling tests passed: '+audit.pass+'\n'+audit.tests.map(x=>' weight '+x.weight+': '+(x.pass?'PASS':'FAIL')+' · residual '+x.maxResidual.toExponential(2)).join('\n')+'\n\nLive tick: '+state.tick+'\nTotal activation: '+wag288Mass(state).toFixed(9)+'\nSignal transfer: '+state.transferred.toFixed(5)+'\nMax residual: '+state.maxResidual.toExponential(3)+'\nPhysical actions: 0';}
+$('play').onclick=()=>{playing=!playing;$('play').textContent=playing?'Pause':'Resume';};
+$('reset').onclick=()=>{state=wag288Initial();frame=0;receipt();};
+$('rotate').onclick=()=>{rotating=!rotating;$('rotate').textContent='Auto-rotate: '+(rotating?'on':'off');};
+canvas.addEventListener('pointerdown',e=>{drag=true;lastX=e.clientX;lastY=e.clientY;canvas.setPointerCapture(e.pointerId)});
+canvas.addEventListener('pointermove',e=>{if(drag){ay+=(e.clientX-lastX)*.007;ax+=(e.clientY-lastY)*.007;lastX=e.clientX;lastY=e.clientY;}});
+canvas.addEventListener('pointerup',()=>drag=false);canvas.addEventListener('pointercancel',()=>drag=false);
+receipt();requestAnimationFrame(draw);
+</script></body></html>
