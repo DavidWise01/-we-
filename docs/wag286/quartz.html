@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quartz Lattice · ---@---@---#---@---@---</title><style>
+:root{font:14px/1.5 system-ui;background:#fbfaff;color:#382e4c}*{box-sizing:border-box}body{margin:0}main{max-width:1350px;margin:auto;padding:24px}h1{font-size:clamp(31px,4vw,52px);color:#7758aa;letter-spacing:-.05em;margin:0}h2{font-size:19px;color:#7651a6;margin:0 0 12px}.sub{border-bottom:2px solid #e8e0f1;color:#706680;padding-bottom:17px}.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:15px}.panel{background:#fff;border:1px solid #e5daef;border-radius:14px;padding:18px;box-shadow:0 8px 24px #5d379020}canvas{display:block;width:100%;height:auto;background:#130d27;border-radius:12px}.controls{display:flex;gap:12px;align-items:end;flex-wrap:wrap;margin:18px 0}label{font-size:13px;color:#746782}select,button{font:inherit;display:block;padding:10px 13px;border:1px solid #c7b7da;border-radius:9px;margin-top:5px;background:white}button{background:#7552aa;color:white;font-weight:700;cursor:pointer}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{background:#f6f3ff;padding:10px;border-left:4px solid #9be6ec}.stat b{font-size:25px;color:#7959b5;display:block}pre{font:12px/1.55 monospace;white-space:pre-wrap}.small{font-size:12px;color:#756980}a{color:#7454a3}@media(max-width:880px){.layout{grid-template-columns:1fr}}
+</style></head><body><main><h1>Quartz Crystalline Chain</h1><p class="sub"><strong>---@---@---#---@---@---</strong> · Four clear quartz crystal prisms · One central quartz hub · Eight reciprocal signal rails per link · .dlw</p>
+<div class="controls"><label>Signal coupling<select id="weight"><option value="0.0625">Gentle · 0.0625</option><option value="0.125" selected>Baseline · 0.125</option><option value="0.2">Strong · 0.20</option><option value="0.25">Upper bound · 0.25</option></select></label><button id="reset">Reset pulse</button><button id="pause">Pause</button></div>
+<div class="layout"><section class="panel"><h2>Quartz prisms with a central coupling hub</h2><canvas id="stage" width="1100" height="540"></canvas><p class="small">Quartz is a visual material motif, not an experimentally simulated quartz crystal. The five junctions carry abstract conserved activation; the bright central # is a signal hub, not a physical-action controller.</p>
+<h2 style="margin-top:20px">Signal propagation through all five sites</h2><canvas id="graph" width="1100" height="275"></canvas></section><aside class="panel"><h2>Quartz ledger</h2><div class="stats"><div class="stat">Quartz crystals<b>4</b></div><div class="stat">Central hub<b>1</b></div><div class="stat">Signal sites<b>40</b></div><div class="stat">Phase IV<b>41.7%</b></div></div><h2 style="margin-top:24px">Deterministic checks</h2><pre id="audit">Loading quartz topology…</pre><p class="small">This quartz view is a WAG-286 topology preview, not a completed learning benchmark. WAG-285 and earlier immutable receipts remain untouched; physical actions = zero.</p><p><a href="./quartz-topology.js">Quartz signal topology</a> · <a href="../wag285/">WAG-285 learning lab</a> · <a href="../wag281/phase-progress.json">Phase IV progress</a></p></aside></div></main>
+<script src="./quartz-topology.js"></script><script>
+const E=id=>document.getElementById(id);let state=wag286QuartzInitial(),history=[],run=true,angle=0,lastFrame=-1;
+const validation=wag286QuartzCheck();
+function record(){history.push({tick:state.step,v:state.signals.map(a=>a.reduce((s,x)=>s+x,0)/8)});if(history.length>160)history.shift()}record();
+function crystal(g,x,y,id,mean){const core=id===2,R=core?73:57,H=core?95:83,a=angle*(id%2?-1:1),pts=[];
+for(let k=0;k<6;k++){const t=k*Math.PI/3+a;pts.push([x+Math.cos(t)*R,Math.sin(t)*R*.42])}
+for(let k=0;k<6;k++){const j=(k+1)%6;g.beginPath();g.moveTo(pts[k][0],y-H+pts[k][1]);g.lineTo(pts[j][0],y-H+pts[j][1]);g.lineTo(pts[j][0],y+H+pts[j][1]);g.lineTo(pts[k][0],y+H+pts[k][1]);g.closePath();g.fillStyle=k%2?'#a8e8fa':'#d6b3ff';g.globalAlpha=.10+mean*.22;g.fill();g.globalAlpha=1}
+g.strokeStyle=core?'#e4ceff':id%2?'#a2efff':'#dec9ff';g.shadowColor=g.strokeStyle;g.shadowBlur=17;g.lineWidth=1.8;
+for(let k=0;k<6;k++){const j=(k+1)%6;
+for(const A of [-H,H]){g.beginPath();g.moveTo(pts[k][0],y+A+pts[k][1]);g.lineTo(pts[j][0],y+A+pts[j][1]);g.stroke()}
+g.beginPath();g.moveTo(pts[k][0],y-H+pts[k][1]);g.lineTo(pts[k][0],y+H+pts[k][1]);g.stroke()}
+g.shadowBlur=0;g.fillStyle='#fff';g.textAlign='center';g.font=core?'bold 30px monospace':'bold 25px monospace';g.fillText(core?'#':'@',x,y+9);g.font='13px monospace';g.fillText(core?'COUPLING HUB':'QUARTZ '+(id<2?id:id-1),x,y+H+38);g.textAlign='left'}
+function render(){const g=E('stage').getContext('2d'),W=1100,H=540;g.fillStyle='#130d27';g.fillRect(0,0,W,H);const xs=[118,333,548,763,978],y=260;
+for(let i=0;i<22;i++){g.strokeStyle='#29203c';g.beginPath();g.moveTo(i*52,0);g.lineTo(i*52,H);g.stroke()}
+const means=state.signals.map(a=>a.reduce((s,x)=>s+x,0)/8);
+for(let i=0;i<4;i++)for(let k=0;k<8;k++){g.strokeStyle=['#c6d6ff','#b6efff','#e1c5ff','#fff0fc'][k%4];g.globalAlpha=.3+means[i]*.35;g.lineWidth=1.4;g.beginPath();g.moveTo(xs[i]+61,y-28+k*8);g.lineTo(xs[i+1]-61,y-28+k*8);g.stroke();g.globalAlpha=1}
+xs.forEach((x,i)=>crystal(g,x,y,i,means[i]));g.fillStyle='#fff';g.font='bold 24px monospace';g.fillText('---@---@---#---@---@---',20,38);g.font='14px monospace';g.fillText('Quartz optics · reciprocal synthetic signal flow',20,66);
+if(run){angle+=.006;const n=Math.floor(angle*30);if(n!==lastFrame){lastFrame=n;state=wag286QuartzPulse(state,Array(4).fill(+E('weight').value));record();plot()}}
+requestAnimationFrame(render)}
+function plot(){const g=E('graph').getContext('2d'),W=1100,H=275;g.fillStyle='#130d27';g.fillRect(0,0,W,H);const max=Math.max(.1,...history.flatMap(z=>z.v))*1.12,cols=['#e2c7ff','#9febff','#fff0ff','#a2c2ff','#b6a0ff'];
+for(let j=0;j<5;j++){g.strokeStyle='#382d51';g.beginPath();g.moveTo(0,j*H/4);g.lineTo(W,j*H/4);g.stroke()}
+cols.forEach((col,j)=>{g.strokeStyle=col;g.lineWidth=2.5;g.beginPath();history.forEach((z,i)=>{const x=32+i*(W-62)/Math.max(1,history.length-1),y=H-30-z.v[j]*(H-64)/max;if(i)g.lineTo(x,y);else g.moveTo(x,y)});g.stroke();g.fillStyle=col;g.font='bold 13px monospace';g.fillText(['@0','@1','#','@2','@3'][j],40+j*122,20)});
+E('audit').textContent='Primitive: '+WAG286_QUARTZ.glyph+
+'\nNodes: '+WAG286_QUARTZ.nodeLabels.join(' ')+'\nBidirectional links: 4'+
+'\nSignal lanes per link: 8'+'\nSignal sites: 40'+
+'\nPulse count: '+state.step+'\nSignal sum: '+wag286QuartzMass(state).toFixed(9)+
+'\nMax conservation residual: '+Math.max(...validation.checks.map(v=>v.maxResidual)).toExponential(3)+
+'\nFive coupling tests pass: '+validation.allPass+
+'\nPhysical action calls: 0'+'\nFrozen policy changed: false'+
+'\n\nQuartz visuals are schematic; not calibrated material physics.'}
+E('reset').onclick=()=>{state=wag286QuartzInitial();history=[];record();plot()};E('pause').onclick=()=>{run=!run;E('pause').textContent=run?'Pause':'Resume'};plot();requestAnimationFrame(render);
+</script></body></html>
