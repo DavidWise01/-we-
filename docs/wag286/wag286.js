@@ -19,7 +19,7 @@ function wag286Layout(crystals){
  if(!WAG286_CONFIG.crystals.includes(crystals))throw Error('invalid growth size');
  const center=crystals/2,labels=Array.from({length:crystals+1},(_,i)=>i===center?'#':'@');
  return {crystals,hubIndex:center,labels,
-  glyph:labels.map((x,i)=>(i?'---':'')+x).join('')+'---',
+  glyph:'---'+labels.join('---')+'---',
   signalSites:(crystals+1)*8,railParameters:crystals*8,
   topologyLinks:crystals};
 }
