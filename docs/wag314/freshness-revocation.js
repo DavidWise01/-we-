@@ -14,7 +14,7 @@ const WAG314=Object.freeze({phase:'VII',turn:3,of:8,epoch:313,
 function wag314Policy(kind,seq){
  const issued=seq*10+1000;
  const received=issued+(kind==='late-response'?5:kind==='deadline-edge'?4:
-   kind==='future-response'?-1:2);
+   kind==='future-response'?-1:kind==='revoked-after-observation'?4:2);
  const referenceTime=issued+2;
  const knownRevoked=['reported-revocation','reported-compromise','revoked-after-observation'].includes(kind);
  return Object.freeze({
