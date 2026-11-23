@@ -8,7 +8,7 @@ const WAG294=Object.freeze({
  anchors:Object.freeze([wag288Index(0,2,2),wag288Index(4,2,2),wag288Index(2,0,2),
   wag288Index(2,4,2),wag288Index(2,2,0),wag288Index(2,2,4)]),
  scenarios:Object.freeze(['intact','center-damaged','cortex-damaged','both-damaged',
- 'both-missing-anchors','both-two-bad-anchors','both-four-bad-anchors']),
+ 'both-missing-anchors','both-two-bad-anchors','both-four-bad-anchors','both-five-bad-anchors']),
  minAnchorVotes:5,targets:8,trials:8,physicalActions:0
 });
 function wag294Stimulus(source,target,scenario,trial){
@@ -20,7 +20,8 @@ function wag294Stimulus(source,target,scenario,trial){
   for(let ch=0;ch<8;ch++)arr[ch]=ch===target?.92:.08;
   if(scenario==='both-missing-anchors')for(let ch=0;ch<8;ch++)arr[ch]=.5;
   if((scenario==='both-two-bad-anchors'&&k<2)||
-     (scenario==='both-four-bad-anchors'&&k<4)){
+     (scenario==='both-four-bad-anchors'&&k<4)||
+     (scenario==='both-five-bad-anchors'&&k<5)){
     arr[target]=.06;arr[wrong]=.96;
   }
  }
@@ -64,8 +65,8 @@ function wag294Evaluate(source){
  if(JSON.stringify(source)!==before)throw Error('authoritative memory was altered');
  return wag291DeepFreeze({bound:'WAG-294',tick:source.tick,
   config:{anchorIds:WAG294.anchors.slice(),requiredVotes:WAG294.minAnchorVotes,
-    signalChannels:8,scenarioCount:7,trialsPerScenario:64},
-  scenarios,limitations:'Injected independent replicas at six trusted, fixed shell addresses; coordinated 4/6 anchor corruption is not guaranteed detectable',
+    signalChannels:8,scenarioCount:8,trialsPerScenario:64},
+  scenarios,limitations:'Injected independent replicas at six trusted, fixed shell addresses; coordinated 5/6 anchor corruption can generate a false consensus',
   authority:'READ_ONLY',physicalActions:0});
 }
 function wag294LedgerAppend(ledger,receipt){
@@ -79,14 +80,15 @@ function wag294Audit(){
  deterministic:JSON.stringify(a)===JSON.stringify(b),
  readOnly:JSON.stringify(source)===snapshot,
  sixDistinctOuterAnchors:new Set(WAG294.anchors).size===6&&WAG294.anchors.every(i=>wag289Role(i)==='quartz'),
- sevenScenarios:a.scenarios.length===7&&a.scenarios.every(s=>s.total===64),
+ eightScenarios:a.scenarios.length===8&&a.scenarios.every(s=>s.total===64),
  intactRecovered:a.scenarios[0].correct===64,
  centerDamageRecovered:a.scenarios[1].correct===64,
  cortexDamageRecovered:a.scenarios[2].correct===64,
  combinedRecovered:a.scenarios[3].correct===64,
  missingAnchorsAbstain:a.scenarios[4].abstained===64,
  twoCorruptAnchorsAbstain:a.scenarios[5].abstained===64,
- coordinatedFailureExposed:a.scenarios[6].incorrect>0,
+ fourCorruptAnchorsAbstain:a.scenarios[6].abstained===64,
+ fiveCorruptAnchorsFailureExposed:a.scenarios[7].incorrect===64,
  localizeCenter:wag294Infer(wag294Stimulus(source,2,'center-damaged',0)).localized.frontalDisagrees,
  localizeCortex:wag294Infer(wag294Stimulus(source,2,'cortex-damaged',0)).localized.cortexDisagrees,
  immutable:Object.isFrozen(a)&&Object.isFrozen(a.scenarios)&&Object.isFrozen(a.scenarios[0]),
