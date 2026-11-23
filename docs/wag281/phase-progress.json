@@ -6,9 +6,9 @@
   "firstBound": 281,
   "lastBound": 292,
   "plannedTurns": 12,
-  "completedTurns": 5,
-  "progressPercent": 41.7,
-  "nextBound": 286,
+  "completedTurns": 6,
+  "progressPercent": 50,
+  "nextBound": 287,
   "policyPromotion": "NONE",
   "primitive": "---@---@---@---@---{} → {\\a{b/}} → one action",
   "reference": "WAG-261 frozen baseline",
@@ -48,7 +48,7 @@
     {
       "bound": 286,
       "name": "Stability under changing lattice counts",
-      "accepted": false,
+      "accepted": true,
       "cumulativePercent": 50
     },
     {
@@ -89,30 +89,38 @@
     }
   ],
   "lastAccepted": {
-    "bound": 285,
-    "primitive": "---@---@---@---@---{} → {\\a{b/}}",
-    "engine": "docs/wag285/wag285.js",
-    "lab": "docs/wag285/index.html",
-    "receipt": "docs/wag285/receipt-7301-7402.json",
-    "trainingCases": 12,
-    "heldoutCases": 8,
-    "budget": {
-      "epochs": 2,
-      "trainPairEvaluations": 1152,
-      "coefficientUpdates": 64,
-      "coefficientMemorySlots": 32
+    "bound": 286,
+    "primitive": "---@---@---#---@---@---",
+    "engine": "docs/wag286/wag286.js",
+    "lab": "docs/wag286/index.html",
+    "visualPreview": "docs/wag286/quartz.html",
+    "receipt": "docs/wag286/receipt-7501-7602.json",
+    "quartzNodeCounts": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "centralHub": "#",
+    "trainingPairBudgetPerSize": 768,
+    "coefficientUpdateBudgetPerSize": 64,
+    "heldoutCasesPerSize": 4,
+    "improvementPercent": {
+      "2": 93.01828564133808,
+      "4": 92.95504836186109,
+      "8": 74.55007310411648,
+      "16": 47.86076476444
     },
-    "referenceEpochs": 9,
-    "startingHeldoutMSE": 0.00020649752541451142,
-    "budgetHeldoutMSE": 0.000022296344726421963,
-    "referenceHeldoutMSE": 0.0000012349029997076077,
-    "budgetImprovementPercent": 89.20260924112019,
-    "budgetWinsAgainstInitial": 8,
-    "budgetWinsAgainstReference": 0,
+    "weightCoveragePercent": {
+      "2": 100,
+      "4": 100,
+      "8": 100,
+      "16": 50
+    },
+    "maxSignalResidual": 7.993605777301127e-15,
     "physicalActions": 0,
     "promoted": false,
-    "acceptedAs": "BOUNDED_SYNTHETIC_TRANSPORT_LEARNING",
-    "caution": "Budget is symbolic model-operations, not measured joules/material. Original WAG284 delayed repair-value regression unchanged. Budgeted learner does not match better-funded nine-epoch reference. GitHub Pages serving not verified."
+    "summary": "Quartz growth under a fixed synthetic learning budget succeeds in reducing heldout transport loss at all sizes, but benefit diminishes and 16-crystal/128-weight model receives updates on only 64 weights. Synthetic signal conservation checks pass. No quartz physics claim. WAG261 and closed WAGIII untouched. Live Pages not verified."
   },
   "invariants": [
     "Phase III remains CLOSED",
