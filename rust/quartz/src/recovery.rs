@@ -61,3 +61,38 @@ impl Recovery {
   Some(n)
  }
 }
+
+struct FixedPlan<const N:usize,const P:usize>{cells:[[u8;N];P],lengths:[usize;P]}
+impl<const N:usize,const P:usize> FixedPlan<N,P>{
+ fn build(pump:usize,tick:u64,reachable:&[bool;N])->Self{
+  assert!(N>0 && N<=256);
+  let mut out=Self{cells:[[0;N];P],lengths:[0;P]};
+  for port in 0..P {for k in 0..N {
+   let i=((tick%N as u64) as usize+k+P*pump+port)%N;
+   if i!=CENTER && reachable[i]{let n=out.lengths[port];out.cells[port][n]=i as u8;out.lengths[port]+=1;}
+  }}out
+ }
+}
+impl Recovery{
+ pub fn fixed_step(&self)->Option<Self>{
+  let mut n=self.clone();n.tick=self.tick.checked_add(1)?;
+  let mut reachable=[false;CELLS];
+  for i in 0..CELLS {for d in [1usize,5,25] {
+    if (d==1 && i%5<4)||(d==5 && (i/5)%5<4)||(d==25 && i<100){
+     let b=i+d;
+     if self.health[i]==100 && self.health[b]<100{reachable[b]=true;}
+     if self.health[b]==100 && self.health[i]<100{reachable[i]=true;}
+    }
+  }}
+  for p in 0..3 {
+   let plan=FixedPlan::<CELLS,PORTS_PER_PUMP>::build(p,self.tick,&reachable);
+   for port in 0..PORTS_PER_PUMP{
+    if n.energy[p]==0{break;}
+    if let Some(i)=plan.cells[port][..plan.lengths[port]].iter().map(|&i|usize::from(i)).find(|&i|n.health[i]<100){
+     n.health[i]+=1;n.energy[p]-=1;
+    }
+   }
+  }
+  Some(n)
+ }
+}
