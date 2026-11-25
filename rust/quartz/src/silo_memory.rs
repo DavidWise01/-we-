@@ -4,6 +4,7 @@ pub const EXTERNAL_WINDOW:usize=32;
 pub struct MemoryBank{owner:SiloId,local:[PumpMemory;3],external:[Vec<Observation>;SILOS],latest:[Option<u64>;SILOS]}
 impl MemoryBank{
  pub fn new(owner:SiloId)->Self{Self{owner,local:std::array::from_fn(|_|PumpMemory::default()),external:std::array::from_fn(|_|Vec::new()),latest:[None;SILOS]}}
+ pub fn owner(&self)->SiloId{self.owner}
  pub fn local(&self)->&[PumpMemory;3]{&self.local}
  pub fn external(&self,source:SiloId)->&[Observation]{&self.external[source.index()]}
  pub fn refresh(&mut self,silo:&Silo)->Option<()>{
