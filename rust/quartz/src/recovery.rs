@@ -96,3 +96,28 @@ impl Recovery{
   Some(n)
  }
 }
+
+impl Recovery{
+ pub fn rotating_step(&self)->Option<Self>{
+  let mut n=self.clone();n.tick=self.tick.checked_add(1)?;
+  let mut reachable=[false;CELLS];
+  for i in 0..CELLS {for d in [1usize,5,25] {
+    if (d==1 && i%5<4)||(d==5 && (i/5)%5<4)||(d==25 && i<100){
+     let b=i+d;
+     if self.health[i]==100 && self.health[b]<100{reachable[b]=true;}
+     if self.health[b]==100 && self.health[i]<100{reachable[i]=true;}
+    }
+  }}
+  for offset in 0..3 {
+   let p=((self.tick%3) as usize+offset)%3;
+   let plan=FixedPlan::<CELLS,PORTS_PER_PUMP>::build(p,self.tick,&reachable);
+   for port in 0..PORTS_PER_PUMP{
+    if n.energy[p]==0{break;}
+    if let Some(i)=plan.cells[port][..plan.lengths[port]].iter().map(|&i|usize::from(i)).find(|&i|n.health[i]<100){
+     n.health[i]+=1;n.energy[p]-=1;
+    }
+   }
+  }
+  Some(n)
+ }
+}
