@@ -56,3 +56,5 @@ pub mod selection;
 pub mod cortex;
 
 pub mod witness;
+
+pub mod homeostasis;
