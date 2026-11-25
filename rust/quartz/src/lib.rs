@@ -37,3 +37,5 @@ mod tests {
 }
 
 pub mod recovery;
+
+pub mod journal;
