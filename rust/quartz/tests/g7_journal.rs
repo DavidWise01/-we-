@@ -16,6 +16,6 @@ use quartz_kernel::{journal::{Event,Journal},CENTER};
 #[test] fn reject_invalid(){
  let j=Journal::new([1,2,3]);
  assert!(j.append(Event::Shock(vec![(CENTER,1)])).is_none());
- for s in ["QJ2 1 2 3\n","QJ1 1 2 3\nR extra\n","QJ1 1 2 3\nS 62:1\n","QJ1 1 2 3\nS 125:1\n","QJ1 1 2 3\nS 0:256\n","QJ1 1 2 3\nR"] {assert!(Journal::decode(s).is_none());}
+ for s in ["QJ3 1 2 3\n","QJ1 1 2 3\nR extra\n","QJ1 1 2 3\nS 62:1\n","QJ1 1 2 3\nS 125:1\n","QJ1 1 2 3\nS 0:256\n","QJ1 1 2 3\nR"] {assert!(Journal::decode(s).is_none());}
  assert!(j.events().is_empty());
 }
