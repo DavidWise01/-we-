@@ -27,3 +27,37 @@ impl Recovery {
 #[test] fn conservation(){let a=Recovery::new([100;3]);let b=a.shock(&[(0,40)]).unwrap();let c=b.step().unwrap(); assert_eq!(a.health()[0],100);assert_eq!(b.health()[0],60);assert_eq!(c.health()[0],84);assert_eq!(c.energy().iter().sum::<u32>(),276);assert_eq!(c.health()[CENTER],100);assert!(a.shock(&[(CENTER,1)]).is_none());}
 #[test] fn exhaustion(){let a=Recovery::new([0;3]).shock(&[(0,40)]).unwrap();assert_eq!(a.step().unwrap().health(),a.health());}
 #[test] fn deterministic(){let a=Recovery::new([100;3]).shock(&[(0,40),(124,50)]).unwrap();assert_eq!(a.step(),a.step());}
+
+type Plan = Vec<Vec<usize>>;
+fn plan(pump: usize, tick:u64, reachable:&[bool;CELLS])->Plan {
+ (0..PORTS_PER_PUMP).map(|port| (0..CELLS)
+ .map(|k|((tick%125) as usize+k+8*pump+port)%CELLS)
+ .filter(|&i|i!=CENTER && reachable[i]).collect()).collect()
+}
+impl Recovery {
+ /// Native workers observe one immutable snapshot; WASM uses identical serial plans.
+ pub fn parallel_step(&self)->Option<Self> {
+  let mut n=self.clone(); n.tick=self.tick.checked_add(1)?;
+  let mut reachable=[false;CELLS];
+  for (a,b) in edges(){
+   if self.health[a]==100 && self.health[b]<100 {reachable[b]=true;}
+   if self.health[b]==100 && self.health[a]<100 {reachable[a]=true;}
+  }
+  #[cfg(not(target_arch="wasm32"))]
+  let plans:Vec<Plan>=std::thread::scope(|s| {
+   let handles:Vec<_>=(0..3).map(|p| {let r=&reachable; let t=self.tick; s.spawn(move ||plan(p,t,r))}).collect();
+   handles.into_iter().map(|h|h.join().ok()).collect::<Option<Vec<_>>>()
+  })?;
+  #[cfg(target_arch="wasm32")]
+  let plans:Vec<Plan>=(0..3).map(|p|plan(p,self.tick,&reachable)).collect();
+  for (p,ports) in plans.iter().enumerate(){
+   for candidates in ports {
+    if n.energy[p]==0 {break;}
+    if let Some(&i)=candidates.iter().find(|&&i|n.health[i]<100){
+     n.health[i]+=1;n.energy[p]-=1;
+    }
+   }
+  }
+  Some(n)
+ }
+}
