@@ -48,3 +48,5 @@ pub mod observation;
 pub mod bit_geometry;
 
 pub mod pump_memory;
+
+pub mod adaptive;
