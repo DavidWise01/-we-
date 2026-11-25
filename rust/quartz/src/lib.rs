@@ -62,3 +62,5 @@ pub mod homeostasis;
 pub mod mesh;
 
 pub mod silo_memory;
+
+pub mod diode;
