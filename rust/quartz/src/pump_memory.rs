@@ -6,7 +6,7 @@ pub struct Sample {pub spent:u8,pub unused:u8,pub pressure:u16}
 pub struct PumpMemory {samples:[Sample;WINDOW],next:usize,len:usize}
 impl Default for PumpMemory {fn default()->Self{Self{samples:[Sample::default();WINDOW],next:0,len:0}}}
 impl PumpMemory {
- fn record(&mut self,s:Sample){self.samples[self.next]=s;self.next=(self.next+1)%WINDOW;self.len=(self.len+1).min(WINDOW);}
+ pub(crate) fn record(&mut self,s:Sample){self.samples[self.next]=s;self.next=(self.next+1)%WINDOW;self.len=(self.len+1).min(WINDOW);}
  pub fn samples(&self)->impl Iterator<Item=&Sample>{(0..self.len).map(move |i|&self.samples[(self.next+WINDOW-self.len+i)%WINDOW])}
  pub fn spent(&self)->u32{self.samples().map(|s|u32::from(s.spent)).sum()}
 }
