@@ -1,0 +1,31 @@
+{
+  "checkpoint": "G16",
+  "index": 3864,
+  "watermark": ".dlw",
+  "invariants": {
+    "cells": 125,
+    "edges": 300,
+    "ports": 24,
+    "pumps": 3,
+    "constant": 1
+  },
+  "source_checkpoint": "de023d1ea85771f799a0f34b7faf199b9ae279e3",
+  "milestones": [
+    "G9 browser qualification harness",
+    "G10 observation frame",
+    "G11 fixed plans",
+    "G12 bit geometry activated",
+    "G13 native profiling workflow",
+    "G14 rotating priority",
+    "G15 native persistence prototype",
+    "G16 integrated gate"
+  ],
+  "qualification": {
+    "native": "unverified",
+    "wasm": "unverified",
+    "chromium": "unverified",
+    "deployment": "unverified"
+  },
+  "production_policy": "QJ1 unchanged",
+  "freeze": "source checkpoint only; operational freeze HOLD"
+}
