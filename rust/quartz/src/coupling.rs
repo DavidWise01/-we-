@@ -8,11 +8,14 @@ pub const MAX_SHIFT:u16=8;
 pub struct Advisory{pub local:Recommendation,pub external_mean:Option<u16>,pub shift:u16,pub effective_pressure:u16,pub order:[usize;3]}
 pub fn advise(s:&Silo,b:&MemoryBank,c:Coupling)->Option<Advisory>{
  if b.owner()!=s.observation().source{return None;}
- let state=s.journal().state();let memory=derive(s.journal())?;
- let local=adaptive::recommend(state,&memory);
  let mut sum=0u32;let mut count=0u32;
  for i in 0..SILOS{if let Some(o)=b.external(SiloId::new(i as u8)?).last(){sum+=u32::from(o.deficit);count+=1;}}
  let mean=if count==0{None}else{Some((sum/count)as u16)};
+ advise_mean(s,c,mean)
+}
+pub(crate) fn advise_mean(s:&Silo,c:Coupling,mean:Option<u16>)->Option<Advisory>{
+ let state=s.journal().state();let memory=derive(s.journal())?;
+ let local=adaptive::recommend(state,&memory);
  let excess=mean.unwrap_or(local.pressure).saturating_sub(local.pressure).min(MAX_SHIFT);
  let shift=(u32::from(excess)*u32::from(c.0)/1000)as u16;
  let effective=local.pressure+shift;let mut order=local.order;
