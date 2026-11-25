@@ -54,3 +54,5 @@ pub mod adaptive;
 pub mod selection;
 
 pub mod cortex;
+
+pub mod witness;
