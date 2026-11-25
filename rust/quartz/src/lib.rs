@@ -60,3 +60,5 @@ pub mod witness;
 pub mod homeostasis;
 
 pub mod mesh;
+
+pub mod silo_memory;
