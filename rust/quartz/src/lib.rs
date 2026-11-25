@@ -66,3 +66,5 @@ pub mod silo_memory;
 pub mod diode;
 
 pub mod coupling;
+
+pub mod temporal;
