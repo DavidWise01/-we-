@@ -64,3 +64,5 @@ pub mod mesh;
 pub mod silo_memory;
 
 pub mod diode;
+
+pub mod coupling;
