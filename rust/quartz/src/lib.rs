@@ -35,3 +35,5 @@ mod tests {
  #[test] fn progression(){assert_eq!((0..=5).map(|g|generation_index(g).unwrap()).collect::<Vec<_>>(),vec![1560,1704,1848,1992,2136,2280]);}
  #[test] fn inheritance(){let a=State::new();let b=a.successor(&[(0,9)]).unwrap();assert_eq!(a.cells()[0],0);assert_eq!(b.cells()[0],9);assert_eq!(b.cells()[CENTER],CONSTANT);assert_eq!(b.generation(),1);assert!(b.successor(&[(CENTER,0)]).is_none());assert!(b.successor(&[(125,0)]).is_none());}
 }
+
+pub mod recovery;
