@@ -11,12 +11,13 @@ impl Quartz {
   self.append(Event::Shock(vec![(cell as usize,damage as u8)]))
  }
  pub fn recover(&mut self)->bool{self.append(Event::Recover)}
+ pub fn observation(&self)->Vec<u8>{crate::observation::frame(self.journal.state()).to_vec()}
  pub fn health(&self)->Vec<u8>{self.journal.state().health().to_vec()}
  pub fn energy(&self)->Vec<u32>{self.journal.state().energy().to_vec()}
  pub fn journal(&self)->String{self.journal.encode()}
  pub fn replay(&mut self,input:&str)->bool{
   if input.len()>65536{return false;}
-  if let Some(j)=Journal::decode(input){self.journal=j;true}else{false}
+  if let Some(j)=Journal::decode(input){if j.events().len()>2048{return false;}self.journal=j;true}else{false}
  }
 }
 impl Quartz {
