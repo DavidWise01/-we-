@@ -39,3 +39,6 @@ mod tests {
 pub mod recovery;
 
 pub mod journal;
+
+#[cfg(target_arch = "wasm32")]
+pub mod browser;
