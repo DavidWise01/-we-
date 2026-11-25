@@ -44,3 +44,5 @@ pub mod journal;
 pub mod browser;
 
 pub mod observation;
+
+pub mod bit_geometry;
