@@ -1,0 +1,25 @@
+name: Quartz Rust G8 browser bundle
+on:
+  push:
+    paths:
+      - 'rust/quartz/**'
+      - 'docs/quartz-rust-g8/**'
+      - '.github/workflows/quartz-rust-g8.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install stable --profile minimal
+      - run: cargo +stable test --manifest-path rust/quartz/Cargo.toml
+      - run: rustup target add wasm32-unknown-unknown --toolchain stable
+      - run: cargo +stable install wasm-bindgen-cli --version 0.2.100 --locked
+      - run: cargo +stable build --manifest-path rust/quartz/Cargo.toml --target wasm32-unknown-unknown --release
+      - run: wasm-bindgen --target web --out-dir docs/quartz-rust-g8/pkg rust/quartz/target/wasm32-unknown-unknown/release/quartz_kernel.wasm
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quartz-g8-browser
+          path: docs/quartz-rust-g8/
