@@ -24,10 +24,17 @@ jobs:
           node-version: '22'
       - run: npm install --prefix rust/quartz/qa --no-save playwright@1.51.1
       - run: rust/quartz/qa/node_modules/.bin/playwright install --with-deps chromium
-      - run: |
+      - shell: bash
+        run: |
+          set -o pipefail
           python3 -m http.server 8765 --bind 127.0.0.1 --directory docs/quartz-rust-g8 > /tmp/quartz-http.log 2>&1 &
           for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8765/ >/dev/null && break; sleep 1; done
           node rust/quartz/qa/g9-browser.mjs
+          node rust/quartz/qa/g10-observation.mjs | tee /tmp/quartz-observation.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quartz-g10-observation
+          path: /tmp/quartz-observation.json
       - uses: actions/upload-artifact@v4
         with:
           name: quartz-g8-browser
