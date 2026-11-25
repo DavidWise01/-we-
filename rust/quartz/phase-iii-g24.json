@@ -1,0 +1,26 @@
+{
+  "checkpoint": "G24",
+  "index": 5016,
+  "watermark": ".dlw",
+  "source": "71fffd245888f73d61ddcd8cace2f5c74288a1a5",
+  "milestones": [
+    "G17 versioned journals",
+    "G18 bounded pump memories",
+    "G19 adaptive shadow trials",
+    "G20 selection gate",
+    "G21 cortex",
+    "G22 shared-ancestry evidence checks",
+    "G23 bounded homeostasis",
+    "G24 integrated regression"
+  ],
+  "specified_checkpoints": 384,
+  "qualification": {
+    "native": "unverified; local cargo unavailable",
+    "wasm": "unverified",
+    "chromium": "unverified",
+    "external_witness": "unqualified",
+    "deployment": "unverified"
+  },
+  "authority": "HOLD",
+  "freeze": "source checkpoint only"
+}
