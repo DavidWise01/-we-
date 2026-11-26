@@ -1,0 +1,41 @@
+name: Quartz G41 native qualification
+on:
+  push:
+    paths:
+      - 'rust/quartz/**'
+      - '.github/workflows/quartz-rust-g41.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Rust
+        run: rustup toolchain install 1.85.1 --profile minimal
+      - name: Compile and capture regression evidence
+        shell: bash
+        run: |
+          mkdir -p evidence
+          rustc +1.85.1 -Vv > evidence/toolchain.txt
+          git rev-parse HEAD > evidence/source.txt
+          set +e
+          cargo +1.85.1 test --manifest-path rust/quartz/Cargo.toml --all-targets --no-fail-fast 2>&1 | tee evidence/native.log
+          rc=${PIPESTATUS[0]}
+          printf '%s\n' "$rc" > evidence/native-exit.txt
+          exit "$rc"
+      - name: Emit native parity fixture twice
+        shell: bash
+        run: |
+          cargo +1.85.1 run --quiet --release --manifest-path rust/quartz/Cargo.toml --example g39_parity > evidence/first.bin
+          cargo +1.85.1 run --quiet --release --manifest-path rust/quartz/Cargo.toml --example g39_parity > evidence/second.bin
+          cmp evidence/first.bin evidence/second.bin
+          test "$(wc -c < evidence/first.bin)" -eq 36436
+          sha256sum evidence/first.bin > evidence/parity.sha256
+      - name: Retain evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: quartz-g41-native-evidence
+          path: evidence/
