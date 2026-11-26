@@ -78,3 +78,5 @@ pub mod evidence_gate;
 pub mod canonical;
 
 pub mod integrity;
+
+pub mod containment;
