@@ -70,3 +70,5 @@ pub mod coupling;
 pub mod temporal;
 
 pub mod provenance;
+
+pub mod distributed;
