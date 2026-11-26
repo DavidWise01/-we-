@@ -54,3 +54,9 @@ pub fn publish(dir:&Path,count:u64,head:Hash,previous:Hash)->io::Result<Publicat
  fs::remove_dir_all(dir).unwrap();
  }
 }
+
+ /// Read only the next marker relative to a previously verified prefix.
+ pub(crate) fn read_successor(dir:&Path,count:u64,previous:Hash,expected:Hash)->io::Result<Publication>{
+ if count==0||count>filesystem::MAX_RECORDS as u64{return Err(invalid());}
+ let p=read_marker(dir,count)?;if p.previous!=previous||p.digest()!=expected{return Err(invalid());}Ok(p)
+ }
