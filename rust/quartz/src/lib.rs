@@ -96,3 +96,6 @@ pub mod authentication;
 pub mod epochs;
 
 pub mod interruption;
+
+#[cfg(not(target_arch = "wasm32"))]
+pub mod filesystem;
