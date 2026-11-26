@@ -80,3 +80,5 @@ pub mod canonical;
 pub mod integrity;
 
 pub mod containment;
+
+pub mod inheritance;
