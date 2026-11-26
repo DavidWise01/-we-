@@ -92,3 +92,5 @@ pub mod decoding;
 pub mod quarantine_chain;
 
 pub mod authentication;
+
+pub mod epochs;
