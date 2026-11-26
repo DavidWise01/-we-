@@ -84,3 +84,5 @@ pub mod containment;
 pub mod inheritance;
 
 pub mod specialization;
+
+pub mod parity;
