@@ -111,3 +111,5 @@ pub mod custody;
 
 #[cfg(unix)]
 pub mod cross_ledger;
+
+pub mod state_commitment;
