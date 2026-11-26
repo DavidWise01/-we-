@@ -1,0 +1,28 @@
+{
+  "checkpoint": "G32",
+  "index": 6168,
+  "watermark": ".dlw",
+  "source_commit": "e74758164cb7c0a9ac598f6af626b749f1c6b757",
+  "milestones": [
+    "G25 typed mesh",
+    "G26 memory",
+    "G27 logical diode",
+    "G28 coupling",
+    "G29 temporal inbox",
+    "G30 declared provenance",
+    "G31 synthetic distributed recovery",
+    "G32 integrated regression"
+  ],
+  "specified_scenarios": 120,
+  "silo_cases": 600,
+  "freeze": "source only",
+  "qualification": {
+    "native": "unverified",
+    "wasm": "unverified",
+    "browser": "unverified",
+    "deployment": "unverified",
+    "external_independence": "unqualified",
+    "integration_gap": "G31 synchronous synthetic recovery does not consume temporal inbox or provenance verdict; G32 tests these paths separately within each scenario"
+  },
+  "authority": "HOLD"
+}
