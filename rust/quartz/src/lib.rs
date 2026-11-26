@@ -122,3 +122,6 @@ pub mod specialization_binding;
 
 #[cfg(unix)]
 pub mod sovereign_checkpoint;
+
+#[cfg(unix)]
+pub mod incremental;
