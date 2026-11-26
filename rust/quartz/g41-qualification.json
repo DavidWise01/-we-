@@ -1,0 +1,17 @@
+{
+  "generation": 41,
+  "index": 7464,
+  "watermark": ".dlw",
+  "baseline": "8e024a443a26287039a12aaf1482f10a11dc4ddc",
+  "workflow": "bbd499b2de81eb33ddd824ba49df6a5140a77f9c",
+  "local": {
+    "git": "2.47.3",
+    "cargo": "not found on PATH",
+    "rustc": "not found on PATH"
+  },
+  "combined_status": "empty",
+  "native": "unverified",
+  "wasm": "unverified",
+  "expected_fixture_bytes": 36436,
+  "authority": "HOLD"
+}
