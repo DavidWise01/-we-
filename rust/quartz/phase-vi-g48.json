@@ -1,0 +1,37 @@
+{
+  "generation": 48,
+  "index": 8472,
+  "watermark": ".dlw",
+  "source_commit": "8a27defb540573bc7851a84ab8066510a63a562a",
+  "milestones": [
+    "G41 native qualification infrastructure",
+    "G42 QD1 decoding",
+    "G43 QH1 restoration",
+    "G44 quarantine chain",
+    "G45 Ed25519 authentication",
+    "G46 advisory epochs",
+    "G47 QB1 recovery",
+    "G48 integrated regression"
+  ],
+  "specified": {
+    "g48": 18,
+    "g40": 18,
+    "g39": 48,
+    "g32": 120
+  },
+  "freeze": "source only",
+  "qualification": {
+    "native": "unverified",
+    "wasm": "unverified",
+    "chromium": "unverified",
+    "deployment": "unverified",
+    "durable_storage": "not established",
+    "external_anchor": "not established",
+    "roster_persistence": "not established",
+    "independent_ancestry": "not established",
+    "legacy_unsigned_entrypoint": "retained",
+    "signatures_in_QD1": "not retained",
+    "policy_activation": "advisory only"
+  },
+  "authority": "HOLD"
+}
