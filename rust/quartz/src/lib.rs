@@ -106,3 +106,5 @@ pub mod publication;
 pub mod roster_binding;
 
 pub mod signed_evidence;
+
+pub mod custody;
