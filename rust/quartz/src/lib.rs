@@ -117,3 +117,5 @@ pub mod state_commitment;
 pub mod transition_binding;
 
 pub mod transition_containment;
+
+pub mod specialization_binding;
