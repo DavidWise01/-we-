@@ -115,3 +115,5 @@ pub mod cross_ledger;
 pub mod state_commitment;
 
 pub mod transition_binding;
+
+pub mod transition_containment;
