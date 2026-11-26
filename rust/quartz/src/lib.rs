@@ -76,3 +76,5 @@ pub mod distributed;
 pub mod evidence_gate;
 
 pub mod canonical;
+
+pub mod integrity;
