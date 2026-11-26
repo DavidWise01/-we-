@@ -37,8 +37,16 @@ jobs:
           set -o pipefail
           python3 -m http.server 8765 --bind 127.0.0.1 --directory docs/quartz-rust-g8 > /tmp/quartz-http.log 2>&1 &
           for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8765/ >/dev/null && break; sleep 1; done
+          cargo +stable run --quiet --release --manifest-path rust/quartz/Cargo.toml --example g39_parity > /tmp/quartz-g39-native.bin
+          node rust/quartz/qa/g39-parity.mjs | tee /tmp/quartz-g39-parity.json
           node rust/quartz/qa/g9-browser.mjs
           node rust/quartz/qa/g10-observation.mjs | tee /tmp/quartz-observation.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: quartz-g39-parity
+          path: |
+            /tmp/quartz-g39-native.bin
+            /tmp/quartz-g39-parity.json
       - uses: actions/upload-artifact@v4
         with:
           name: quartz-g10-observation
