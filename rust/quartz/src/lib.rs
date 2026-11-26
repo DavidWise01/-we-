@@ -94,3 +94,5 @@ pub mod quarantine_chain;
 pub mod authentication;
 
 pub mod epochs;
+
+pub mod interruption;
