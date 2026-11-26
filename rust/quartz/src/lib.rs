@@ -82,3 +82,5 @@ pub mod integrity;
 pub mod containment;
 
 pub mod inheritance;
+
+pub mod specialization;
