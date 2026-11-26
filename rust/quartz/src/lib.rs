@@ -99,3 +99,6 @@ pub mod interruption;
 
 #[cfg(not(target_arch = "wasm32"))]
 pub mod filesystem;
+
+#[cfg(unix)]
+pub mod publication;
