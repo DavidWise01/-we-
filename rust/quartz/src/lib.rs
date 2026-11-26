@@ -113,3 +113,5 @@ pub mod custody;
 pub mod cross_ledger;
 
 pub mod state_commitment;
+
+pub mod transition_binding;
