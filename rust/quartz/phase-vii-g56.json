@@ -1,0 +1,34 @@
+{
+  "generation": 56,
+  "index": 9624,
+  "watermark": ".dlw",
+  "source_commit": "18c01ec05cc6447260abc82573a0d100d0b24ac7",
+  "milestones": [
+    "G49 QF1 filesystem",
+    "G50 QP1 publication",
+    "G51 QR1 roster",
+    "G52 QE1 signed evidence",
+    "G53 QC1 custody",
+    "G54 cross-ledger",
+    "G55 subprocess interruption",
+    "G56 integrated regression"
+  ],
+  "specified": {
+    "integrated_cases": 30,
+    "prefix_verifications": 60,
+    "process_boundaries": 5
+  },
+  "qualification": {
+    "source": "frozen",
+    "native": "unverified",
+    "wasm": "unverified",
+    "deployment": "unverified",
+    "independent_custody": "not established",
+    "power_loss": "not established",
+    "recovery_state_integration": "not established",
+    "custody_head": "externally supplied",
+    "roster": "fixed genesis",
+    "g55_status_lookup": "empty; PR-run filter cannot exclude push runs"
+  },
+  "authority": "HOLD"
+}
