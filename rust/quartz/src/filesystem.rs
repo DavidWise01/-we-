@@ -53,3 +53,11 @@ pub fn append(dir:&Path,count:usize,expected:Hash,payload:&[u8])->io::Result<Has
  let mut bad=a;bad[HEADER]^=1;fs::write(path(&dir,0),bad).unwrap();assert!(read_prefix(&dir,2,h2).is_err());fs::remove_dir_all(dir).unwrap();
  }
 }
+
+ /// Read only the next record relative to a previously verified prefix.
+ pub(crate) fn read_successor(dir:&Path,index:usize,previous:Hash,expected:Hash)->io::Result<Record>{
+ if index>=MAX_RECORDS{return Err(invalid());}
+ let p=path(dir,index);if !fs::symlink_metadata(&p)?.file_type().is_file(){return Err(invalid());}
+ let f=File::open(p)?;let mut b=Vec::new();f.take((HEADER+MAX_PAYLOAD+1)as u64).read_to_end(&mut b)?;
+ let r=decode(&b,index,previous)?;if r.link.digest!=expected{return Err(invalid());}Ok(r)
+ }
