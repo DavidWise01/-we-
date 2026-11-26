@@ -9,6 +9,7 @@ pub struct Observation{pub source:SiloId,pub sequence:u64,pub recovery_tick:u64,
 pub struct Silo{id:SiloId,journal:Journal,sequence:u64}
 impl Silo{
  pub fn new(id:SiloId,energy:[u32;3],policy:Policy)->Self{Self{id,journal:Journal::with_policy(energy,policy),sequence:0}}
+ pub(crate) fn from_journal(id:SiloId,journal:Journal,sequence:u64)->Option<Self>{if u64::try_from(journal.events().len()).ok()?!=sequence{return None;}Some(Self{id,journal,sequence})}
  pub fn journal(&self)->&Journal{&self.journal}
  pub fn successor(&self,event:Event)->Option<Self>{Some(Self{id:self.id,journal:self.journal.append(event)?,sequence:self.sequence.checked_add(1)?})}
  pub fn observation(&self)->Observation{let o=observe(self.journal.state());Observation{source:self.id,sequence:self.sequence,recovery_tick:self.journal.state().tick(),deficit:o.shell_deficit,energy:o.energy}}
