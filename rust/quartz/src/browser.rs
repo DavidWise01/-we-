@@ -26,3 +26,6 @@ impl Quartz {
   if let Some(j)=self.journal.append(event){self.journal=j;true}else{false}
  }
 }
+
+#[wasm_bindgen]
+pub fn g39_fixture()->Vec<u8>{crate::parity::fixture().expect("G39 fixture failed")}
