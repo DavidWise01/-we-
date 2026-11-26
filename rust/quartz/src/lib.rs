@@ -102,3 +102,5 @@ pub mod filesystem;
 
 #[cfg(unix)]
 pub mod publication;
+
+pub mod roster_binding;
