@@ -24,6 +24,7 @@ pub fn restore(owner:SiloId,records:&[Record],expected:Hash)->Option<Gate>{
  let payload=Gate::snapshot_digest(&r.bytes);
  let gate=Gate::restore(owner,&r.bytes,payload)?;
  if r.link!=Link::new(i as u64,head,payload){return None;}
+ if i==0&&gate!=Gate::new(owner){return None;}
  if prior.is_some_and(|a|!monotonic(a,&r.bytes)){return None;}
  prior=Some(&r.bytes);head=r.link.digest;last=Some(gate);
  }
@@ -50,6 +51,6 @@ pub fn append(owner:SiloId,records:&[Record],expected:Hash,gate:&Gate)->Option<R
  records.push(append(owner,&records,records.last().unwrap().link.digest,&g).unwrap());let head=records.last().unwrap().link.digest;
  let mut restarted=restore(owner,&records,head).unwrap();assert!(restarted.quarantined(h.observation().source));assert_eq!(restarted.trial(&s,now,c,&[p]),Err(Fault::Quarantined));
  assert!(restore(owner,&records[..2],head).is_none());assert!(append(owner,&records,head,&accepted).is_none());
- let mut fork=records.clone();let bytes=accepted.snapshot();fork[2]=Record{link:Link::new(2,fork[1].link.digest,Gate::snapshot_digest(&bytes)),bytes};assert!(restore(owner,&fork,fork[2].link.digest).is_none());
+ let mut fork=records.clone();let bytes=accepted.snapshot();fork.push(Record{link:Link::new(3,head,Gate::snapshot_digest(&bytes)),bytes});assert!(restore(owner,&fork,fork[3].link.digest).is_none());
  }
 }
