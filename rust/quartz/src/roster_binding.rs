@@ -24,6 +24,8 @@ impl Binding{
  let mut canonical=Self::genesis(owner,members)?;canonical.epoch=epoch;canonical.previous=previous;
  if canonical.encode().as_slice()!=b||canonical.digest()!=expected{return None;}Some(canonical)
  }
+ pub fn owner(&self)->SiloId{self.owner}
+ pub fn members(&self)->&[Witness;3]{&self.members}
  pub fn verify(&self,now:Clock,p:&SignedPacket)->Option<Packet>{authentication::verify(&Roster::new(self.members)?,self.owner,now,p)}
 }
 pub const MAX_BINDINGS:usize=4096;
