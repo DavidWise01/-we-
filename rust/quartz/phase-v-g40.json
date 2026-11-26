@@ -1,0 +1,34 @@
+{
+  "checkpoint": "G40",
+  "index": 7320,
+  "watermark": ".dlw",
+  "source_commit": "e0c4d695adccd188502e08dd1fe125ce94fa7ece",
+  "milestones": [
+    "G33 evidence gate",
+    "G34 QD1",
+    "G35 SHA-256 integrity",
+    "G36 containment",
+    "G37 inheritance",
+    "G38 specialization",
+    "G39 parity infrastructure",
+    "G40 integrated regression"
+  ],
+  "specified": {
+    "g32": 120,
+    "g39": 48,
+    "g40": 18,
+    "parity_bytes": 36436
+  },
+  "freeze": "source checkpoint only",
+  "qualification": {
+    "native": "unverified",
+    "wasm": "unverified",
+    "chromium": "unverified",
+    "deployment": "unverified",
+    "independent_witnesses": "unauthenticated",
+    "persistent_quarantine": "in-memory only",
+    "parity_scope": "final states and input digests, not all gate transitions",
+    "adoption": "advisory only"
+  },
+  "authority": "HOLD"
+}
