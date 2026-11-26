@@ -88,3 +88,5 @@ pub mod specialization;
 pub mod parity;
 
 pub mod decoding;
+
+pub mod quarantine_chain;
