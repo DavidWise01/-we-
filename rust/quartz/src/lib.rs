@@ -72,3 +72,5 @@ pub mod temporal;
 pub mod provenance;
 
 pub mod distributed;
+
+pub mod evidence_gate;
