@@ -1,0 +1,32 @@
+name: Quartz G55 process interruption
+on:
+  push:
+    paths:
+      - 'rust/quartz/**'
+      - '.github/workflows/quartz-rust-g55.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  interruption:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install 1.85.1 --profile minimal
+      - name: Capture process interruption evidence
+        shell: bash
+        run: |
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/source.txt
+          rustc +1.85.1 -Vv > evidence/toolchain.txt
+          set +e
+          cargo +1.85.1 test --manifest-path rust/quartz/Cargo.toml --test g55_process -- --nocapture 2>&1 | tee evidence/g55.log
+          rc=${PIPESTATUS[0]}
+          printf '%s\n' "$rc" > evidence/exit.txt
+          exit "$rc"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartz-g55-process-evidence
+          path: evidence/
