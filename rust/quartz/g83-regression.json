@@ -1,0 +1,27 @@
+{
+  "generation": 83,
+  "index": 13512,
+  "watermark": ".dlw",
+  "local_probe": {
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "git_exit": 128,
+    "git_error": "Could not resolve host: github.com"
+  },
+  "g82_lookup": {
+    "pr_workflow_runs": [],
+    "statuses": [],
+    "scope": "PR-associated first page only"
+  },
+  "current_suites": [
+    "library",
+    "g64_integrated",
+    "g77_reference",
+    "g82_reconciled"
+  ],
+  "historical": [
+    "g74_reconciled"
+  ],
+  "suite_results": null,
+  "authority": "HOLD"
+}
