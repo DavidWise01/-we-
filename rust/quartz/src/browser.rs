@@ -29,3 +29,6 @@ impl Quartz {
 
 #[wasm_bindgen]
 pub fn g39_fixture()->Vec<u8>{crate::parity::fixture().expect("G39 fixture failed")}
+
+#[wasm_bindgen]
+pub fn g75_fixture()->Vec<u8>{crate::portable_parity::fixture().expect("G75 fixture failed")}
