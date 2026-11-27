@@ -139,3 +139,6 @@ pub mod rolling_evidence;
 
 #[cfg(unix)]
 pub mod external_pin;
+
+#[cfg(unix)]
+pub mod rollback_gate;
