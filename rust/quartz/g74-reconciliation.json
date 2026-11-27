@@ -1,0 +1,30 @@
+{
+  "generation": 74,
+  "index": 12216,
+  "watermark": ".dlw",
+  "observed": {
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "direct_git": "DNS failure"
+  },
+  "source_findings": [
+    "G72 retains G71 environment variable namespace; G74 isolates namespace",
+    "G72 only compares reference bytes after recovery; G74 also compares both pinned frame and marker byte pairs"
+  ],
+  "reviewed": [
+    "transition_binding",
+    "signed_evidence",
+    "quarantine_chain",
+    "mesh",
+    "witness",
+    "recovery",
+    "containment",
+    "evidence_gate",
+    "transition_containment",
+    "journal",
+    "G72 fixture"
+  ],
+  "compiler_diagnostics": null,
+  "tests_executed": false,
+  "authority": "HOLD"
+}
