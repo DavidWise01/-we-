@@ -1,0 +1,20 @@
+{
+  "generation": 84,
+  "index": 13656,
+  "watermark": ".dlw",
+  "observed": {
+    "chromium": "144.0.7559.96",
+    "node": "v22.16.0",
+    "python_playwright": true,
+    "wasm_smoke": {
+      "expected": 42,
+      "actual": 42,
+      "fixture": "hand-encoded constant function; not Quartz"
+    },
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "rustup_on_path": false
+  },
+  "quartz_parity": null,
+  "authority": "HOLD"
+}
