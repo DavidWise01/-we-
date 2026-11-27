@@ -1,0 +1,24 @@
+{
+  "generation": 89,
+  "index": 14376,
+  "watermark": ".dlw",
+  "parent_commit": "8b7bca2810ca1fa6901c7120ac0cd4d41e91aaa0",
+  "sha256": {
+    "g85-workload.json": "3240d898a4988cd500f31e9b70bab807bf7eca2b19983a49bf6a1aaeb3afd270",
+    "g85-workload.py": "f82bde613407d8817d1f9e34b9831efb8d8c93eba6607623d5591388b11b829a",
+    "g86-recovery.json": "5b0a1c7e16138cb71dd45671c3e8e823458239dfc48da71e64b6c929b45845e0",
+    "g86-recovery.py": "92458be08007d5999b7dc8912f8efcf863e101b23fb6806aaadd807f19bb7b2d",
+    "g87-reconciliation.json": "a2418ddff7ddafc9be382b909f318c87c3ee35602fac16849aabd395160e2071"
+  },
+  "archive": {
+    "filename": "quartz-g89-evidence.zip",
+    "bytes": 6918,
+    "sha256": "2570924f9f5a3212061583cd76dad42b42d83f71a5621f55143029a3a9c6ea18",
+    "members": 9,
+    "checksum_matches": 8,
+    "original_matches": 5,
+    "location": "conversation download; binary not uploaded to GitHub"
+  },
+  "authority": "HOLD",
+  "scope": "retained environmental observations, no native Quartz execution or independent witnesses"
+}
