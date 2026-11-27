@@ -1,0 +1,18 @@
+{
+  "generation": 90,
+  "index": 14520,
+  "watermark": ".dlw",
+  "source_revision": "8b7bca2810ca1fa6901c7120ac0cd4d41e91aaa0",
+  "cargo_toml_blob": "802fa18bcabab765432dcadd3d46d0be43a52590",
+  "runner_commit": "bd1b36532d119caa39f60905601784291d8a3bf6",
+  "local_observed": {
+    "git": "/usr/bin/git",
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "git_ls_remote_exit": 128,
+    "error": "Could not resolve host: github.com"
+  },
+  "source_delivery": "network checkout at frozen commit; no offline full source archive",
+  "native_execution": null,
+  "authority": "HOLD"
+}
