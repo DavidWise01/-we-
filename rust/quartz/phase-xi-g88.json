@@ -1,0 +1,48 @@
+{
+  "generation": 88,
+  "index": 14232,
+  "phase": "XI",
+  "watermark": ".dlw",
+  "source_milestones": [
+    "9924f8e1d864e28f0dcb9b79b81b14110d2b72e4",
+    "9b0f383f30185ef2db1257ad59aca624506e8947",
+    "4841254b1a09d379400aba1e7beaed5541a6246b",
+    "286474af942853d4057cd05f8024726e5712dc10",
+    "877a8fde2ee2910df18fd7ddfd080cd6d1793ba0",
+    "be38d7aa33d3efd3e46ecb7d7a186a9152071c57",
+    "b73a835bf0b55ed41eeb4e135a3932cb5ee2f20c"
+  ],
+  "fresh_sha256": {
+    "g85-workload.json": "3240d898a4988cd500f31e9b70bab807bf7eca2b19983a49bf6a1aaeb3afd270",
+    "g85-workload.py": "f82bde613407d8817d1f9e34b9831efb8d8c93eba6607623d5591388b11b829a",
+    "g86-recovery.json": "5b0a1c7e16138cb71dd45671c3e8e823458239dfc48da71e64b6c929b45845e0",
+    "g86-recovery.py": "92458be08007d5999b7dc8912f8efcf863e101b23fb6806aaadd807f19bb7b2d",
+    "g87-reconciliation.json": "a2418ddff7ddafc9be382b909f318c87c3ee35602fac16849aabd395160e2071"
+  },
+  "original_matches": 4,
+  "prior_records": {
+    "workload": 18,
+    "wasm_batches": 5,
+    "recovery": 21
+  },
+  "fresh_execution": false,
+  "cargo_rustc_on_path": false,
+  "g83_query": {
+    "commit": "888cf1ebe9fd82fb3dc88233afeb836d4a2ec776",
+    "workflow_runs": [],
+    "statuses": [],
+    "scope": "PR-associated lookup; push and dispatch not excluded"
+  },
+  "holds": [
+    "native compilation and tests",
+    "Quartz native/WASM/Chromium parity",
+    "Rust workload timing and peak memory",
+    "Rust external custody interruption",
+    "physical power loss",
+    "independent ancestry and three observations",
+    "live deployment"
+  ],
+  "authority": "HOLD",
+  "freeze": "commit-pinned source and evidence fingerprints; not enforced branch immutability",
+  "next": "Phase XII evidence portability and external execution handoff"
+}
