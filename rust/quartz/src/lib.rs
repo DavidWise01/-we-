@@ -136,3 +136,6 @@ pub mod checkpoint_frame;
 pub mod checkpoint_publication;
 
 pub mod rolling_evidence;
+
+#[cfg(unix)]
+pub mod external_pin;
