@@ -142,3 +142,5 @@ pub mod external_pin;
 
 #[cfg(unix)]
 pub mod rollback_gate;
+
+pub mod portable_parity;
