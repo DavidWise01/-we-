@@ -1,0 +1,33 @@
+{
+  "generation": 73,
+  "index": 12072,
+  "watermark": ".dlw",
+  "queries": [
+    {
+      "commit": "09e5f802630e4be67d4c9d8db461a5d9f98d64b7",
+      "workflow_runs": [],
+      "statuses": []
+    },
+    {
+      "commit": "cc1db98924b9ac28937f22577370fe9c5f5afa",
+      "workflow_runs": [],
+      "statuses": []
+    },
+    {
+      "commit": "c4e626dcb247a038a43364d8227599f5016a44eb",
+      "workflow_runs": [],
+      "statuses": []
+    }
+  ],
+  "scope": "PR-triggered first page only; push and dispatch not excluded",
+  "local": {
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "git_remote": "hostname resolution failed"
+  },
+  "job_logs": null,
+  "artifact_bytes": null,
+  "artifact_sha256": null,
+  "test_exit": null,
+  "authority": "HOLD"
+}
