@@ -1,0 +1,39 @@
+name: Quartz G82 dependency reconciliation
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/quartz-rust-g82.yml'
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve and compile
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/source.txt
+          rustup toolchain install 1.85.1 --profile minimal
+          rustc +1.85.1 -Vv > evidence/toolchain.txt
+          cargo +1.85.1 generate-lockfile --manifest-path rust/quartz/Cargo.toml 2>&1 | tee evidence/resolve.log
+          cp rust/quartz/Cargo.lock evidence/Cargo.lock
+          cargo +1.85.1 metadata --locked --manifest-path rust/quartz/Cargo.toml --format-version 1 > evidence/metadata.json
+          set +e
+          cargo +1.85.1 check --locked --manifest-path rust/quartz/Cargo.toml --all-targets --message-format=json > evidence/compiler.jsonl 2> evidence/compiler.stderr
+          rc=$?
+          printf '%s\n' "$rc" > evidence/compiler-exit.txt
+          exit "$rc"
+      - name: Hash acquired evidence
+        if: always()
+        run: |
+          if [ -d evidence ]; then (cd evidence && find . -maxdepth 1 -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 -r sha256sum > SHA256SUMS); fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartz-g82-dependency-evidence
+          path: evidence/
