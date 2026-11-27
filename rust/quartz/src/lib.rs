@@ -134,3 +134,5 @@ pub mod checkpoint_frame;
 
 #[cfg(unix)]
 pub mod checkpoint_publication;
+
+pub mod rolling_evidence;
