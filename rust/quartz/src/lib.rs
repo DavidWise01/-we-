@@ -131,3 +131,6 @@ pub mod temporal_chain;
 
 #[cfg(unix)]
 pub mod checkpoint_frame;
+
+#[cfg(unix)]
+pub mod checkpoint_publication;
