@@ -1,0 +1,78 @@
+{
+  "generation": 80,
+  "index": 13080,
+  "watermark": ".dlw",
+  "phase": "X",
+  "source_milestones": [
+    {
+      "g": 73,
+      "sha": "31b4f5a9171022bcaf02a08ef834ffdd514801ee"
+    },
+    {
+      "g": 74,
+      "sha": "ff79b6b62331a00186abf78649a8ddac4d417095"
+    },
+    {
+      "g": 75,
+      "sha": "4bb8003cb18aa94ce2286a126abbbb3fdf0026df"
+    },
+    {
+      "g": 76,
+      "sha": "c1a2dd6f490065be92b73ca65738b1bc1db9feb6"
+    },
+    {
+      "g": 77,
+      "sha": "5414488af1dffa8882098d64ad5a6a45e42a210e"
+    },
+    {
+      "g": 78,
+      "sha": "724a43c831039e6a10ce146c7695dc4302c16ea0"
+    },
+    {
+      "g": 79,
+      "sha": "5714c6107f89a83c3c6691acb8b50820e7e91a66"
+    }
+  ],
+  "observed_queries": [
+    {
+      "commit": "cc1db98924b9ac28937f22577370fe9c5f5f5afa",
+      "pr_workflow_runs": [],
+      "statuses": []
+    },
+    {
+      "commit": "4bb8003cb18aa94ce2286a126abbbb3fdf0026df",
+      "pr_workflow_runs": [],
+      "statuses": []
+    },
+    {
+      "commit": "c1a2dd6f490065be92b73ca65738b1bc1db9feb6",
+      "pr_workflow_runs": [],
+      "statuses": []
+    },
+    {
+      "commit": "5414488af1dffa8882098d64ad5a6a45e42a210e",
+      "pr_workflow_runs": [],
+      "statuses": []
+    },
+    {
+      "commit": "5714c6107f89a83c3c6691acb8b50820e7e91a66",
+      "pr_workflow_runs": [],
+      "statuses": []
+    }
+  ],
+  "query_scope": "PR-associated first page only; no inference about push/dispatch",
+  "holds": [
+    "native compilation and tests",
+    "native/WASM byte parity",
+    "Chromium execution",
+    "benchmark timing and peak memory",
+    "external custody interruption execution",
+    "physical power loss",
+    "independently established ancestry",
+    "three independently acquired execution observations",
+    "live deployment"
+  ],
+  "authority": "HOLD",
+  "source_freeze": "Git revision snapshot, not a cryptographically enforced immutable branch",
+  "next_phase": "XI: execution acquisition and repair before additional architecture"
+}
