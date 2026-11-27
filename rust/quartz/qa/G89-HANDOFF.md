@@ -1,0 +1,3 @@
+# G89 evidence capsule · .dlw
+
+Obtain the ZIP from the conversation download. Compare its SHA-256 against `rust/quartz/g89-capsule.json` at the published commit. Extract into an isolated directory, run `sha256sum -c SHA256SUMS` or `python verify.py`, and compare original hashes with the G88 freeze. Inspect scripts before executing. The original G85 script writes `/mnt/data/g85-workload.json`; use a disposable environment or change a copy to write elsewhere. G86 uses Linux hard links, fsync and SIGKILL of its own children; redirect stdout to a fresh file. Timings vary. Neither experiment runs Rust. The full Rust source checkout is not included; obtain the G88 commit-pinned tree separately. Independent custody and executable qualification remain HOLD.
