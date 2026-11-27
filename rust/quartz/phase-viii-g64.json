@@ -1,0 +1,34 @@
+{
+  "generation": 64,
+  "index": 10776,
+  "watermark": ".dlw",
+  "source_commit": "4f53077c488073bfb35c2841b90fbb82afa7f7d7",
+  "milestones": [
+    "G57 canonical state",
+    "G58 transition binding",
+    "G59 containment",
+    "G60 specialization",
+    "G61 unified checkpoint",
+    "G62 incremental verification",
+    "G63 restart isolation",
+    "G64 integrated QU1 regression"
+  ],
+  "specified": {
+    "integrated_cases": 10,
+    "restart_subprocess_invocations": 60,
+    "checkpoint_bytes": 493
+  },
+  "qualification": {
+    "source": "frozen",
+    "native": "unverified",
+    "wasm": "unverified",
+    "deployment": "unverified",
+    "independent_custody": "not established",
+    "full_predecessor_traversal": "not established",
+    "atomic_QU1_persistence": "not established",
+    "test_scope": "genesis checkpoint, synthetic keys, two policies, five silos",
+    "g63_status_lookup": "empty; PR-filtered runs cannot exclude push runs",
+    "incremental": "QC1 signature checks optimized, cumulative hashing remains quadratic"
+  },
+  "authority": "HOLD"
+}
