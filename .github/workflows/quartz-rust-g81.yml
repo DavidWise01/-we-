@@ -1,0 +1,41 @@
+name: Quartz G81 execution bootstrap
+on:
+  push:
+    paths:
+      - '.github/workflows/quartz-rust-g81.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Acquire toolchain and compile frozen source
+        shell: bash
+        run: |
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/source.txt
+          uname -a > evidence/platform.txt
+          set +e
+          rustup toolchain install 1.85.1 --profile minimal 2>&1 | tee evidence/install.log
+          rc=${PIPESTATUS[0]}
+          printf '%s\n' "$rc" > evidence/install-exit.txt
+          if [ "$rc" -ne 0 ]; then exit "$rc"; fi
+          rustc +1.85.1 -Vv > evidence/toolchain.txt
+          cargo +1.85.1 -V >> evidence/toolchain.txt
+          cargo +1.85.1 check --manifest-path rust/quartz/Cargo.toml --all-targets --message-format=json > evidence/compiler.jsonl 2> evidence/compiler.stderr
+          rc=$?
+          printf '%s\n' "$rc" > evidence/compiler-exit.txt
+          exit "$rc"
+      - name: Hash acquired files
+        if: always()
+        shell: bash
+        run: |
+          if [ -d evidence ]; then (cd evidence && find . -maxdepth 1 -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 -r sha256sum > SHA256SUMS); fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartz-g81-bootstrap-evidence
+          path: evidence/
