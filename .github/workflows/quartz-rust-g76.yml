@@ -1,0 +1,36 @@
+name: Quartz G76 workload
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'rust/quartz/src/bin/g76_workload.rs'
+      - '.github/workflows/quartz-rust-g76.yml'
+permissions:
+  contents: read
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/source.txt
+          uname -a > evidence/platform.txt
+          lscpu >> evidence/platform.txt
+          rustup toolchain install 1.85.1 --profile minimal
+          rustc +1.85.1 -Vv > evidence/toolchain.txt
+      - name: Measure release workload
+        shell: bash
+        run: |
+          set +e
+          cargo +1.85.1 run --release --manifest-path rust/quartz/Cargo.toml --bin g76_workload > evidence/workload.csv 2> evidence/build.log
+          rc=$?
+          printf '%s\n' "$rc" > evidence/exit.txt
+          sha256sum evidence/workload.csv evidence/build.log > evidence/SHA256SUMS
+          exit "$rc"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartz-g76-workload-evidence
+          path: evidence/
