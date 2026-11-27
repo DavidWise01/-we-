@@ -128,3 +128,6 @@ pub mod incremental;
 
 #[cfg(unix)]
 pub mod temporal_chain;
+
+#[cfg(unix)]
+pub mod checkpoint_frame;
