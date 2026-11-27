@@ -1,0 +1,53 @@
+#![cfg(unix)]
+use quartz_kernel::{authentication::Witness,mesh::mesh,journal::{Policy,Event},temporal::{Clock,TimedObservation},roster_binding::Binding,signed_evidence::{self,Evidence},transition_binding::{self,Transition},transition_containment::{self,Decision},containment::Gate,quarantine_chain,epochs,specialization_binding::{self,Advisory},sovereign_checkpoint::{self,Inputs,Checkpoint},custody::{self,Custody},filesystem,publication,checkpoint_frame::{self,Frame},checkpoint_publication::{self,Marker},external_pin::{self,Pin},rollback_gate::{self,Reference}};
+use ed25519_dalek::{SigningKey,Signer};
+use std::{fs::{self,File,OpenOptions},io::Write,path::Path,process::{Command,Stdio},thread,time::{Duration,Instant,SystemTime,UNIX_EPOCH}};
+fn sync_write(p:&Path,b:&[u8]){let mut f=OpenOptions::new().write(true).create_new(true).open(p).unwrap();f.write_all(b).unwrap();f.sync_all().unwrap();}
+fn fixture(root:&Path,policy:Policy,silo:usize){
+ let archive=root.join("archive");let dir=root.join("published");fs::create_dir(&archive).unwrap();fs::create_dir(&dir).unwrap();
+ let keys:[SigningKey;6]=std::array::from_fn(|j|SigningKey::from_bytes(&[(silo*6+j+1)as u8;32]));
+ let a=mesh([100;3],policy);let owner=a[silo].observation().source;
+ let roster=|offset:usize|Binding::genesis(owner,std::array::from_fn(|j|Witness{key:keys[offset+j].verifying_key().to_bytes(),root:[(silo*6+offset+j+1)as u8;32]})).unwrap();
+ let binding=roster(0);let external=roster(3);let genesis=binding.digest();
+ let sign=|b:&Binding,j:usize,msg:&[u8]|keys.iter().find(|k|k.verifying_key().to_bytes()==b.members()[j].key).unwrap().sign(msg).to_bytes();
+ let mut records=vec![quarantine_chain::append(owner,&[],[0;32],&Gate::new(owner)).unwrap()];let mut history=Vec::new();let mut chain=Vec::new();let mut ev=Vec::new();let mut payloads=vec![binding.encode().to_vec()];
+ let mut q=filesystem::append(&archive,0,[0;32],&payloads[0]).unwrap();let mut p=publication::publish(&archive,1,q,[0;32]).unwrap().digest();
+ let claim=custody::Claim{owner,publication_count:1,publication:p,roster:genesis,evidence:custody::evidence_head(&binding,&[]).unwrap(),previous:[0;32]};let signatures=std::array::from_fn(|j|sign(&binding,j,&claim.signing_bytes(binding.members()[j].root)));chain.push(Custody{claim,signatures});
+ let mut state=a[silo].clone();let mut source=a[if silo==4{0}else{4}].clone();let mut previous=[0;32];let mut adv=[0;32];let mut marker=[0;32];let mut pin=[0;32];let mut pins=Vec::new();
+ for n in 0..3{
+ let prior=state.successor(Event::Shock(vec![(0,40)])).unwrap();let next=prior.successor(Event::Recover).unwrap();source=source.successor(Event::Shock(vec![(0,10)])).unwrap();let now=Clock::new(359+n as u64);
+ let message=TimedObservation{observed:now,observation:source.observation()};let signatures=std::array::from_fn(|j|sign(&binding,j,&signed_evidence::signing_bytes(&binding,&message,binding.members()[j].root)));let e=Evidence{recipient:owner,roster:genesis,message,signatures};
+ let claim=transition_binding::Claim::prepare(&binding,now,&prior,&next,&source,&e).unwrap();let signatures=std::array::from_fn(|j|sign(&binding,j,&claim.signing_bytes(binding.members()[j].root)));let t=Transition{claim,signatures};
+ let staged=transition_containment::stage_transition(&binding,&prior,&next,&source,&e,&t,t.digest(),now,&records,records.last().unwrap().link.digest).unwrap();assert_eq!(staged.decision,Decision::Accepted);records.push(staged.record);let qh=records.last().unwrap().link.digest;
+ let training=vec![vec![vec![(0,1)];3]];let challenge=vec![vec![vec![(124,2)];4]];let epoch=epochs::append(&next,&history,history.last().map(|x:&epochs::Epoch|x.link.digest).unwrap_or([0;32]),&training,&challenge).unwrap();let eh=epoch.link.digest;history.push(epoch);
+ let claim=specialization_binding::Claim::prepare(&binding,&prior,&next,&source,&e,&t,&records,qh,&history,eh,adv).unwrap();let signatures=std::array::from_fn(|j|sign(&binding,j,&claim.signing_bytes(binding.members()[j].root)));let advisory=Advisory{claim,signatures};
+ ev.push(e.clone());payloads.push(e.encode().to_vec());q=filesystem::append(&archive,n+1,q,payloads.last().unwrap()).unwrap();p=publication::publish(&archive,(n+2)as u64,q,p).unwrap().digest();
+ let claim=custody::Claim{owner,publication_count:(n+2)as u64,publication:p,roster:genesis,evidence:custody::evidence_head(&binding,&ev).unwrap(),previous:chain.last().unwrap().digest()};let signatures=std::array::from_fn(|j|sign(&binding,j,&claim.signing_bytes(binding.members()[j].root)));chain.push(Custody{claim,signatures});
+ let inputs=Inputs{binding:&binding,prior:&prior,next:&next,source:&source,evidence:&e,transition:&t,containment:&records,epochs:&history,advisory:&advisory,custody:&chain,directory:&archive};
+ let claim=sovereign_checkpoint::Claim::prepare(&inputs,genesis,previous,adv).unwrap();let signatures=std::array::from_fn(|j|sign(&binding,j,&claim.signing_bytes(binding.members()[j].root)));let checkpoint=Checkpoint{claim,signatures};let head=checkpoint.digest();adv=advisory.digest();
+ let frame=Frame{checkpoint,binding:binding.clone(),prior,next:next.clone(),source:source.clone(),evidence:e,transition:t,containment:records.clone(),epochs:history.clone(),advisory,custody:chain.clone(),published:payloads.clone()};
+ let bytes=frame.encode().unwrap();let fh=checkpoint_frame::digest(&bytes);assert_eq!(Frame::decode(&bytes,fh).unwrap().encode().unwrap(),bytes);
+ let m=checkpoint_publication::publish(&dir,&archive,owner,genesis,&frame,marker,head).unwrap();marker=m.digest();
+ let claim=external_pin::Claim::prepare(&dir,&archive,&binding,&external,external.digest(),n+1,marker,pin).unwrap();let signatures=std::array::from_fn(|j|sign(&external,j,&claim.signing_bytes(external.members()[j].root)));let signed=Pin{claim,signatures};pin=signed.digest();if n==2{sync_write(&root.join("candidate.pin"),&signed.encode());sync_write(&root.join("candidate.ref"),&Reference{owner,count:3,genesis,external:external.digest(),head:pin}.encode());let mut conflict=signed.claim.clone();conflict.rolling=[99;32];let signatures=std::array::from_fn(|j|sign(&external,j,&conflict.signing_bytes(external.members()[j].root)));sync_write(&root.join("conflict.pin"),&Pin{claim:conflict,signatures}.encode());break;}pins.extend_from_slice(&signed.encode());previous=head;state=next;
+ }
+ sync_write(&root.join("local"),&binding.encode());sync_write(&root.join("external"),&external.encode());sync_write(&root.join("pins"),&pins);sync_write(&root.join("reference"),&Reference{owner,count:2,genesis,external:external.digest(),head:Pin::decode(&pins[405..810]).unwrap().digest()}.encode());
+}
+#[test]fn writer_child(){
+ let Ok(root)=std::env::var("QUARTZ_G77_ROOT")else{return;};let root=Path::new(&root);let mode:usize=std::env::var("QUARTZ_G77_MODE").unwrap().parse().unwrap();let store=root.join("custody");let pin=fs::read(root.join(if mode==5{"conflict.pin"}else{"candidate.pin"})).unwrap();let reference=fs::read(root.join("candidate.ref")).unwrap();
+ let ps=store.join("2.qn1.stage");let pf=store.join("2.qn1");let rs=store.join("2.qk1.stage");let rf=store.join("2.qk1");
+ if mode==0{sync_write(&ps,&pin[..pin.len()/2]);}else{sync_write(&ps,&pin);fs::hard_link(&ps,&pf).unwrap();File::open(&store).unwrap().sync_all().unwrap();if mode==2{sync_write(&rs,&reference[..reference.len()/2]);}if mode>=3{sync_write(&rs,&reference);fs::hard_link(&rs,&rf).unwrap();if mode>=4{File::open(&store).unwrap().sync_all().unwrap();}}}
+ fs::write(root.join("ready"),b"ready").unwrap();loop{thread::sleep(Duration::from_secs(1));}
+}
+#[test]fn recovery_child(){
+ let Ok(root)=std::env::var("QUARTZ_G77_RECOVER")else{return;};let root=Path::new(&root);let store=root.join("custody");let reference=Reference::decode(&fs::read(root.join("reference")).unwrap()).unwrap();let local=Binding::decode(reference.owner,&fs::read(root.join("local")).unwrap(),reference.genesis).unwrap();let external=Binding::decode(reference.owner,&fs::read(root.join("external")).unwrap(),reference.external).unwrap();let raw=fs::read(root.join("pins")).unwrap();assert_eq!(raw.len(),810);let mut pins:Vec<_>=raw.chunks_exact(405).map(|b|Pin::decode(b).unwrap()).collect();
+ let dir=root.join("published");let archive=root.join("archive");assert_eq!(rollback_gate::verify_current(&dir,&archive,&local,&external,&reference,&pins).unwrap().len(),2);
+ let candidate=Pin::decode(&fs::read(root.join("candidate.pin")).unwrap()).unwrap();pins.push(candidate);assert!(matches!(rollback_gate::verify_current(&dir,&archive,&local,&external,&reference,&pins),Err(rollback_gate::Fault::UnpinnedFuture)));
+ // The separately supplied new reference is only a fixture, never discovered from the store.
+ let new=Reference::decode(&fs::read(root.join("candidate.ref")).unwrap()).unwrap();assert_eq!(rollback_gate::verify_current(&dir,&archive,&local,&external,&new,&pins).unwrap().len(),3);
+ assert!(matches!(rollback_gate::verify_current(&dir,&archive,&local,&external,&new,&pins[..2]),Err(rollback_gate::Fault::Stale)));
+ if let Ok(b)=fs::read(store.join("2.qn1")){if let Some(p)=Pin::decode(&b){pins[2]=p;if pins[2].digest()!=new.head{assert!(matches!(rollback_gate::verify_current(&dir,&archive,&local,&external,&new,&pins),Err(rollback_gate::Fault::Fork)));}}}
+}
+#[test]fn reference_interruption(){
+ for mode in 0..6{let root=std::env::temp_dir().join(format!("quartz-g77-{}-{}-{mode}",std::process::id(),SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_nanos()));fs::create_dir(&root).unwrap();fs::create_dir(root.join("custody")).unwrap();fixture(&root,Policy::FixedV1,0);let old=fs::read(root.join("reference")).unwrap();
+ let mut c=Command::new(std::env::current_exe().unwrap()).args(["--exact","writer_child"]).env("QUARTZ_G77_ROOT",&root).env("QUARTZ_G77_MODE",mode.to_string()).stdout(Stdio::null()).spawn().unwrap();let start=Instant::now();while !root.join("ready").exists(){if c.try_wait().unwrap().is_some(){panic!("writer exited");}if start.elapsed()>Duration::from_secs(15){let _=c.kill();let _=c.wait();panic!("writer timeout");}thread::sleep(Duration::from_millis(10));}c.kill().unwrap();assert!(!c.wait().unwrap().success());assert!(Command::new(std::env::current_exe().unwrap()).args(["--exact","recovery_child"]).env("QUARTZ_G77_RECOVER",&root).status().unwrap().success());assert_eq!(fs::read(root.join("reference")).unwrap(),old);fs::remove_dir_all(root).unwrap();}
+}
