@@ -1,0 +1,31 @@
+name: Quartz G77 reference interruption
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'rust/quartz/tests/g77_reference.rs'
+      - '.github/workflows/quartz-rust-g77.yml'
+permissions:
+  contents: read
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup toolchain install 1.85.1 --profile minimal
+      - shell: bash
+        run: |
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/source.txt
+          rustc +1.85.1 -Vv > evidence/toolchain.txt
+          set +e
+          cargo +1.85.1 test --manifest-path rust/quartz/Cargo.toml --test g77_reference -- --nocapture 2>&1 | tee evidence/g77.log
+          rc=${PIPESTATUS[0]}
+          printf '%s\n' "$rc" > evidence/exit.txt
+          exit "$rc"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartz-g77-reference-evidence
+          path: evidence/
