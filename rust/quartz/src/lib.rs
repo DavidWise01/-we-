@@ -144,3 +144,5 @@ pub mod external_pin;
 pub mod rollback_gate;
 
 pub mod portable_parity;
+
+pub mod witness_ancestry;
