@@ -1,0 +1,23 @@
+{
+  "generation": 82,
+  "index": 13368,
+  "watermark": ".dlw",
+  "observed": {
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "rustup_on_path": false,
+    "git_exit": 128,
+    "git_error": "Could not resolve host: github.com",
+    "cargo_lock_lookup": "404",
+    "g74_writer_reads": "QUARTZ_G72_ROOT",
+    "g74_parent_sets": "QUARTZ_G74_ROOT"
+  },
+  "repair": "new G82 regression uses QUARTZ_G82 namespace consistently; frozen G74 remains unchanged",
+  "dependencies": {
+    "sha2": "=0.10.9",
+    "ed25519_dalek": "=2.1.1",
+    "wasm_bindgen": "=0.2.100"
+  },
+  "compiler_diagnostics": null,
+  "authority": "HOLD"
+}
