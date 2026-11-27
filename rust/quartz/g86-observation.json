@@ -1,0 +1,63 @@
+{
+  "generation": 86,
+  "index": 13944,
+  "watermark": ".dlw",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "trials": 21,
+  "writer_termination": "SIGKILL (-9)",
+  "reference_unchanged": 21,
+  "complete_candidates": 9,
+  "rows": [
+    {
+      "mode": 0,
+      "visible": 0,
+      "preserved": 3,
+      "writer_ms": 1.094,
+      "recovery_ms": 667.282
+    },
+    {
+      "mode": 1,
+      "visible": 0,
+      "preserved": 3,
+      "writer_ms": 1.105,
+      "recovery_ms": 617.353
+    },
+    {
+      "mode": 2,
+      "visible": 0,
+      "preserved": 3,
+      "writer_ms": 1.462,
+      "recovery_ms": 631.335
+    },
+    {
+      "mode": 3,
+      "visible": 0,
+      "preserved": 3,
+      "writer_ms": 2.261,
+      "recovery_ms": 652.011
+    },
+    {
+      "mode": 4,
+      "visible": 3,
+      "preserved": 3,
+      "writer_ms": 1.872,
+      "recovery_ms": 688.263
+    },
+    {
+      "mode": 5,
+      "visible": 3,
+      "preserved": 3,
+      "writer_ms": 2.505,
+      "recovery_ms": 631.29
+    },
+    {
+      "mode": 6,
+      "visible": 3,
+      "preserved": 3,
+      "writer_ms": 3.127,
+      "recovery_ms": 667.59
+    }
+  ],
+  "scope": "Executed synthetic Python filesystem experiment; not Quartz Rust, power loss, external custody, or independent witness evidence",
+  "authority": "HOLD"
+}
