@@ -1,0 +1,65 @@
+{
+  "generation": 85,
+  "index": 13800,
+  "watermark": ".dlw",
+  "scope": "Observed Python SHA256 and allocation proxies, Chromium constant WASM call loop; not Quartz Rust",
+  "python": "3.13.5",
+  "chromium": "144.0.7559.96",
+  "node": "22.16.0",
+  "platform": "Linux x86_64",
+  "trials_per_history": 3,
+  "median_ms": [
+    {
+      "n": 8,
+      "full": 0.0116,
+      "rolling": 0.0051,
+      "copy": 0.0034
+    },
+    {
+      "n": 32,
+      "full": 0.1025,
+      "rolling": 0.0166,
+      "copy": 0.0166
+    },
+    {
+      "n": 128,
+      "full": 1.4833,
+      "rolling": 0.064,
+      "copy": 0.2057
+    },
+    {
+      "n": 256,
+      "full": 5.6117,
+      "rolling": 0.1251,
+      "copy": 0.6763
+    },
+    {
+      "n": 1024,
+      "full": 87.6679,
+      "rolling": 0.5469,
+      "copy": 10.5859
+    },
+    {
+      "n": 4095,
+      "full": 1442.9988,
+      "rolling": 1.9924,
+      "copy": 187.0626
+    }
+  ],
+  "wasm_batches_ms": [
+    26.5,
+    17.9,
+    17.1,
+    15.9,
+    17.4
+  ],
+  "wasm_batch_sums": [
+    42000000,
+    42000000,
+    42000000,
+    42000000,
+    42000000
+  ],
+  "quartz_rust_executed": false,
+  "authority": "HOLD"
+}
