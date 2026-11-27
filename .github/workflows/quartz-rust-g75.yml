@@ -1,0 +1,57 @@
+name: Quartz G75 portable parity
+on:
+  push:
+    paths:
+      - 'rust/quartz/**'
+      - '.github/workflows/quartz-rust-g75.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Record source
+        run: |
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/source.txt
+      - name: Install toolchain
+        run: |
+          rustup toolchain install 1.85.1 --profile minimal --target wasm32-unknown-unknown
+          rustc +1.85.1 -Vv > evidence/toolchain.txt
+          cargo +1.85.1 install wasm-bindgen-cli --version 0.2.100 --locked
+          wasm-bindgen --version >> evidence/toolchain.txt
+          node --version >> evidence/toolchain.txt
+      - name: Generate and compare
+        run: |
+          set +e
+          (
+            set -euo pipefail
+            cargo +1.85.1 run --release --manifest-path rust/quartz/Cargo.toml --bin g75_fixture > evidence/native.bin
+            cargo +1.85.1 run --release --manifest-path rust/quartz/Cargo.toml --bin g75_fixture > evidence/native-repeat.bin
+            cargo +1.85.1 build --release --manifest-path rust/quartz/Cargo.toml --lib --target wasm32-unknown-unknown
+            wasm-bindgen rust/quartz/target/wasm32-unknown-unknown/release/quartz_kernel.wasm --target nodejs --out-dir evidence/wasm
+            node -e 'const fs=require("fs");const w=require("./evidence/wasm/quartz_kernel.js");fs.writeFileSync("evidence/wasm.bin",w.g75_fixture());fs.writeFileSync("evidence/wasm-repeat.bin",w.g75_fixture());'
+            test -s evidence/native.bin
+            cmp evidence/native.bin evidence/native-repeat.bin
+            cmp evidence/native.bin evidence/wasm.bin
+            cmp evidence/wasm.bin evidence/wasm-repeat.bin
+            wc -c evidence/*.bin
+            sha256sum evidence/*.bin > evidence/SHA256SUMS
+          ) 2>&1 | tee evidence/parity.log
+          rc=${PIPESTATUS[0]}
+          printf '%s\n' "$rc" > evidence/exit.txt
+          exit "$rc"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartz-g75-portable-parity-evidence
+          path: evidence/
