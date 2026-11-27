@@ -1,0 +1,33 @@
+{
+  "generation": 72,
+  "index": 11928,
+  "watermark": ".dlw",
+  "source_commit": "cc1db98924b9ac28937f22577370fe9c5f5f5afa",
+  "milestones": [
+    "G65 temporal chain",
+    "G66 QX1",
+    "G67 QY1",
+    "G68 QZ1",
+    "G69 QN1",
+    "G70 QK1",
+    "G71 interruption",
+    "G72 expanded continuity"
+  ],
+  "specified": {
+    "policies": 2,
+    "silos": 5,
+    "boundaries": 6,
+    "scenarios": 60,
+    "subprocesses": 120
+  },
+  "qualification": {
+    "source": "frozen",
+    "native": "unverified",
+    "physical_power_loss": "unverified",
+    "independent_custody": "not established",
+    "external_reference_update": "not tested",
+    "deployment": "unverified",
+    "fault_injection": "manual candidate staging; production recovery verifier"
+  },
+  "authority": "HOLD"
+}
