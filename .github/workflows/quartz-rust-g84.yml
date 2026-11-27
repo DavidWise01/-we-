@@ -1,0 +1,53 @@
+name: Quartz G84 three-target parity
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/quartz-rust-g84.yml'
+      - 'rust/quartz/qa/g84-browser.mjs'
+permissions:
+  contents: read
+jobs:
+  parity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Build and compare actual output
+        shell: bash
+        run: |
+          mkdir -p evidence
+          git rev-parse HEAD > evidence/source.txt
+          set +e
+          (
+            set -euo pipefail
+            rustup toolchain install 1.85.1 --profile minimal --target wasm32-unknown-unknown
+            rustc +1.85.1 -Vv > evidence/toolchain.txt
+            cargo +1.85.1 generate-lockfile --manifest-path rust/quartz/Cargo.toml
+            cp rust/quartz/Cargo.lock evidence/Cargo.lock
+            cargo +1.85.1 install wasm-bindgen-cli --version 0.2.100 --locked
+            cargo +1.85.1 run --locked --release --manifest-path rust/quartz/Cargo.toml --bin g75_fixture > evidence/native.bin
+            cargo +1.85.1 run --locked --release --manifest-path rust/quartz/Cargo.toml --bin g75_fixture > evidence/native-repeat.bin
+            cargo +1.85.1 build --locked --release --manifest-path rust/quartz/Cargo.toml --lib --target wasm32-unknown-unknown
+            wasm=rust/quartz/target/wasm32-unknown-unknown/release/quartz_kernel.wasm
+            wasm-bindgen "$wasm" --target nodejs --out-dir evidence/node
+            wasm-bindgen "$wasm" --target web --out-dir evidence/web
+            node -e 'const fs=require("fs"),m=require("./evidence/node/quartz_kernel.js");fs.writeFileSync("evidence/node.bin",m.g75_fixture());fs.writeFileSync("evidence/node-repeat.bin",m.g75_fixture())'
+            npm install --no-save --prefix rust/quartz/qa playwright@1.51.1
+            rust/quartz/qa/node_modules/.bin/playwright install --with-deps chromium
+            node rust/quartz/qa/g84-browser.mjs
+            test -s evidence/native.bin
+            for f in native-repeat node node-repeat chromium chromium-repeat; do cmp evidence/native.bin "evidence/$f.bin"; done
+            sha256sum evidence/*.bin > evidence/parity.sha256
+          ) 2>&1 | tee evidence/parity.log
+          rc=${PIPESTATUS[0]}
+          printf '%s\n' "$rc" > evidence/exit.txt
+          exit "$rc"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: quartz-g84-three-target-evidence
+          path: evidence/
