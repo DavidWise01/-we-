@@ -125,3 +125,6 @@ pub mod sovereign_checkpoint;
 
 #[cfg(unix)]
 pub mod incremental;
+
+#[cfg(unix)]
+pub mod temporal_chain;
