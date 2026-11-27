@@ -1,0 +1,23 @@
+{
+  "generation": 81,
+  "index": 13224,
+  "watermark": ".dlw",
+  "local_probe": {
+    "cargo_on_path": false,
+    "rustc_on_path": false,
+    "checked_directories": [
+      "~/.cargo/bin",
+      "/usr/local/cargo/bin",
+      "/opt/rust*"
+    ],
+    "git_ls_remote_exit": 128,
+    "error": "Could not resolve host: github.com"
+  },
+  "connector": {
+    "source_access": true,
+    "workflow_dispatch_action_available": false
+  },
+  "workflow": ".github/workflows/quartz-rust-g81.yml",
+  "compiler_exit": null,
+  "authority": "HOLD"
+}
