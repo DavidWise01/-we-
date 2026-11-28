@@ -1,0 +1,3 @@
+# G91 dependency boundary · .dlw
+
+Use a disposable clean checkout of G88 and an existing empty evidence directory outside it. Run `bash g91-lock.sh CHECKOUT EVIDENCE`. Requires Linux, Git, rustup, Cargo 1.85.1 and registry access. Review the candidate Cargo.lock, registry sources, checksums and dependency metadata before independently retaining its SHA-256. For subsequent runs compare the lock against that separately retained digest before and after `cargo check --locked`; do not regenerate it automatically. A candidate checksum generated alongside the candidate is not an independent pin. Registry configuration, build scripts, compiler identity and source provenance require separate review. No lock acquired locally; authority HOLD.
