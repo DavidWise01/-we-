@@ -1,0 +1,24 @@
+{
+  "generation": 122,
+  "index": 19128,
+  "phase": "XVI",
+  "watermark": ".dlw",
+  "parent": "c78688cb34ddd570b11342ad96bf77ac30484b59",
+  "source_commit": "b587663358650f3eab60d4cb30ccef87eab2cb83",
+  "source_blob": "4bdb9a5b51a35f989efa5573c981e6839c6ba7a8",
+  "local_blob": "4bdb9a5b51a35f989efa5573c981e6839c6ba7a8",
+  "test_blob": "34b7e8d27fad96916ba7e77896898972429b9762",
+  "local_predecessor_blob": "044a2467846db38880ce36198694e63ec301d53c",
+  "executed": 14,
+  "guards": 13,
+  "gaps": 1,
+  "limits": [
+    "stale predecessor cannot account for uncommitted additions",
+    "transition not persisted or externally signed",
+    "standalone snapshot not integrated with admission",
+    "cooperative locking only",
+    "native Rust unavailable on PATH",
+    "test harness retained in local archive"
+  ],
+  "authority": "HOLD"
+}
