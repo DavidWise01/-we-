@@ -1,0 +1,23 @@
+{
+  "generation": 109,
+  "index": 17256,
+  "phase": "XIV",
+  "watermark": ".dlw",
+  "source_commit": "bac640777771ee3142a15f832f948901b9edecce",
+  "source_blob": "b8e1b66f1463f63b063f5bfbba46a20aa52abe99",
+  "local_blob": "b8e1b66f1463f63b063f5bfbba46a20aa52abe99",
+  "executed": 12,
+  "cryptography": "46.0.4",
+  "nonce_bits": 256,
+  "synthetic_signers": 3,
+  "independent_custodians": 0,
+  "authority": "HOLD",
+  "limits": [
+    "fresh signatures over historical reference accepted if minimum allows",
+    "in-memory single-use challenge, no persistent replay protection or thread safety",
+    "minimum count not a pinned head or proof of prefix extension",
+    "no actual remote custodian or G108 integration",
+    "malformed input handling and signature length bounds not exhaustively tested",
+    "native Rust unavailable on PATH"
+  ]
+}
