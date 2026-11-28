@@ -1,0 +1,23 @@
+{
+  "generation": 118,
+  "index": 18552,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "source_commit": "e7b9c7283d518cc9bde53e981e10da49b020b5f4",
+  "source_blob": "ef0aa261095824ecfdde0fd020f08c2303b5fd16",
+  "local_blob": "ef0aa261095824ecfdde0fd020f08c2303b5fd16",
+  "test_blob": "b30af3814a8b59223aedcf0a0fdaacd65ad57c6b",
+  "executed": 43,
+  "inherited": 35,
+  "new_assertions": 8,
+  "limits": [
+    "trusted nonce directory; deletion or rollback defeats persistence",
+    "no expiry or aggregate nonce storage bound",
+    "no concurrent or crash-consumption tests",
+    "prior reference freshness remains externally supplied",
+    "extension test uses genesis and same-head nonempty checkpoint; divergent nonempty prefix not tested",
+    "standalone custody confirmation not enforced by G117 admission",
+    "synthetic keys; native Rust unavailable on PATH"
+  ],
+  "authority": "HOLD"
+}
