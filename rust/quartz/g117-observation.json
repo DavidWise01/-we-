@@ -1,0 +1,24 @@
+{
+  "generation": 117,
+  "index": 18408,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "source_commit": "c4ce5d69466c5374cfb4526053d6514f953d33ad",
+  "source_blob": "c7ae2e74af7348329984b66fe83c2945a001eba4",
+  "local_blob": "c7ae2e74af7348329984b66fe83c2945a001eba4",
+  "test_blob": "572fc3308773a4b921b102be8b96a2ca5d0be7d4",
+  "executed": 35,
+  "inherited": 29,
+  "new_assertions": 6,
+  "limits": [
+    "content-addressed index object lacks independently pinned discovery ledger",
+    "competing quarantine does not propagate to main ledger",
+    "winning candidate checked against self-declared digest, not independent custody",
+    "candidate read follows symlinks and may block on special files; trusted directory only",
+    "capacity rejection leaves incoming bytes with caller",
+    "no concurrent competing tests or interruption tests this generation",
+    "lower-level bypass remains",
+    "native Rust not available on PATH"
+  ],
+  "authority": "HOLD"
+}
