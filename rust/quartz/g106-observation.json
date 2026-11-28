@@ -1,0 +1,31 @@
+{
+  "generation": 106,
+  "index": 16824,
+  "phase": "XIV",
+  "watermark": ".dlw",
+  "source_commit": "1b44002437417c3a3fad945301bed763d0a680d2",
+  "source_blob": "4e3beb268431028dd842afee87980d907568c92b",
+  "local_blob": "4e3beb268431028dd842afee87980d907568c92b",
+  "executed_assertions": 15,
+  "prior_assertions": 11,
+  "new_assertions": 4,
+  "new_cases": [
+    "raw archive ZIP signature",
+    "missing raw rejected",
+    "corrupted raw rejected",
+    "restored raw recovers"
+  ],
+  "signed_test_checkpoints": 3,
+  "python": "3.13.5",
+  "authority": "HOLD",
+  "limits": [
+    "local Python synthetic ZIPs and test keys",
+    "not atomic filesystem transaction; record published before evidence link, interruption can leave unbound candidate",
+    "raw objects may accumulate before validation",
+    "legacy signature still required",
+    "recovery replays full prefix and stored lock/procedure pins; no aggregate capacity bound",
+    "stale trusted pin remains a gap",
+    "native Rust unavailable on PATH",
+    "no genuine independent custody or live deployment verification"
+  ]
+}
