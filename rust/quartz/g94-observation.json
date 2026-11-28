@@ -1,0 +1,13 @@
+{
+  "generation": 94,
+  "index": 15096,
+  "watermark": ".dlw",
+  "source_commit": "9846fa1543ffd9d87e42218a9b37cca709b664f8",
+  "readback_equal": true,
+  "local_source_sha256": "466a46a6478ed2411ba5e387657df02b02af03037b0f360d278573cf89b40cec",
+  "local_test_sha256": "67cfdac1fce9ee87a1d4c8b0f8623e8994bfcb9c09eec1ef1fc977163c5da5d4",
+  "local_results_sha256": "683975b20a3ac29f504128257ba80ed5fc5fc397df79e1157e4068fa020208fd",
+  "passed": 14,
+  "scope": "synthetic in-memory fingerprint chain; no durable storage, subject binding, raw output custody or actual external execution",
+  "authority": "HOLD"
+}
