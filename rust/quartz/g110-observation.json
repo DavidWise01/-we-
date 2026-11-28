@@ -1,0 +1,22 @@
+{
+  "generation": 110,
+  "index": 17400,
+  "phase": "XIV",
+  "watermark": ".dlw",
+  "source_commit": "dca8eb877db7f98d6ca54a3b19e10d3dae855c68",
+  "source_blob": "76ace78456b45845a07fe76040f3f9b9ae50017f",
+  "local_blob": "76ace78456b45845a07fe76040f3f9b9ae50017f",
+  "predecessor_blob": "8251273bdc5b6f28ba9851b007efa99aeeac332f",
+  "executed": 14,
+  "python": "3.13.5",
+  "authority": "HOLD",
+  "limits": [
+    "logical file lengths not physical allocation or peak temporary hard-link accounting",
+    "cooperating writers only; concurrency not tested in G110",
+    "caller supplies budget; not signed configuration",
+    "inventory does not verify every historical object's content",
+    "rejected incoming bytes remain caller responsibility",
+    "standalone interface not wired to G106/G108",
+    "no native Rust execution or independent custody"
+  ]
+}
