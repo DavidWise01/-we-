@@ -1,0 +1,34 @@
+{
+  "generation": 103,
+  "index": 16392,
+  "watermark": ".dlw",
+  "source_commit": "d85f7291958d62b2421d1c1411f7b548e325b0b3",
+  "source_blob": "9f68738119f17793e603375b091a57b00d7ff4e3",
+  "local_blob": "9f68738119f17793e603375b091a57b00d7ff4e3",
+  "executed_assertions": 11,
+  "signed_test_checkpoints": 3,
+  "cases": [
+    "signed agreement",
+    "abandoned stage retained",
+    "single link",
+    "old prefix unchanged",
+    "stale ref rejected against current pin",
+    "stale pin limitation",
+    "failed parity contradiction",
+    "sticky quarantine",
+    "hold",
+    "procedure substitution",
+    "three pinned records"
+  ],
+  "cryptography": "46.0.4",
+  "authority": "HOLD",
+  "limits": [
+    "synthetic witness and custody keys",
+    "stale trusted pin permits historical recovery",
+    "crash between link and unlink untested",
+    "candidate publication precedes witness classification",
+    "single trusted directory writer",
+    "native Rust not executed",
+    "no real external evidence or independent custody"
+  ]
+}
