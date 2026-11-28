@@ -1,0 +1,58 @@
+{
+  "generation": 120,
+  "index": 18840,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "parent": "6ed6ebc880d2f429463ad23b8c4c11c583282a65",
+  "fresh_assertions": [
+    14,
+    20,
+    24,
+    29,
+    35,
+    43,
+    51
+  ],
+  "total_executions": 216,
+  "exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "zip_integrity": 7,
+  "source_matches": {
+    "g113-policy": "b6f38a2aa8943b695a26603618f17001944c01e7",
+    "g114-gate": "97fd35dba9d03b9f01d2406c8c81129aa3f07939",
+    "g115-gate": "ee8b6821a1f52cd79abc6c6918fe5bbd5132fa6f",
+    "g115-inventory": "0314834861a7fe7414822a82d5d863b8c03006af",
+    "g116-gate": "a5cc34af7bc67f261018db1b083dfb189b700c2d",
+    "g116-inventory": "b69ef6dbaccc01ab611d61124f1802e2562d9845",
+    "g117-gate": "c7ae2e74af7348329984b66fe83c2945a001eba4",
+    "g118-continuity": "ef0aa261095824ecfdde0fd020f08c2303b5fd16"
+  },
+  "other_local_fingerprints_unreconciled": 20,
+  "python": "3.13.5",
+  "cargo_on_path": false,
+  "rustc_on_path": false,
+  "findings": [
+    "nonce marker deletion permits replay",
+    "competing index deletion undetected",
+    "main prefix recoverable without competing index",
+    "unrelated object deletion undetected",
+    "direct storage bypass"
+  ],
+  "holds": [
+    "independent external custody",
+    "native Rust execution",
+    "physical crash durability",
+    "divergent nonempty prefix",
+    "concurrent integrated adversarial testing",
+    "complete inventory commitment",
+    "live deployment"
+  ],
+  "authority": "HOLD"
+}
