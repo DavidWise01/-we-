@@ -1,0 +1,24 @@
+{
+  "generation": 92,
+  "index": 14808,
+  "watermark": ".dlw",
+  "local_python": "3.13.5",
+  "cases": [
+    "consistent",
+    "missing",
+    "wrong source",
+    "traversal",
+    "altered bytes",
+    "wrong pin",
+    "correct pin",
+    "inconsistent exit",
+    "invalid exit",
+    "missing checksum"
+  ],
+  "local_passed": 10,
+  "local_script_sha256": "1f880afa227782894c7fe0ebb546197ab92000ec4c2f1c4e35cdf7bc2bfc47ef",
+  "local_results_sha256": "6f95f9e6a92f5ab478cd72c630fce154623396f5122c03289543ce1115b3c92f",
+  "note": "Committed importer has equivalent simplified required-file declaration, not identical local script bytes. Tests executed on local variant only.",
+  "external_archive": null,
+  "authority": "HOLD"
+}
