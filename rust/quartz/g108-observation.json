@@ -1,0 +1,41 @@
+{
+  "generation": 108,
+  "index": 17112,
+  "phase": "XIV",
+  "watermark": ".dlw",
+  "source_commit": "ff8e82e9429d7255cd8d57d80a5d98c2caf5345d",
+  "source_blob": "c45531e778a7e1bda808527672dfd9defe7159b5",
+  "local_blob": "c45531e778a7e1bda808527672dfd9defe7159b5",
+  "scenarios": 6,
+  "writer_processes": 12,
+  "exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "identical_retries": 3,
+  "occupied_successors": 3,
+  "published_candidates": 6,
+  "preserved_prefixes": 6,
+  "raw_retention_checks": 6,
+  "signed_candidate_recoveries": 6,
+  "authority": "HOLD",
+  "limits": [
+    "Linux advisory directory inode flock; cooperating writers only",
+    "trusted stable directory paths; no hostile directory replacement or cross-directory shared object contention tested",
+    "competing raw bytes retained but no separately indexed losing contradiction record",
+    "retry classification does not reauthenticate witnesses",
+    "no timeout or crash-lock-release test",
+    "stale external pin and aggregate capacity unresolved",
+    "synthetic keys and archives; native Rust unavailable on PATH; no independent custody"
+  ]
+}
