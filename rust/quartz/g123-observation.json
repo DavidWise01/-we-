@@ -1,0 +1,24 @@
+{
+  "generation": 123,
+  "index": 19272,
+  "phase": "XVI",
+  "watermark": ".dlw",
+  "parent": "db00547301f47c1ea2b5f41489affc4ead34ecba",
+  "source_commit": "febfd4d24ed72b9ef69a9276328487e1a11d22a4",
+  "source_blob": "16e877a5243202ed8cb6725ffd9bd6db66e372a2",
+  "local_blob": "16e877a5243202ed8cb6725ffd9bd6db66e372a2",
+  "test_blob": "f0e5de51d9938cf8e592f109b6c1b9cdf4522772",
+  "executed": 12,
+  "guards": 11,
+  "gaps": 1,
+  "limits": [
+    "trusted signer may omit index from new signed claim",
+    "synthetic index and archive; incoming record and conflict declaration not replay-validated",
+    "inventory snapshot lock released before individual index reads",
+    "no append-only signed discovery transitions",
+    "standalone not integrated with G117",
+    "native Rust unavailable on PATH",
+    "no independent custody"
+  ],
+  "authority": "HOLD"
+}
