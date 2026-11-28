@@ -1,0 +1,20 @@
+{
+  "generation": 99,
+  "index": 15816,
+  "watermark": ".dlw",
+  "source_commit": "2e193841194cc3b226658cb308b75441e17c97ab",
+  "source_blob": "d987124e5097222ac9aec7f119a9e17ae1c10292",
+  "local_blob": "d987124e5097222ac9aec7f119a9e17ae1c10292",
+  "passed": 15,
+  "process_kills": 4,
+  "visible": [
+    false,
+    false,
+    true,
+    true
+  ],
+  "pinned_counts_in_interruption_tests": 0,
+  "scope": "Python single trusted writer, manual child staging injection, not power loss or actual Rust. Retained stage hard links mutable by trusted writer; abandoned stages block retries. No external custody or G98 adapter integration.",
+  "cargo_rustc_on_path": false,
+  "authority": "HOLD"
+}
