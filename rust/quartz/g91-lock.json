@@ -1,0 +1,13 @@
+{
+  "generation": 91,
+  "index": 14664,
+  "watermark": ".dlw",
+  "revision": "8b7bca2810ca1fa6901c7120ac0cd4d41e91aaa0",
+  "manifest_blob": "802fa18bcabab765432dcadd3d46d0be43a52590",
+  "lock_lookup": 404,
+  "cargo_on_path": false,
+  "rustc_on_path": false,
+  "lock_sha256": null,
+  "approved": false,
+  "authority": "HOLD"
+}
