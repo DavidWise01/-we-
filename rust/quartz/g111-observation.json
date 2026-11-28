@@ -1,0 +1,38 @@
+{
+  "generation": 111,
+  "index": 17544,
+  "phase": "XIV",
+  "watermark": ".dlw",
+  "source_commit": "e9dbd3524a783f2149b5686df9dc5251f8320652",
+  "source_blob": "84c2c524738d63ec8e615cdda339de4e2f14c3f9",
+  "local_blob": "84c2c524738d63ec8e615cdda339de4e2f14c3f9",
+  "tested_blobs": {
+    "g110": "76ace78456b45845a07fe76040f3f9b9ae50017f",
+    "g105": "8251273bdc5b6f28ba9851b007efa99aeeac332f"
+  },
+  "executed": 11,
+  "guards": 7,
+  "gaps": 4,
+  "concurrent_processes": 2,
+  "exit_codes": [
+    0,
+    0
+  ],
+  "final_bytes": 5,
+  "budget_bytes": 8,
+  "findings": [
+    "direct storage bypass",
+    "unsigned caller budget",
+    "inventory does not authenticate content",
+    "logical hard-link alias double counting"
+  ],
+  "limits": [
+    "capacity-focused audit only; G106-G109 interruption, stale reference and competing contradiction tests not freshly rerun",
+    "one cooperative contention trial",
+    "no physical allocation measurement",
+    "no repairs implemented",
+    "native Rust unavailable on PATH",
+    "independent custody unverified"
+  ],
+  "authority": "HOLD"
+}
