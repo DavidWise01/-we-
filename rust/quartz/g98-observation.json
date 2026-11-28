@@ -1,0 +1,28 @@
+{
+  "generation": 98,
+  "index": 15672,
+  "watermark": ".dlw",
+  "adapter_commit": "a2bfc095b492d6e42c854b44e3463326cefe2bf0",
+  "adapter_blob": "3bd586ee8527b4adbb33d73e0b8c397a48808030",
+  "local_blob": "3bd586ee8527b4adbb33d73e0b8c397a48808030",
+  "local_passed": 15,
+  "new_cases": [
+    "native check gates witnesses",
+    "native suite gates witnesses",
+    "native failure preserves conflict",
+    "missing procedure",
+    "substituted procedure"
+  ],
+  "local_sha256": {
+    "adapter": "cdc9752479722ebc47c8c223662b17feacf8be376b625ebae6e40642c5881b0a",
+    "test": "587ecc582f4a1a02b2ac81fadbf27e5f167dd77ddd4bc8160b3836f3e742963e",
+    "results": "e17c9eaf7b6baccd858b63b0140dd7c8fc4b1937bc3af70f2ea1a950559f480a"
+  },
+  "limits": [
+    "submitted procedure bytes do not prove actual execution",
+    "native exits are claims",
+    "parity failures can prevent G93 output comparison",
+    "no durable storage or genuine external execution"
+  ],
+  "authority": "HOLD"
+}
