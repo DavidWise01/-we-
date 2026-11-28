@@ -1,0 +1,38 @@
+{
+  "generation": 115,
+  "index": 18120,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "source_commit": "f39183b79b456983f8bdce11eb4a63cf10b998d2",
+  "checks": [
+    {
+      "name": "g115-inventory",
+      "blob": "0314834861a7fe7414822a82d5d863b8c03006af",
+      "match": true
+    },
+    {
+      "name": "g115-gate",
+      "blob": "ee8b6821a1f52cd79abc6c6918fe5bbd5132fa6f",
+      "match": true
+    }
+  ],
+  "executed": 24,
+  "inherited": 20,
+  "new_cases": [
+    "unrelated corruption blocks admission",
+    "no object writes after corruption",
+    "no successor after corruption",
+    "restored inventory admits"
+  ],
+  "limits": [
+    "cooperative directory model",
+    "staging bytes counted but not authenticated",
+    "sorted directory listing allocated before entry bound",
+    "no full inventory completeness commitment or detection of deleted unreferenced objects",
+    "scan ceilings not stress tested",
+    "lower-level bypass remains",
+    "native Rust not executed",
+    "synthetic fixtures"
+  ],
+  "authority": "HOLD"
+}
