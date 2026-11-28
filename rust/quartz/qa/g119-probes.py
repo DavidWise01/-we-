@@ -1,0 +1,16 @@
+"""G119 adversarial observations and reproducible probe specification. .dlw"""
+def probe(check,reject,F,G,P,nd,ledger,roster,frp,ref,sig,pin,response,verify,objects,y,root,pub,op,run,policy):
+ n=F.issue(nd,ledger,roster,frp,ref); rs=response(n,ref)
+ check('guard: first challenge accepted',verify(n,rs,ref,sig,pin)['state']=='SIGNED_PREFIX_CONFIRMED')
+ (nd/(n+'.used')).unlink()
+ check('gap: deleted consumption marker permits replay',verify(n,rs,ref,sig,pin)['state']=='SIGNED_PREFIX_CONFIRMED')
+ competing=objects/y['index_digest']; saved=competing.read_bytes(); competing.unlink()
+ check('gap: missing competing index not detected by inventory',G.V.inventory(objects)[0]>0)
+ check('gap: main prefix recovers without competing index',len(P.recover(root,objects,ref,sig,pub,pin,ledger))==3)
+ competing.write_bytes(saved)
+ orphan_bytes=op.read_bytes(); op.unlink()
+ check('gap: unrelated deletion not detected by inventory',G.V.inventory(objects)[0]>0)
+ op.write_bytes(orphan_bytes)
+ op.write_bytes(b'corruption');check('guard: unrelated mutation detected',reject(lambda:G.V.inventory(objects)));op.write_bytes(orphan_bytes)
+ bypass=P.S.put(objects,b'bypass without policy');check('gap: direct store accepts without policy',P.S.recover(objects,bypass)==b'bypass without policy')
+ check('guard: modified signed capacity rejected',reject(lambda:run(pol=dict(policy,bytes=2000000))))
