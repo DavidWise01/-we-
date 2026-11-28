@@ -1,0 +1,27 @@
+{
+  "generation": 113,
+  "index": 17832,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "parent": "b55c541866009cc1c6f48845e9874a5bc1093e46",
+  "source_commit": "810e517373142e3bf05381c5bfdfe543f486274f",
+  "source_blob": "b6f38a2aa8943b695a26603618f17001944c01e7",
+  "local_blob": "b6f38a2aa8943b695a26603618f17001944c01e7",
+  "executed": 14,
+  "python": "3.13.5",
+  "cryptography": "46.0.4",
+  "sha256": {
+    "source": "45c645058286e7f32037404688ea04f3e794ff6201c1468c962c1e20569884d6",
+    "test": "e4498961e0af44ea858f226fcde347eb8817b092d5f91aa27e67cab571eed684",
+    "results": "daa38ba571609a801292001fbb5a1147e16ea8175d9682ea3d36641651db5946"
+  },
+  "limits": [
+    "standalone verifier not integrated into storage admission",
+    "direct G105 bypass remains",
+    "synthetic signing key",
+    "external key pin and generation floor must be trusted and current",
+    "stale externally supplied policy accepted",
+    "no native Rust execution"
+  ],
+  "authority": "HOLD"
+}
