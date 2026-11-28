@@ -1,0 +1,25 @@
+{
+  "generation": 100,
+  "index": 15960,
+  "phase": "XIII",
+  "watermark": ".dlw",
+  "audit_commit": "390941557a899e954214d88155bb4ec00566a3b8",
+  "audit_blob": "a4a8dd506311dfcd688275c2fd893b70e7e66ed1",
+  "local_audit_blob": "a4a8dd506311dfcd688275c2fd893b70e7e66ed1",
+  "tested_blobs": {
+    "g98": "3bd586ee8527b4adbb33d73e0b8c397a48808030",
+    "g99": "d987124e5097222ac9aec7f119a9e17ae1c10292"
+  },
+  "executed": 12,
+  "guards": 7,
+  "gaps": 5,
+  "findings": [
+    "stale supplied pin accepts old prefix",
+    "abandoned stage blocks retry",
+    "mutable hard-link alias",
+    "fabricated declared agreement",
+    "failed parity exit masks conflict"
+  ],
+  "authority": "HOLD",
+  "scope": "local Python synthetic evidence and real filesystem operations, no native Rust execution, no repairs in G100"
+}
