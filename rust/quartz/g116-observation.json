@@ -1,0 +1,43 @@
+{
+  "generation": 116,
+  "index": 18264,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "source_commit": "09c54d46e49e3cfb3f7a06574ec4d1fff8ca372c",
+  "checks": [
+    {
+      "name": "g116-inventory",
+      "blob": "b69ef6dbaccc01ab611d61124f1802e2562d9845",
+      "local": "b69ef6dbaccc01ab611d61124f1802e2562d9845",
+      "match": true
+    },
+    {
+      "name": "g116-gate",
+      "blob": "a5cc34af7bc67f261018db1b083dfb189b700c2d",
+      "local": "a5cc34af7bc67f261018db1b083dfb189b700c2d",
+      "match": true
+    }
+  ],
+  "executed": 29,
+  "inherited": 24,
+  "new_cases": [
+    "alias counts bytes once",
+    "distinct inode counts separately",
+    "staging aliases retained",
+    "corruption via alias rejected",
+    "restored alias inventory"
+  ],
+  "test_blob": "d57cc695ee99e4f9a5ba03a926b21f92f6cd12fc",
+  "python": "3.13.5",
+  "limits": [
+    "logical unique inode bytes not allocated physical blocks",
+    "new alias-specific tests exercise inventory directly not full admission under alias pressure",
+    "cooperative stable directory model",
+    "staging entries counted but not independently authenticated",
+    "unique-byte scan ceiling does not bound repeated hashing across addressed aliases",
+    "no complete inventory commitment",
+    "lower-level bypass remains",
+    "native Rust not executed"
+  ],
+  "authority": "HOLD"
+}
