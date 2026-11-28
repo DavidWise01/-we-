@@ -1,0 +1,14 @@
+{
+  "generation": 95,
+  "index": 15240,
+  "watermark": ".dlw",
+  "source_commit": "b448b8fbc60522f5bae3981590fbab3fbdd4f5fe",
+  "readback_equal": true,
+  "local_source_sha256": "788a56322516cab3cb7940c5ea8ee710176048e13cea0ebfa33cf7748a2aa509",
+  "local_test_sha256": "99f579c59d0ad46945b3bbf6ddb581a150070bde867b85e529e4119332610d39",
+  "local_results_sha256": "5d0eeb70745be99bdb7e6fdb7933c097cbdfb305e4e4327ee5dc862ed3c4090b",
+  "passed": 14,
+  "authenticated_witnesses": 0,
+  "scope": "synthetic declared graph, no signatures, real custody or integration with G94; omitted ancestry can evade detection",
+  "authority": "HOLD"
+}
