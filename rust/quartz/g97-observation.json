@@ -1,0 +1,36 @@
+{
+  "generation": 97,
+  "index": 15528,
+  "watermark": ".dlw",
+  "parent": "984ce96bb3670d3197f344f8c5059035ca7cb420",
+  "adapter_commit": "2cc8ac10f256b9937b70da384cbf854c10b90d3a",
+  "adapter_blob": "1123c5b7d75cffff56f260791e67453aff7c736a",
+  "predecessor_blobs": [
+    "ee19c7e9dccb82d8530099a93e5a059d4c146d8f",
+    "3f054c5453d8ff5ced81e3601d495f0b2b61fc66",
+    "f1f890ca6f1ad5d6469f2da5e486e5997013c31e",
+    "fa2555beba955f3df4a03383208bcd2b4dba499e"
+  ],
+  "local_passed": 10,
+  "cases": [
+    "agreement",
+    "conflict",
+    "sticky",
+    "nonmutation",
+    "wrong witness result",
+    "shared ancestry",
+    "missing stream",
+    "failed execution",
+    "wrong pin",
+    "rollback"
+  ],
+  "limits": [
+    "synthetic composite archive not emitted by current CI",
+    "native suite failures retained in import but not gating witness classification",
+    "procedure pin supplied externally not matched to observed procedure bytes",
+    "in-memory ledger only",
+    "declared ancestry only",
+    "G75 header only"
+  ],
+  "authority": "HOLD"
+}
