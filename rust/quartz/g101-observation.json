@@ -1,0 +1,27 @@
+{
+  "generation": 101,
+  "index": 16104,
+  "watermark": ".dlw",
+  "source_commit": "54968a91850f660b48fc8e43079abe8f74c59c22",
+  "source_blob": "fd1cbfe3a4e5bdb7fda63e8d614c1cd14a1968a2",
+  "local_blob": "fd1cbfe3a4e5bdb7fda63e8d614c1cd14a1968a2",
+  "test_blob": "d44c86674773a0ae03d516c19f4a7feeb29ba6ca",
+  "local_passed": 13,
+  "cryptography": "46.0.4",
+  "synthetic_keys": 3,
+  "external_witnesses": 0,
+  "findings": {
+    "failure_masking": "corrected in standalone observe function for complete valid streams",
+    "fabricated_declarations": "signature gate added; genuine ancestry and roster custody unresolved",
+    "stale_pin": "open",
+    "abandoned_stage": "open",
+    "mutable_alias": "open"
+  },
+  "limits": [
+    "not integrated with G98 archive adapter or G99 durable store",
+    "caller supplied subject and roster pin",
+    "no authentication of actual execution or independence",
+    "native Rust not executed"
+  ],
+  "authority": "HOLD"
+}
