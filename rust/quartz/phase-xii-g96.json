@@ -1,0 +1,61 @@
+{
+  "generation": 96,
+  "index": 15384,
+  "phase": "XII",
+  "watermark": ".dlw",
+  "source_commits": [
+    "4d24b1b130d9ca80f7fbbb0b935da3ef55d66bb7",
+    "ef4a7e0e40e1f2abae76f388d98bf7743ec26247",
+    "29de3e203100db1902023d308d4fe6909578ca7a",
+    "5183721785750a3ea21c2c1a8068b0dcded2e1d5",
+    "d54479d9e2077f08e3f87f58272ba28ac8062229",
+    "19c4469d512318e4ebd2963db59f172dd2feb8d9",
+    "48f435407f0798dce7448fce0f212848d47e144a"
+  ],
+  "fresh_local": {
+    "python": "3.13.5",
+    "suite_counts": [
+      10,
+      12,
+      14,
+      14
+    ],
+    "exit_codes": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "files_hashed": 12,
+    "cargo_on_path": false,
+    "rustc_on_path": false
+  },
+  "github_blobs": [
+    {
+      "name": "g92-import",
+      "blob": "ee19c7e9dccb82d8530099a93e5a059d4c146d8f"
+    },
+    {
+      "name": "g93-reconcile",
+      "blob": "3f054c5453d8ff5ced81e3601d495f0b2b61fc66"
+    },
+    {
+      "name": "g94-quarantine",
+      "blob": "f1f890ca6f1ad5d6469f2da5e486e5997013c31e"
+    },
+    {
+      "name": "g95-ancestry",
+      "blob": "fa2555beba955f3df4a03383208bcd2b4dba499e"
+    }
+  ],
+  "limits": [
+    "G92 local variant differs from committed importer",
+    "No fresh byte equivalence established between local and repository implementations",
+    "No integrated end-to-end execution",
+    "No genuine Cargo.lock or external Rust execution",
+    "No authenticated independent witnesses",
+    "No durable quarantine or live deployment verification"
+  ],
+  "authority": "HOLD",
+  "next": "Phase XIII integrated evidence pipeline"
+}
