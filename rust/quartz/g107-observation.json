@@ -1,0 +1,33 @@
+{
+  "generation": 107,
+  "index": 16968,
+  "phase": "XIV",
+  "watermark": ".dlw",
+  "source_commit": "b2f82e6ff0673fd04729727b5390735e21b99f00",
+  "source_blob": "b78d4e6701c06290572bbb2682b790a01485795d",
+  "local_blob": "b78d4e6701c06290572bbb2682b790a01485795d",
+  "cases": [
+    "RAW_MISSING",
+    "RECORD_MISSING",
+    "LINK_MISSING",
+    "COMPLETE_UNPINNED"
+  ],
+  "exit_codes": [
+    -9,
+    -9,
+    -9,
+    -9
+  ],
+  "pinned_prefix_records": 1,
+  "preserved_prefixes": 4,
+  "read_only_checks": 4,
+  "authority": "HOLD",
+  "limits": [
+    "Linux Python fork and SIGKILL after wrapped G106 function boundaries, not physical power loss or interruption inside fsync/link/unlink",
+    "fork emitted multithreaded-process deprecation warning",
+    "caller supplies archive digest and lock/procedure pins; no discovery scan",
+    "classifier does not repair incomplete candidates",
+    "synthetic keys and evidence",
+    "no genuine independent custody or Rust execution"
+  ]
+}
