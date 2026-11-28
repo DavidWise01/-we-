@@ -1,0 +1,27 @@
+{
+  "generation": 114,
+  "index": 17976,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "source_commit": "85898083ceace7458982dde05fddba3cb4535531",
+  "source_blob": "97fd35dba9d03b9f01d2406c8c81129aa3f07939",
+  "local_blob": "97fd35dba9d03b9f01d2406c8c81129aa3f07939",
+  "executed": 20,
+  "inherited": 15,
+  "new_assertions": 5,
+  "sha256": {
+    "source": "a55a2281558f4fe62ece86139a7928704465090c46339a83cb8cedd2a9499877",
+    "test": "cba8691c3fa4f727c8b74240b20e401ed73f68d588ce473bae5d11e614d725e1",
+    "results": "16fb39bf8b124036cb48445d1633c0c28c02a10fc2e8fd597d9c34cb589eb109"
+  },
+  "limits": [
+    "cooperative locks only; lower-level storage calls bypass policy",
+    "no concurrent or interruption tests for G114",
+    "logical object directory accounting excludes ledger files and transient aliases",
+    "orphaned objects possible",
+    "stale external policy and custody pins remain",
+    "synthetic evidence and keys",
+    "native Rust unavailable on PATH"
+  ],
+  "authority": "HOLD"
+}
