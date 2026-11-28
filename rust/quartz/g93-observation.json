@@ -1,0 +1,13 @@
+{
+  "generation": 93,
+  "index": 14952,
+  "watermark": ".dlw",
+  "source_commit": "cf70cde8b19c9fd5b3546abdf92e269b22e11ee0",
+  "readback_equal": true,
+  "local_sha256": "bff0cb64539b2e88400ec0d35170984f3a2ccb621cc403ec3ab99b6654ab9bb4",
+  "results_sha256": "617cf9411dc6e316b960a50a5890ecc11325e23b8c34fa1cd30d4f0fb0c31e24",
+  "synthetic_passed": 12,
+  "external_results": 0,
+  "scope": "In-memory synthetic byte comparison, G75 header only; no full framing validation or integrated archive adapter",
+  "authority": "HOLD"
+}
