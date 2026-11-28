@@ -1,0 +1,22 @@
+{
+  "generation": 121,
+  "index": 18984,
+  "phase": "XVI",
+  "watermark": ".dlw",
+  "parent": "20edb58cebb7c421e619f736d649590ae5c68ae2",
+  "source_commit": "d911207351bf1d9ff7ce5d06ab3b759d6ddb54f6",
+  "source_blob": "044a2467846db38880ce36198694e63ec301d53c",
+  "local_blob": "044a2467846db38880ce36198694e63ec301d53c",
+  "executed": 12,
+  "python": "3.13.5",
+  "authority": "HOLD",
+  "limits": [
+    "replacement pin conceals omission",
+    "staging excluded from commitment",
+    "standalone snapshot not integrated with admission",
+    "cooperative directory lock only",
+    "scan ceilings not stress tested",
+    "name-counted scan bytes not unique inode accounting",
+    "no native Rust or external custody verification"
+  ]
+}
