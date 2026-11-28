@@ -1,0 +1,26 @@
+{
+  "generation": 105,
+  "index": 16680,
+  "phase": "XIV",
+  "watermark": ".dlw",
+  "parent": "856474b3e5cdcc76b18cfc4aeb2b835aca174de5",
+  "source_commit": "e478b3271a699c06ba1e5913000aa644a727a8f6",
+  "source_blob": "8251273bdc5b6f28ba9851b007efa99aeeac332f",
+  "local_blob": "8251273bdc5b6f28ba9851b007efa99aeeac332f",
+  "python": "3.13.5",
+  "passed": 15,
+  "sha256": {
+    "source": "e1d47f2d0252677723c89248ee977937e81d950d0b2b7f520a99620c000334a7",
+    "test": "a51f7360fe2d1c3ff210a8a467880912dee645daaa7de53a99498deae37375a9",
+    "results": "8920e3225059fac6345198cba363573a56f2c60b45109271e1e4c57c138ee7fb"
+  },
+  "limits": [
+    "trusted directory",
+    "synthetic byte strings rather than genuine returned Rust archive",
+    "per-object bound only",
+    "no transactional G103 integration",
+    "crash between link and unlink untested",
+    "native Rust unavailable on PATH"
+  ],
+  "authority": "HOLD"
+}
