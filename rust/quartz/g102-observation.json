@@ -1,0 +1,17 @@
+{
+  "generation": 102,
+  "index": 16248,
+  "watermark": ".dlw",
+  "source_commit": "839b610ce5b42d776743bbecac8595d6098d85b3",
+  "source_blob": "663857d94aa25190da181531b3294225fcd7b722",
+  "local_blob": "663857d94aa25190da181531b3294225fcd7b722",
+  "local_passed": 12,
+  "cryptography": "46.0.4",
+  "scope": "single trusted directory, synthetic custody key, separately supplied expected current digest; no real external custody",
+  "findings": {
+    "stale_pin": "rejects stale signed reference against newer expected digest, stale expected digest remains a gap",
+    "abandoned_stage": "unique names avoid abandoned prepublication stage collisions",
+    "mutable_alias": "removed after normal publication; crash between link and unlink remains untested"
+  },
+  "authority": "HOLD"
+}
