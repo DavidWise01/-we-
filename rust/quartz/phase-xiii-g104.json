@@ -1,0 +1,120 @@
+{
+  "generation": 104,
+  "index": 16536,
+  "phase": "XIII",
+  "watermark": ".dlw",
+  "parent": "fddb8083f0dc53e026cc95164e4201e3b02e5e8c",
+  "source_checkpoints": [
+    "8bf15bfc5d743a0d9772840e799c2c7878735659",
+    "0a151d7bd13f75fce8af71b2836a7397eaa25106",
+    "3cb7f8fde752d5016d4c7598fdf55c177da69ec7",
+    "5c809017ddcee2464bfac1573161c0557ecd9fa9",
+    "9286034cb50ea573d4d1a5decbd3aaced21625ca",
+    "863cc1d8d378746f3be7e90dd31801c13e9cc7d0",
+    "fddb8083f0dc53e026cc95164e4201e3b02e5e8c"
+  ],
+  "fresh_runs": [
+    10,
+    15,
+    15,
+    12,
+    13,
+    12,
+    11
+  ],
+  "exit_codes": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "assertions": 88,
+  "original_audit": {
+    "guards": 7,
+    "gaps": 5
+  },
+  "blob_checks": [
+    {
+      "name": "g92-import",
+      "expected": "ee19c7e9dccb82d8530099a93e5a059d4c146d8f",
+      "actual": "ee19c7e9dccb82d8530099a93e5a059d4c146d8f",
+      "match": true
+    },
+    {
+      "name": "g93-reconcile",
+      "expected": "3f054c5453d8ff5ced81e3601d495f0b2b61fc66",
+      "actual": "3f054c5453d8ff5ced81e3601d495f0b2b61fc66",
+      "match": true
+    },
+    {
+      "name": "g94-quarantine",
+      "expected": "f1f890ca6f1ad5d6469f2da5e486e5997013c31e",
+      "actual": "f1f890ca6f1ad5d6469f2da5e486e5997013c31e",
+      "match": true
+    },
+    {
+      "name": "g95-ancestry",
+      "expected": "fa2555beba955f3df4a03383208bcd2b4dba499e",
+      "actual": "fa2555beba955f3df4a03383208bcd2b4dba499e",
+      "match": true
+    },
+    {
+      "name": "g97-adapter",
+      "expected": "1123c5b7d75cffff56f260791e67453aff7c736a",
+      "actual": "1123c5b7d75cffff56f260791e67453aff7c736a",
+      "match": true
+    },
+    {
+      "name": "g98-adapter",
+      "expected": "3bd586ee8527b4adbb33d73e0b8c397a48808030",
+      "actual": "3bd586ee8527b4adbb33d73e0b8c397a48808030",
+      "match": true
+    },
+    {
+      "name": "g99-store",
+      "expected": "d987124e5097222ac9aec7f119a9e17ae1c10292",
+      "actual": "d987124e5097222ac9aec7f119a9e17ae1c10292",
+      "match": true
+    },
+    {
+      "name": "g100-audit",
+      "expected": "a4a8dd506311dfcd688275c2fd893b70e7e66ed1",
+      "actual": "a4a8dd506311dfcd688275c2fd893b70e7e66ed1",
+      "match": true
+    },
+    {
+      "name": "g101-auth",
+      "expected": "fd1cbfe3a4e5bdb7fda63e8d614c1cd14a1968a2",
+      "actual": "fd1cbfe3a4e5bdb7fda63e8d614c1cd14a1968a2",
+      "match": true
+    },
+    {
+      "name": "g102-custody",
+      "expected": "663857d94aa25190da181531b3294225fcd7b722",
+      "actual": "663857d94aa25190da181531b3294225fcd7b722",
+      "match": true
+    },
+    {
+      "name": "g103-pipeline",
+      "expected": "9f68738119f17793e603375b091a57b00d7ff4e3",
+      "actual": "9f68738119f17793e603375b091a57b00d7ff4e3",
+      "match": true
+    }
+  ],
+  "local_python": "3.13.5",
+  "cargo_on_path": false,
+  "rustc_on_path": false,
+  "holds": [
+    "stale external pin",
+    "crash between link and unlink",
+    "genuine execution and independent ancestry",
+    "native Rust and dependency lock",
+    "raw evidence durability",
+    "live deployment"
+  ],
+  "authority": "HOLD",
+  "next": "Phase XIV transactional evidence custody and recovery"
+}
