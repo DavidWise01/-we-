@@ -1,0 +1,28 @@
+{
+  "generation": 119,
+  "index": 18696,
+  "phase": "XV",
+  "watermark": ".dlw",
+  "parent": "b3ff749c38680da24e6f3bef8990a30ac5f3ab4e",
+  "probe_commit": "992dccbf9b6bae2d447aed25ef3f28fde3f29de3",
+  "executed_local_harness_blob": "e8dc375984c66d8a83b6c7f1979a3cca5ef17cf3",
+  "executed": 51,
+  "inherited": 43,
+  "new_guards": 3,
+  "new_gaps": 5,
+  "findings": [
+    "nonce marker deletion allows replay",
+    "missing competing index undetected",
+    "main prefix recoverable without competing index",
+    "missing unrelated object undetected",
+    "direct storage bypass"
+  ],
+  "limits": [
+    "committed extracted probe specification is not byte-identical to executed standalone harness; exact harness in downloadable archive",
+    "divergent nonempty signed prefix not tested",
+    "no native Rust execution",
+    "no independent custody",
+    "no crash or concurrency qualification"
+  ],
+  "authority": "HOLD"
+}
